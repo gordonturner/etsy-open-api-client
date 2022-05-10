@@ -28,15 +28,15 @@ import java.io.IOException;
  * The record of one shipment event for a ShopReceipt. A receipt may have many ShopReceiptShipment records.
  */
 @ApiModel(description = "The record of one shipment event for a ShopReceipt. A receipt may have many ShopReceiptShipment records.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-04-08T15:52:16.342-04:00[America/Toronto]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-07T10:51:54.559-04:00[America/Toronto]")
 public class ShopReceiptShipment {
   public static final String SERIALIZED_NAME_RECEIPT_SHIPPING_ID = "receipt_shipping_id";
   @SerializedName(SERIALIZED_NAME_RECEIPT_SHIPPING_ID)
-  private Integer receiptShippingId;
+  private Long receiptShippingId;
 
   public static final String SERIALIZED_NAME_SHIPMENT_NOTIFICATION_TIMESTAMP = "shipment_notification_timestamp";
   @SerializedName(SERIALIZED_NAME_SHIPMENT_NOTIFICATION_TIMESTAMP)
-  private Integer shipmentNotificationTimestamp;
+  private Long shipmentNotificationTimestamp;
 
   public static final String SERIALIZED_NAME_CARRIER_NAME = "carrier_name";
   @SerializedName(SERIALIZED_NAME_CARRIER_NAME)
@@ -49,7 +49,7 @@ public class ShopReceiptShipment {
   public ShopReceiptShipment() { 
   }
 
-  public ShopReceiptShipment receiptShippingId(Integer receiptShippingId) {
+  public ShopReceiptShipment receiptShippingId(Long receiptShippingId) {
     
     this.receiptShippingId = receiptShippingId;
     return this;
@@ -63,17 +63,17 @@ public class ShopReceiptShipment {
   @javax.annotation.Nullable
   @ApiModelProperty(required = true, value = "The unique numeric ID of a Shop Receipt Shipment record.")
 
-  public Integer getReceiptShippingId() {
+  public Long getReceiptShippingId() {
     return receiptShippingId;
   }
 
 
-  public void setReceiptShippingId(Integer receiptShippingId) {
+  public void setReceiptShippingId(Long receiptShippingId) {
     this.receiptShippingId = receiptShippingId;
   }
 
 
-  public ShopReceiptShipment shipmentNotificationTimestamp(Integer shipmentNotificationTimestamp) {
+  public ShopReceiptShipment shipmentNotificationTimestamp(Long shipmentNotificationTimestamp) {
     
     this.shipmentNotificationTimestamp = shipmentNotificationTimestamp;
     return this;
@@ -87,12 +87,12 @@ public class ShopReceiptShipment {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The time at which Etsy notified the buyer of the shipment event, in epoch seconds.")
 
-  public Integer getShipmentNotificationTimestamp() {
+  public Long getShipmentNotificationTimestamp() {
     return shipmentNotificationTimestamp;
   }
 
 
-  public void setShipmentNotificationTimestamp(Integer shipmentNotificationTimestamp) {
+  public void setShipmentNotificationTimestamp(Long shipmentNotificationTimestamp) {
     this.shipmentNotificationTimestamp = shipmentNotificationTimestamp;
   }
 

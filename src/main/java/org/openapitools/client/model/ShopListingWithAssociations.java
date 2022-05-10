@@ -26,6 +26,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import org.openapitools.client.model.ListingImage;
+import org.openapitools.client.model.ListingInventory;
 import org.openapitools.client.model.ListingTranslation;
 import org.openapitools.client.model.Money;
 import org.openapitools.client.model.Shop;
@@ -37,19 +38,19 @@ import org.openapitools.client.model.User;
  * A listing from a shop, which contains a product quantity, title, description, price, etc. and additional fields which represent associations.
  */
 @ApiModel(description = "A listing from a shop, which contains a product quantity, title, description, price, etc. and additional fields which represent associations.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-04-08T15:52:16.342-04:00[America/Toronto]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-07T10:51:54.559-04:00[America/Toronto]")
 public class ShopListingWithAssociations {
   public static final String SERIALIZED_NAME_LISTING_ID = "listing_id";
   @SerializedName(SERIALIZED_NAME_LISTING_ID)
-  private Integer listingId;
+  private Long listingId;
 
   public static final String SERIALIZED_NAME_USER_ID = "user_id";
   @SerializedName(SERIALIZED_NAME_USER_ID)
-  private Integer userId;
+  private Long userId;
 
   public static final String SERIALIZED_NAME_SHOP_ID = "shop_id";
   @SerializedName(SERIALIZED_NAME_SHOP_ID)
-  private Integer shopId;
+  private Long shopId;
 
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
@@ -118,35 +119,35 @@ public class ShopListingWithAssociations {
 
   public static final String SERIALIZED_NAME_CREATION_TIMESTAMP = "creation_timestamp";
   @SerializedName(SERIALIZED_NAME_CREATION_TIMESTAMP)
-  private Integer creationTimestamp;
+  private Long creationTimestamp;
 
   public static final String SERIALIZED_NAME_ENDING_TIMESTAMP = "ending_timestamp";
   @SerializedName(SERIALIZED_NAME_ENDING_TIMESTAMP)
-  private Integer endingTimestamp;
+  private Long endingTimestamp;
 
   public static final String SERIALIZED_NAME_ORIGINAL_CREATION_TIMESTAMP = "original_creation_timestamp";
   @SerializedName(SERIALIZED_NAME_ORIGINAL_CREATION_TIMESTAMP)
-  private Integer originalCreationTimestamp;
+  private Long originalCreationTimestamp;
 
   public static final String SERIALIZED_NAME_LAST_MODIFIED_TIMESTAMP = "last_modified_timestamp";
   @SerializedName(SERIALIZED_NAME_LAST_MODIFIED_TIMESTAMP)
-  private Integer lastModifiedTimestamp;
+  private Long lastModifiedTimestamp;
 
   public static final String SERIALIZED_NAME_STATE_TIMESTAMP = "state_timestamp";
   @SerializedName(SERIALIZED_NAME_STATE_TIMESTAMP)
-  private Integer stateTimestamp;
+  private Long stateTimestamp;
 
   public static final String SERIALIZED_NAME_QUANTITY = "quantity";
   @SerializedName(SERIALIZED_NAME_QUANTITY)
-  private Integer quantity;
+  private Long quantity;
 
   public static final String SERIALIZED_NAME_SHOP_SECTION_ID = "shop_section_id";
   @SerializedName(SERIALIZED_NAME_SHOP_SECTION_ID)
-  private Integer shopSectionId;
+  private Long shopSectionId;
 
   public static final String SERIALIZED_NAME_FEATURED_RANK = "featured_rank";
   @SerializedName(SERIALIZED_NAME_FEATURED_RANK)
-  private Integer featuredRank;
+  private Long featuredRank;
 
   public static final String SERIALIZED_NAME_URL = "url";
   @SerializedName(SERIALIZED_NAME_URL)
@@ -154,11 +155,15 @@ public class ShopListingWithAssociations {
 
   public static final String SERIALIZED_NAME_NUM_FAVORERS = "num_favorers";
   @SerializedName(SERIALIZED_NAME_NUM_FAVORERS)
-  private Integer numFavorers;
+  private Long numFavorers;
 
   public static final String SERIALIZED_NAME_NON_TAXABLE = "non_taxable";
   @SerializedName(SERIALIZED_NAME_NON_TAXABLE)
   private Boolean nonTaxable;
+
+  public static final String SERIALIZED_NAME_IS_TAXABLE = "is_taxable";
+  @SerializedName(SERIALIZED_NAME_IS_TAXABLE)
+  private Boolean isTaxable;
 
   public static final String SERIALIZED_NAME_IS_CUSTOMIZABLE = "is_customizable";
   @SerializedName(SERIALIZED_NAME_IS_CUSTOMIZABLE)
@@ -174,7 +179,7 @@ public class ShopListingWithAssociations {
 
   public static final String SERIALIZED_NAME_PERSONALIZATION_CHAR_COUNT_MAX = "personalization_char_count_max";
   @SerializedName(SERIALIZED_NAME_PERSONALIZATION_CHAR_COUNT_MAX)
-  private Integer personalizationCharCountMax;
+  private Long personalizationCharCountMax;
 
   public static final String SERIALIZED_NAME_PERSONALIZATION_INSTRUCTIONS = "personalization_instructions";
   @SerializedName(SERIALIZED_NAME_PERSONALIZATION_INSTRUCTIONS)
@@ -243,15 +248,15 @@ public class ShopListingWithAssociations {
 
   public static final String SERIALIZED_NAME_SHIPPING_PROFILE_ID = "shipping_profile_id";
   @SerializedName(SERIALIZED_NAME_SHIPPING_PROFILE_ID)
-  private Integer shippingProfileId;
+  private Long shippingProfileId;
 
   public static final String SERIALIZED_NAME_PROCESSING_MIN = "processing_min";
   @SerializedName(SERIALIZED_NAME_PROCESSING_MIN)
-  private Integer processingMin;
+  private Long processingMin;
 
   public static final String SERIALIZED_NAME_PROCESSING_MAX = "processing_max";
   @SerializedName(SERIALIZED_NAME_PROCESSING_MAX)
-  private Integer processingMax;
+  private Long processingMax;
 
   /**
    * An enumerated string inidcated who made the product. Helps buyers locate the listing under the Handmade heading. Requires &#39;is_supply&#39; and &#39;when_made&#39;.
@@ -557,7 +562,7 @@ public class ShopListingWithAssociations {
 
   public static final String SERIALIZED_NAME_TAXONOMY_ID = "taxonomy_id";
   @SerializedName(SERIALIZED_NAME_TAXONOMY_ID)
-  private Integer taxonomyId;
+  private Long taxonomyId;
 
   public static final String SERIALIZED_NAME_SHIPPING_PROFILE = "shipping_profile";
   @SerializedName(SERIALIZED_NAME_SHIPPING_PROFILE)
@@ -575,6 +580,10 @@ public class ShopListingWithAssociations {
   @SerializedName(SERIALIZED_NAME_IMAGES)
   private List<ListingImage> images = new ArrayList<ListingImage>();
 
+  public static final String SERIALIZED_NAME_INVENTORY = "inventory";
+  @SerializedName(SERIALIZED_NAME_INVENTORY)
+  private ListingInventory inventory;
+
   public static final String SERIALIZED_NAME_PRODUCTION_PARTNERS = "production_partners";
   @SerializedName(SERIALIZED_NAME_PRODUCTION_PARTNERS)
   private List<ShopProductionPartner> productionPartners = new ArrayList<ShopProductionPartner>();
@@ -590,7 +599,7 @@ public class ShopListingWithAssociations {
   public ShopListingWithAssociations() { 
   }
 
-  public ShopListingWithAssociations listingId(Integer listingId) {
+  public ShopListingWithAssociations listingId(Long listingId) {
     
     this.listingId = listingId;
     return this;
@@ -604,17 +613,17 @@ public class ShopListingWithAssociations {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.")
 
-  public Integer getListingId() {
+  public Long getListingId() {
     return listingId;
   }
 
 
-  public void setListingId(Integer listingId) {
+  public void setListingId(Long listingId) {
     this.listingId = listingId;
   }
 
 
-  public ShopListingWithAssociations userId(Integer userId) {
+  public ShopListingWithAssociations userId(Long userId) {
     
     this.userId = userId;
     return this;
@@ -628,17 +637,17 @@ public class ShopListingWithAssociations {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The numeric ID for the [user](/documentation/reference#tag/User) posting the listing.")
 
-  public Integer getUserId() {
+  public Long getUserId() {
     return userId;
   }
 
 
-  public void setUserId(Integer userId) {
+  public void setUserId(Long userId) {
     this.userId = userId;
   }
 
 
-  public ShopListingWithAssociations shopId(Integer shopId) {
+  public ShopListingWithAssociations shopId(Long shopId) {
     
     this.shopId = shopId;
     return this;
@@ -652,12 +661,12 @@ public class ShopListingWithAssociations {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The unique positive non-zero numeric ID for an Etsy Shop.")
 
-  public Integer getShopId() {
+  public Long getShopId() {
     return shopId;
   }
 
 
-  public void setShopId(Integer shopId) {
+  public void setShopId(Long shopId) {
     this.shopId = shopId;
   }
 
@@ -731,7 +740,7 @@ public class ShopListingWithAssociations {
   }
 
 
-  public ShopListingWithAssociations creationTimestamp(Integer creationTimestamp) {
+  public ShopListingWithAssociations creationTimestamp(Long creationTimestamp) {
     
     this.creationTimestamp = creationTimestamp;
     return this;
@@ -745,17 +754,17 @@ public class ShopListingWithAssociations {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The listing\\'s creation time, in epoch seconds.")
 
-  public Integer getCreationTimestamp() {
+  public Long getCreationTimestamp() {
     return creationTimestamp;
   }
 
 
-  public void setCreationTimestamp(Integer creationTimestamp) {
+  public void setCreationTimestamp(Long creationTimestamp) {
     this.creationTimestamp = creationTimestamp;
   }
 
 
-  public ShopListingWithAssociations endingTimestamp(Integer endingTimestamp) {
+  public ShopListingWithAssociations endingTimestamp(Long endingTimestamp) {
     
     this.endingTimestamp = endingTimestamp;
     return this;
@@ -769,17 +778,17 @@ public class ShopListingWithAssociations {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The listing\\'s expiration time, in epoch seconds.")
 
-  public Integer getEndingTimestamp() {
+  public Long getEndingTimestamp() {
     return endingTimestamp;
   }
 
 
-  public void setEndingTimestamp(Integer endingTimestamp) {
+  public void setEndingTimestamp(Long endingTimestamp) {
     this.endingTimestamp = endingTimestamp;
   }
 
 
-  public ShopListingWithAssociations originalCreationTimestamp(Integer originalCreationTimestamp) {
+  public ShopListingWithAssociations originalCreationTimestamp(Long originalCreationTimestamp) {
     
     this.originalCreationTimestamp = originalCreationTimestamp;
     return this;
@@ -793,17 +802,17 @@ public class ShopListingWithAssociations {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The listing\\'s creation time, in epoch seconds.")
 
-  public Integer getOriginalCreationTimestamp() {
+  public Long getOriginalCreationTimestamp() {
     return originalCreationTimestamp;
   }
 
 
-  public void setOriginalCreationTimestamp(Integer originalCreationTimestamp) {
+  public void setOriginalCreationTimestamp(Long originalCreationTimestamp) {
     this.originalCreationTimestamp = originalCreationTimestamp;
   }
 
 
-  public ShopListingWithAssociations lastModifiedTimestamp(Integer lastModifiedTimestamp) {
+  public ShopListingWithAssociations lastModifiedTimestamp(Long lastModifiedTimestamp) {
     
     this.lastModifiedTimestamp = lastModifiedTimestamp;
     return this;
@@ -817,17 +826,17 @@ public class ShopListingWithAssociations {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The time of the last update to the listing, in epoch seconds.")
 
-  public Integer getLastModifiedTimestamp() {
+  public Long getLastModifiedTimestamp() {
     return lastModifiedTimestamp;
   }
 
 
-  public void setLastModifiedTimestamp(Integer lastModifiedTimestamp) {
+  public void setLastModifiedTimestamp(Long lastModifiedTimestamp) {
     this.lastModifiedTimestamp = lastModifiedTimestamp;
   }
 
 
-  public ShopListingWithAssociations stateTimestamp(Integer stateTimestamp) {
+  public ShopListingWithAssociations stateTimestamp(Long stateTimestamp) {
     
     this.stateTimestamp = stateTimestamp;
     return this;
@@ -841,17 +850,17 @@ public class ShopListingWithAssociations {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The date and time of the last state change of this listing.")
 
-  public Integer getStateTimestamp() {
+  public Long getStateTimestamp() {
     return stateTimestamp;
   }
 
 
-  public void setStateTimestamp(Integer stateTimestamp) {
+  public void setStateTimestamp(Long stateTimestamp) {
     this.stateTimestamp = stateTimestamp;
   }
 
 
-  public ShopListingWithAssociations quantity(Integer quantity) {
+  public ShopListingWithAssociations quantity(Long quantity) {
     
     this.quantity = quantity;
     return this;
@@ -865,17 +874,17 @@ public class ShopListingWithAssociations {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The positive non-zero number of products available for purchase in the listing. Note: The listing quantity is the sum of available offering quantities. You can request the quantities for individual offerings from the ListingInventory resource using the [getListingInventory](/documentation/reference#operation/getListingInventory) endpoint.")
 
-  public Integer getQuantity() {
+  public Long getQuantity() {
     return quantity;
   }
 
 
-  public void setQuantity(Integer quantity) {
+  public void setQuantity(Long quantity) {
     this.quantity = quantity;
   }
 
 
-  public ShopListingWithAssociations shopSectionId(Integer shopSectionId) {
+  public ShopListingWithAssociations shopSectionId(Long shopSectionId) {
     
     this.shopSectionId = shopSectionId;
     return this;
@@ -889,17 +898,17 @@ public class ShopListingWithAssociations {
   @javax.annotation.Nullable
   @ApiModelProperty(required = true, value = "The numeric ID of a section in a specific Etsy shop.")
 
-  public Integer getShopSectionId() {
+  public Long getShopSectionId() {
     return shopSectionId;
   }
 
 
-  public void setShopSectionId(Integer shopSectionId) {
+  public void setShopSectionId(Long shopSectionId) {
     this.shopSectionId = shopSectionId;
   }
 
 
-  public ShopListingWithAssociations featuredRank(Integer featuredRank) {
+  public ShopListingWithAssociations featuredRank(Long featuredRank) {
     
     this.featuredRank = featuredRank;
     return this;
@@ -912,12 +921,12 @@ public class ShopListingWithAssociations {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The positive non-zero numeric position in the featured listings of the shop, with rank 1 listings appearing in the left-most position in featured listing on a shop’s home page.")
 
-  public Integer getFeaturedRank() {
+  public Long getFeaturedRank() {
     return featuredRank;
   }
 
 
-  public void setFeaturedRank(Integer featuredRank) {
+  public void setFeaturedRank(Long featuredRank) {
     this.featuredRank = featuredRank;
   }
 
@@ -945,7 +954,7 @@ public class ShopListingWithAssociations {
   }
 
 
-  public ShopListingWithAssociations numFavorers(Integer numFavorers) {
+  public ShopListingWithAssociations numFavorers(Long numFavorers) {
     
     this.numFavorers = numFavorers;
     return this;
@@ -959,12 +968,12 @@ public class ShopListingWithAssociations {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The number of users who marked this Listing a favorite.")
 
-  public Integer getNumFavorers() {
+  public Long getNumFavorers() {
     return numFavorers;
   }
 
 
-  public void setNumFavorers(Integer numFavorers) {
+  public void setNumFavorers(Long numFavorers) {
     this.numFavorers = numFavorers;
   }
 
@@ -989,6 +998,29 @@ public class ShopListingWithAssociations {
 
   public void setNonTaxable(Boolean nonTaxable) {
     this.nonTaxable = nonTaxable;
+  }
+
+
+  public ShopListingWithAssociations isTaxable(Boolean isTaxable) {
+    
+    this.isTaxable = isTaxable;
+    return this;
+  }
+
+   /**
+   * When true, applicable [shop](/documentation/reference#tag/Shop) tax rates apply to this listing at checkout.
+   * @return isTaxable
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "When true, applicable [shop](/documentation/reference#tag/Shop) tax rates apply to this listing at checkout.")
+
+  public Boolean getIsTaxable() {
+    return isTaxable;
+  }
+
+
+  public void setIsTaxable(Boolean isTaxable) {
+    this.isTaxable = isTaxable;
   }
 
 
@@ -1061,7 +1093,7 @@ public class ShopListingWithAssociations {
   }
 
 
-  public ShopListingWithAssociations personalizationCharCountMax(Integer personalizationCharCountMax) {
+  public ShopListingWithAssociations personalizationCharCountMax(Long personalizationCharCountMax) {
     
     this.personalizationCharCountMax = personalizationCharCountMax;
     return this;
@@ -1074,12 +1106,12 @@ public class ShopListingWithAssociations {
   @javax.annotation.Nullable
   @ApiModelProperty(required = true, value = "This an integer value representing the maximum length for the personalization message entered by the buyer. Will only change if is_personalizable is 'true'.")
 
-  public Integer getPersonalizationCharCountMax() {
+  public Long getPersonalizationCharCountMax() {
     return personalizationCharCountMax;
   }
 
 
-  public void setPersonalizationCharCountMax(Integer personalizationCharCountMax) {
+  public void setPersonalizationCharCountMax(Long personalizationCharCountMax) {
     this.personalizationCharCountMax = personalizationCharCountMax;
   }
 
@@ -1186,7 +1218,7 @@ public class ShopListingWithAssociations {
   }
 
 
-  public ShopListingWithAssociations shippingProfileId(Integer shippingProfileId) {
+  public ShopListingWithAssociations shippingProfileId(Long shippingProfileId) {
     
     this.shippingProfileId = shippingProfileId;
     return this;
@@ -1200,17 +1232,17 @@ public class ShopListingWithAssociations {
   @javax.annotation.Nullable
   @ApiModelProperty(required = true, value = "The numeric ID of the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing. Required when listing type=physical.")
 
-  public Integer getShippingProfileId() {
+  public Long getShippingProfileId() {
     return shippingProfileId;
   }
 
 
-  public void setShippingProfileId(Integer shippingProfileId) {
+  public void setShippingProfileId(Long shippingProfileId) {
     this.shippingProfileId = shippingProfileId;
   }
 
 
-  public ShopListingWithAssociations processingMin(Integer processingMin) {
+  public ShopListingWithAssociations processingMin(Long processingMin) {
     
     this.processingMin = processingMin;
     return this;
@@ -1224,17 +1256,17 @@ public class ShopListingWithAssociations {
   @javax.annotation.Nullable
   @ApiModelProperty(required = true, value = "The minimum number of days required to process this listing. Default value is null.")
 
-  public Integer getProcessingMin() {
+  public Long getProcessingMin() {
     return processingMin;
   }
 
 
-  public void setProcessingMin(Integer processingMin) {
+  public void setProcessingMin(Long processingMin) {
     this.processingMin = processingMin;
   }
 
 
-  public ShopListingWithAssociations processingMax(Integer processingMax) {
+  public ShopListingWithAssociations processingMax(Long processingMax) {
     
     this.processingMax = processingMax;
     return this;
@@ -1248,12 +1280,12 @@ public class ShopListingWithAssociations {
   @javax.annotation.Nullable
   @ApiModelProperty(required = true, value = "The maximum number of days required to process this listing. Default value is null.")
 
-  public Integer getProcessingMax() {
+  public Long getProcessingMax() {
     return processingMax;
   }
 
 
-  public void setProcessingMax(Integer processingMax) {
+  public void setProcessingMax(Long processingMax) {
     this.processingMax = processingMax;
   }
 
@@ -1615,11 +1647,11 @@ public class ShopListingWithAssociations {
   }
 
    /**
-   * The positive non-zero price of the product. (Sold product listings are private) Note: The price is the minimum possible price. The getInventory method requests exact prices for available offerings.
+   * The positive non-zero price of the product. (Sold product listings are private) Note: The price is the minimum possible price. The [&#x60;getListingInventory&#x60;](/documentation/reference/#operation/getListingInventory) method requests exact prices for available offerings.
    * @return price
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The positive non-zero price of the product. (Sold product listings are private) Note: The price is the minimum possible price. The getInventory method requests exact prices for available offerings.")
+  @ApiModelProperty(required = true, value = "The positive non-zero price of the product. (Sold product listings are private) Note: The price is the minimum possible price. The [`getListingInventory`](/documentation/reference/#operation/getListingInventory) method requests exact prices for available offerings.")
 
   public Money getPrice() {
     return price;
@@ -1631,7 +1663,7 @@ public class ShopListingWithAssociations {
   }
 
 
-  public ShopListingWithAssociations taxonomyId(Integer taxonomyId) {
+  public ShopListingWithAssociations taxonomyId(Long taxonomyId) {
     
     this.taxonomyId = taxonomyId;
     return this;
@@ -1644,12 +1676,12 @@ public class ShopListingWithAssociations {
   @javax.annotation.Nullable
   @ApiModelProperty(required = true, value = "The numeric taxonomy ID of the listing. See [SellerTaxonomy](/documentation/reference#tag/SellerTaxonomy) and [BuyerTaxonomy](/documentation/reference#tag/BuyerTaxonomy) for more information.")
 
-  public Integer getTaxonomyId() {
+  public Long getTaxonomyId() {
     return taxonomyId;
   }
 
 
-  public void setTaxonomyId(Integer taxonomyId) {
+  public void setTaxonomyId(Long taxonomyId) {
     this.taxonomyId = taxonomyId;
   }
 
@@ -1748,6 +1780,29 @@ public class ShopListingWithAssociations {
 
   public void setImages(List<ListingImage> images) {
     this.images = images;
+  }
+
+
+  public ShopListingWithAssociations inventory(ListingInventory inventory) {
+    
+    this.inventory = inventory;
+    return this;
+  }
+
+   /**
+   * An enumerated string that attaches an valid association. Default value is null.
+   * @return inventory
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(required = true, value = "An enumerated string that attaches an valid association. Default value is null.")
+
+  public ListingInventory getInventory() {
+    return inventory;
+  }
+
+
+  public void setInventory(ListingInventory inventory) {
+    this.inventory = inventory;
   }
 
 
@@ -1861,6 +1916,7 @@ public class ShopListingWithAssociations {
         Objects.equals(this.url, shopListingWithAssociations.url) &&
         Objects.equals(this.numFavorers, shopListingWithAssociations.numFavorers) &&
         Objects.equals(this.nonTaxable, shopListingWithAssociations.nonTaxable) &&
+        Objects.equals(this.isTaxable, shopListingWithAssociations.isTaxable) &&
         Objects.equals(this.isCustomizable, shopListingWithAssociations.isCustomizable) &&
         Objects.equals(this.isPersonalizable, shopListingWithAssociations.isPersonalizable) &&
         Objects.equals(this.personalizationIsRequired, shopListingWithAssociations.personalizationIsRequired) &&
@@ -1893,6 +1949,7 @@ public class ShopListingWithAssociations {
         Objects.equals(this.user, shopListingWithAssociations.user) &&
         Objects.equals(this.shop, shopListingWithAssociations.shop) &&
         Objects.equals(this.images, shopListingWithAssociations.images) &&
+        Objects.equals(this.inventory, shopListingWithAssociations.inventory) &&
         Objects.equals(this.productionPartners, shopListingWithAssociations.productionPartners) &&
         Objects.equals(this.skus, shopListingWithAssociations.skus) &&
         Objects.equals(this.translations, shopListingWithAssociations.translations);
@@ -1900,7 +1957,7 @@ public class ShopListingWithAssociations {
 
   @Override
   public int hashCode() {
-    return Objects.hash(listingId, userId, shopId, title, description, state, creationTimestamp, endingTimestamp, originalCreationTimestamp, lastModifiedTimestamp, stateTimestamp, quantity, shopSectionId, featuredRank, url, numFavorers, nonTaxable, isCustomizable, isPersonalizable, personalizationIsRequired, personalizationCharCountMax, personalizationInstructions, listingType, tags, materials, shippingProfileId, processingMin, processingMax, whoMade, whenMade, isSupply, itemWeight, itemWeightUnit, itemLength, itemWidth, itemHeight, itemDimensionsUnit, isPrivate, style, fileData, hasVariations, shouldAutoRenew, language, price, taxonomyId, shippingProfile, user, shop, images, productionPartners, skus, translations);
+    return Objects.hash(listingId, userId, shopId, title, description, state, creationTimestamp, endingTimestamp, originalCreationTimestamp, lastModifiedTimestamp, stateTimestamp, quantity, shopSectionId, featuredRank, url, numFavorers, nonTaxable, isTaxable, isCustomizable, isPersonalizable, personalizationIsRequired, personalizationCharCountMax, personalizationInstructions, listingType, tags, materials, shippingProfileId, processingMin, processingMax, whoMade, whenMade, isSupply, itemWeight, itemWeightUnit, itemLength, itemWidth, itemHeight, itemDimensionsUnit, isPrivate, style, fileData, hasVariations, shouldAutoRenew, language, price, taxonomyId, shippingProfile, user, shop, images, inventory, productionPartners, skus, translations);
   }
 
   @Override
@@ -1924,6 +1981,7 @@ public class ShopListingWithAssociations {
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("    numFavorers: ").append(toIndentedString(numFavorers)).append("\n");
     sb.append("    nonTaxable: ").append(toIndentedString(nonTaxable)).append("\n");
+    sb.append("    isTaxable: ").append(toIndentedString(isTaxable)).append("\n");
     sb.append("    isCustomizable: ").append(toIndentedString(isCustomizable)).append("\n");
     sb.append("    isPersonalizable: ").append(toIndentedString(isPersonalizable)).append("\n");
     sb.append("    personalizationIsRequired: ").append(toIndentedString(personalizationIsRequired)).append("\n");
@@ -1956,6 +2014,7 @@ public class ShopListingWithAssociations {
     sb.append("    user: ").append(toIndentedString(user)).append("\n");
     sb.append("    shop: ").append(toIndentedString(shop)).append("\n");
     sb.append("    images: ").append(toIndentedString(images)).append("\n");
+    sb.append("    inventory: ").append(toIndentedString(inventory)).append("\n");
     sb.append("    productionPartners: ").append(toIndentedString(productionPartners)).append("\n");
     sb.append("    skus: ").append(toIndentedString(skus)).append("\n");
     sb.append("    translations: ").append(toIndentedString(translations)).append("\n");

@@ -8,7 +8,7 @@ Represents a list of shipping destination objects.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**count** | **Integer** | The number of results. | 
+**count** | **Long** | The number of results. | 
 **results** | [**List&lt;ShopShippingProfileDestination&gt;**](ShopShippingProfileDestination.md) | The list of requested resources. | 
 
 

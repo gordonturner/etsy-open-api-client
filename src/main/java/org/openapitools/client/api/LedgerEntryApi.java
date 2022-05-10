@@ -93,7 +93,7 @@ public class LedgerEntryApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getShopPaymentAccountLedgerEntriesCall(Integer shopId, Integer minCreated, Integer maxCreated, Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getShopPaymentAccountLedgerEntriesCall(Long shopId, Long minCreated, Long maxCreated, Long limit, Long offset, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -157,7 +157,7 @@ public class LedgerEntryApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getShopPaymentAccountLedgerEntriesValidateBeforeCall(Integer shopId, Integer minCreated, Integer maxCreated, Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getShopPaymentAccountLedgerEntriesValidateBeforeCall(Long shopId, Long minCreated, Long maxCreated, Long limit, Long offset, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'shopId' is set
         if (shopId == null) {
@@ -200,7 +200,7 @@ public class LedgerEntryApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public PaymentAccountLedgerEntries getShopPaymentAccountLedgerEntries(Integer shopId, Integer minCreated, Integer maxCreated, Integer limit, Integer offset) throws ApiException {
+    public PaymentAccountLedgerEntries getShopPaymentAccountLedgerEntries(Long shopId, Long minCreated, Long maxCreated, Long limit, Long offset) throws ApiException {
         ApiResponse<PaymentAccountLedgerEntries> localVarResp = getShopPaymentAccountLedgerEntriesWithHttpInfo(shopId, minCreated, maxCreated, limit, offset);
         return localVarResp.getData();
     }
@@ -225,7 +225,7 @@ public class LedgerEntryApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<PaymentAccountLedgerEntries> getShopPaymentAccountLedgerEntriesWithHttpInfo(Integer shopId, Integer minCreated, Integer maxCreated, Integer limit, Integer offset) throws ApiException {
+    public ApiResponse<PaymentAccountLedgerEntries> getShopPaymentAccountLedgerEntriesWithHttpInfo(Long shopId, Long minCreated, Long maxCreated, Long limit, Long offset) throws ApiException {
         okhttp3.Call localVarCall = getShopPaymentAccountLedgerEntriesValidateBeforeCall(shopId, minCreated, maxCreated, limit, offset, null);
         Type localVarReturnType = new TypeToken<PaymentAccountLedgerEntries>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -252,7 +252,7 @@ public class LedgerEntryApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getShopPaymentAccountLedgerEntriesAsync(Integer shopId, Integer minCreated, Integer maxCreated, Integer limit, Integer offset, final ApiCallback<PaymentAccountLedgerEntries> _callback) throws ApiException {
+    public okhttp3.Call getShopPaymentAccountLedgerEntriesAsync(Long shopId, Long minCreated, Long maxCreated, Long limit, Long offset, final ApiCallback<PaymentAccountLedgerEntries> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getShopPaymentAccountLedgerEntriesValidateBeforeCall(shopId, minCreated, maxCreated, limit, offset, _callback);
         Type localVarReturnType = new TypeToken<PaymentAccountLedgerEntries>(){}.getType();

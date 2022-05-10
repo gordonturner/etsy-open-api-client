@@ -8,7 +8,7 @@ A set of Shop records.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**count** | **Integer** | The total number of Shops | 
+**count** | **Long** | The total number of Shops | 
 **results** | [**List&lt;Shop&gt;**](Shop.md) | The Shop resources. | 
 
 

@@ -29,8 +29,8 @@ tags:
 - name: Shop Receipt Transactions
 - name: Shop
 - name: Shop ShippingProfile
-- name: ShopListing
 - name: Shop Section
+- name: ShopListing
 - name: Shop ProductionPartner
 - name: SellerTaxonomy
 - name: Review
@@ -324,8 +324,8 @@ paths:
                 price:
                   description: 'The positive non-zero price of the product. (Sold
                     product listings are private) Note: The price is the minimum possible
-                    price. The getInventory method requests exact prices for available
-                    offerings.'
+                    price. The [`getListingInventory`](/documentation/reference/#operation/getListingInventory)
+                    method requests exact prices for available offerings.'
                   format: float
                   type: number
                 who_made:
@@ -689,16 +689,16 @@ paths:
           type: integer
         style: simple
       - description: An enumerated string that attaches a valid association. Acceptable
-          inputs are 'shop', 'images', 'user' and 'translations'. Default value is
-          an empty array.
+          inputs are 'Shipping', 'Shop', 'Images', 'User', 'Translations' and 'Inventory'.
+          Default value is an empty array.
         explode: true
         in: query
         name: includes
         required: false
         schema:
           description: An enumerated string that attaches a valid association. Acceptable
-            inputs are 'shop', 'images', 'user' and 'translations'. Default value
-            is an empty array.
+            inputs are 'Shipping', 'Shop', 'Images', 'User', 'Translations' and 'Inventory'.
+            Default value is an empty array.
           items:
             enum:
             - Shipping
@@ -706,6 +706,7 @@ paths:
             - Shop
             - User
             - Translations
+            - Inventory
             type: string
           type: array
         style: form
@@ -2182,16 +2183,16 @@ paths:
           type: array
         style: form
       - description: An enumerated string that attaches a valid association. Acceptable
-          inputs are 'shop', 'images', 'user' and 'translations'. Default value is
-          an empty array.
+          inputs are 'Shipping', 'Shop', 'Images', 'User', 'Translations' and 'Inventory'.
+          Default value is an empty array.
         explode: true
         in: query
         name: includes
         required: false
         schema:
           description: An enumerated string that attaches a valid association. Acceptable
-            inputs are 'shop', 'images', 'user' and 'translations'. Default value
-            is an empty array.
+            inputs are 'Shipping', 'Shop', 'Images', 'User', 'Translations' and 'Inventory'.
+            Default value is an empty array.
           items:
             enum:
             - Shipping
@@ -2199,6 +2200,7 @@ paths:
             - Shop
             - User
             - Translations
+            - Inventory
             type: string
           type: array
         style: form
@@ -3083,8 +3085,8 @@ paths:
                 price:
                   description: 'The positive non-zero price of the product. (Sold
                     product listings are private) Note: The price is the minimum possible
-                    price. The getInventory method requests exact prices for available
-                    offerings.'
+                    price. The [`getListingInventory`](/documentation/reference/#operation/getListingInventory)
+                    method requests exact prices for available offerings.'
                   format: float
                   type: number
                 title:
@@ -3423,16 +3425,16 @@ paths:
         \ target=\"_blank\" rel=\"noopener noreferrer\">Report bug</a></div><div class=\"\
         wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\"><p class=\"\
         wt-text-body-01 banner-text\">This endpoint is ready for production use.</p></div>\n\
-        \nCreates variation images on a listing.\\n\\nvariation_images is an array\
-        \ with inputs for the property_id, value_id, and image_id fields. image_ids\
-        \ are associated with a ListingImage on the Listing associated with the provided\
-        \ listing_id. property_id and value_id pairs are associated with a ListingProduct\
-        \ on the Listing associated with the provided listing_id. variation_images\
-        \ does not contain any duplicates. variation_images does not contain more\
-        \ than one property_id as variation images can only be associated on one property.\
-        \ The update overwrites all existing variation images on a listing, so if\
-        \ your request is successful, the variation images on the listing will be\
-        \ exactly those you specify. "
+        \nCreates variation images on a listing. `variation_images` is an array with\
+        \ inputs for the `property_id`, `value_id`, and `image_id` fields. `image_ids`\
+        \ are associated with a `ListingImage` on the listing associated with the\
+        \ provided `listing_id`. `property_id` and `value_id` pairs are associated\
+        \ with a `ListingProduct` on the listing associated with the provided `listing_id`.\
+        \ `variation_images` should not contain any duplicates. `variation_images`\
+        \ does not contain more than one `property_id` as variation images can only\
+        \ be associated on one property. The update overwrites all existing variation\
+        \ images on a listing, so if your request is successful, the variation images\
+        \ on the listing will be exactly those you specify. "
       operationId: updateVariationImages
       parameters:
       - description: The unique positive non-zero numeric ID for an Etsy Shop.
@@ -4284,6 +4286,9 @@ paths:
                   description: If true, the shipping notification will be sent to
                     the seller as well
                   type: boolean
+                note_to_buyer:
+                  description: Message to include in notification to the buyer.
+                  type: string
               type: object
       responses:
         "200":
@@ -4419,6 +4424,79 @@ paths:
       tags:
       - Shop Receipt Transactions
       x-accepts: application/json
+  /v3/application/listings/{listing_id}/reviews:
+    get:
+      description: |-
+        <div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2">General Release</span><a class="wt-text-link" href="https://github.com/etsy/open-api/issues/new/choose" target="_blank" rel="noopener noreferrer">Report bug</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">This endpoint is ready for production use.</p></div>
+
+        Open API V3 to retrieve the reviews for a listing given its ID.
+      operationId: getReviewsByListing
+      parameters:
+      - description: The numeric ID for the [listing](/documentation/reference#tag/ShopListing)
+          associated to this transaction.
+        explode: false
+        in: path
+        name: listing_id
+        required: true
+        schema:
+          description: The numeric ID for the [listing](/documentation/reference#tag/ShopListing)
+            associated to this transaction.
+          minimum: 1
+          type: integer
+        style: simple
+      - description: The maximum number of results to return.
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          default: 25
+          description: The maximum number of results to return.
+          maximum: 100
+          minimum: 1
+          type: integer
+        style: form
+      - description: The number of records to skip before selecting the first result.
+        explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          default: 0
+          description: The number of records to skip before selecting the first result.
+          minimum: 0
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListingReviews'
+          description: A set of Transaction Reviews by Listing ID
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchema'
+          description: A resource could not be found. See the error message for details.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchema'
+          description: There was a problem with the request data. See the error message
+            for details.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchema'
+          description: The server encountered an internal error. See the error message
+            for details.
+      tags:
+      - Review
+      x-accepts: application/json
   /v3/application/shops/{shop_id}/reviews:
     get:
       description: |-
@@ -4466,7 +4544,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/TransactionReviews'
-          description: A set of TransactionReviews
+          description: A set of Transaction Reviews By Shop ID
         "404":
           content:
             application/json:
@@ -5045,6 +5123,78 @@ paths:
       x-contentType: application/x-www-form-urlencoded
       x-accepts: application/json
   /v3/application/shops/{shop_id}/sections/{shop_section_id}:
+    delete:
+      description: |-
+        <div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2">General Release</span><a class="wt-text-link" href="https://github.com/etsy/open-api/issues/new/choose" target="_blank" rel="noopener noreferrer">Report bug</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">This endpoint is ready for production use.</p></div>
+
+        Deletes a section in a specific shop given a valid shop_section_id.
+      operationId: deleteShopSection
+      parameters:
+      - description: The unique positive non-zero numeric ID for an Etsy Shop.
+        explode: false
+        in: path
+        name: shop_id
+        required: true
+        schema:
+          description: The unique positive non-zero numeric ID for an Etsy Shop.
+          minimum: 1
+          type: integer
+        style: simple
+      - description: The numeric ID of a section in a specific Etsy shop.
+        explode: false
+        in: path
+        name: shop_section_id
+        required: true
+        schema:
+          description: The numeric ID of a section in a specific Etsy shop.
+          minimum: 1
+          type: integer
+        style: simple
+      responses:
+        "204":
+          description: The shop section resource was correctly deleted
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchema'
+          description: There was a problem with the request data. See the error message
+            for details.
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchema'
+          description: This function is temporarily unavailable. Please try again
+            later.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchema'
+          description: The request attempted to perform an operation it is not allowed
+            to. See the error message for details.
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchema'
+          description: The request lacks valid authentication credentials. See the
+            error message for details.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchema'
+          description: The server encountered an internal error. See the error message
+            for details.
+      security:
+      - api_key: []
+        oauth2:
+        - shops_w
+      tags:
+      - Shop Section
+      x-accepts: application/json
     get:
       description: |-
         <div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2">General Release</span><a class="wt-text-link" href="https://github.com/etsy/open-api/issues/new/choose" target="_blank" rel="noopener noreferrer">Report bug</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">This endpoint is ready for production use.</p></div>
@@ -5101,6 +5251,95 @@ paths:
             for details.
       tags:
       - Shop Section
+      x-accepts: application/json
+    put:
+      description: |-
+        <div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2">General Release</span><a class="wt-text-link" href="https://github.com/etsy/open-api/issues/new/choose" target="_blank" rel="noopener noreferrer">Report bug</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">This endpoint is ready for production use.</p></div>
+
+        Updates a section in a specific shop given a valid shop_section_id.
+      operationId: updateShopSection
+      parameters:
+      - description: The unique positive non-zero numeric ID for an Etsy Shop.
+        explode: false
+        in: path
+        name: shop_id
+        required: true
+        schema:
+          description: The unique positive non-zero numeric ID for an Etsy Shop.
+          minimum: 1
+          type: integer
+        style: simple
+      - description: The numeric ID of a section in a specific Etsy shop.
+        explode: false
+        in: path
+        name: shop_section_id
+        required: true
+        schema:
+          description: The numeric ID of a section in a specific Etsy shop.
+          minimum: 1
+          type: integer
+        style: simple
+      requestBody:
+        $ref: '#/components/requestBodies/inline_object_12'
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              properties:
+                title:
+                  description: The title string for a shop section.
+                  type: string
+              required:
+              - title
+              type: object
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ShopSection'
+          description: A Shop Section resource
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchema'
+          description: There was a problem with the request data. See the error message
+            for details.
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchema'
+          description: This function is temporarily unavailable. Please try again
+            later.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchema'
+          description: The request attempted to perform an operation it is not allowed
+            to. See the error message for details.
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchema'
+          description: The request lacks valid authentication credentials. See the
+            error message for details.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchema'
+          description: The server encountered an internal error. See the error message
+            for details.
+      security:
+      - api_key: []
+        oauth2:
+        - shops_w
+      tags:
+      - Shop Section
+      x-contentType: application/x-www-form-urlencoded
       x-accepts: application/json
   /v3/application/shops/{shop_id}/shop-sections/listings:
     get:
@@ -5290,7 +5529,7 @@ paths:
           type: integer
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/inline_object_12'
+        $ref: '#/components/requestBodies/inline_object_13'
         content:
           application/x-www-form-urlencoded:
             schema:
@@ -5621,7 +5860,7 @@ paths:
           type: integer
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/inline_object_13'
+        $ref: '#/components/requestBodies/inline_object_14'
         content:
           application/x-www-form-urlencoded:
             schema:
@@ -5841,7 +6080,7 @@ paths:
           type: integer
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/inline_object_14'
+        $ref: '#/components/requestBodies/inline_object_15'
         content:
           application/x-www-form-urlencoded:
             schema:
@@ -6085,7 +6324,7 @@ paths:
           type: integer
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/inline_object_15'
+        $ref: '#/components/requestBodies/inline_object_16'
         content:
           application/x-www-form-urlencoded:
             schema:
@@ -6307,7 +6546,7 @@ paths:
           type: integer
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/inline_object_16'
+        $ref: '#/components/requestBodies/inline_object_17'
         content:
           application/x-www-form-urlencoded:
             schema:
@@ -6540,7 +6779,7 @@ paths:
           type: integer
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/inline_object_17'
+        $ref: '#/components/requestBodies/inline_object_18'
         content:
           application/x-www-form-urlencoded:
             schema:
@@ -6805,6 +7044,54 @@ paths:
       - Shop Receipt Transactions
       x-accepts: application/json
   /v3/application/user/addresses/{user_address_id}:
+    delete:
+      description: |-
+        <div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2">General Release</span><a class="wt-text-link" href="https://github.com/etsy/open-api/issues/new/choose" target="_blank" rel="noopener noreferrer">Report bug</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">This endpoint is ready for production use.</p></div>
+
+        Open API V3 endpoint to delete a UserAddress for a User.
+      operationId: Api_Application_OpenAPI_Users_Addresses_Delete
+      parameters:
+      - description: The numeric ID of the user's address.
+        explode: false
+        in: path
+        name: user_address_id
+        required: true
+        schema:
+          description: The numeric ID of the user's address.
+          minimum: 1
+          type: integer
+        style: simple
+      responses:
+        "204":
+          description: The User Address resource was correctly deleted
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchema'
+          description: There was a problem with the request data. See the error message
+            for details.
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchema'
+          description: The request lacks valid authentication credentials. See the
+            error message for details.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchema'
+          description: The server encountered an internal error. See the error message
+            for details.
+      security:
+      - api_key: []
+        oauth2:
+        - address_r
+      tags:
+      - UserAddress
+      x-accepts: application/json
     get:
       description: |-
         <div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><span class="wt-badge wt-badge--notification-01 wt-mr-xs-2"> Feedback only </span><a class="wt-text-link" href="https://github.com/etsy/open-api/issues/new/choose" target="_blank" rel="noopener noreferrer">Give feedback</a></div><div class="wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3"><p class="wt-text-body-01 banner-text">Development for this endpoint is in progress. It will only return a 501 response.</p></div>
@@ -7061,6 +7348,11 @@ components:
         application/x-www-form-urlencoded:
           schema:
             $ref: '#/components/schemas/inline_object_15'
+    inline_object_18:
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/inline_object_18'
     inline_object_17:
       content:
         application/x-www-form-urlencoded:
@@ -7344,6 +7636,7 @@ components:
         - style
         - style
         who_made: i_did
+        is_taxable: true
       properties:
         listing_id:
           description: The numeric ID for the [listing](/documentation/reference#tag/ShopListing)
@@ -7428,6 +7721,10 @@ components:
         non_taxable:
           description: When true, applicable [shop](/documentation/reference#tag/Shop)
             tax rates do not apply to this listing at checkout.
+          type: boolean
+        is_taxable:
+          description: When true, applicable [shop](/documentation/reference#tag/Shop)
+            tax rates apply to this listing at checkout.
           type: boolean
         is_customizable:
           description: When true, a buyer may contact the seller for a customized
@@ -7622,7 +7919,8 @@ components:
           - $ref: '#/components/schemas/Money'
           description: 'The positive non-zero price of the product. (Sold product
             listings are private) Note: The price is the minimum possible price. The
-            getInventory method requests exact prices for available offerings.'
+            [`getListingInventory`](/documentation/reference/#operation/getListingInventory)
+            method requests exact prices for available offerings.'
         taxonomy_id:
           description: The numeric taxonomy ID of the listing. See [SellerTaxonomy](/documentation/reference#tag/SellerTaxonomy)
             and [BuyerTaxonomy](/documentation/reference#tag/BuyerTaxonomy) for more
@@ -7640,6 +7938,7 @@ components:
       - is_personalizable
       - is_private
       - is_supply
+      - is_taxable
       - item_dimensions_unit
       - item_height
       - item_length
@@ -7849,6 +8148,7 @@ components:
         last_modified_timestamp: 946684800
         description: description
         title: title
+        inventory: ""
         item_height: 5.025005
         item_length: 1.1730742
         quantity: 0
@@ -7863,6 +8163,7 @@ components:
         is_personalizable: true
         who_made: i_did
         user: ""
+        is_taxable: true
       properties:
         listing_id:
           description: The numeric ID for the [listing](/documentation/reference#tag/ShopListing)
@@ -7947,6 +8248,10 @@ components:
         non_taxable:
           description: When true, applicable [shop](/documentation/reference#tag/Shop)
             tax rates do not apply to this listing at checkout.
+          type: boolean
+        is_taxable:
+          description: When true, applicable [shop](/documentation/reference#tag/Shop)
+            tax rates apply to this listing at checkout.
           type: boolean
         is_customizable:
           description: When true, a buyer may contact the seller for a customized
@@ -8141,7 +8446,8 @@ components:
           - $ref: '#/components/schemas/Money'
           description: 'The positive non-zero price of the product. (Sold product
             listings are private) Note: The price is the minimum possible price. The
-            getInventory method requests exact prices for available offerings.'
+            [`getListingInventory`](/documentation/reference/#operation/getListingInventory)
+            method requests exact prices for available offerings.'
         taxonomy_id:
           description: The numeric taxonomy ID of the listing. See [SellerTaxonomy](/documentation/reference#tag/SellerTaxonomy)
             and [BuyerTaxonomy](/documentation/reference#tag/BuyerTaxonomy) for more
@@ -8169,6 +8475,11 @@ components:
             description: Represents a list of listing image resources, each of which
               contains the reference URLs and metadata for an image
           type: array
+        inventory:
+          allOf:
+          - $ref: '#/components/schemas/ListingInventory'
+          description: An enumerated string that attaches an valid association. Default
+            value is null.
         production_partners:
           description: Represents a list of production partners for a shop.
           items:
@@ -8200,10 +8511,12 @@ components:
       - file_data
       - has_variations
       - images
+      - inventory
       - is_customizable
       - is_personalizable
       - is_private
       - is_supply
+      - is_taxable
       - item_dimensions_unit
       - item_height
       - item_length
@@ -9067,6 +9380,191 @@ components:
       - url_75x75
       - url_fullxfull
       type: object
+    ListingInventory:
+      description: A representation of a single listing's inventory record.
+      example:
+        price_on_property:
+        - 0
+        - 0
+        sku_on_property:
+        - 1
+        - 1
+        products:
+        - ""
+        - ""
+        quantity_on_property:
+        - 6
+        - 6
+      properties:
+        products:
+          description: A JSON array of products available in a listing, even if only
+            one product. All field names in the JSON blobs are lowercase.
+          items:
+            allOf:
+            - $ref: '#/components/schemas/ListingInventoryProduct'
+            description: A JSON array of products available in a listing, even if
+              only one product. All field names in the JSON blobs are lowercase.
+          type: array
+        price_on_property:
+          description: An array of unique [listing property](/documentation/reference#operation/getListingProperties)
+            ID integers for the properties that change product prices, if any. For
+            example, if you charge specific prices for different sized products in
+            the same listing, then this array contains the property ID for size.
+          items:
+            type: integer
+          type: array
+        quantity_on_property:
+          description: An array of unique [listing property](/documentation/reference#operation/getListingProperties)
+            ID integers for the properties that change the quantity of the products,
+            if any. For example, if you stock specific quantities of different colored
+            products in the same listing, then this array contains the property ID
+            for color.
+          items:
+            type: integer
+          type: array
+        sku_on_property:
+          description: An array of unique [listing property](/documentation/reference#operation/getListingProperties)
+            ID integers for the properties that change the product SKU, if any. For
+            example, if you use specific skus for different colored products in the
+            same listing, then this array contains the property ID for color.
+          items:
+            type: integer
+          type: array
+      required:
+      - price_on_property
+      - products
+      - quantity_on_property
+      - sku_on_property
+      type: object
+    ListingInventoryProduct:
+      description: A representation of a product for a listing.
+      example:
+        is_deleted: true
+        property_values:
+        - ""
+        - ""
+        product_id: 1
+        sku: sku
+        offerings:
+        - ""
+        - ""
+      properties:
+        product_id:
+          description: The numeric ID for a specific [product](/documentation/reference#tag/ShopListing-Product)
+            purchased from a listing.
+          minimum: 1
+          type: integer
+        sku:
+          description: The SKU string for the product
+          type: string
+        is_deleted:
+          description: When true, someone deleted this product.
+          type: boolean
+        offerings:
+          description: A list of product offering entries for this product.
+          items:
+            allOf:
+            - $ref: '#/components/schemas/ListingInventoryProductOffering'
+            description: A list of product offering entries for this product.
+          type: array
+        property_values:
+          description: A list of property value entries for this product.
+          items:
+            allOf:
+            - $ref: '#/components/schemas/ListingPropertyValue'
+            description: A list of property value entries for this product.
+          type: array
+      required:
+      - is_deleted
+      - offerings
+      - product_id
+      - property_values
+      - sku
+      type: object
+    ListingInventoryProductOffering:
+      description: A representation of an offering for a listing.
+      example:
+        is_enabled: true
+        quantity: 0
+        is_deleted: true
+        price: ""
+        offering_id: 1
+      properties:
+        offering_id:
+          description: The ID for the ProductOffering
+          minimum: 1
+          type: integer
+        quantity:
+          description: The quantity the ProductOffering
+          minimum: 0
+          type: integer
+        is_enabled:
+          description: Whether or not the offering can be shown to buyers.
+          type: boolean
+        is_deleted:
+          description: Whether or not the offering has been deleted.
+          type: boolean
+        price:
+          allOf:
+          - $ref: '#/components/schemas/Money'
+          description: Price data for this ProductOffering
+      required:
+      - is_deleted
+      - is_enabled
+      - offering_id
+      - price
+      - quantity
+      type: object
+    ListingPropertyValue:
+      description: A representation of structured data values.
+      example:
+        scale_id: 1
+        values:
+        - values
+        - values
+        value_ids:
+        - 1
+        - 1
+        property_id: 1
+        property_name: property_name
+        scale_name: scale_name
+      properties:
+        property_id:
+          description: The numeric ID of the Property.
+          minimum: 1
+          type: integer
+        property_name:
+          description: The name of the Property.
+          nullable: true
+          type: string
+        scale_id:
+          description: The numeric ID of the scale (if any).
+          minimum: 1
+          nullable: true
+          type: integer
+        scale_name:
+          description: The label used to describe the chosen scale (if any).
+          nullable: true
+          type: string
+        value_ids:
+          description: The numeric IDs of the Property values
+          items:
+            minimum: 1
+            type: integer
+          type: array
+        values:
+          description: The Property values
+          items:
+            type: string
+          type: array
+      required:
+      - property_id
+      - property_name
+      - scale_id
+      - scale_name
+      - value_ids
+      - values
+      type: object
     ShopProductionPartner:
       description: Represents a description of a shop production partner.
       properties:
@@ -9211,191 +9709,6 @@ components:
       - quantity_on_property
       - sku_on_property
       type: object
-    ListingInventoryProduct:
-      description: A representation of a product for a listing.
-      example:
-        is_deleted: true
-        property_values:
-        - ""
-        - ""
-        product_id: 1
-        sku: sku
-        offerings:
-        - ""
-        - ""
-      properties:
-        product_id:
-          description: The numeric ID for a specific [product](/documentation/reference#tag/ShopListing-Product)
-            purchased from a listing.
-          minimum: 1
-          type: integer
-        sku:
-          description: The SKU string for the product
-          type: string
-        is_deleted:
-          description: When true, someone deleted this product.
-          type: boolean
-        offerings:
-          description: A list of product offering entries for this product.
-          items:
-            allOf:
-            - $ref: '#/components/schemas/ListingInventoryProductOffering'
-            description: A list of product offering entries for this product.
-          type: array
-        property_values:
-          description: A list of property value entries for this product.
-          items:
-            allOf:
-            - $ref: '#/components/schemas/ListingPropertyValue'
-            description: A list of property value entries for this product.
-          type: array
-      required:
-      - is_deleted
-      - offerings
-      - product_id
-      - property_values
-      - sku
-      type: object
-    ListingInventoryProductOffering:
-      description: A representation of an offering for a listing.
-      example:
-        is_enabled: true
-        quantity: 0
-        is_deleted: true
-        price: ""
-        offering_id: 1
-      properties:
-        offering_id:
-          description: The ID for the ProductOffering
-          minimum: 1
-          type: integer
-        quantity:
-          description: The quantity the ProductOffering
-          minimum: 0
-          type: integer
-        is_enabled:
-          description: Whether or not the offering can be shown to buyers.
-          type: boolean
-        is_deleted:
-          description: Whether or not the offering has been deleted.
-          type: boolean
-        price:
-          allOf:
-          - $ref: '#/components/schemas/Money'
-          description: Price data for this ProductOffering
-      required:
-      - is_deleted
-      - is_enabled
-      - offering_id
-      - price
-      - quantity
-      type: object
-    ListingPropertyValue:
-      description: A representation of structured data values.
-      example:
-        scale_id: 1
-        values:
-        - values
-        - values
-        value_ids:
-        - 1
-        - 1
-        property_id: 1
-        property_name: property_name
-        scale_name: scale_name
-      properties:
-        property_id:
-          description: The numeric ID of the Property.
-          minimum: 1
-          type: integer
-        property_name:
-          description: The name of the Property.
-          nullable: true
-          type: string
-        scale_id:
-          description: The numeric ID of the scale (if any).
-          minimum: 1
-          nullable: true
-          type: integer
-        scale_name:
-          description: The label used to describe the chosen scale (if any).
-          nullable: true
-          type: string
-        value_ids:
-          description: The numeric IDs of the Property values
-          items:
-            minimum: 1
-            type: integer
-          type: array
-        values:
-          description: The Property values
-          items:
-            type: string
-          type: array
-      required:
-      - property_id
-      - property_name
-      - scale_id
-      - scale_name
-      - value_ids
-      - values
-      type: object
-    ListingInventory:
-      description: A representation of a single listing's inventory record.
-      example:
-        price_on_property:
-        - 0
-        - 0
-        sku_on_property:
-        - 1
-        - 1
-        products:
-        - ""
-        - ""
-        quantity_on_property:
-        - 6
-        - 6
-      properties:
-        products:
-          description: A JSON array of products available in a listing, even if only
-            one product. All field names in the JSON blobs are lowercase.
-          items:
-            allOf:
-            - $ref: '#/components/schemas/ListingInventoryProduct'
-            description: A JSON array of products available in a listing, even if
-              only one product. All field names in the JSON blobs are lowercase.
-          type: array
-        price_on_property:
-          description: An array of unique [listing property](/documentation/reference#operation/getListingProperties)
-            ID integers for the properties that change product prices, if any. For
-            example, if you charge specific prices for different sized products in
-            the same listing, then this array contains the property ID for size.
-          items:
-            type: integer
-          type: array
-        quantity_on_property:
-          description: An array of unique [listing property](/documentation/reference#operation/getListingProperties)
-            ID integers for the properties that change the quantity of the products,
-            if any. For example, if you stock specific quantities of different colored
-            products in the same listing, then this array contains the property ID
-            for color.
-          items:
-            type: integer
-          type: array
-        sku_on_property:
-          description: An array of unique [listing property](/documentation/reference#operation/getListingProperties)
-            ID integers for the properties that change the product SKU, if any. For
-            example, if you use specific skus for different colored products in the
-            same listing, then this array contains the property ID for color.
-          items:
-            type: integer
-          type: array
-      required:
-      - price_on_property
-      - products
-      - quantity_on_property
-      - sku_on_property
-      type: object
     ShopListingsWithAssociations:
       description: A set of ShopListing resources with associations.
       example:
@@ -9470,6 +9783,9 @@ components:
         description: description
         paid_timestamp: 946684800
         shipped_timestamp: 946684800
+        product_data:
+        - ""
+        - ""
         title: title
         file_data: file_data
         shipping_profile_id: 1
@@ -9585,6 +9901,13 @@ components:
             - $ref: '#/components/schemas/TransactionVariations'
             description: Array of variations and personalizations the buyer chose.
           type: array
+        product_data:
+          description: A list of property value entries for this product.
+          items:
+            allOf:
+            - $ref: '#/components/schemas/ListingPropertyValue'
+            description: A list of property value entries for this product.
+          type: array
         shipping_profile_id:
           description: The ID of the shipping profile selected for this listing.
           minimum: 1
@@ -9627,6 +9950,7 @@ components:
       - min_processing_days
       - paid_timestamp
       - price
+      - product_data
       - product_id
       - quantity
       - receipt_id
@@ -10347,6 +10671,79 @@ components:
       - count
       - results
       type: object
+    ListingReviews:
+      description: A set of listing review records left by Users.
+      example:
+        count: 0
+        results:
+        - ""
+        - ""
+      properties:
+        count:
+          description: The number of TransactionReview resources found.
+          minimum: 0
+          type: integer
+        results:
+          description: The TransactionReview resources found.
+          items:
+            allOf:
+            - $ref: '#/components/schemas/ListingReview'
+            description: The TransactionReview resources found.
+          type: array
+      required:
+      - count
+      - results
+      type: object
+    ListingReview:
+      description: A listing review record left by a User.
+      properties:
+        shop_id:
+          description: The shop's numeric ID.
+          minimum: 1
+          type: integer
+        listing_id:
+          description: The ID of the ShopListing that the TransactionReview belongs
+            to.
+          minimum: 1
+          type: integer
+        rating:
+          description: Rating value on scale from 1 to 5
+          maximum: 5
+          minimum: 1
+          type: integer
+        review:
+          description: A message left by the author, explaining the feedback, if provided.
+          nullable: true
+          type: string
+        language:
+          description: The language of the TransactionReview
+          type: string
+        image_url_fullxfull:
+          description: 'The url to a photo provided with the feedback, dimensions
+            fullxfull. Note: This field may be absent, depending on the buyer''s privacy
+            settings.'
+          nullable: true
+          type: string
+        create_timestamp:
+          description: The date and time the TransactionReview was created in epoch
+            seconds.
+          minimum: 946684800
+          type: integer
+        update_timestamp:
+          description: The date and time the TransactionReview was updated in epoch
+            seconds.
+          minimum: 946684800
+          type: integer
+      required:
+      - create_timestamp
+      - image_url_fullxfull
+      - language
+      - listing_id
+      - rating
+      - review
+      - shop_id
+      - update_timestamp
+      type: object
     TransactionReviews:
       description: A set of transaction review records left by Users.
       example:
@@ -10992,7 +11389,8 @@ components:
         price:
           description: 'The positive non-zero price of the product. (Sold product
             listings are private) Note: The price is the minimum possible price. The
-            getInventory method requests exact prices for available offerings.'
+            [`getListingInventory`](/documentation/reference/#operation/getListingInventory)
+            method requests exact prices for available offerings.'
           format: float
           type: number
         who_made:
@@ -11448,7 +11846,8 @@ components:
         price:
           description: 'The positive non-zero price of the product. (Sold product
             listings are private) Note: The price is the minimum possible price. The
-            getInventory method requests exact prices for available offerings.'
+            [`getListingInventory`](/documentation/reference/#operation/getListingInventory)
+            method requests exact prices for available offerings.'
           format: float
           type: number
         title:
@@ -11689,6 +12088,9 @@ components:
           description: If true, the shipping notification will be sent to the seller
             as well
           type: boolean
+        note_to_buyer:
+          description: Message to include in notification to the buyer.
+          type: string
       type: object
     inline_object_10:
       properties:
@@ -11717,6 +12119,14 @@ components:
       - title
       type: object
     inline_object_12:
+      properties:
+        title:
+          description: The title string for a shop section.
+          type: string
+      required:
+      - title
+      type: object
+    inline_object_13:
       properties:
         title:
           description: The name string of this shipping profile.
@@ -11817,7 +12227,7 @@ components:
       - secondary_cost
       - title
       type: object
-    inline_object_13:
+    inline_object_14:
       properties:
         title:
           description: The name string of this shipping profile.
@@ -11853,7 +12263,7 @@ components:
             `US` or `CA`.
           type: string
       type: object
-    inline_object_14:
+    inline_object_15:
       properties:
         primary_cost:
           description: The cost of shipping to this country/region alone, measured
@@ -11917,7 +12327,7 @@ components:
       - primary_cost
       - secondary_cost
       type: object
-    inline_object_15:
+    inline_object_16:
       properties:
         primary_cost:
           description: The cost of shipping to this country/region alone, measured
@@ -11977,7 +12387,7 @@ components:
           minimum: 1
           type: integer
       type: object
-    inline_object_16:
+    inline_object_17:
       properties:
         type:
           description: The type of the shipping upgrade. Domestic (0) or international
@@ -12034,7 +12444,7 @@ components:
       - type
       - upgrade_name
       type: object
-    inline_object_17:
+    inline_object_18:
       properties:
         upgrade_name:
           default: "null"

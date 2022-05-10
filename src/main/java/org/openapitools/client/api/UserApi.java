@@ -89,7 +89,7 @@ public class UserApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getUserCall(Integer userId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getUserCall(Long userId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -137,7 +137,7 @@ public class UserApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getUserValidateBeforeCall(Integer userId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getUserValidateBeforeCall(Long userId, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'userId' is set
         if (userId == null) {
@@ -166,7 +166,7 @@ public class UserApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public User getUser(Integer userId) throws ApiException {
+    public User getUser(Long userId) throws ApiException {
         ApiResponse<User> localVarResp = getUserWithHttpInfo(userId);
         return localVarResp.getData();
     }
@@ -187,7 +187,7 @@ public class UserApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<User> getUserWithHttpInfo(Integer userId) throws ApiException {
+    public ApiResponse<User> getUserWithHttpInfo(Long userId) throws ApiException {
         okhttp3.Call localVarCall = getUserValidateBeforeCall(userId, null);
         Type localVarReturnType = new TypeToken<User>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -210,7 +210,7 @@ public class UserApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getUserAsync(Integer userId, final ApiCallback<User> _callback) throws ApiException {
+    public okhttp3.Call getUserAsync(Long userId, final ApiCallback<User> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getUserValidateBeforeCall(userId, _callback);
         Type localVarReturnType = new TypeToken<User>(){}.getType();

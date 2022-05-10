@@ -28,7 +28,7 @@ import java.io.IOException;
  * A shipping carrier&#39;s mail class, which is used to calculate an Estimated Delivery Date.
  */
 @ApiModel(description = "A shipping carrier's mail class, which is used to calculate an Estimated Delivery Date.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-04-08T15:52:16.342-04:00[America/Toronto]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-07T10:51:54.559-04:00[America/Toronto]")
 public class ShippingCarrierMailClass {
   public static final String SERIALIZED_NAME_MAIL_CLASS_KEY = "mail_class_key";
   @SerializedName(SERIALIZED_NAME_MAIL_CLASS_KEY)

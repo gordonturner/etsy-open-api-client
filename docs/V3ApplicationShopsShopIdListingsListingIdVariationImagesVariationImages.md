@@ -7,9 +7,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**propertyId** | **Integer** |  | 
-**valueId** | **Integer** |  | 
-**imageId** | **Integer** |  | 
+**propertyId** | **Long** |  | 
+**valueId** | **Long** |  | 
+**imageId** | **Long** |  | 
 
 
 

@@ -30,7 +30,7 @@ import org.openapitools.client.model.V3ApplicationListingsListingIdInventoryProd
 /**
  * InlineObject3
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-04-08T15:52:16.342-04:00[America/Toronto]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-07T10:51:54.559-04:00[America/Toronto]")
 public class InlineObject3 {
   public static final String SERIALIZED_NAME_PRODUCTS = "products";
   @SerializedName(SERIALIZED_NAME_PRODUCTS)
@@ -38,15 +38,15 @@ public class InlineObject3 {
 
   public static final String SERIALIZED_NAME_PRICE_ON_PROPERTY = "price_on_property";
   @SerializedName(SERIALIZED_NAME_PRICE_ON_PROPERTY)
-  private List<Integer> priceOnProperty = null;
+  private List<Long> priceOnProperty = null;
 
   public static final String SERIALIZED_NAME_QUANTITY_ON_PROPERTY = "quantity_on_property";
   @SerializedName(SERIALIZED_NAME_QUANTITY_ON_PROPERTY)
-  private List<Integer> quantityOnProperty = null;
+  private List<Long> quantityOnProperty = null;
 
   public static final String SERIALIZED_NAME_SKU_ON_PROPERTY = "sku_on_property";
   @SerializedName(SERIALIZED_NAME_SKU_ON_PROPERTY)
-  private List<Integer> skuOnProperty = null;
+  private List<Long> skuOnProperty = null;
 
   public InlineObject3() { 
   }
@@ -79,15 +79,15 @@ public class InlineObject3 {
   }
 
 
-  public InlineObject3 priceOnProperty(List<Integer> priceOnProperty) {
+  public InlineObject3 priceOnProperty(List<Long> priceOnProperty) {
     
     this.priceOnProperty = priceOnProperty;
     return this;
   }
 
-  public InlineObject3 addPriceOnPropertyItem(Integer priceOnPropertyItem) {
+  public InlineObject3 addPriceOnPropertyItem(Long priceOnPropertyItem) {
     if (this.priceOnProperty == null) {
-      this.priceOnProperty = new ArrayList<Integer>();
+      this.priceOnProperty = new ArrayList<Long>();
     }
     this.priceOnProperty.add(priceOnPropertyItem);
     return this;
@@ -100,25 +100,25 @@ public class InlineObject3 {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "An array of unique [listing property](/documentation/reference#operation/getListingProperties) ID integers for the properties that change product prices, if any. For example, if you charge specific prices for different sized products in the same listing, then this array contains the property ID for size.")
 
-  public List<Integer> getPriceOnProperty() {
+  public List<Long> getPriceOnProperty() {
     return priceOnProperty;
   }
 
 
-  public void setPriceOnProperty(List<Integer> priceOnProperty) {
+  public void setPriceOnProperty(List<Long> priceOnProperty) {
     this.priceOnProperty = priceOnProperty;
   }
 
 
-  public InlineObject3 quantityOnProperty(List<Integer> quantityOnProperty) {
+  public InlineObject3 quantityOnProperty(List<Long> quantityOnProperty) {
     
     this.quantityOnProperty = quantityOnProperty;
     return this;
   }
 
-  public InlineObject3 addQuantityOnPropertyItem(Integer quantityOnPropertyItem) {
+  public InlineObject3 addQuantityOnPropertyItem(Long quantityOnPropertyItem) {
     if (this.quantityOnProperty == null) {
-      this.quantityOnProperty = new ArrayList<Integer>();
+      this.quantityOnProperty = new ArrayList<Long>();
     }
     this.quantityOnProperty.add(quantityOnPropertyItem);
     return this;
@@ -131,25 +131,25 @@ public class InlineObject3 {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "An array of unique [listing property](/documentation/reference#operation/getListingProperties) ID integers for the properties that change the quantity of the products, if any. For example, if you stock specific quantities of different colored products in the same listing, then this array contains the property ID for color.")
 
-  public List<Integer> getQuantityOnProperty() {
+  public List<Long> getQuantityOnProperty() {
     return quantityOnProperty;
   }
 
 
-  public void setQuantityOnProperty(List<Integer> quantityOnProperty) {
+  public void setQuantityOnProperty(List<Long> quantityOnProperty) {
     this.quantityOnProperty = quantityOnProperty;
   }
 
 
-  public InlineObject3 skuOnProperty(List<Integer> skuOnProperty) {
+  public InlineObject3 skuOnProperty(List<Long> skuOnProperty) {
     
     this.skuOnProperty = skuOnProperty;
     return this;
   }
 
-  public InlineObject3 addSkuOnPropertyItem(Integer skuOnPropertyItem) {
+  public InlineObject3 addSkuOnPropertyItem(Long skuOnPropertyItem) {
     if (this.skuOnProperty == null) {
-      this.skuOnProperty = new ArrayList<Integer>();
+      this.skuOnProperty = new ArrayList<Long>();
     }
     this.skuOnProperty.add(skuOnPropertyItem);
     return this;
@@ -162,12 +162,12 @@ public class InlineObject3 {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "An array of unique [listing property](/documentation/reference#operation/getListingProperties) ID integers for the properties that change the product SKU, if any. For example, if you use specific skus for different colored products in the same listing, then this array contains the property ID for color.")
 
-  public List<Integer> getSkuOnProperty() {
+  public List<Long> getSkuOnProperty() {
     return skuOnProperty;
   }
 
 
-  public void setSkuOnProperty(List<Integer> skuOnProperty) {
+  public void setSkuOnProperty(List<Long> skuOnProperty) {
     this.skuOnProperty = skuOnProperty;
   }
 

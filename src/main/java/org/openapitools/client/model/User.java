@@ -28,11 +28,11 @@ import java.io.IOException;
  * Represents a single user of the site
  */
 @ApiModel(description = "Represents a single user of the site")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-04-08T15:52:16.342-04:00[America/Toronto]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-07T10:51:54.559-04:00[America/Toronto]")
 public class User {
   public static final String SERIALIZED_NAME_USER_ID = "user_id";
   @SerializedName(SERIALIZED_NAME_USER_ID)
-  private Integer userId;
+  private Long userId;
 
   public static final String SERIALIZED_NAME_LOGIN_NAME = "login_name";
   @SerializedName(SERIALIZED_NAME_LOGIN_NAME)
@@ -52,11 +52,11 @@ public class User {
 
   public static final String SERIALIZED_NAME_CREATE_TIMESTAMP = "create_timestamp";
   @SerializedName(SERIALIZED_NAME_CREATE_TIMESTAMP)
-  private Integer createTimestamp;
+  private Long createTimestamp;
 
   public static final String SERIALIZED_NAME_REFERRED_BY_USER_ID = "referred_by_user_id";
   @SerializedName(SERIALIZED_NAME_REFERRED_BY_USER_ID)
-  private Integer referredByUserId;
+  private Long referredByUserId;
 
   public static final String SERIALIZED_NAME_USE_NEW_INVENTORY_ENDPOINTS = "use_new_inventory_endpoints";
   @SerializedName(SERIALIZED_NAME_USE_NEW_INVENTORY_ENDPOINTS)
@@ -84,16 +84,16 @@ public class User {
 
   public static final String SERIALIZED_NAME_TRANSACTION_BUY_COUNT = "transaction_buy_count";
   @SerializedName(SERIALIZED_NAME_TRANSACTION_BUY_COUNT)
-  private Integer transactionBuyCount;
+  private Long transactionBuyCount;
 
   public static final String SERIALIZED_NAME_TRANSACTION_SOLD_COUNT = "transaction_sold_count";
   @SerializedName(SERIALIZED_NAME_TRANSACTION_SOLD_COUNT)
-  private Integer transactionSoldCount;
+  private Long transactionSoldCount;
 
   public User() { 
   }
 
-  public User userId(Integer userId) {
+  public User userId(Long userId) {
     
     this.userId = userId;
     return this;
@@ -107,12 +107,12 @@ public class User {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The numeric ID of a user. This number is also a valid shop ID for the user\\'s shop.")
 
-  public Integer getUserId() {
+  public Long getUserId() {
     return userId;
   }
 
 
-  public void setUserId(Integer userId) {
+  public void setUserId(Long userId) {
     this.userId = userId;
   }
 
@@ -209,7 +209,7 @@ public class User {
   }
 
 
-  public User createTimestamp(Integer createTimestamp) {
+  public User createTimestamp(Long createTimestamp) {
     
     this.createTimestamp = createTimestamp;
     return this;
@@ -223,17 +223,17 @@ public class User {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The date and time the user created their account, in epoch seconds.")
 
-  public Integer getCreateTimestamp() {
+  public Long getCreateTimestamp() {
     return createTimestamp;
   }
 
 
-  public void setCreateTimestamp(Integer createTimestamp) {
+  public void setCreateTimestamp(Long createTimestamp) {
     this.createTimestamp = createTimestamp;
   }
 
 
-  public User referredByUserId(Integer referredByUserId) {
+  public User referredByUserId(Long referredByUserId) {
     
     this.referredByUserId = referredByUserId;
     return this;
@@ -247,12 +247,12 @@ public class User {
   @javax.annotation.Nullable
   @ApiModelProperty(required = true, value = "The numeric ID of the user who referred this user.")
 
-  public Integer getReferredByUserId() {
+  public Long getReferredByUserId() {
     return referredByUserId;
   }
 
 
-  public void setReferredByUserId(Integer referredByUserId) {
+  public void setReferredByUserId(Long referredByUserId) {
     this.referredByUserId = referredByUserId;
   }
 
@@ -395,7 +395,7 @@ public class User {
   }
 
 
-  public User transactionBuyCount(Integer transactionBuyCount) {
+  public User transactionBuyCount(Long transactionBuyCount) {
     
     this.transactionBuyCount = transactionBuyCount;
     return this;
@@ -409,17 +409,17 @@ public class User {
   @javax.annotation.Nullable
   @ApiModelProperty(required = true, value = "The number of transactions where the user has bought.")
 
-  public Integer getTransactionBuyCount() {
+  public Long getTransactionBuyCount() {
     return transactionBuyCount;
   }
 
 
-  public void setTransactionBuyCount(Integer transactionBuyCount) {
+  public void setTransactionBuyCount(Long transactionBuyCount) {
     this.transactionBuyCount = transactionBuyCount;
   }
 
 
-  public User transactionSoldCount(Integer transactionSoldCount) {
+  public User transactionSoldCount(Long transactionSoldCount) {
     
     this.transactionSoldCount = transactionSoldCount;
     return this;
@@ -433,12 +433,12 @@ public class User {
   @javax.annotation.Nullable
   @ApiModelProperty(required = true, value = "The number of transactions where the user has sold.")
 
-  public Integer getTransactionSoldCount() {
+  public Long getTransactionSoldCount() {
     return transactionSoldCount;
   }
 
 
-  public void setTransactionSoldCount(Integer transactionSoldCount) {
+  public void setTransactionSoldCount(Long transactionSoldCount) {
     this.transactionSoldCount = transactionSoldCount;
   }
 

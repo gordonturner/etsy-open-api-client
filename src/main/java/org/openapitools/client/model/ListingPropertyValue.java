@@ -30,11 +30,11 @@ import java.util.List;
  * A representation of structured data values.
  */
 @ApiModel(description = "A representation of structured data values.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-04-08T15:52:16.342-04:00[America/Toronto]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-07T10:51:54.559-04:00[America/Toronto]")
 public class ListingPropertyValue {
   public static final String SERIALIZED_NAME_PROPERTY_ID = "property_id";
   @SerializedName(SERIALIZED_NAME_PROPERTY_ID)
-  private Integer propertyId;
+  private Long propertyId;
 
   public static final String SERIALIZED_NAME_PROPERTY_NAME = "property_name";
   @SerializedName(SERIALIZED_NAME_PROPERTY_NAME)
@@ -42,7 +42,7 @@ public class ListingPropertyValue {
 
   public static final String SERIALIZED_NAME_SCALE_ID = "scale_id";
   @SerializedName(SERIALIZED_NAME_SCALE_ID)
-  private Integer scaleId;
+  private Long scaleId;
 
   public static final String SERIALIZED_NAME_SCALE_NAME = "scale_name";
   @SerializedName(SERIALIZED_NAME_SCALE_NAME)
@@ -50,7 +50,7 @@ public class ListingPropertyValue {
 
   public static final String SERIALIZED_NAME_VALUE_IDS = "value_ids";
   @SerializedName(SERIALIZED_NAME_VALUE_IDS)
-  private List<Integer> valueIds = new ArrayList<Integer>();
+  private List<Long> valueIds = new ArrayList<Long>();
 
   public static final String SERIALIZED_NAME_VALUES = "values";
   @SerializedName(SERIALIZED_NAME_VALUES)
@@ -59,7 +59,7 @@ public class ListingPropertyValue {
   public ListingPropertyValue() { 
   }
 
-  public ListingPropertyValue propertyId(Integer propertyId) {
+  public ListingPropertyValue propertyId(Long propertyId) {
     
     this.propertyId = propertyId;
     return this;
@@ -73,12 +73,12 @@ public class ListingPropertyValue {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The numeric ID of the Property.")
 
-  public Integer getPropertyId() {
+  public Long getPropertyId() {
     return propertyId;
   }
 
 
-  public void setPropertyId(Integer propertyId) {
+  public void setPropertyId(Long propertyId) {
     this.propertyId = propertyId;
   }
 
@@ -106,7 +106,7 @@ public class ListingPropertyValue {
   }
 
 
-  public ListingPropertyValue scaleId(Integer scaleId) {
+  public ListingPropertyValue scaleId(Long scaleId) {
     
     this.scaleId = scaleId;
     return this;
@@ -120,12 +120,12 @@ public class ListingPropertyValue {
   @javax.annotation.Nullable
   @ApiModelProperty(required = true, value = "The numeric ID of the scale (if any).")
 
-  public Integer getScaleId() {
+  public Long getScaleId() {
     return scaleId;
   }
 
 
-  public void setScaleId(Integer scaleId) {
+  public void setScaleId(Long scaleId) {
     this.scaleId = scaleId;
   }
 
@@ -153,13 +153,13 @@ public class ListingPropertyValue {
   }
 
 
-  public ListingPropertyValue valueIds(List<Integer> valueIds) {
+  public ListingPropertyValue valueIds(List<Long> valueIds) {
     
     this.valueIds = valueIds;
     return this;
   }
 
-  public ListingPropertyValue addValueIdsItem(Integer valueIdsItem) {
+  public ListingPropertyValue addValueIdsItem(Long valueIdsItem) {
     this.valueIds.add(valueIdsItem);
     return this;
   }
@@ -171,12 +171,12 @@ public class ListingPropertyValue {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The numeric IDs of the Property values")
 
-  public List<Integer> getValueIds() {
+  public List<Long> getValueIds() {
     return valueIds;
   }
 
 
-  public void setValueIds(List<Integer> valueIds) {
+  public void setValueIds(List<Long> valueIds) {
     this.valueIds = valueIds;
   }
 

@@ -89,7 +89,7 @@ public class SellerTaxonomyApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPropertiesByTaxonomyIdCall(Integer taxonomyId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getPropertiesByTaxonomyIdCall(Long taxonomyId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -137,7 +137,7 @@ public class SellerTaxonomyApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getPropertiesByTaxonomyIdValidateBeforeCall(Integer taxonomyId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getPropertiesByTaxonomyIdValidateBeforeCall(Long taxonomyId, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'taxonomyId' is set
         if (taxonomyId == null) {
@@ -165,7 +165,7 @@ public class SellerTaxonomyApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public TaxonomyNodeProperties getPropertiesByTaxonomyId(Integer taxonomyId) throws ApiException {
+    public TaxonomyNodeProperties getPropertiesByTaxonomyId(Long taxonomyId) throws ApiException {
         ApiResponse<TaxonomyNodeProperties> localVarResp = getPropertiesByTaxonomyIdWithHttpInfo(taxonomyId);
         return localVarResp.getData();
     }
@@ -185,7 +185,7 @@ public class SellerTaxonomyApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TaxonomyNodeProperties> getPropertiesByTaxonomyIdWithHttpInfo(Integer taxonomyId) throws ApiException {
+    public ApiResponse<TaxonomyNodeProperties> getPropertiesByTaxonomyIdWithHttpInfo(Long taxonomyId) throws ApiException {
         okhttp3.Call localVarCall = getPropertiesByTaxonomyIdValidateBeforeCall(taxonomyId, null);
         Type localVarReturnType = new TypeToken<TaxonomyNodeProperties>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -207,7 +207,7 @@ public class SellerTaxonomyApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPropertiesByTaxonomyIdAsync(Integer taxonomyId, final ApiCallback<TaxonomyNodeProperties> _callback) throws ApiException {
+    public okhttp3.Call getPropertiesByTaxonomyIdAsync(Long taxonomyId, final ApiCallback<TaxonomyNodeProperties> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getPropertiesByTaxonomyIdValidateBeforeCall(taxonomyId, _callback);
         Type localVarReturnType = new TypeToken<TaxonomyNodeProperties>(){}.getType();

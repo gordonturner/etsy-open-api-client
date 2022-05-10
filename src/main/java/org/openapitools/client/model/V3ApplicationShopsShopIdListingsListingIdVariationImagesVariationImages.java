@@ -27,24 +27,24 @@ import java.io.IOException;
 /**
  * V3ApplicationShopsShopIdListingsListingIdVariationImagesVariationImages
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-04-08T15:52:16.342-04:00[America/Toronto]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-07T10:51:54.559-04:00[America/Toronto]")
 public class V3ApplicationShopsShopIdListingsListingIdVariationImagesVariationImages {
   public static final String SERIALIZED_NAME_PROPERTY_ID = "property_id";
   @SerializedName(SERIALIZED_NAME_PROPERTY_ID)
-  private Integer propertyId;
+  private Long propertyId;
 
   public static final String SERIALIZED_NAME_VALUE_ID = "value_id";
   @SerializedName(SERIALIZED_NAME_VALUE_ID)
-  private Integer valueId;
+  private Long valueId;
 
   public static final String SERIALIZED_NAME_IMAGE_ID = "image_id";
   @SerializedName(SERIALIZED_NAME_IMAGE_ID)
-  private Integer imageId;
+  private Long imageId;
 
   public V3ApplicationShopsShopIdListingsListingIdVariationImagesVariationImages() { 
   }
 
-  public V3ApplicationShopsShopIdListingsListingIdVariationImagesVariationImages propertyId(Integer propertyId) {
+  public V3ApplicationShopsShopIdListingsListingIdVariationImagesVariationImages propertyId(Long propertyId) {
     
     this.propertyId = propertyId;
     return this;
@@ -58,17 +58,17 @@ public class V3ApplicationShopsShopIdListingsListingIdVariationImagesVariationIm
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
 
-  public Integer getPropertyId() {
+  public Long getPropertyId() {
     return propertyId;
   }
 
 
-  public void setPropertyId(Integer propertyId) {
+  public void setPropertyId(Long propertyId) {
     this.propertyId = propertyId;
   }
 
 
-  public V3ApplicationShopsShopIdListingsListingIdVariationImagesVariationImages valueId(Integer valueId) {
+  public V3ApplicationShopsShopIdListingsListingIdVariationImagesVariationImages valueId(Long valueId) {
     
     this.valueId = valueId;
     return this;
@@ -82,17 +82,17 @@ public class V3ApplicationShopsShopIdListingsListingIdVariationImagesVariationIm
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
 
-  public Integer getValueId() {
+  public Long getValueId() {
     return valueId;
   }
 
 
-  public void setValueId(Integer valueId) {
+  public void setValueId(Long valueId) {
     this.valueId = valueId;
   }
 
 
-  public V3ApplicationShopsShopIdListingsListingIdVariationImagesVariationImages imageId(Integer imageId) {
+  public V3ApplicationShopsShopIdListingsListingIdVariationImagesVariationImages imageId(Long imageId) {
     
     this.imageId = imageId;
     return this;
@@ -106,12 +106,12 @@ public class V3ApplicationShopsShopIdListingsListingIdVariationImagesVariationIm
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
 
-  public Integer getImageId() {
+  public Long getImageId() {
     return imageId;
   }
 
 
-  public void setImageId(Integer imageId) {
+  public void setImageId(Long imageId) {
     this.imageId = imageId;
   }
 

@@ -32,11 +32,11 @@ import org.openapitools.client.model.ShopShippingProfileUpgrade;
  * Represents a profile used to set a listing&#39;s shipping information. Please note that it&#39;s not possible to create calculated shipping templates via the API. However, you can associate calculated shipping profiles created from Shop Manager with listings using the API.
  */
 @ApiModel(description = "Represents a profile used to set a listing's shipping information. Please note that it's not possible to create calculated shipping templates via the API. However, you can associate calculated shipping profiles created from Shop Manager with listings using the API.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-04-08T15:52:16.342-04:00[America/Toronto]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-07T10:51:54.559-04:00[America/Toronto]")
 public class ShopShippingProfile {
   public static final String SERIALIZED_NAME_SHIPPING_PROFILE_ID = "shipping_profile_id";
   @SerializedName(SERIALIZED_NAME_SHIPPING_PROFILE_ID)
-  private Integer shippingProfileId;
+  private Long shippingProfileId;
 
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
@@ -44,15 +44,15 @@ public class ShopShippingProfile {
 
   public static final String SERIALIZED_NAME_USER_ID = "user_id";
   @SerializedName(SERIALIZED_NAME_USER_ID)
-  private Integer userId;
+  private Long userId;
 
   public static final String SERIALIZED_NAME_MIN_PROCESSING_DAYS = "min_processing_days";
   @SerializedName(SERIALIZED_NAME_MIN_PROCESSING_DAYS)
-  private Integer minProcessingDays;
+  private Long minProcessingDays;
 
   public static final String SERIALIZED_NAME_MAX_PROCESSING_DAYS = "max_processing_days";
   @SerializedName(SERIALIZED_NAME_MAX_PROCESSING_DAYS)
-  private Integer maxProcessingDays;
+  private Long maxProcessingDays;
 
   public static final String SERIALIZED_NAME_PROCESSING_DAYS_DISPLAY_LABEL = "processing_days_display_label";
   @SerializedName(SERIALIZED_NAME_PROCESSING_DAYS_DISPLAY_LABEL)
@@ -140,7 +140,7 @@ public class ShopShippingProfile {
   public ShopShippingProfile() { 
   }
 
-  public ShopShippingProfile shippingProfileId(Integer shippingProfileId) {
+  public ShopShippingProfile shippingProfileId(Long shippingProfileId) {
     
     this.shippingProfileId = shippingProfileId;
     return this;
@@ -154,12 +154,12 @@ public class ShopShippingProfile {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The numeric ID of the shipping profile.")
 
-  public Integer getShippingProfileId() {
+  public Long getShippingProfileId() {
     return shippingProfileId;
   }
 
 
-  public void setShippingProfileId(Integer shippingProfileId) {
+  public void setShippingProfileId(Long shippingProfileId) {
     this.shippingProfileId = shippingProfileId;
   }
 
@@ -187,7 +187,7 @@ public class ShopShippingProfile {
   }
 
 
-  public ShopShippingProfile userId(Integer userId) {
+  public ShopShippingProfile userId(Long userId) {
     
     this.userId = userId;
     return this;
@@ -201,17 +201,17 @@ public class ShopShippingProfile {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The numeric ID for the [user](/documentation/reference#tag/User) who owns the shipping profile.")
 
-  public Integer getUserId() {
+  public Long getUserId() {
     return userId;
   }
 
 
-  public void setUserId(Integer userId) {
+  public void setUserId(Long userId) {
     this.userId = userId;
   }
 
 
-  public ShopShippingProfile minProcessingDays(Integer minProcessingDays) {
+  public ShopShippingProfile minProcessingDays(Long minProcessingDays) {
     
     this.minProcessingDays = minProcessingDays;
     return this;
@@ -225,17 +225,17 @@ public class ShopShippingProfile {
   @javax.annotation.Nullable
   @ApiModelProperty(required = true, value = "The minimum number of days for processing the listing.")
 
-  public Integer getMinProcessingDays() {
+  public Long getMinProcessingDays() {
     return minProcessingDays;
   }
 
 
-  public void setMinProcessingDays(Integer minProcessingDays) {
+  public void setMinProcessingDays(Long minProcessingDays) {
     this.minProcessingDays = minProcessingDays;
   }
 
 
-  public ShopShippingProfile maxProcessingDays(Integer maxProcessingDays) {
+  public ShopShippingProfile maxProcessingDays(Long maxProcessingDays) {
     
     this.maxProcessingDays = maxProcessingDays;
     return this;
@@ -249,12 +249,12 @@ public class ShopShippingProfile {
   @javax.annotation.Nullable
   @ApiModelProperty(required = true, value = "The maximum number of days for processing the listing.")
 
-  public Integer getMaxProcessingDays() {
+  public Long getMaxProcessingDays() {
     return maxProcessingDays;
   }
 
 
-  public void setMaxProcessingDays(Integer maxProcessingDays) {
+  public void setMaxProcessingDays(Long maxProcessingDays) {
     this.maxProcessingDays = maxProcessingDays;
   }
 

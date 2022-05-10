@@ -32,11 +32,11 @@ import org.openapitools.client.model.BuyerTaxonomyPropertyValue;
  * A product property definition.
  */
 @ApiModel(description = "A product property definition.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-04-08T15:52:16.342-04:00[America/Toronto]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-07T10:51:54.559-04:00[America/Toronto]")
 public class BuyerTaxonomyNodeProperty {
   public static final String SERIALIZED_NAME_PROPERTY_ID = "property_id";
   @SerializedName(SERIALIZED_NAME_PROPERTY_ID)
-  private Integer propertyId;
+  private Long propertyId;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -77,7 +77,7 @@ public class BuyerTaxonomyNodeProperty {
   public BuyerTaxonomyNodeProperty() { 
   }
 
-  public BuyerTaxonomyNodeProperty propertyId(Integer propertyId) {
+  public BuyerTaxonomyNodeProperty propertyId(Long propertyId) {
     
     this.propertyId = propertyId;
     return this;
@@ -91,12 +91,12 @@ public class BuyerTaxonomyNodeProperty {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The unique numeric ID of this product property.")
 
-  public Integer getPropertyId() {
+  public Long getPropertyId() {
     return propertyId;
   }
 
 
-  public void setPropertyId(Integer propertyId) {
+  public void setPropertyId(Long propertyId) {
     this.propertyId = propertyId;
   }
 

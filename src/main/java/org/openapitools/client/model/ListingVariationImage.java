@@ -28,15 +28,15 @@ import java.io.IOException;
  * A representation of the associations of variations and images on a listing.
  */
 @ApiModel(description = "A representation of the associations of variations and images on a listing.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-04-08T15:52:16.342-04:00[America/Toronto]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-07T10:51:54.559-04:00[America/Toronto]")
 public class ListingVariationImage {
   public static final String SERIALIZED_NAME_PROPERTY_ID = "property_id";
   @SerializedName(SERIALIZED_NAME_PROPERTY_ID)
-  private Integer propertyId;
+  private Long propertyId;
 
   public static final String SERIALIZED_NAME_VALUE_ID = "value_id";
   @SerializedName(SERIALIZED_NAME_VALUE_ID)
-  private Integer valueId;
+  private Long valueId;
 
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
@@ -44,12 +44,12 @@ public class ListingVariationImage {
 
   public static final String SERIALIZED_NAME_IMAGE_ID = "image_id";
   @SerializedName(SERIALIZED_NAME_IMAGE_ID)
-  private Integer imageId;
+  private Long imageId;
 
   public ListingVariationImage() { 
   }
 
-  public ListingVariationImage propertyId(Integer propertyId) {
+  public ListingVariationImage propertyId(Long propertyId) {
     
     this.propertyId = propertyId;
     return this;
@@ -63,17 +63,17 @@ public class ListingVariationImage {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The numeric ID of the Property.")
 
-  public Integer getPropertyId() {
+  public Long getPropertyId() {
     return propertyId;
   }
 
 
-  public void setPropertyId(Integer propertyId) {
+  public void setPropertyId(Long propertyId) {
     this.propertyId = propertyId;
   }
 
 
-  public ListingVariationImage valueId(Integer valueId) {
+  public ListingVariationImage valueId(Long valueId) {
     
     this.valueId = valueId;
     return this;
@@ -87,12 +87,12 @@ public class ListingVariationImage {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The numeric ID of the Value.")
 
-  public Integer getValueId() {
+  public Long getValueId() {
     return valueId;
   }
 
 
-  public void setValueId(Integer valueId) {
+  public void setValueId(Long valueId) {
     this.valueId = valueId;
   }
 
@@ -120,7 +120,7 @@ public class ListingVariationImage {
   }
 
 
-  public ListingVariationImage imageId(Integer imageId) {
+  public ListingVariationImage imageId(Long imageId) {
     
     this.imageId = imageId;
     return this;
@@ -134,12 +134,12 @@ public class ListingVariationImage {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The numeric ID of the Image.")
 
-  public Integer getImageId() {
+  public Long getImageId() {
     return imageId;
   }
 
 
-  public void setImageId(Integer imageId) {
+  public void setImageId(Long imageId) {
     this.imageId = imageId;
   }
 

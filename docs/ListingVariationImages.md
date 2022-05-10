@@ -8,7 +8,7 @@ Represents several ListingVariationImages.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**count** | **Integer** |  | 
+**count** | **Long** |  | 
 **results** | [**List&lt;ListingVariationImage&gt;**](ListingVariationImage.md) |  | 
 
 

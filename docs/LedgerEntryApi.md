@@ -41,11 +41,11 @@ public class Example {
     oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
     LedgerEntryApi apiInstance = new LedgerEntryApi(defaultClient);
-    Integer shopId = 56; // Integer | The unique positive non-zero numeric ID for an Etsy Shop.
-    Integer minCreated = 56; // Integer | The earliest unix timestamp for when a record was created.
-    Integer maxCreated = 56; // Integer | The latest unix timestamp for when a record was created.
-    Integer limit = 25; // Integer | The maximum number of results to return.
-    Integer offset = 0; // Integer | The number of records to skip before selecting the first result.
+    Long shopId = 56L; // Long | The unique positive non-zero numeric ID for an Etsy Shop.
+    Long minCreated = 56L; // Long | The earliest unix timestamp for when a record was created.
+    Long maxCreated = 56L; // Long | The latest unix timestamp for when a record was created.
+    Long limit = 25L; // Long | The maximum number of results to return.
+    Long offset = 0L; // Long | The number of records to skip before selecting the first result.
     try {
       PaymentAccountLedgerEntries result = apiInstance.getShopPaymentAccountLedgerEntries(shopId, minCreated, maxCreated, limit, offset);
       System.out.println(result);
@@ -64,11 +64,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **shopId** | **Integer**| The unique positive non-zero numeric ID for an Etsy Shop. |
- **minCreated** | **Integer**| The earliest unix timestamp for when a record was created. |
- **maxCreated** | **Integer**| The latest unix timestamp for when a record was created. |
- **limit** | **Integer**| The maximum number of results to return. | [optional] [default to 25]
- **offset** | **Integer**| The number of records to skip before selecting the first result. | [optional] [default to 0]
+ **shopId** | **Long**| The unique positive non-zero numeric ID for an Etsy Shop. |
+ **minCreated** | **Long**| The earliest unix timestamp for when a record was created. |
+ **maxCreated** | **Long**| The latest unix timestamp for when a record was created. |
+ **limit** | **Long**| The maximum number of results to return. | [optional] [default to 25]
+ **offset** | **Long**| The number of records to skip before selecting the first result. | [optional] [default to 0]
 
 ### Return type
 

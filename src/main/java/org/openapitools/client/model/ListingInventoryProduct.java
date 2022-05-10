@@ -32,11 +32,11 @@ import org.openapitools.client.model.ListingPropertyValue;
  * A representation of a product for a listing.
  */
 @ApiModel(description = "A representation of a product for a listing.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-04-08T15:52:16.342-04:00[America/Toronto]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-07T10:51:54.559-04:00[America/Toronto]")
 public class ListingInventoryProduct {
   public static final String SERIALIZED_NAME_PRODUCT_ID = "product_id";
   @SerializedName(SERIALIZED_NAME_PRODUCT_ID)
-  private Integer productId;
+  private Long productId;
 
   public static final String SERIALIZED_NAME_SKU = "sku";
   @SerializedName(SERIALIZED_NAME_SKU)
@@ -57,7 +57,7 @@ public class ListingInventoryProduct {
   public ListingInventoryProduct() { 
   }
 
-  public ListingInventoryProduct productId(Integer productId) {
+  public ListingInventoryProduct productId(Long productId) {
     
     this.productId = productId;
     return this;
@@ -71,12 +71,12 @@ public class ListingInventoryProduct {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The numeric ID for a specific [product](/documentation/reference#tag/ShopListing-Product) purchased from a listing.")
 
-  public Integer getProductId() {
+  public Long getProductId() {
     return productId;
   }
 
 
-  public void setProductId(Integer productId) {
+  public void setProductId(Long productId) {
     this.productId = productId;
   }
 

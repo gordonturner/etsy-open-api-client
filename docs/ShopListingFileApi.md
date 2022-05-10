@@ -44,9 +44,9 @@ public class Example {
     oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
     ShopListingFileApi apiInstance = new ShopListingFileApi(defaultClient);
-    Integer shopId = 56; // Integer | The unique positive non-zero numeric ID for an Etsy Shop.
-    Integer listingId = 56; // Integer | The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
-    Integer listingFileId = 56; // Integer | The unique numeric ID of a file associated with a digital listing.
+    Long shopId = 56L; // Long | The unique positive non-zero numeric ID for an Etsy Shop.
+    Long listingId = 56L; // Long | The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
+    Long listingFileId = 56L; // Long | The unique numeric ID of a file associated with a digital listing.
     try {
       apiInstance.deleteListingFile(shopId, listingId, listingFileId);
     } catch (ApiException e) {
@@ -64,9 +64,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **shopId** | **Integer**| The unique positive non-zero numeric ID for an Etsy Shop. |
- **listingId** | **Integer**| The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. |
- **listingFileId** | **Integer**| The unique numeric ID of a file associated with a digital listing. |
+ **shopId** | **Long**| The unique positive non-zero numeric ID for an Etsy Shop. |
+ **listingId** | **Long**| The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. |
+ **listingFileId** | **Long**| The unique numeric ID of a file associated with a digital listing. |
 
 ### Return type
 
@@ -126,8 +126,8 @@ public class Example {
     oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
     ShopListingFileApi apiInstance = new ShopListingFileApi(defaultClient);
-    Integer listingId = 56; // Integer | The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
-    Integer shopId = 56; // Integer | The unique positive non-zero numeric ID for an Etsy Shop.
+    Long listingId = 56L; // Long | The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
+    Long shopId = 56L; // Long | The unique positive non-zero numeric ID for an Etsy Shop.
     try {
       ShopListingFiles result = apiInstance.getAllListingFiles(listingId, shopId);
       System.out.println(result);
@@ -146,8 +146,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **listingId** | **Integer**| The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. |
- **shopId** | **Integer**| The unique positive non-zero numeric ID for an Etsy Shop. |
+ **listingId** | **Long**| The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. |
+ **shopId** | **Long**| The unique positive non-zero numeric ID for an Etsy Shop. |
 
 ### Return type
 
@@ -205,9 +205,9 @@ public class Example {
     oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
     ShopListingFileApi apiInstance = new ShopListingFileApi(defaultClient);
-    Integer shopId = 56; // Integer | The unique positive non-zero numeric ID for an Etsy Shop.
-    Integer listingId = 56; // Integer | The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
-    Integer listingFileId = 56; // Integer | The unique numeric ID of a file associated with a digital listing.
+    Long shopId = 56L; // Long | The unique positive non-zero numeric ID for an Etsy Shop.
+    Long listingId = 56L; // Long | The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
+    Long listingFileId = 56L; // Long | The unique numeric ID of a file associated with a digital listing.
     try {
       ShopListingFile result = apiInstance.getListingFile(shopId, listingId, listingFileId);
       System.out.println(result);
@@ -226,9 +226,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **shopId** | **Integer**| The unique positive non-zero numeric ID for an Etsy Shop. |
- **listingId** | **Integer**| The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. |
- **listingFileId** | **Integer**| The unique numeric ID of a file associated with a digital listing. |
+ **shopId** | **Long**| The unique positive non-zero numeric ID for an Etsy Shop. |
+ **listingId** | **Long**| The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. |
+ **listingFileId** | **Long**| The unique numeric ID of a file associated with a digital listing. |
 
 ### Return type
 
@@ -287,12 +287,12 @@ public class Example {
     oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
     ShopListingFileApi apiInstance = new ShopListingFileApi(defaultClient);
-    Integer shopId = 56; // Integer | The unique positive non-zero numeric ID for an Etsy Shop.
-    Integer listingId = 56; // Integer | The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
-    Integer listingFileId = 56; // Integer | The unique numeric ID of a file associated with a digital listing.
+    Long shopId = 56L; // Long | The unique positive non-zero numeric ID for an Etsy Shop.
+    Long listingId = 56L; // Long | The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
+    Long listingFileId = 56L; // Long | The unique numeric ID of a file associated with a digital listing.
     File _file = new File("/path/to/file"); // File | A binary file to upload.
     String name = "name_example"; // String | The file name string of a file to upload
-    Integer rank = 1; // Integer | The positive non-zero numeric position in the images displayed in a listing, with rank 1 images appearing in the left-most position in a listing.
+    Long rank = 1L; // Long | The positive non-zero numeric position in the images displayed in a listing, with rank 1 images appearing in the left-most position in a listing.
     try {
       ShopListingFile result = apiInstance.uploadListingFile(shopId, listingId, listingFileId, _file, name, rank);
       System.out.println(result);
@@ -311,12 +311,12 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **shopId** | **Integer**| The unique positive non-zero numeric ID for an Etsy Shop. |
- **listingId** | **Integer**| The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. |
- **listingFileId** | **Integer**| The unique numeric ID of a file associated with a digital listing. | [optional]
+ **shopId** | **Long**| The unique positive non-zero numeric ID for an Etsy Shop. |
+ **listingId** | **Long**| The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. |
+ **listingFileId** | **Long**| The unique numeric ID of a file associated with a digital listing. | [optional]
  **_file** | **File**| A binary file to upload. | [optional]
  **name** | **String**| The file name string of a file to upload | [optional]
- **rank** | **Integer**| The positive non-zero numeric position in the images displayed in a listing, with rank 1 images appearing in the left-most position in a listing. | [optional] [default to 1]
+ **rank** | **Long**| The positive non-zero numeric position in the images displayed in a listing, with rank 1 images appearing in the left-most position in a listing. | [optional] [default to 1]
 
 ### Return type
 

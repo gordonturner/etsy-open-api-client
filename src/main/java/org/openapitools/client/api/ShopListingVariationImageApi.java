@@ -91,7 +91,7 @@ public class ShopListingVariationImageApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getListingVariationImagesCall(Integer shopId, Integer listingId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getListingVariationImagesCall(Long shopId, Long listingId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -140,7 +140,7 @@ public class ShopListingVariationImageApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getListingVariationImagesValidateBeforeCall(Integer shopId, Integer listingId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getListingVariationImagesValidateBeforeCall(Long shopId, Long listingId, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'shopId' is set
         if (shopId == null) {
@@ -175,7 +175,7 @@ public class ShopListingVariationImageApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ListingVariationImages getListingVariationImages(Integer shopId, Integer listingId) throws ApiException {
+    public ListingVariationImages getListingVariationImages(Long shopId, Long listingId) throws ApiException {
         ApiResponse<ListingVariationImages> localVarResp = getListingVariationImagesWithHttpInfo(shopId, listingId);
         return localVarResp.getData();
     }
@@ -197,7 +197,7 @@ public class ShopListingVariationImageApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ListingVariationImages> getListingVariationImagesWithHttpInfo(Integer shopId, Integer listingId) throws ApiException {
+    public ApiResponse<ListingVariationImages> getListingVariationImagesWithHttpInfo(Long shopId, Long listingId) throws ApiException {
         okhttp3.Call localVarCall = getListingVariationImagesValidateBeforeCall(shopId, listingId, null);
         Type localVarReturnType = new TypeToken<ListingVariationImages>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -221,7 +221,7 @@ public class ShopListingVariationImageApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getListingVariationImagesAsync(Integer shopId, Integer listingId, final ApiCallback<ListingVariationImages> _callback) throws ApiException {
+    public okhttp3.Call getListingVariationImagesAsync(Long shopId, Long listingId, final ApiCallback<ListingVariationImages> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getListingVariationImagesValidateBeforeCall(shopId, listingId, _callback);
         Type localVarReturnType = new TypeToken<ListingVariationImages>(){}.getType();
@@ -248,7 +248,7 @@ public class ShopListingVariationImageApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateVariationImagesCall(Integer shopId, Integer listingId, InlineObject8 inlineObject8, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateVariationImagesCall(Long shopId, Long listingId, InlineObject8 inlineObject8, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -297,7 +297,7 @@ public class ShopListingVariationImageApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateVariationImagesValidateBeforeCall(Integer shopId, Integer listingId, InlineObject8 inlineObject8, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateVariationImagesValidateBeforeCall(Long shopId, Long listingId, InlineObject8 inlineObject8, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'shopId' is set
         if (shopId == null) {
@@ -317,7 +317,7 @@ public class ShopListingVariationImageApi {
 
     /**
      * 
-     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Creates variation images on a listing.\\n\\nvariation_images is an array with inputs for the property_id, value_id, and image_id fields. image_ids are associated with a ListingImage on the Listing associated with the provided listing_id. property_id and value_id pairs are associated with a ListingProduct on the Listing associated with the provided listing_id. variation_images does not contain any duplicates. variation_images does not contain more than one property_id as variation images can only be associated on one property. The update overwrites all existing variation images on a listing, so if your request is successful, the variation images on the listing will be exactly those you specify. 
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Creates variation images on a listing. &#x60;variation_images&#x60; is an array with inputs for the &#x60;property_id&#x60;, &#x60;value_id&#x60;, and &#x60;image_id&#x60; fields. &#x60;image_ids&#x60; are associated with a &#x60;ListingImage&#x60; on the listing associated with the provided &#x60;listing_id&#x60;. &#x60;property_id&#x60; and &#x60;value_id&#x60; pairs are associated with a &#x60;ListingProduct&#x60; on the listing associated with the provided &#x60;listing_id&#x60;. &#x60;variation_images&#x60; should not contain any duplicates. &#x60;variation_images&#x60; does not contain more than one &#x60;property_id&#x60; as variation images can only be associated on one property. The update overwrites all existing variation images on a listing, so if your request is successful, the variation images on the listing will be exactly those you specify. 
      * @param shopId The unique positive non-zero numeric ID for an Etsy Shop. (required)
      * @param listingId The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. (required)
      * @param inlineObject8  (optional)
@@ -335,14 +335,14 @@ public class ShopListingVariationImageApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ListingVariationImages updateVariationImages(Integer shopId, Integer listingId, InlineObject8 inlineObject8) throws ApiException {
+    public ListingVariationImages updateVariationImages(Long shopId, Long listingId, InlineObject8 inlineObject8) throws ApiException {
         ApiResponse<ListingVariationImages> localVarResp = updateVariationImagesWithHttpInfo(shopId, listingId, inlineObject8);
         return localVarResp.getData();
     }
 
     /**
      * 
-     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Creates variation images on a listing.\\n\\nvariation_images is an array with inputs for the property_id, value_id, and image_id fields. image_ids are associated with a ListingImage on the Listing associated with the provided listing_id. property_id and value_id pairs are associated with a ListingProduct on the Listing associated with the provided listing_id. variation_images does not contain any duplicates. variation_images does not contain more than one property_id as variation images can only be associated on one property. The update overwrites all existing variation images on a listing, so if your request is successful, the variation images on the listing will be exactly those you specify. 
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Creates variation images on a listing. &#x60;variation_images&#x60; is an array with inputs for the &#x60;property_id&#x60;, &#x60;value_id&#x60;, and &#x60;image_id&#x60; fields. &#x60;image_ids&#x60; are associated with a &#x60;ListingImage&#x60; on the listing associated with the provided &#x60;listing_id&#x60;. &#x60;property_id&#x60; and &#x60;value_id&#x60; pairs are associated with a &#x60;ListingProduct&#x60; on the listing associated with the provided &#x60;listing_id&#x60;. &#x60;variation_images&#x60; should not contain any duplicates. &#x60;variation_images&#x60; does not contain more than one &#x60;property_id&#x60; as variation images can only be associated on one property. The update overwrites all existing variation images on a listing, so if your request is successful, the variation images on the listing will be exactly those you specify. 
      * @param shopId The unique positive non-zero numeric ID for an Etsy Shop. (required)
      * @param listingId The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. (required)
      * @param inlineObject8  (optional)
@@ -360,7 +360,7 @@ public class ShopListingVariationImageApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ListingVariationImages> updateVariationImagesWithHttpInfo(Integer shopId, Integer listingId, InlineObject8 inlineObject8) throws ApiException {
+    public ApiResponse<ListingVariationImages> updateVariationImagesWithHttpInfo(Long shopId, Long listingId, InlineObject8 inlineObject8) throws ApiException {
         okhttp3.Call localVarCall = updateVariationImagesValidateBeforeCall(shopId, listingId, inlineObject8, null);
         Type localVarReturnType = new TypeToken<ListingVariationImages>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -368,7 +368,7 @@ public class ShopListingVariationImageApi {
 
     /**
      *  (asynchronously)
-     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Creates variation images on a listing.\\n\\nvariation_images is an array with inputs for the property_id, value_id, and image_id fields. image_ids are associated with a ListingImage on the Listing associated with the provided listing_id. property_id and value_id pairs are associated with a ListingProduct on the Listing associated with the provided listing_id. variation_images does not contain any duplicates. variation_images does not contain more than one property_id as variation images can only be associated on one property. The update overwrites all existing variation images on a listing, so if your request is successful, the variation images on the listing will be exactly those you specify. 
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Creates variation images on a listing. &#x60;variation_images&#x60; is an array with inputs for the &#x60;property_id&#x60;, &#x60;value_id&#x60;, and &#x60;image_id&#x60; fields. &#x60;image_ids&#x60; are associated with a &#x60;ListingImage&#x60; on the listing associated with the provided &#x60;listing_id&#x60;. &#x60;property_id&#x60; and &#x60;value_id&#x60; pairs are associated with a &#x60;ListingProduct&#x60; on the listing associated with the provided &#x60;listing_id&#x60;. &#x60;variation_images&#x60; should not contain any duplicates. &#x60;variation_images&#x60; does not contain more than one &#x60;property_id&#x60; as variation images can only be associated on one property. The update overwrites all existing variation images on a listing, so if your request is successful, the variation images on the listing will be exactly those you specify. 
      * @param shopId The unique positive non-zero numeric ID for an Etsy Shop. (required)
      * @param listingId The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. (required)
      * @param inlineObject8  (optional)
@@ -387,7 +387,7 @@ public class ShopListingVariationImageApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateVariationImagesAsync(Integer shopId, Integer listingId, InlineObject8 inlineObject8, final ApiCallback<ListingVariationImages> _callback) throws ApiException {
+    public okhttp3.Call updateVariationImagesAsync(Long shopId, Long listingId, InlineObject8 inlineObject8, final ApiCallback<ListingVariationImages> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateVariationImagesValidateBeforeCall(shopId, listingId, inlineObject8, _callback);
         Type localVarReturnType = new TypeToken<ListingVariationImages>(){}.getType();

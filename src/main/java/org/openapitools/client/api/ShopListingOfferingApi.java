@@ -90,7 +90,7 @@ public class ShopListingOfferingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getListingOfferingCall(Integer listingId, Integer productId, Integer productOfferingId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getListingOfferingCall(Long listingId, Long productId, Long productOfferingId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -140,7 +140,7 @@ public class ShopListingOfferingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getListingOfferingValidateBeforeCall(Integer listingId, Integer productId, Integer productOfferingId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getListingOfferingValidateBeforeCall(Long listingId, Long productId, Long productOfferingId, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'listingId' is set
         if (listingId == null) {
@@ -180,7 +180,7 @@ public class ShopListingOfferingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ListingInventoryProductOffering getListingOffering(Integer listingId, Integer productId, Integer productOfferingId) throws ApiException {
+    public ListingInventoryProductOffering getListingOffering(Long listingId, Long productId, Long productOfferingId) throws ApiException {
         ApiResponse<ListingInventoryProductOffering> localVarResp = getListingOfferingWithHttpInfo(listingId, productId, productOfferingId);
         return localVarResp.getData();
     }
@@ -202,7 +202,7 @@ public class ShopListingOfferingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ListingInventoryProductOffering> getListingOfferingWithHttpInfo(Integer listingId, Integer productId, Integer productOfferingId) throws ApiException {
+    public ApiResponse<ListingInventoryProductOffering> getListingOfferingWithHttpInfo(Long listingId, Long productId, Long productOfferingId) throws ApiException {
         okhttp3.Call localVarCall = getListingOfferingValidateBeforeCall(listingId, productId, productOfferingId, null);
         Type localVarReturnType = new TypeToken<ListingInventoryProductOffering>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -226,7 +226,7 @@ public class ShopListingOfferingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getListingOfferingAsync(Integer listingId, Integer productId, Integer productOfferingId, final ApiCallback<ListingInventoryProductOffering> _callback) throws ApiException {
+    public okhttp3.Call getListingOfferingAsync(Long listingId, Long productId, Long productOfferingId, final ApiCallback<ListingInventoryProductOffering> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getListingOfferingValidateBeforeCall(listingId, productId, productOfferingId, _callback);
         Type localVarReturnType = new TypeToken<ListingInventoryProductOffering>(){}.getType();

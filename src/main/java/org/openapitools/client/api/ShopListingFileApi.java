@@ -95,7 +95,7 @@ public class ShopListingFileApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteListingFileCall(Integer shopId, Integer listingId, Integer listingFileId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteListingFileCall(Long shopId, Long listingId, Long listingFileId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -145,7 +145,7 @@ public class ShopListingFileApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteListingFileValidateBeforeCall(Integer shopId, Integer listingId, Integer listingFileId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteListingFileValidateBeforeCall(Long shopId, Long listingId, Long listingFileId, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'shopId' is set
         if (shopId == null) {
@@ -187,7 +187,7 @@ public class ShopListingFileApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public void deleteListingFile(Integer shopId, Integer listingId, Integer listingFileId) throws ApiException {
+    public void deleteListingFile(Long shopId, Long listingId, Long listingFileId) throws ApiException {
         deleteListingFileWithHttpInfo(shopId, listingId, listingFileId);
     }
 
@@ -211,7 +211,7 @@ public class ShopListingFileApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> deleteListingFileWithHttpInfo(Integer shopId, Integer listingId, Integer listingFileId) throws ApiException {
+    public ApiResponse<Void> deleteListingFileWithHttpInfo(Long shopId, Long listingId, Long listingFileId) throws ApiException {
         okhttp3.Call localVarCall = deleteListingFileValidateBeforeCall(shopId, listingId, listingFileId, null);
         return localVarApiClient.execute(localVarCall);
     }
@@ -237,7 +237,7 @@ public class ShopListingFileApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteListingFileAsync(Integer shopId, Integer listingId, Integer listingFileId, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call deleteListingFileAsync(Long shopId, Long listingId, Long listingFileId, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteListingFileValidateBeforeCall(shopId, listingId, listingFileId, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
@@ -260,7 +260,7 @@ public class ShopListingFileApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAllListingFilesCall(Integer listingId, Integer shopId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getAllListingFilesCall(Long listingId, Long shopId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -309,7 +309,7 @@ public class ShopListingFileApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAllListingFilesValidateBeforeCall(Integer listingId, Integer shopId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getAllListingFilesValidateBeforeCall(Long listingId, Long shopId, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'listingId' is set
         if (listingId == null) {
@@ -344,7 +344,7 @@ public class ShopListingFileApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ShopListingFiles getAllListingFiles(Integer listingId, Integer shopId) throws ApiException {
+    public ShopListingFiles getAllListingFiles(Long listingId, Long shopId) throws ApiException {
         ApiResponse<ShopListingFiles> localVarResp = getAllListingFilesWithHttpInfo(listingId, shopId);
         return localVarResp.getData();
     }
@@ -366,7 +366,7 @@ public class ShopListingFileApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ShopListingFiles> getAllListingFilesWithHttpInfo(Integer listingId, Integer shopId) throws ApiException {
+    public ApiResponse<ShopListingFiles> getAllListingFilesWithHttpInfo(Long listingId, Long shopId) throws ApiException {
         okhttp3.Call localVarCall = getAllListingFilesValidateBeforeCall(listingId, shopId, null);
         Type localVarReturnType = new TypeToken<ShopListingFiles>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -390,7 +390,7 @@ public class ShopListingFileApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAllListingFilesAsync(Integer listingId, Integer shopId, final ApiCallback<ShopListingFiles> _callback) throws ApiException {
+    public okhttp3.Call getAllListingFilesAsync(Long listingId, Long shopId, final ApiCallback<ShopListingFiles> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getAllListingFilesValidateBeforeCall(listingId, shopId, _callback);
         Type localVarReturnType = new TypeToken<ShopListingFiles>(){}.getType();
@@ -416,7 +416,7 @@ public class ShopListingFileApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getListingFileCall(Integer shopId, Integer listingId, Integer listingFileId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getListingFileCall(Long shopId, Long listingId, Long listingFileId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -466,7 +466,7 @@ public class ShopListingFileApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getListingFileValidateBeforeCall(Integer shopId, Integer listingId, Integer listingFileId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getListingFileValidateBeforeCall(Long shopId, Long listingId, Long listingFileId, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'shopId' is set
         if (shopId == null) {
@@ -508,7 +508,7 @@ public class ShopListingFileApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ShopListingFile getListingFile(Integer shopId, Integer listingId, Integer listingFileId) throws ApiException {
+    public ShopListingFile getListingFile(Long shopId, Long listingId, Long listingFileId) throws ApiException {
         ApiResponse<ShopListingFile> localVarResp = getListingFileWithHttpInfo(shopId, listingId, listingFileId);
         return localVarResp.getData();
     }
@@ -532,7 +532,7 @@ public class ShopListingFileApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ShopListingFile> getListingFileWithHttpInfo(Integer shopId, Integer listingId, Integer listingFileId) throws ApiException {
+    public ApiResponse<ShopListingFile> getListingFileWithHttpInfo(Long shopId, Long listingId, Long listingFileId) throws ApiException {
         okhttp3.Call localVarCall = getListingFileValidateBeforeCall(shopId, listingId, listingFileId, null);
         Type localVarReturnType = new TypeToken<ShopListingFile>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -558,7 +558,7 @@ public class ShopListingFileApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getListingFileAsync(Integer shopId, Integer listingId, Integer listingFileId, final ApiCallback<ShopListingFile> _callback) throws ApiException {
+    public okhttp3.Call getListingFileAsync(Long shopId, Long listingId, Long listingFileId, final ApiCallback<ShopListingFile> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getListingFileValidateBeforeCall(shopId, listingId, listingFileId, _callback);
         Type localVarReturnType = new TypeToken<ShopListingFile>(){}.getType();
@@ -587,7 +587,7 @@ public class ShopListingFileApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call uploadListingFileCall(Integer shopId, Integer listingId, Integer listingFileId, File _file, String name, Integer rank, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call uploadListingFileCall(Long shopId, Long listingId, Long listingFileId, File _file, String name, Long rank, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -652,7 +652,7 @@ public class ShopListingFileApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call uploadListingFileValidateBeforeCall(Integer shopId, Integer listingId, Integer listingFileId, File _file, String name, Integer rank, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call uploadListingFileValidateBeforeCall(Long shopId, Long listingId, Long listingFileId, File _file, String name, Long rank, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'shopId' is set
         if (shopId == null) {
@@ -692,7 +692,7 @@ public class ShopListingFileApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ShopListingFile uploadListingFile(Integer shopId, Integer listingId, Integer listingFileId, File _file, String name, Integer rank) throws ApiException {
+    public ShopListingFile uploadListingFile(Long shopId, Long listingId, Long listingFileId, File _file, String name, Long rank) throws ApiException {
         ApiResponse<ShopListingFile> localVarResp = uploadListingFileWithHttpInfo(shopId, listingId, listingFileId, _file, name, rank);
         return localVarResp.getData();
     }
@@ -719,7 +719,7 @@ public class ShopListingFileApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ShopListingFile> uploadListingFileWithHttpInfo(Integer shopId, Integer listingId, Integer listingFileId, File _file, String name, Integer rank) throws ApiException {
+    public ApiResponse<ShopListingFile> uploadListingFileWithHttpInfo(Long shopId, Long listingId, Long listingFileId, File _file, String name, Long rank) throws ApiException {
         okhttp3.Call localVarCall = uploadListingFileValidateBeforeCall(shopId, listingId, listingFileId, _file, name, rank, null);
         Type localVarReturnType = new TypeToken<ShopListingFile>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -748,7 +748,7 @@ public class ShopListingFileApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call uploadListingFileAsync(Integer shopId, Integer listingId, Integer listingFileId, File _file, String name, Integer rank, final ApiCallback<ShopListingFile> _callback) throws ApiException {
+    public okhttp3.Call uploadListingFileAsync(Long shopId, Long listingId, Long listingFileId, File _file, String name, Long rank, final ApiCallback<ShopListingFile> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = uploadListingFileValidateBeforeCall(shopId, listingId, listingFileId, _file, name, rank, _callback);
         Type localVarReturnType = new TypeToken<ShopListingFile>(){}.getType();

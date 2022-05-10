@@ -8,7 +8,7 @@ A list of shipping upgrade options.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**count** | **Integer** | The number of results. | 
+**count** | **Long** | The number of results. | 
 **results** | [**List&lt;ShopShippingProfileUpgrade&gt;**](ShopShippingProfileUpgrade.md) | The list of requested resources. | 
 
 

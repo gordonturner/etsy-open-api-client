@@ -30,11 +30,11 @@ import java.util.List;
  * Represents the translation data for a Listing.
  */
 @ApiModel(description = "Represents the translation data for a Listing.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-04-08T15:52:16.342-04:00[America/Toronto]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-07T10:51:54.559-04:00[America/Toronto]")
 public class ListingTranslation {
   public static final String SERIALIZED_NAME_LISTING_ID = "listing_id";
   @SerializedName(SERIALIZED_NAME_LISTING_ID)
-  private Integer listingId;
+  private Long listingId;
 
   public static final String SERIALIZED_NAME_LANGUAGE = "language";
   @SerializedName(SERIALIZED_NAME_LANGUAGE)
@@ -55,7 +55,7 @@ public class ListingTranslation {
   public ListingTranslation() { 
   }
 
-  public ListingTranslation listingId(Integer listingId) {
+  public ListingTranslation listingId(Long listingId) {
     
     this.listingId = listingId;
     return this;
@@ -69,12 +69,12 @@ public class ListingTranslation {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The numeric ID for the Listing.")
 
-  public Integer getListingId() {
+  public Long getListingId() {
     return listingId;
   }
 
 
-  public void setListingId(Integer listingId) {
+  public void setListingId(Long listingId) {
     this.listingId = listingId;
   }
 

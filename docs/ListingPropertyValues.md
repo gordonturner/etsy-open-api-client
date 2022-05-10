@@ -8,7 +8,7 @@ Represents several ListingPropertyValues.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**count** | **Integer** |  | 
+**count** | **Long** |  | 
 **results** | [**List&lt;ListingPropertyValue&gt;**](ListingPropertyValue.md) |  | 
 
 

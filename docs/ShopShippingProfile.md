@@ -8,11 +8,11 @@ Represents a profile used to set a listing's shipping information. Please note t
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**shippingProfileId** | **Integer** | The numeric ID of the shipping profile. | 
+**shippingProfileId** | **Long** | The numeric ID of the shipping profile. | 
 **title** | **String** | The name string of this shipping profile. | 
-**userId** | **Integer** | The numeric ID for the [user](/documentation/reference#tag/User) who owns the shipping profile. | 
-**minProcessingDays** | **Integer** | The minimum number of days for processing the listing. | 
-**maxProcessingDays** | **Integer** | The maximum number of days for processing the listing. | 
+**userId** | **Long** | The numeric ID for the [user](/documentation/reference#tag/User) who owns the shipping profile. | 
+**minProcessingDays** | **Long** | The minimum number of days for processing the listing. | 
+**maxProcessingDays** | **Long** | The maximum number of days for processing the listing. | 
 **processingDaysDisplayLabel** | **String** | Translated display label string for processing days. | 
 **originCountryIso** | **String** | The ISO code of the country from which the listing ships. | 
 **isDeleted** | **Boolean** | When true, someone deleted this shipping profile. | 

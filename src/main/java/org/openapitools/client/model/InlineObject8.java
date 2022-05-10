@@ -30,7 +30,7 @@ import org.openapitools.client.model.V3ApplicationShopsShopIdListingsListingIdVa
 /**
  * InlineObject8
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-04-08T15:52:16.342-04:00[America/Toronto]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-07T10:51:54.559-04:00[America/Toronto]")
 public class InlineObject8 {
   public static final String SERIALIZED_NAME_VARIATION_IMAGES = "variation_images";
   @SerializedName(SERIALIZED_NAME_VARIATION_IMAGES)

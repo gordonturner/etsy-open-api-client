@@ -28,16 +28,16 @@ import java.io.IOException;
  * A confirmation that the current application has access to the Open API
  */
 @ApiModel(description = "A confirmation that the current application has access to the Open API")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-04-08T15:52:16.342-04:00[America/Toronto]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-07T10:51:54.559-04:00[America/Toronto]")
 public class Pong {
   public static final String SERIALIZED_NAME_APPLICATION_ID = "application_id";
   @SerializedName(SERIALIZED_NAME_APPLICATION_ID)
-  private Integer applicationId;
+  private Long applicationId;
 
   public Pong() { 
   }
 
-  public Pong applicationId(Integer applicationId) {
+  public Pong applicationId(Long applicationId) {
     
     this.applicationId = applicationId;
     return this;
@@ -51,12 +51,12 @@ public class Pong {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The authenticated application's ID")
 
-  public Integer getApplicationId() {
+  public Long getApplicationId() {
     return applicationId;
   }
 
 
-  public void setApplicationId(Integer applicationId) {
+  public void setApplicationId(Long applicationId) {
     this.applicationId = applicationId;
   }
 

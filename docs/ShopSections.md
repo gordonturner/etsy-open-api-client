@@ -8,7 +8,7 @@ All the sections in a sprecific Shop.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**count** | **Integer** | The number of results. | 
+**count** | **Long** | The number of results. | 
 **results** | [**List&lt;ShopSection&gt;**](ShopSection.md) | The list of requested resources. | 
 
 

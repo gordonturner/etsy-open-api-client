@@ -84,7 +84,7 @@ public class ShopListingApi {
      * @param quantity The positive non-zero number of products available for purchase in the listing. Note: The listing quantity is the sum of available offering quantities. You can request the quantities for individual offerings from the ListingInventory resource using the [getListingInventory](/documentation/reference#operation/getListingInventory) endpoint. (required)
      * @param title The listing&#39;s title string. Valid title strings contain only letters, numbers, punctuation marks, mathematical symbols, whitespace characters, ™, ©, and ®. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{P}\\\\p{Sm}\\\\p{Zs}™©®]/u) You can only use the %, :, &amp; and + characters once each. (required)
      * @param description A description string of the product for sale in the listing. (required)
-     * @param price The positive non-zero price of the product. (Sold product listings are private) Note: The price is the minimum possible price. The getInventory method requests exact prices for available offerings. (required)
+     * @param price The positive non-zero price of the product. (Sold product listings are private) Note: The price is the minimum possible price. The [&#x60;getListingInventory&#x60;](/documentation/reference/#operation/getListingInventory) method requests exact prices for available offerings. (required)
      * @param whoMade An enumerated string inidcated who made the product. Helps buyers locate the listing under the Handmade heading. Requires &#39;is_supply&#39; and &#39;when_made&#39;. (required)
      * @param whenMade An enumerated string for the era in which the maker made the product in this listing. Helps buyers locate the listing under the Vintage heading. Requires &#39;is_supply&#39; and &#39;who_made&#39;. (required)
      * @param taxonomyId The numeric taxonomy ID of the listing. See [SellerTaxonomy](/documentation/reference#tag/SellerTaxonomy) and [BuyerTaxonomy](/documentation/reference#tag/BuyerTaxonomy) for more information. (required)
@@ -126,7 +126,7 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createDraftListingCall(Integer shopId, Integer quantity, String title, String description, Float price, String whoMade, String whenMade, Integer taxonomyId, Integer shippingProfileId, List<String> materials, Integer shopSectionId, Integer processingMin, Integer processingMax, List<String> tags, List<String> styles, Float itemWeight, Float itemLength, Float itemWidth, Float itemHeight, String itemWeightUnit, String itemDimensionsUnit, Boolean isPersonalizable, Boolean personalizationIsRequired, Integer personalizationCharCountMax, String personalizationInstructions, List<Integer> productionPartnerIds, List<Integer> imageIds, Boolean isSupply, Boolean isCustomizable, Boolean shouldAutoRenew, Boolean isTaxable, String type, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createDraftListingCall(Long shopId, Long quantity, String title, String description, Float price, String whoMade, String whenMade, Long taxonomyId, Long shippingProfileId, List<String> materials, Long shopSectionId, Long processingMin, Long processingMax, List<String> tags, List<String> styles, Float itemWeight, Float itemLength, Float itemWidth, Float itemHeight, String itemWeightUnit, String itemDimensionsUnit, Boolean isPersonalizable, Boolean personalizationIsRequired, Long personalizationCharCountMax, String personalizationInstructions, List<Long> productionPartnerIds, List<Long> imageIds, Boolean isSupply, Boolean isCustomizable, Boolean shouldAutoRenew, Boolean isTaxable, String type, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -298,7 +298,7 @@ public class ShopListingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createDraftListingValidateBeforeCall(Integer shopId, Integer quantity, String title, String description, Float price, String whoMade, String whenMade, Integer taxonomyId, Integer shippingProfileId, List<String> materials, Integer shopSectionId, Integer processingMin, Integer processingMax, List<String> tags, List<String> styles, Float itemWeight, Float itemLength, Float itemWidth, Float itemHeight, String itemWeightUnit, String itemDimensionsUnit, Boolean isPersonalizable, Boolean personalizationIsRequired, Integer personalizationCharCountMax, String personalizationInstructions, List<Integer> productionPartnerIds, List<Integer> imageIds, Boolean isSupply, Boolean isCustomizable, Boolean shouldAutoRenew, Boolean isTaxable, String type, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createDraftListingValidateBeforeCall(Long shopId, Long quantity, String title, String description, Float price, String whoMade, String whenMade, Long taxonomyId, Long shippingProfileId, List<String> materials, Long shopSectionId, Long processingMin, Long processingMax, List<String> tags, List<String> styles, Float itemWeight, Float itemLength, Float itemWidth, Float itemHeight, String itemWeightUnit, String itemDimensionsUnit, Boolean isPersonalizable, Boolean personalizationIsRequired, Long personalizationCharCountMax, String personalizationInstructions, List<Long> productionPartnerIds, List<Long> imageIds, Boolean isSupply, Boolean isCustomizable, Boolean shouldAutoRenew, Boolean isTaxable, String type, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'shopId' is set
         if (shopId == null) {
@@ -353,7 +353,7 @@ public class ShopListingApi {
      * @param quantity The positive non-zero number of products available for purchase in the listing. Note: The listing quantity is the sum of available offering quantities. You can request the quantities for individual offerings from the ListingInventory resource using the [getListingInventory](/documentation/reference#operation/getListingInventory) endpoint. (required)
      * @param title The listing&#39;s title string. Valid title strings contain only letters, numbers, punctuation marks, mathematical symbols, whitespace characters, ™, ©, and ®. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{P}\\\\p{Sm}\\\\p{Zs}™©®]/u) You can only use the %, :, &amp; and + characters once each. (required)
      * @param description A description string of the product for sale in the listing. (required)
-     * @param price The positive non-zero price of the product. (Sold product listings are private) Note: The price is the minimum possible price. The getInventory method requests exact prices for available offerings. (required)
+     * @param price The positive non-zero price of the product. (Sold product listings are private) Note: The price is the minimum possible price. The [&#x60;getListingInventory&#x60;](/documentation/reference/#operation/getListingInventory) method requests exact prices for available offerings. (required)
      * @param whoMade An enumerated string inidcated who made the product. Helps buyers locate the listing under the Handmade heading. Requires &#39;is_supply&#39; and &#39;when_made&#39;. (required)
      * @param whenMade An enumerated string for the era in which the maker made the product in this listing. Helps buyers locate the listing under the Vintage heading. Requires &#39;is_supply&#39; and &#39;who_made&#39;. (required)
      * @param taxonomyId The numeric taxonomy ID of the listing. See [SellerTaxonomy](/documentation/reference#tag/SellerTaxonomy) and [BuyerTaxonomy](/documentation/reference#tag/BuyerTaxonomy) for more information. (required)
@@ -394,7 +394,7 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ShopListing createDraftListing(Integer shopId, Integer quantity, String title, String description, Float price, String whoMade, String whenMade, Integer taxonomyId, Integer shippingProfileId, List<String> materials, Integer shopSectionId, Integer processingMin, Integer processingMax, List<String> tags, List<String> styles, Float itemWeight, Float itemLength, Float itemWidth, Float itemHeight, String itemWeightUnit, String itemDimensionsUnit, Boolean isPersonalizable, Boolean personalizationIsRequired, Integer personalizationCharCountMax, String personalizationInstructions, List<Integer> productionPartnerIds, List<Integer> imageIds, Boolean isSupply, Boolean isCustomizable, Boolean shouldAutoRenew, Boolean isTaxable, String type) throws ApiException {
+    public ShopListing createDraftListing(Long shopId, Long quantity, String title, String description, Float price, String whoMade, String whenMade, Long taxonomyId, Long shippingProfileId, List<String> materials, Long shopSectionId, Long processingMin, Long processingMax, List<String> tags, List<String> styles, Float itemWeight, Float itemLength, Float itemWidth, Float itemHeight, String itemWeightUnit, String itemDimensionsUnit, Boolean isPersonalizable, Boolean personalizationIsRequired, Long personalizationCharCountMax, String personalizationInstructions, List<Long> productionPartnerIds, List<Long> imageIds, Boolean isSupply, Boolean isCustomizable, Boolean shouldAutoRenew, Boolean isTaxable, String type) throws ApiException {
         ApiResponse<ShopListing> localVarResp = createDraftListingWithHttpInfo(shopId, quantity, title, description, price, whoMade, whenMade, taxonomyId, shippingProfileId, materials, shopSectionId, processingMin, processingMax, tags, styles, itemWeight, itemLength, itemWidth, itemHeight, itemWeightUnit, itemDimensionsUnit, isPersonalizable, personalizationIsRequired, personalizationCharCountMax, personalizationInstructions, productionPartnerIds, imageIds, isSupply, isCustomizable, shouldAutoRenew, isTaxable, type);
         return localVarResp.getData();
     }
@@ -406,7 +406,7 @@ public class ShopListingApi {
      * @param quantity The positive non-zero number of products available for purchase in the listing. Note: The listing quantity is the sum of available offering quantities. You can request the quantities for individual offerings from the ListingInventory resource using the [getListingInventory](/documentation/reference#operation/getListingInventory) endpoint. (required)
      * @param title The listing&#39;s title string. Valid title strings contain only letters, numbers, punctuation marks, mathematical symbols, whitespace characters, ™, ©, and ®. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{P}\\\\p{Sm}\\\\p{Zs}™©®]/u) You can only use the %, :, &amp; and + characters once each. (required)
      * @param description A description string of the product for sale in the listing. (required)
-     * @param price The positive non-zero price of the product. (Sold product listings are private) Note: The price is the minimum possible price. The getInventory method requests exact prices for available offerings. (required)
+     * @param price The positive non-zero price of the product. (Sold product listings are private) Note: The price is the minimum possible price. The [&#x60;getListingInventory&#x60;](/documentation/reference/#operation/getListingInventory) method requests exact prices for available offerings. (required)
      * @param whoMade An enumerated string inidcated who made the product. Helps buyers locate the listing under the Handmade heading. Requires &#39;is_supply&#39; and &#39;when_made&#39;. (required)
      * @param whenMade An enumerated string for the era in which the maker made the product in this listing. Helps buyers locate the listing under the Vintage heading. Requires &#39;is_supply&#39; and &#39;who_made&#39;. (required)
      * @param taxonomyId The numeric taxonomy ID of the listing. See [SellerTaxonomy](/documentation/reference#tag/SellerTaxonomy) and [BuyerTaxonomy](/documentation/reference#tag/BuyerTaxonomy) for more information. (required)
@@ -447,7 +447,7 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ShopListing> createDraftListingWithHttpInfo(Integer shopId, Integer quantity, String title, String description, Float price, String whoMade, String whenMade, Integer taxonomyId, Integer shippingProfileId, List<String> materials, Integer shopSectionId, Integer processingMin, Integer processingMax, List<String> tags, List<String> styles, Float itemWeight, Float itemLength, Float itemWidth, Float itemHeight, String itemWeightUnit, String itemDimensionsUnit, Boolean isPersonalizable, Boolean personalizationIsRequired, Integer personalizationCharCountMax, String personalizationInstructions, List<Integer> productionPartnerIds, List<Integer> imageIds, Boolean isSupply, Boolean isCustomizable, Boolean shouldAutoRenew, Boolean isTaxable, String type) throws ApiException {
+    public ApiResponse<ShopListing> createDraftListingWithHttpInfo(Long shopId, Long quantity, String title, String description, Float price, String whoMade, String whenMade, Long taxonomyId, Long shippingProfileId, List<String> materials, Long shopSectionId, Long processingMin, Long processingMax, List<String> tags, List<String> styles, Float itemWeight, Float itemLength, Float itemWidth, Float itemHeight, String itemWeightUnit, String itemDimensionsUnit, Boolean isPersonalizable, Boolean personalizationIsRequired, Long personalizationCharCountMax, String personalizationInstructions, List<Long> productionPartnerIds, List<Long> imageIds, Boolean isSupply, Boolean isCustomizable, Boolean shouldAutoRenew, Boolean isTaxable, String type) throws ApiException {
         okhttp3.Call localVarCall = createDraftListingValidateBeforeCall(shopId, quantity, title, description, price, whoMade, whenMade, taxonomyId, shippingProfileId, materials, shopSectionId, processingMin, processingMax, tags, styles, itemWeight, itemLength, itemWidth, itemHeight, itemWeightUnit, itemDimensionsUnit, isPersonalizable, personalizationIsRequired, personalizationCharCountMax, personalizationInstructions, productionPartnerIds, imageIds, isSupply, isCustomizable, shouldAutoRenew, isTaxable, type, null);
         Type localVarReturnType = new TypeToken<ShopListing>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -460,7 +460,7 @@ public class ShopListingApi {
      * @param quantity The positive non-zero number of products available for purchase in the listing. Note: The listing quantity is the sum of available offering quantities. You can request the quantities for individual offerings from the ListingInventory resource using the [getListingInventory](/documentation/reference#operation/getListingInventory) endpoint. (required)
      * @param title The listing&#39;s title string. Valid title strings contain only letters, numbers, punctuation marks, mathematical symbols, whitespace characters, ™, ©, and ®. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{P}\\\\p{Sm}\\\\p{Zs}™©®]/u) You can only use the %, :, &amp; and + characters once each. (required)
      * @param description A description string of the product for sale in the listing. (required)
-     * @param price The positive non-zero price of the product. (Sold product listings are private) Note: The price is the minimum possible price. The getInventory method requests exact prices for available offerings. (required)
+     * @param price The positive non-zero price of the product. (Sold product listings are private) Note: The price is the minimum possible price. The [&#x60;getListingInventory&#x60;](/documentation/reference/#operation/getListingInventory) method requests exact prices for available offerings. (required)
      * @param whoMade An enumerated string inidcated who made the product. Helps buyers locate the listing under the Handmade heading. Requires &#39;is_supply&#39; and &#39;when_made&#39;. (required)
      * @param whenMade An enumerated string for the era in which the maker made the product in this listing. Helps buyers locate the listing under the Vintage heading. Requires &#39;is_supply&#39; and &#39;who_made&#39;. (required)
      * @param taxonomyId The numeric taxonomy ID of the listing. See [SellerTaxonomy](/documentation/reference#tag/SellerTaxonomy) and [BuyerTaxonomy](/documentation/reference#tag/BuyerTaxonomy) for more information. (required)
@@ -502,7 +502,7 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createDraftListingAsync(Integer shopId, Integer quantity, String title, String description, Float price, String whoMade, String whenMade, Integer taxonomyId, Integer shippingProfileId, List<String> materials, Integer shopSectionId, Integer processingMin, Integer processingMax, List<String> tags, List<String> styles, Float itemWeight, Float itemLength, Float itemWidth, Float itemHeight, String itemWeightUnit, String itemDimensionsUnit, Boolean isPersonalizable, Boolean personalizationIsRequired, Integer personalizationCharCountMax, String personalizationInstructions, List<Integer> productionPartnerIds, List<Integer> imageIds, Boolean isSupply, Boolean isCustomizable, Boolean shouldAutoRenew, Boolean isTaxable, String type, final ApiCallback<ShopListing> _callback) throws ApiException {
+    public okhttp3.Call createDraftListingAsync(Long shopId, Long quantity, String title, String description, Float price, String whoMade, String whenMade, Long taxonomyId, Long shippingProfileId, List<String> materials, Long shopSectionId, Long processingMin, Long processingMax, List<String> tags, List<String> styles, Float itemWeight, Float itemLength, Float itemWidth, Float itemHeight, String itemWeightUnit, String itemDimensionsUnit, Boolean isPersonalizable, Boolean personalizationIsRequired, Long personalizationCharCountMax, String personalizationInstructions, List<Long> productionPartnerIds, List<Long> imageIds, Boolean isSupply, Boolean isCustomizable, Boolean shouldAutoRenew, Boolean isTaxable, String type, final ApiCallback<ShopListing> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createDraftListingValidateBeforeCall(shopId, quantity, title, description, price, whoMade, whenMade, taxonomyId, shippingProfileId, materials, shopSectionId, processingMin, processingMax, tags, styles, itemWeight, itemLength, itemWidth, itemHeight, itemWeightUnit, itemDimensionsUnit, isPersonalizable, personalizationIsRequired, personalizationCharCountMax, personalizationInstructions, productionPartnerIds, imageIds, isSupply, isCustomizable, shouldAutoRenew, isTaxable, type, _callback);
         Type localVarReturnType = new TypeToken<ShopListing>(){}.getType();
@@ -527,7 +527,7 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteListingCall(Integer listingId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteListingCall(Long listingId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -575,7 +575,7 @@ public class ShopListingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteListingValidateBeforeCall(Integer listingId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteListingValidateBeforeCall(Long listingId, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'listingId' is set
         if (listingId == null) {
@@ -605,7 +605,7 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public void deleteListing(Integer listingId) throws ApiException {
+    public void deleteListing(Long listingId) throws ApiException {
         deleteListingWithHttpInfo(listingId);
     }
 
@@ -627,7 +627,7 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> deleteListingWithHttpInfo(Integer listingId) throws ApiException {
+    public ApiResponse<Void> deleteListingWithHttpInfo(Long listingId) throws ApiException {
         okhttp3.Call localVarCall = deleteListingValidateBeforeCall(listingId, null);
         return localVarApiClient.execute(localVarCall);
     }
@@ -651,7 +651,7 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteListingAsync(Integer listingId, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call deleteListingAsync(Long listingId, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteListingValidateBeforeCall(listingId, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
@@ -676,7 +676,7 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteListingPropertyCall(Integer shopId, Integer listingId, Integer propertyId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteListingPropertyCall(Long shopId, Long listingId, Long propertyId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -726,7 +726,7 @@ public class ShopListingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteListingPropertyValidateBeforeCall(Integer shopId, Integer listingId, Integer propertyId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteListingPropertyValidateBeforeCall(Long shopId, Long listingId, Long propertyId, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'shopId' is set
         if (shopId == null) {
@@ -767,7 +767,7 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public void deleteListingProperty(Integer shopId, Integer listingId, Integer propertyId) throws ApiException {
+    public void deleteListingProperty(Long shopId, Long listingId, Long propertyId) throws ApiException {
         deleteListingPropertyWithHttpInfo(shopId, listingId, propertyId);
     }
 
@@ -790,7 +790,7 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> deleteListingPropertyWithHttpInfo(Integer shopId, Integer listingId, Integer propertyId) throws ApiException {
+    public ApiResponse<Void> deleteListingPropertyWithHttpInfo(Long shopId, Long listingId, Long propertyId) throws ApiException {
         okhttp3.Call localVarCall = deleteListingPropertyValidateBeforeCall(shopId, listingId, propertyId, null);
         return localVarApiClient.execute(localVarCall);
     }
@@ -815,7 +815,7 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteListingPropertyAsync(Integer shopId, Integer listingId, Integer propertyId, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call deleteListingPropertyAsync(Long shopId, Long listingId, Long propertyId, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteListingPropertyValidateBeforeCall(shopId, listingId, propertyId, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
@@ -841,7 +841,7 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call findAllActiveListingsByShopCall(Integer shopId, Integer limit, String sortOn, String sortOrder, Integer offset, String keywords, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call findAllActiveListingsByShopCall(Long shopId, Long limit, String sortOn, String sortOrder, Long offset, String keywords, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -909,7 +909,7 @@ public class ShopListingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call findAllActiveListingsByShopValidateBeforeCall(Integer shopId, Integer limit, String sortOn, String sortOrder, Integer offset, String keywords, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call findAllActiveListingsByShopValidateBeforeCall(Long shopId, Long limit, String sortOn, String sortOrder, Long offset, String keywords, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'shopId' is set
         if (shopId == null) {
@@ -942,7 +942,7 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ShopListings findAllActiveListingsByShop(Integer shopId, Integer limit, String sortOn, String sortOrder, Integer offset, String keywords) throws ApiException {
+    public ShopListings findAllActiveListingsByShop(Long shopId, Long limit, String sortOn, String sortOrder, Long offset, String keywords) throws ApiException {
         ApiResponse<ShopListings> localVarResp = findAllActiveListingsByShopWithHttpInfo(shopId, limit, sortOn, sortOrder, offset, keywords);
         return localVarResp.getData();
     }
@@ -967,7 +967,7 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ShopListings> findAllActiveListingsByShopWithHttpInfo(Integer shopId, Integer limit, String sortOn, String sortOrder, Integer offset, String keywords) throws ApiException {
+    public ApiResponse<ShopListings> findAllActiveListingsByShopWithHttpInfo(Long shopId, Long limit, String sortOn, String sortOrder, Long offset, String keywords) throws ApiException {
         okhttp3.Call localVarCall = findAllActiveListingsByShopValidateBeforeCall(shopId, limit, sortOn, sortOrder, offset, keywords, null);
         Type localVarReturnType = new TypeToken<ShopListings>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -994,7 +994,7 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call findAllActiveListingsByShopAsync(Integer shopId, Integer limit, String sortOn, String sortOrder, Integer offset, String keywords, final ApiCallback<ShopListings> _callback) throws ApiException {
+    public okhttp3.Call findAllActiveListingsByShopAsync(Long shopId, Long limit, String sortOn, String sortOrder, Long offset, String keywords, final ApiCallback<ShopListings> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = findAllActiveListingsByShopValidateBeforeCall(shopId, limit, sortOn, sortOrder, offset, keywords, _callback);
         Type localVarReturnType = new TypeToken<ShopListings>(){}.getType();
@@ -1023,7 +1023,7 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call findAllListingsActiveCall(Integer limit, Integer offset, String keywords, String sortOn, String sortOrder, Float minPrice, Float maxPrice, Integer taxonomyId, String shopLocation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call findAllListingsActiveCall(Long limit, Long offset, String keywords, String sortOn, String sortOrder, Float minPrice, Float maxPrice, Long taxonomyId, String shopLocation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -1106,7 +1106,7 @@ public class ShopListingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call findAllListingsActiveValidateBeforeCall(Integer limit, Integer offset, String keywords, String sortOn, String sortOrder, Float minPrice, Float maxPrice, Integer taxonomyId, String shopLocation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call findAllListingsActiveValidateBeforeCall(Long limit, Long offset, String keywords, String sortOn, String sortOrder, Float minPrice, Float maxPrice, Long taxonomyId, String shopLocation, final ApiCallback _callback) throws ApiException {
         
 
         okhttp3.Call localVarCall = findAllListingsActiveCall(limit, offset, keywords, sortOn, sortOrder, minPrice, maxPrice, taxonomyId, shopLocation, _callback);
@@ -1136,7 +1136,7 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ShopListings findAllListingsActive(Integer limit, Integer offset, String keywords, String sortOn, String sortOrder, Float minPrice, Float maxPrice, Integer taxonomyId, String shopLocation) throws ApiException {
+    public ShopListings findAllListingsActive(Long limit, Long offset, String keywords, String sortOn, String sortOrder, Float minPrice, Float maxPrice, Long taxonomyId, String shopLocation) throws ApiException {
         ApiResponse<ShopListings> localVarResp = findAllListingsActiveWithHttpInfo(limit, offset, keywords, sortOn, sortOrder, minPrice, maxPrice, taxonomyId, shopLocation);
         return localVarResp.getData();
     }
@@ -1163,7 +1163,7 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ShopListings> findAllListingsActiveWithHttpInfo(Integer limit, Integer offset, String keywords, String sortOn, String sortOrder, Float minPrice, Float maxPrice, Integer taxonomyId, String shopLocation) throws ApiException {
+    public ApiResponse<ShopListings> findAllListingsActiveWithHttpInfo(Long limit, Long offset, String keywords, String sortOn, String sortOrder, Float minPrice, Float maxPrice, Long taxonomyId, String shopLocation) throws ApiException {
         okhttp3.Call localVarCall = findAllListingsActiveValidateBeforeCall(limit, offset, keywords, sortOn, sortOrder, minPrice, maxPrice, taxonomyId, shopLocation, null);
         Type localVarReturnType = new TypeToken<ShopListings>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -1192,7 +1192,7 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call findAllListingsActiveAsync(Integer limit, Integer offset, String keywords, String sortOn, String sortOrder, Float minPrice, Float maxPrice, Integer taxonomyId, String shopLocation, final ApiCallback<ShopListings> _callback) throws ApiException {
+    public okhttp3.Call findAllListingsActiveAsync(Long limit, Long offset, String keywords, String sortOn, String sortOrder, Float minPrice, Float maxPrice, Long taxonomyId, String shopLocation, final ApiCallback<ShopListings> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = findAllListingsActiveValidateBeforeCall(limit, offset, keywords, sortOn, sortOrder, minPrice, maxPrice, taxonomyId, shopLocation, _callback);
         Type localVarReturnType = new TypeToken<ShopListings>(){}.getType();
@@ -1216,7 +1216,7 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getFeaturedListingsByShopCall(Integer shopId, Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getFeaturedListingsByShopCall(Long shopId, Long limit, Long offset, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -1272,7 +1272,7 @@ public class ShopListingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getFeaturedListingsByShopValidateBeforeCall(Integer shopId, Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getFeaturedListingsByShopValidateBeforeCall(Long shopId, Long limit, Long offset, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'shopId' is set
         if (shopId == null) {
@@ -1302,7 +1302,7 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ShopListings getFeaturedListingsByShop(Integer shopId, Integer limit, Integer offset) throws ApiException {
+    public ShopListings getFeaturedListingsByShop(Long shopId, Long limit, Long offset) throws ApiException {
         ApiResponse<ShopListings> localVarResp = getFeaturedListingsByShopWithHttpInfo(shopId, limit, offset);
         return localVarResp.getData();
     }
@@ -1324,7 +1324,7 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ShopListings> getFeaturedListingsByShopWithHttpInfo(Integer shopId, Integer limit, Integer offset) throws ApiException {
+    public ApiResponse<ShopListings> getFeaturedListingsByShopWithHttpInfo(Long shopId, Long limit, Long offset) throws ApiException {
         okhttp3.Call localVarCall = getFeaturedListingsByShopValidateBeforeCall(shopId, limit, offset, null);
         Type localVarReturnType = new TypeToken<ShopListings>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -1348,7 +1348,7 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getFeaturedListingsByShopAsync(Integer shopId, Integer limit, Integer offset, final ApiCallback<ShopListings> _callback) throws ApiException {
+    public okhttp3.Call getFeaturedListingsByShopAsync(Long shopId, Long limit, Long offset, final ApiCallback<ShopListings> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getFeaturedListingsByShopValidateBeforeCall(shopId, limit, offset, _callback);
         Type localVarReturnType = new TypeToken<ShopListings>(){}.getType();
@@ -1358,7 +1358,7 @@ public class ShopListingApi {
     /**
      * Build call for getListing
      * @param listingId The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. (required)
-     * @param includes An enumerated string that attaches a valid association. Acceptable inputs are &#39;shop&#39;, &#39;images&#39;, &#39;user&#39; and &#39;translations&#39;. Default value is an empty array. (optional)
+     * @param includes An enumerated string that attaches a valid association. Acceptable inputs are &#39;Shipping&#39;, &#39;Shop&#39;, &#39;Images&#39;, &#39;User&#39;, &#39;Translations&#39; and &#39;Inventory&#39;. Default value is an empty array. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1371,7 +1371,7 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getListingCall(Integer listingId, List<String> includes, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getListingCall(Long listingId, List<String> includes, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -1423,7 +1423,7 @@ public class ShopListingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getListingValidateBeforeCall(Integer listingId, List<String> includes, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getListingValidateBeforeCall(Long listingId, List<String> includes, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'listingId' is set
         if (listingId == null) {
@@ -1440,7 +1440,7 @@ public class ShopListingApi {
      * 
      * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Retrieves a listing record by listing ID.
      * @param listingId The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. (required)
-     * @param includes An enumerated string that attaches a valid association. Acceptable inputs are &#39;shop&#39;, &#39;images&#39;, &#39;user&#39; and &#39;translations&#39;. Default value is an empty array. (optional)
+     * @param includes An enumerated string that attaches a valid association. Acceptable inputs are &#39;Shipping&#39;, &#39;Shop&#39;, &#39;Images&#39;, &#39;User&#39;, &#39;Translations&#39; and &#39;Inventory&#39;. Default value is an empty array. (optional)
      * @return ShopListingWithAssociations
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1452,7 +1452,7 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ShopListingWithAssociations getListing(Integer listingId, List<String> includes) throws ApiException {
+    public ShopListingWithAssociations getListing(Long listingId, List<String> includes) throws ApiException {
         ApiResponse<ShopListingWithAssociations> localVarResp = getListingWithHttpInfo(listingId, includes);
         return localVarResp.getData();
     }
@@ -1461,7 +1461,7 @@ public class ShopListingApi {
      * 
      * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Retrieves a listing record by listing ID.
      * @param listingId The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. (required)
-     * @param includes An enumerated string that attaches a valid association. Acceptable inputs are &#39;shop&#39;, &#39;images&#39;, &#39;user&#39; and &#39;translations&#39;. Default value is an empty array. (optional)
+     * @param includes An enumerated string that attaches a valid association. Acceptable inputs are &#39;Shipping&#39;, &#39;Shop&#39;, &#39;Images&#39;, &#39;User&#39;, &#39;Translations&#39; and &#39;Inventory&#39;. Default value is an empty array. (optional)
      * @return ApiResponse&lt;ShopListingWithAssociations&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1473,7 +1473,7 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ShopListingWithAssociations> getListingWithHttpInfo(Integer listingId, List<String> includes) throws ApiException {
+    public ApiResponse<ShopListingWithAssociations> getListingWithHttpInfo(Long listingId, List<String> includes) throws ApiException {
         okhttp3.Call localVarCall = getListingValidateBeforeCall(listingId, includes, null);
         Type localVarReturnType = new TypeToken<ShopListingWithAssociations>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -1483,7 +1483,7 @@ public class ShopListingApi {
      *  (asynchronously)
      * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Retrieves a listing record by listing ID.
      * @param listingId The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. (required)
-     * @param includes An enumerated string that attaches a valid association. Acceptable inputs are &#39;shop&#39;, &#39;images&#39;, &#39;user&#39; and &#39;translations&#39;. Default value is an empty array. (optional)
+     * @param includes An enumerated string that attaches a valid association. Acceptable inputs are &#39;Shipping&#39;, &#39;Shop&#39;, &#39;Images&#39;, &#39;User&#39;, &#39;Translations&#39; and &#39;Inventory&#39;. Default value is an empty array. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1496,7 +1496,7 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getListingAsync(Integer listingId, List<String> includes, final ApiCallback<ShopListingWithAssociations> _callback) throws ApiException {
+    public okhttp3.Call getListingAsync(Long listingId, List<String> includes, final ApiCallback<ShopListingWithAssociations> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getListingValidateBeforeCall(listingId, includes, _callback);
         Type localVarReturnType = new TypeToken<ShopListingWithAssociations>(){}.getType();
@@ -1519,7 +1519,7 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getListingPropertiesCall(Integer shopId, Integer listingId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getListingPropertiesCall(Long shopId, Long listingId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -1568,7 +1568,7 @@ public class ShopListingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getListingPropertiesValidateBeforeCall(Integer shopId, Integer listingId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getListingPropertiesValidateBeforeCall(Long shopId, Long listingId, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'shopId' is set
         if (shopId == null) {
@@ -1602,7 +1602,7 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ListingPropertyValues getListingProperties(Integer shopId, Integer listingId) throws ApiException {
+    public ListingPropertyValues getListingProperties(Long shopId, Long listingId) throws ApiException {
         ApiResponse<ListingPropertyValues> localVarResp = getListingPropertiesWithHttpInfo(shopId, listingId);
         return localVarResp.getData();
     }
@@ -1623,7 +1623,7 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ListingPropertyValues> getListingPropertiesWithHttpInfo(Integer shopId, Integer listingId) throws ApiException {
+    public ApiResponse<ListingPropertyValues> getListingPropertiesWithHttpInfo(Long shopId, Long listingId) throws ApiException {
         okhttp3.Call localVarCall = getListingPropertiesValidateBeforeCall(shopId, listingId, null);
         Type localVarReturnType = new TypeToken<ListingPropertyValues>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -1646,7 +1646,7 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getListingPropertiesAsync(Integer shopId, Integer listingId, final ApiCallback<ListingPropertyValues> _callback) throws ApiException {
+    public okhttp3.Call getListingPropertiesAsync(Long shopId, Long listingId, final ApiCallback<ListingPropertyValues> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getListingPropertiesValidateBeforeCall(shopId, listingId, _callback);
         Type localVarReturnType = new TypeToken<ListingPropertyValues>(){}.getType();
@@ -1670,7 +1670,7 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getListingPropertyCall(Integer listingId, Integer propertyId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getListingPropertyCall(Long listingId, Long propertyId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -1719,7 +1719,7 @@ public class ShopListingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getListingPropertyValidateBeforeCall(Integer listingId, Integer propertyId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getListingPropertyValidateBeforeCall(Long listingId, Long propertyId, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'listingId' is set
         if (listingId == null) {
@@ -1754,7 +1754,7 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ListingPropertyValue getListingProperty(Integer listingId, Integer propertyId) throws ApiException {
+    public ListingPropertyValue getListingProperty(Long listingId, Long propertyId) throws ApiException {
         ApiResponse<ListingPropertyValue> localVarResp = getListingPropertyWithHttpInfo(listingId, propertyId);
         return localVarResp.getData();
     }
@@ -1776,7 +1776,7 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ListingPropertyValue> getListingPropertyWithHttpInfo(Integer listingId, Integer propertyId) throws ApiException {
+    public ApiResponse<ListingPropertyValue> getListingPropertyWithHttpInfo(Long listingId, Long propertyId) throws ApiException {
         okhttp3.Call localVarCall = getListingPropertyValidateBeforeCall(listingId, propertyId, null);
         Type localVarReturnType = new TypeToken<ListingPropertyValue>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -1800,7 +1800,7 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getListingPropertyAsync(Integer listingId, Integer propertyId, final ApiCallback<ListingPropertyValue> _callback) throws ApiException {
+    public okhttp3.Call getListingPropertyAsync(Long listingId, Long propertyId, final ApiCallback<ListingPropertyValue> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getListingPropertyValidateBeforeCall(listingId, propertyId, _callback);
         Type localVarReturnType = new TypeToken<ListingPropertyValue>(){}.getType();
@@ -1810,7 +1810,7 @@ public class ShopListingApi {
     /**
      * Build call for getListingsByListingIds
      * @param listingIds The list of numeric IDS for the listings in a specific Etsy shop. (required)
-     * @param includes An enumerated string that attaches a valid association. Acceptable inputs are &#39;shop&#39;, &#39;images&#39;, &#39;user&#39; and &#39;translations&#39;. Default value is an empty array. (optional)
+     * @param includes An enumerated string that attaches a valid association. Acceptable inputs are &#39;Shipping&#39;, &#39;Shop&#39;, &#39;Images&#39;, &#39;User&#39;, &#39;Translations&#39; and &#39;Inventory&#39;. Default value is an empty array. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1823,7 +1823,7 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getListingsByListingIdsCall(List<Integer> listingIds, List<String> includes, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getListingsByListingIdsCall(List<Long> listingIds, List<String> includes, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -1878,7 +1878,7 @@ public class ShopListingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getListingsByListingIdsValidateBeforeCall(List<Integer> listingIds, List<String> includes, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getListingsByListingIdsValidateBeforeCall(List<Long> listingIds, List<String> includes, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'listingIds' is set
         if (listingIds == null) {
@@ -1895,7 +1895,7 @@ public class ShopListingApi {
      * 
      * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Allows to query multiple listing ids at once. Limit 100 ids maximum per query.
      * @param listingIds The list of numeric IDS for the listings in a specific Etsy shop. (required)
-     * @param includes An enumerated string that attaches a valid association. Acceptable inputs are &#39;shop&#39;, &#39;images&#39;, &#39;user&#39; and &#39;translations&#39;. Default value is an empty array. (optional)
+     * @param includes An enumerated string that attaches a valid association. Acceptable inputs are &#39;Shipping&#39;, &#39;Shop&#39;, &#39;Images&#39;, &#39;User&#39;, &#39;Translations&#39; and &#39;Inventory&#39;. Default value is an empty array. (optional)
      * @return ShopListingsWithAssociations
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1907,7 +1907,7 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ShopListingsWithAssociations getListingsByListingIds(List<Integer> listingIds, List<String> includes) throws ApiException {
+    public ShopListingsWithAssociations getListingsByListingIds(List<Long> listingIds, List<String> includes) throws ApiException {
         ApiResponse<ShopListingsWithAssociations> localVarResp = getListingsByListingIdsWithHttpInfo(listingIds, includes);
         return localVarResp.getData();
     }
@@ -1916,7 +1916,7 @@ public class ShopListingApi {
      * 
      * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Allows to query multiple listing ids at once. Limit 100 ids maximum per query.
      * @param listingIds The list of numeric IDS for the listings in a specific Etsy shop. (required)
-     * @param includes An enumerated string that attaches a valid association. Acceptable inputs are &#39;shop&#39;, &#39;images&#39;, &#39;user&#39; and &#39;translations&#39;. Default value is an empty array. (optional)
+     * @param includes An enumerated string that attaches a valid association. Acceptable inputs are &#39;Shipping&#39;, &#39;Shop&#39;, &#39;Images&#39;, &#39;User&#39;, &#39;Translations&#39; and &#39;Inventory&#39;. Default value is an empty array. (optional)
      * @return ApiResponse&lt;ShopListingsWithAssociations&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1928,7 +1928,7 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ShopListingsWithAssociations> getListingsByListingIdsWithHttpInfo(List<Integer> listingIds, List<String> includes) throws ApiException {
+    public ApiResponse<ShopListingsWithAssociations> getListingsByListingIdsWithHttpInfo(List<Long> listingIds, List<String> includes) throws ApiException {
         okhttp3.Call localVarCall = getListingsByListingIdsValidateBeforeCall(listingIds, includes, null);
         Type localVarReturnType = new TypeToken<ShopListingsWithAssociations>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -1938,7 +1938,7 @@ public class ShopListingApi {
      *  (asynchronously)
      * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Allows to query multiple listing ids at once. Limit 100 ids maximum per query.
      * @param listingIds The list of numeric IDS for the listings in a specific Etsy shop. (required)
-     * @param includes An enumerated string that attaches a valid association. Acceptable inputs are &#39;shop&#39;, &#39;images&#39;, &#39;user&#39; and &#39;translations&#39;. Default value is an empty array. (optional)
+     * @param includes An enumerated string that attaches a valid association. Acceptable inputs are &#39;Shipping&#39;, &#39;Shop&#39;, &#39;Images&#39;, &#39;User&#39;, &#39;Translations&#39; and &#39;Inventory&#39;. Default value is an empty array. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1951,7 +1951,7 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getListingsByListingIdsAsync(List<Integer> listingIds, List<String> includes, final ApiCallback<ShopListingsWithAssociations> _callback) throws ApiException {
+    public okhttp3.Call getListingsByListingIdsAsync(List<Long> listingIds, List<String> includes, final ApiCallback<ShopListingsWithAssociations> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getListingsByListingIdsValidateBeforeCall(listingIds, includes, _callback);
         Type localVarReturnType = new TypeToken<ShopListingsWithAssociations>(){}.getType();
@@ -1979,7 +1979,7 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getListingsByShopCall(Integer shopId, String state, Integer limit, Integer offset, String sortOn, String sortOrder, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getListingsByShopCall(Long shopId, String state, Long limit, Long offset, String sortOn, String sortOrder, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -2047,7 +2047,7 @@ public class ShopListingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getListingsByShopValidateBeforeCall(Integer shopId, String state, Integer limit, Integer offset, String sortOn, String sortOrder, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getListingsByShopValidateBeforeCall(Long shopId, String state, Long limit, Long offset, String sortOn, String sortOrder, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'shopId' is set
         if (shopId == null) {
@@ -2081,7 +2081,7 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ShopListings getListingsByShop(Integer shopId, String state, Integer limit, Integer offset, String sortOn, String sortOrder) throws ApiException {
+    public ShopListings getListingsByShop(Long shopId, String state, Long limit, Long offset, String sortOn, String sortOrder) throws ApiException {
         ApiResponse<ShopListings> localVarResp = getListingsByShopWithHttpInfo(shopId, state, limit, offset, sortOn, sortOrder);
         return localVarResp.getData();
     }
@@ -2107,7 +2107,7 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ShopListings> getListingsByShopWithHttpInfo(Integer shopId, String state, Integer limit, Integer offset, String sortOn, String sortOrder) throws ApiException {
+    public ApiResponse<ShopListings> getListingsByShopWithHttpInfo(Long shopId, String state, Long limit, Long offset, String sortOn, String sortOrder) throws ApiException {
         okhttp3.Call localVarCall = getListingsByShopValidateBeforeCall(shopId, state, limit, offset, sortOn, sortOrder, null);
         Type localVarReturnType = new TypeToken<ShopListings>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -2135,7 +2135,7 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getListingsByShopAsync(Integer shopId, String state, Integer limit, Integer offset, String sortOn, String sortOrder, final ApiCallback<ShopListings> _callback) throws ApiException {
+    public okhttp3.Call getListingsByShopAsync(Long shopId, String state, Long limit, Long offset, String sortOn, String sortOrder, final ApiCallback<ShopListings> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getListingsByShopValidateBeforeCall(shopId, state, limit, offset, sortOn, sortOrder, _callback);
         Type localVarReturnType = new TypeToken<ShopListings>(){}.getType();
@@ -2162,7 +2162,7 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getListingsByShopReceiptCall(Integer receiptId, Integer shopId, Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getListingsByShopReceiptCall(Long receiptId, Long shopId, Long limit, Long offset, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -2219,7 +2219,7 @@ public class ShopListingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getListingsByShopReceiptValidateBeforeCall(Integer receiptId, Integer shopId, Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getListingsByShopReceiptValidateBeforeCall(Long receiptId, Long shopId, Long limit, Long offset, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'receiptId' is set
         if (receiptId == null) {
@@ -2257,7 +2257,7 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ShopListings getListingsByShopReceipt(Integer receiptId, Integer shopId, Integer limit, Integer offset) throws ApiException {
+    public ShopListings getListingsByShopReceipt(Long receiptId, Long shopId, Long limit, Long offset) throws ApiException {
         ApiResponse<ShopListings> localVarResp = getListingsByShopReceiptWithHttpInfo(receiptId, shopId, limit, offset);
         return localVarResp.getData();
     }
@@ -2282,7 +2282,7 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ShopListings> getListingsByShopReceiptWithHttpInfo(Integer receiptId, Integer shopId, Integer limit, Integer offset) throws ApiException {
+    public ApiResponse<ShopListings> getListingsByShopReceiptWithHttpInfo(Long receiptId, Long shopId, Long limit, Long offset) throws ApiException {
         okhttp3.Call localVarCall = getListingsByShopReceiptValidateBeforeCall(receiptId, shopId, limit, offset, null);
         Type localVarReturnType = new TypeToken<ShopListings>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -2309,7 +2309,7 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getListingsByShopReceiptAsync(Integer receiptId, Integer shopId, Integer limit, Integer offset, final ApiCallback<ShopListings> _callback) throws ApiException {
+    public okhttp3.Call getListingsByShopReceiptAsync(Long receiptId, Long shopId, Long limit, Long offset, final ApiCallback<ShopListings> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getListingsByShopReceiptValidateBeforeCall(receiptId, shopId, limit, offset, _callback);
         Type localVarReturnType = new TypeToken<ShopListings>(){}.getType();
@@ -2335,7 +2335,7 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getListingsByShopSectionIdCall(Integer shopId, List<Integer> shopSectionIds, Integer limit, Integer offset, String sortOn, String sortOrder, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getListingsByShopSectionIdCall(Long shopId, List<Long> shopSectionIds, Long limit, Long offset, String sortOn, String sortOrder, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -2403,7 +2403,7 @@ public class ShopListingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getListingsByShopSectionIdValidateBeforeCall(Integer shopId, List<Integer> shopSectionIds, Integer limit, Integer offset, String sortOn, String sortOrder, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getListingsByShopSectionIdValidateBeforeCall(Long shopId, List<Long> shopSectionIds, Long limit, Long offset, String sortOn, String sortOrder, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'shopId' is set
         if (shopId == null) {
@@ -2440,7 +2440,7 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ShopListings getListingsByShopSectionId(Integer shopId, List<Integer> shopSectionIds, Integer limit, Integer offset, String sortOn, String sortOrder) throws ApiException {
+    public ShopListings getListingsByShopSectionId(Long shopId, List<Long> shopSectionIds, Long limit, Long offset, String sortOn, String sortOrder) throws ApiException {
         ApiResponse<ShopListings> localVarResp = getListingsByShopSectionIdWithHttpInfo(shopId, shopSectionIds, limit, offset, sortOn, sortOrder);
         return localVarResp.getData();
     }
@@ -2464,7 +2464,7 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ShopListings> getListingsByShopSectionIdWithHttpInfo(Integer shopId, List<Integer> shopSectionIds, Integer limit, Integer offset, String sortOn, String sortOrder) throws ApiException {
+    public ApiResponse<ShopListings> getListingsByShopSectionIdWithHttpInfo(Long shopId, List<Long> shopSectionIds, Long limit, Long offset, String sortOn, String sortOrder) throws ApiException {
         okhttp3.Call localVarCall = getListingsByShopSectionIdValidateBeforeCall(shopId, shopSectionIds, limit, offset, sortOn, sortOrder, null);
         Type localVarReturnType = new TypeToken<ShopListings>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -2490,7 +2490,7 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getListingsByShopSectionIdAsync(Integer shopId, List<Integer> shopSectionIds, Integer limit, Integer offset, String sortOn, String sortOrder, final ApiCallback<ShopListings> _callback) throws ApiException {
+    public okhttp3.Call getListingsByShopSectionIdAsync(Long shopId, List<Long> shopSectionIds, Long limit, Long offset, String sortOn, String sortOrder, final ApiCallback<ShopListings> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getListingsByShopSectionIdValidateBeforeCall(shopId, shopSectionIds, limit, offset, sortOn, sortOrder, _callback);
         Type localVarReturnType = new TypeToken<ShopListings>(){}.getType();
@@ -2503,7 +2503,7 @@ public class ShopListingApi {
      * @param listingId The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. (required)
      * @param imageIds An array of numeric image IDs of the images in a listing, which can include up to 10 images. (optional)
      * @param quantity The positive non-zero number of products available for purchase in the listing. Note: The listing quantity is the sum of available offering quantities. You can request the quantities for individual offerings from the ListingInventory resource using the [getListingInventory](/documentation/reference#operation/getListingInventory) endpoint. (optional)
-     * @param price The positive non-zero price of the product. (Sold product listings are private) Note: The price is the minimum possible price. The getInventory method requests exact prices for available offerings. (optional)
+     * @param price The positive non-zero price of the product. (Sold product listings are private) Note: The price is the minimum possible price. The [&#x60;getListingInventory&#x60;](/documentation/reference/#operation/getListingInventory) method requests exact prices for available offerings. (optional)
      * @param title The listing&#39;s title string. Valid title strings contain only letters, numbers, punctuation marks, mathematical symbols, whitespace characters, ™, ©, and ®. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{P}\\\\p{Sm}\\\\p{Zs}™©®]/u) You can only use the %, :, &amp; and + characters once each. (optional)
      * @param description A description string of the product for sale in the listing. (optional)
      * @param materials A list of material strings for materials used in the product. Valid materials strings contain only letters, numbers, and whitespace characters. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{Zs}]/u) Default value is null. (optional)
@@ -2545,7 +2545,7 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateListingCall(Integer shopId, Integer listingId, List<Integer> imageIds, Integer quantity, Float price, String title, String description, List<String> materials, Boolean shouldAutoRenew, Integer shippingProfileId, Integer shopSectionId, Float itemWeight, Float itemLength, Float itemWidth, Float itemHeight, String itemWeightUnit, String itemDimensionsUnit, Boolean isTaxable, Integer taxonomyId, List<String> tags, String whoMade, String whenMade, Integer featuredRank, Boolean isPersonalizable, Boolean personalizationIsRequired, Integer personalizationCharCountMax, String personalizationInstructions, String state, Boolean isSupply, List<Integer> productionPartnerIds, String type, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateListingCall(Long shopId, Long listingId, List<Long> imageIds, Long quantity, Float price, String title, String description, List<String> materials, Boolean shouldAutoRenew, Long shippingProfileId, Long shopSectionId, Float itemWeight, Float itemLength, Float itemWidth, Float itemHeight, String itemWeightUnit, String itemDimensionsUnit, Boolean isTaxable, Long taxonomyId, List<String> tags, String whoMade, String whenMade, Long featuredRank, Boolean isPersonalizable, Boolean personalizationIsRequired, Long personalizationCharCountMax, String personalizationInstructions, String state, Boolean isSupply, List<Long> productionPartnerIds, String type, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -2710,7 +2710,7 @@ public class ShopListingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateListingValidateBeforeCall(Integer shopId, Integer listingId, List<Integer> imageIds, Integer quantity, Float price, String title, String description, List<String> materials, Boolean shouldAutoRenew, Integer shippingProfileId, Integer shopSectionId, Float itemWeight, Float itemLength, Float itemWidth, Float itemHeight, String itemWeightUnit, String itemDimensionsUnit, Boolean isTaxable, Integer taxonomyId, List<String> tags, String whoMade, String whenMade, Integer featuredRank, Boolean isPersonalizable, Boolean personalizationIsRequired, Integer personalizationCharCountMax, String personalizationInstructions, String state, Boolean isSupply, List<Integer> productionPartnerIds, String type, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateListingValidateBeforeCall(Long shopId, Long listingId, List<Long> imageIds, Long quantity, Float price, String title, String description, List<String> materials, Boolean shouldAutoRenew, Long shippingProfileId, Long shopSectionId, Float itemWeight, Float itemLength, Float itemWidth, Float itemHeight, String itemWeightUnit, String itemDimensionsUnit, Boolean isTaxable, Long taxonomyId, List<String> tags, String whoMade, String whenMade, Long featuredRank, Boolean isPersonalizable, Boolean personalizationIsRequired, Long personalizationCharCountMax, String personalizationInstructions, String state, Boolean isSupply, List<Long> productionPartnerIds, String type, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'shopId' is set
         if (shopId == null) {
@@ -2735,7 +2735,7 @@ public class ShopListingApi {
      * @param listingId The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. (required)
      * @param imageIds An array of numeric image IDs of the images in a listing, which can include up to 10 images. (optional)
      * @param quantity The positive non-zero number of products available for purchase in the listing. Note: The listing quantity is the sum of available offering quantities. You can request the quantities for individual offerings from the ListingInventory resource using the [getListingInventory](/documentation/reference#operation/getListingInventory) endpoint. (optional)
-     * @param price The positive non-zero price of the product. (Sold product listings are private) Note: The price is the minimum possible price. The getInventory method requests exact prices for available offerings. (optional)
+     * @param price The positive non-zero price of the product. (Sold product listings are private) Note: The price is the minimum possible price. The [&#x60;getListingInventory&#x60;](/documentation/reference/#operation/getListingInventory) method requests exact prices for available offerings. (optional)
      * @param title The listing&#39;s title string. Valid title strings contain only letters, numbers, punctuation marks, mathematical symbols, whitespace characters, ™, ©, and ®. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{P}\\\\p{Sm}\\\\p{Zs}™©®]/u) You can only use the %, :, &amp; and + characters once each. (optional)
      * @param description A description string of the product for sale in the listing. (optional)
      * @param materials A list of material strings for materials used in the product. Valid materials strings contain only letters, numbers, and whitespace characters. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{Zs}]/u) Default value is null. (optional)
@@ -2776,7 +2776,7 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ShopListing updateListing(Integer shopId, Integer listingId, List<Integer> imageIds, Integer quantity, Float price, String title, String description, List<String> materials, Boolean shouldAutoRenew, Integer shippingProfileId, Integer shopSectionId, Float itemWeight, Float itemLength, Float itemWidth, Float itemHeight, String itemWeightUnit, String itemDimensionsUnit, Boolean isTaxable, Integer taxonomyId, List<String> tags, String whoMade, String whenMade, Integer featuredRank, Boolean isPersonalizable, Boolean personalizationIsRequired, Integer personalizationCharCountMax, String personalizationInstructions, String state, Boolean isSupply, List<Integer> productionPartnerIds, String type) throws ApiException {
+    public ShopListing updateListing(Long shopId, Long listingId, List<Long> imageIds, Long quantity, Float price, String title, String description, List<String> materials, Boolean shouldAutoRenew, Long shippingProfileId, Long shopSectionId, Float itemWeight, Float itemLength, Float itemWidth, Float itemHeight, String itemWeightUnit, String itemDimensionsUnit, Boolean isTaxable, Long taxonomyId, List<String> tags, String whoMade, String whenMade, Long featuredRank, Boolean isPersonalizable, Boolean personalizationIsRequired, Long personalizationCharCountMax, String personalizationInstructions, String state, Boolean isSupply, List<Long> productionPartnerIds, String type) throws ApiException {
         ApiResponse<ShopListing> localVarResp = updateListingWithHttpInfo(shopId, listingId, imageIds, quantity, price, title, description, materials, shouldAutoRenew, shippingProfileId, shopSectionId, itemWeight, itemLength, itemWidth, itemHeight, itemWeightUnit, itemDimensionsUnit, isTaxable, taxonomyId, tags, whoMade, whenMade, featuredRank, isPersonalizable, personalizationIsRequired, personalizationCharCountMax, personalizationInstructions, state, isSupply, productionPartnerIds, type);
         return localVarResp.getData();
     }
@@ -2788,7 +2788,7 @@ public class ShopListingApi {
      * @param listingId The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. (required)
      * @param imageIds An array of numeric image IDs of the images in a listing, which can include up to 10 images. (optional)
      * @param quantity The positive non-zero number of products available for purchase in the listing. Note: The listing quantity is the sum of available offering quantities. You can request the quantities for individual offerings from the ListingInventory resource using the [getListingInventory](/documentation/reference#operation/getListingInventory) endpoint. (optional)
-     * @param price The positive non-zero price of the product. (Sold product listings are private) Note: The price is the minimum possible price. The getInventory method requests exact prices for available offerings. (optional)
+     * @param price The positive non-zero price of the product. (Sold product listings are private) Note: The price is the minimum possible price. The [&#x60;getListingInventory&#x60;](/documentation/reference/#operation/getListingInventory) method requests exact prices for available offerings. (optional)
      * @param title The listing&#39;s title string. Valid title strings contain only letters, numbers, punctuation marks, mathematical symbols, whitespace characters, ™, ©, and ®. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{P}\\\\p{Sm}\\\\p{Zs}™©®]/u) You can only use the %, :, &amp; and + characters once each. (optional)
      * @param description A description string of the product for sale in the listing. (optional)
      * @param materials A list of material strings for materials used in the product. Valid materials strings contain only letters, numbers, and whitespace characters. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{Zs}]/u) Default value is null. (optional)
@@ -2829,7 +2829,7 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ShopListing> updateListingWithHttpInfo(Integer shopId, Integer listingId, List<Integer> imageIds, Integer quantity, Float price, String title, String description, List<String> materials, Boolean shouldAutoRenew, Integer shippingProfileId, Integer shopSectionId, Float itemWeight, Float itemLength, Float itemWidth, Float itemHeight, String itemWeightUnit, String itemDimensionsUnit, Boolean isTaxable, Integer taxonomyId, List<String> tags, String whoMade, String whenMade, Integer featuredRank, Boolean isPersonalizable, Boolean personalizationIsRequired, Integer personalizationCharCountMax, String personalizationInstructions, String state, Boolean isSupply, List<Integer> productionPartnerIds, String type) throws ApiException {
+    public ApiResponse<ShopListing> updateListingWithHttpInfo(Long shopId, Long listingId, List<Long> imageIds, Long quantity, Float price, String title, String description, List<String> materials, Boolean shouldAutoRenew, Long shippingProfileId, Long shopSectionId, Float itemWeight, Float itemLength, Float itemWidth, Float itemHeight, String itemWeightUnit, String itemDimensionsUnit, Boolean isTaxable, Long taxonomyId, List<String> tags, String whoMade, String whenMade, Long featuredRank, Boolean isPersonalizable, Boolean personalizationIsRequired, Long personalizationCharCountMax, String personalizationInstructions, String state, Boolean isSupply, List<Long> productionPartnerIds, String type) throws ApiException {
         okhttp3.Call localVarCall = updateListingValidateBeforeCall(shopId, listingId, imageIds, quantity, price, title, description, materials, shouldAutoRenew, shippingProfileId, shopSectionId, itemWeight, itemLength, itemWidth, itemHeight, itemWeightUnit, itemDimensionsUnit, isTaxable, taxonomyId, tags, whoMade, whenMade, featuredRank, isPersonalizable, personalizationIsRequired, personalizationCharCountMax, personalizationInstructions, state, isSupply, productionPartnerIds, type, null);
         Type localVarReturnType = new TypeToken<ShopListing>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -2842,7 +2842,7 @@ public class ShopListingApi {
      * @param listingId The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. (required)
      * @param imageIds An array of numeric image IDs of the images in a listing, which can include up to 10 images. (optional)
      * @param quantity The positive non-zero number of products available for purchase in the listing. Note: The listing quantity is the sum of available offering quantities. You can request the quantities for individual offerings from the ListingInventory resource using the [getListingInventory](/documentation/reference#operation/getListingInventory) endpoint. (optional)
-     * @param price The positive non-zero price of the product. (Sold product listings are private) Note: The price is the minimum possible price. The getInventory method requests exact prices for available offerings. (optional)
+     * @param price The positive non-zero price of the product. (Sold product listings are private) Note: The price is the minimum possible price. The [&#x60;getListingInventory&#x60;](/documentation/reference/#operation/getListingInventory) method requests exact prices for available offerings. (optional)
      * @param title The listing&#39;s title string. Valid title strings contain only letters, numbers, punctuation marks, mathematical symbols, whitespace characters, ™, ©, and ®. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{P}\\\\p{Sm}\\\\p{Zs}™©®]/u) You can only use the %, :, &amp; and + characters once each. (optional)
      * @param description A description string of the product for sale in the listing. (optional)
      * @param materials A list of material strings for materials used in the product. Valid materials strings contain only letters, numbers, and whitespace characters. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{Zs}]/u) Default value is null. (optional)
@@ -2884,7 +2884,7 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateListingAsync(Integer shopId, Integer listingId, List<Integer> imageIds, Integer quantity, Float price, String title, String description, List<String> materials, Boolean shouldAutoRenew, Integer shippingProfileId, Integer shopSectionId, Float itemWeight, Float itemLength, Float itemWidth, Float itemHeight, String itemWeightUnit, String itemDimensionsUnit, Boolean isTaxable, Integer taxonomyId, List<String> tags, String whoMade, String whenMade, Integer featuredRank, Boolean isPersonalizable, Boolean personalizationIsRequired, Integer personalizationCharCountMax, String personalizationInstructions, String state, Boolean isSupply, List<Integer> productionPartnerIds, String type, final ApiCallback<ShopListing> _callback) throws ApiException {
+    public okhttp3.Call updateListingAsync(Long shopId, Long listingId, List<Long> imageIds, Long quantity, Float price, String title, String description, List<String> materials, Boolean shouldAutoRenew, Long shippingProfileId, Long shopSectionId, Float itemWeight, Float itemLength, Float itemWidth, Float itemHeight, String itemWeightUnit, String itemDimensionsUnit, Boolean isTaxable, Long taxonomyId, List<String> tags, String whoMade, String whenMade, Long featuredRank, Boolean isPersonalizable, Boolean personalizationIsRequired, Long personalizationCharCountMax, String personalizationInstructions, String state, Boolean isSupply, List<Long> productionPartnerIds, String type, final ApiCallback<ShopListing> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateListingValidateBeforeCall(shopId, listingId, imageIds, quantity, price, title, description, materials, shouldAutoRenew, shippingProfileId, shopSectionId, itemWeight, itemLength, itemWidth, itemHeight, itemWeightUnit, itemDimensionsUnit, isTaxable, taxonomyId, tags, whoMade, whenMade, featuredRank, isPersonalizable, personalizationIsRequired, personalizationCharCountMax, personalizationInstructions, state, isSupply, productionPartnerIds, type, _callback);
         Type localVarReturnType = new TypeToken<ShopListing>(){}.getType();
@@ -2913,7 +2913,7 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateListingPropertyCall(Integer shopId, Integer listingId, Integer propertyId, List<Integer> valueIds, List<String> values, Integer scaleId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateListingPropertyCall(Long shopId, Long listingId, Long propertyId, List<Long> valueIds, List<String> values, Long scaleId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -2975,7 +2975,7 @@ public class ShopListingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateListingPropertyValidateBeforeCall(Integer shopId, Integer listingId, Integer propertyId, List<Integer> valueIds, List<String> values, Integer scaleId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateListingPropertyValidateBeforeCall(Long shopId, Long listingId, Long propertyId, List<Long> valueIds, List<String> values, Long scaleId, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'shopId' is set
         if (shopId == null) {
@@ -3030,7 +3030,7 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ListingPropertyValue updateListingProperty(Integer shopId, Integer listingId, Integer propertyId, List<Integer> valueIds, List<String> values, Integer scaleId) throws ApiException {
+    public ListingPropertyValue updateListingProperty(Long shopId, Long listingId, Long propertyId, List<Long> valueIds, List<String> values, Long scaleId) throws ApiException {
         ApiResponse<ListingPropertyValue> localVarResp = updateListingPropertyWithHttpInfo(shopId, listingId, propertyId, valueIds, values, scaleId);
         return localVarResp.getData();
     }
@@ -3057,7 +3057,7 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ListingPropertyValue> updateListingPropertyWithHttpInfo(Integer shopId, Integer listingId, Integer propertyId, List<Integer> valueIds, List<String> values, Integer scaleId) throws ApiException {
+    public ApiResponse<ListingPropertyValue> updateListingPropertyWithHttpInfo(Long shopId, Long listingId, Long propertyId, List<Long> valueIds, List<String> values, Long scaleId) throws ApiException {
         okhttp3.Call localVarCall = updateListingPropertyValidateBeforeCall(shopId, listingId, propertyId, valueIds, values, scaleId, null);
         Type localVarReturnType = new TypeToken<ListingPropertyValue>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -3086,7 +3086,7 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateListingPropertyAsync(Integer shopId, Integer listingId, Integer propertyId, List<Integer> valueIds, List<String> values, Integer scaleId, final ApiCallback<ListingPropertyValue> _callback) throws ApiException {
+    public okhttp3.Call updateListingPropertyAsync(Long shopId, Long listingId, Long propertyId, List<Long> valueIds, List<String> values, Long scaleId, final ApiCallback<ListingPropertyValue> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateListingPropertyValidateBeforeCall(shopId, listingId, propertyId, valueIds, values, scaleId, _callback);
         Type localVarReturnType = new TypeToken<ListingPropertyValue>(){}.getType();

@@ -81,6 +81,7 @@ public class ShopReceiptApi {
      * @param trackingCode The tracking code for this receipt. (optional)
      * @param carrierName The carrier name for this receipt. (optional)
      * @param sendBcc If true, the shipping notification will be sent to the seller as well (optional)
+     * @param noteToBuyer Message to include in notification to the buyer. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -96,7 +97,7 @@ public class ShopReceiptApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createReceiptShipmentCall(Integer shopId, Integer receiptId, String trackingCode, String carrierName, Boolean sendBcc, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createReceiptShipmentCall(Long shopId, Long receiptId, String trackingCode, String carrierName, Boolean sendBcc, String noteToBuyer, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -136,6 +137,10 @@ public class ShopReceiptApi {
             localVarFormParams.put("send_bcc", sendBcc);
         }
 
+        if (noteToBuyer != null) {
+            localVarFormParams.put("note_to_buyer", noteToBuyer);
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -157,7 +162,7 @@ public class ShopReceiptApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createReceiptShipmentValidateBeforeCall(Integer shopId, Integer receiptId, String trackingCode, String carrierName, Boolean sendBcc, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createReceiptShipmentValidateBeforeCall(Long shopId, Long receiptId, String trackingCode, String carrierName, Boolean sendBcc, String noteToBuyer, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'shopId' is set
         if (shopId == null) {
@@ -170,7 +175,7 @@ public class ShopReceiptApi {
         }
         
 
-        okhttp3.Call localVarCall = createReceiptShipmentCall(shopId, receiptId, trackingCode, carrierName, sendBcc, _callback);
+        okhttp3.Call localVarCall = createReceiptShipmentCall(shopId, receiptId, trackingCode, carrierName, sendBcc, noteToBuyer, _callback);
         return localVarCall;
 
     }
@@ -183,6 +188,7 @@ public class ShopReceiptApi {
      * @param trackingCode The tracking code for this receipt. (optional)
      * @param carrierName The carrier name for this receipt. (optional)
      * @param sendBcc If true, the shipping notification will be sent to the seller as well (optional)
+     * @param noteToBuyer Message to include in notification to the buyer. (optional)
      * @return ShopReceipt
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -197,8 +203,8 @@ public class ShopReceiptApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ShopReceipt createReceiptShipment(Integer shopId, Integer receiptId, String trackingCode, String carrierName, Boolean sendBcc) throws ApiException {
-        ApiResponse<ShopReceipt> localVarResp = createReceiptShipmentWithHttpInfo(shopId, receiptId, trackingCode, carrierName, sendBcc);
+    public ShopReceipt createReceiptShipment(Long shopId, Long receiptId, String trackingCode, String carrierName, Boolean sendBcc, String noteToBuyer) throws ApiException {
+        ApiResponse<ShopReceipt> localVarResp = createReceiptShipmentWithHttpInfo(shopId, receiptId, trackingCode, carrierName, sendBcc, noteToBuyer);
         return localVarResp.getData();
     }
 
@@ -210,6 +216,7 @@ public class ShopReceiptApi {
      * @param trackingCode The tracking code for this receipt. (optional)
      * @param carrierName The carrier name for this receipt. (optional)
      * @param sendBcc If true, the shipping notification will be sent to the seller as well (optional)
+     * @param noteToBuyer Message to include in notification to the buyer. (optional)
      * @return ApiResponse&lt;ShopReceipt&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -224,8 +231,8 @@ public class ShopReceiptApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ShopReceipt> createReceiptShipmentWithHttpInfo(Integer shopId, Integer receiptId, String trackingCode, String carrierName, Boolean sendBcc) throws ApiException {
-        okhttp3.Call localVarCall = createReceiptShipmentValidateBeforeCall(shopId, receiptId, trackingCode, carrierName, sendBcc, null);
+    public ApiResponse<ShopReceipt> createReceiptShipmentWithHttpInfo(Long shopId, Long receiptId, String trackingCode, String carrierName, Boolean sendBcc, String noteToBuyer) throws ApiException {
+        okhttp3.Call localVarCall = createReceiptShipmentValidateBeforeCall(shopId, receiptId, trackingCode, carrierName, sendBcc, noteToBuyer, null);
         Type localVarReturnType = new TypeToken<ShopReceipt>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -238,6 +245,7 @@ public class ShopReceiptApi {
      * @param trackingCode The tracking code for this receipt. (optional)
      * @param carrierName The carrier name for this receipt. (optional)
      * @param sendBcc If true, the shipping notification will be sent to the seller as well (optional)
+     * @param noteToBuyer Message to include in notification to the buyer. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -253,9 +261,9 @@ public class ShopReceiptApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createReceiptShipmentAsync(Integer shopId, Integer receiptId, String trackingCode, String carrierName, Boolean sendBcc, final ApiCallback<ShopReceipt> _callback) throws ApiException {
+    public okhttp3.Call createReceiptShipmentAsync(Long shopId, Long receiptId, String trackingCode, String carrierName, Boolean sendBcc, String noteToBuyer, final ApiCallback<ShopReceipt> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createReceiptShipmentValidateBeforeCall(shopId, receiptId, trackingCode, carrierName, sendBcc, _callback);
+        okhttp3.Call localVarCall = createReceiptShipmentValidateBeforeCall(shopId, receiptId, trackingCode, carrierName, sendBcc, noteToBuyer, _callback);
         Type localVarReturnType = new TypeToken<ShopReceipt>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -278,7 +286,7 @@ public class ShopReceiptApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getShopReceiptCall(Integer shopId, Integer receiptId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getShopReceiptCall(Long shopId, Long receiptId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -327,7 +335,7 @@ public class ShopReceiptApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getShopReceiptValidateBeforeCall(Integer shopId, Integer receiptId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getShopReceiptValidateBeforeCall(Long shopId, Long receiptId, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'shopId' is set
         if (shopId == null) {
@@ -363,7 +371,7 @@ public class ShopReceiptApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ShopReceipt getShopReceipt(Integer shopId, Integer receiptId) throws ApiException {
+    public ShopReceipt getShopReceipt(Long shopId, Long receiptId) throws ApiException {
         ApiResponse<ShopReceipt> localVarResp = getShopReceiptWithHttpInfo(shopId, receiptId);
         return localVarResp.getData();
     }
@@ -386,7 +394,7 @@ public class ShopReceiptApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ShopReceipt> getShopReceiptWithHttpInfo(Integer shopId, Integer receiptId) throws ApiException {
+    public ApiResponse<ShopReceipt> getShopReceiptWithHttpInfo(Long shopId, Long receiptId) throws ApiException {
         okhttp3.Call localVarCall = getShopReceiptValidateBeforeCall(shopId, receiptId, null);
         Type localVarReturnType = new TypeToken<ShopReceipt>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -411,7 +419,7 @@ public class ShopReceiptApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getShopReceiptAsync(Integer shopId, Integer receiptId, final ApiCallback<ShopReceipt> _callback) throws ApiException {
+    public okhttp3.Call getShopReceiptAsync(Long shopId, Long receiptId, final ApiCallback<ShopReceipt> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getShopReceiptValidateBeforeCall(shopId, receiptId, _callback);
         Type localVarReturnType = new TypeToken<ShopReceipt>(){}.getType();
@@ -444,7 +452,7 @@ public class ShopReceiptApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getShopReceiptsCall(Integer shopId, Integer minCreated, Integer maxCreated, Integer minLastModified, Integer maxLastModified, Integer limit, Integer offset, Boolean wasPaid, Boolean wasShipped, Boolean wasDelivered, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getShopReceiptsCall(Long shopId, Long minCreated, Long maxCreated, Long minLastModified, Long maxLastModified, Long limit, Long offset, Boolean wasPaid, Boolean wasShipped, Boolean wasDelivered, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -528,7 +536,7 @@ public class ShopReceiptApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getShopReceiptsValidateBeforeCall(Integer shopId, Integer minCreated, Integer maxCreated, Integer minLastModified, Integer maxLastModified, Integer limit, Integer offset, Boolean wasPaid, Boolean wasShipped, Boolean wasDelivered, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getShopReceiptsValidateBeforeCall(Long shopId, Long minCreated, Long maxCreated, Long minLastModified, Long maxLastModified, Long limit, Long offset, Boolean wasPaid, Boolean wasShipped, Boolean wasDelivered, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'shopId' is set
         if (shopId == null) {
@@ -567,7 +575,7 @@ public class ShopReceiptApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ShopReceipts getShopReceipts(Integer shopId, Integer minCreated, Integer maxCreated, Integer minLastModified, Integer maxLastModified, Integer limit, Integer offset, Boolean wasPaid, Boolean wasShipped, Boolean wasDelivered) throws ApiException {
+    public ShopReceipts getShopReceipts(Long shopId, Long minCreated, Long maxCreated, Long minLastModified, Long maxLastModified, Long limit, Long offset, Boolean wasPaid, Boolean wasShipped, Boolean wasDelivered) throws ApiException {
         ApiResponse<ShopReceipts> localVarResp = getShopReceiptsWithHttpInfo(shopId, minCreated, maxCreated, minLastModified, maxLastModified, limit, offset, wasPaid, wasShipped, wasDelivered);
         return localVarResp.getData();
     }
@@ -598,7 +606,7 @@ public class ShopReceiptApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ShopReceipts> getShopReceiptsWithHttpInfo(Integer shopId, Integer minCreated, Integer maxCreated, Integer minLastModified, Integer maxLastModified, Integer limit, Integer offset, Boolean wasPaid, Boolean wasShipped, Boolean wasDelivered) throws ApiException {
+    public ApiResponse<ShopReceipts> getShopReceiptsWithHttpInfo(Long shopId, Long minCreated, Long maxCreated, Long minLastModified, Long maxLastModified, Long limit, Long offset, Boolean wasPaid, Boolean wasShipped, Boolean wasDelivered) throws ApiException {
         okhttp3.Call localVarCall = getShopReceiptsValidateBeforeCall(shopId, minCreated, maxCreated, minLastModified, maxLastModified, limit, offset, wasPaid, wasShipped, wasDelivered, null);
         Type localVarReturnType = new TypeToken<ShopReceipts>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -631,7 +639,7 @@ public class ShopReceiptApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getShopReceiptsAsync(Integer shopId, Integer minCreated, Integer maxCreated, Integer minLastModified, Integer maxLastModified, Integer limit, Integer offset, Boolean wasPaid, Boolean wasShipped, Boolean wasDelivered, final ApiCallback<ShopReceipts> _callback) throws ApiException {
+    public okhttp3.Call getShopReceiptsAsync(Long shopId, Long minCreated, Long maxCreated, Long minLastModified, Long maxLastModified, Long limit, Long offset, Boolean wasPaid, Boolean wasShipped, Boolean wasDelivered, final ApiCallback<ShopReceipts> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getShopReceiptsValidateBeforeCall(shopId, minCreated, maxCreated, minLastModified, maxLastModified, limit, offset, wasPaid, wasShipped, wasDelivered, _callback);
         Type localVarReturnType = new TypeToken<ShopReceipts>(){}.getType();

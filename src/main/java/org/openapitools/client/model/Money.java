@@ -28,15 +28,15 @@ import java.io.IOException;
  * A representation of an amount of money.
  */
 @ApiModel(description = "A representation of an amount of money.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-04-08T15:52:16.342-04:00[America/Toronto]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-07T10:51:54.559-04:00[America/Toronto]")
 public class Money {
   public static final String SERIALIZED_NAME_AMOUNT = "amount";
   @SerializedName(SERIALIZED_NAME_AMOUNT)
-  private Integer amount;
+  private Long amount;
 
   public static final String SERIALIZED_NAME_DIVISOR = "divisor";
   @SerializedName(SERIALIZED_NAME_DIVISOR)
-  private Integer divisor;
+  private Long divisor;
 
   public static final String SERIALIZED_NAME_CURRENCY_CODE = "currency_code";
   @SerializedName(SERIALIZED_NAME_CURRENCY_CODE)
@@ -45,7 +45,7 @@ public class Money {
   public Money() { 
   }
 
-  public Money amount(Integer amount) {
+  public Money amount(Long amount) {
     
     this.amount = amount;
     return this;
@@ -58,17 +58,17 @@ public class Money {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The amount of represented by this data.")
 
-  public Integer getAmount() {
+  public Long getAmount() {
     return amount;
   }
 
 
-  public void setAmount(Integer amount) {
+  public void setAmount(Long amount) {
     this.amount = amount;
   }
 
 
-  public Money divisor(Integer divisor) {
+  public Money divisor(Long divisor) {
     
     this.divisor = divisor;
     return this;
@@ -82,12 +82,12 @@ public class Money {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The divisor to render the amount.")
 
-  public Integer getDivisor() {
+  public Long getDivisor() {
     return divisor;
   }
 
 
-  public void setDivisor(Integer divisor) {
+  public void setDivisor(Long divisor) {
     this.divisor = divisor;
   }
 

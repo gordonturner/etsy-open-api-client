@@ -28,15 +28,15 @@ import java.io.IOException;
  * Reference urls and metadata for an image associated with a specific listing. The &#x60;url_fullxfull&#x60; parameter contains the URL for full-sized binary image file.
  */
 @ApiModel(description = "Reference urls and metadata for an image associated with a specific listing. The `url_fullxfull` parameter contains the URL for full-sized binary image file.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-04-08T15:52:16.342-04:00[America/Toronto]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-07T10:51:54.559-04:00[America/Toronto]")
 public class ListingImage {
   public static final String SERIALIZED_NAME_LISTING_ID = "listing_id";
   @SerializedName(SERIALIZED_NAME_LISTING_ID)
-  private Integer listingId;
+  private Long listingId;
 
   public static final String SERIALIZED_NAME_LISTING_IMAGE_ID = "listing_image_id";
   @SerializedName(SERIALIZED_NAME_LISTING_IMAGE_ID)
-  private Integer listingImageId;
+  private Long listingImageId;
 
   public static final String SERIALIZED_NAME_HEX_CODE = "hex_code";
   @SerializedName(SERIALIZED_NAME_HEX_CODE)
@@ -44,27 +44,27 @@ public class ListingImage {
 
   public static final String SERIALIZED_NAME_RED = "red";
   @SerializedName(SERIALIZED_NAME_RED)
-  private Integer red;
+  private Long red;
 
   public static final String SERIALIZED_NAME_GREEN = "green";
   @SerializedName(SERIALIZED_NAME_GREEN)
-  private Integer green;
+  private Long green;
 
   public static final String SERIALIZED_NAME_BLUE = "blue";
   @SerializedName(SERIALIZED_NAME_BLUE)
-  private Integer blue;
+  private Long blue;
 
   public static final String SERIALIZED_NAME_HUE = "hue";
   @SerializedName(SERIALIZED_NAME_HUE)
-  private Integer hue;
+  private Long hue;
 
   public static final String SERIALIZED_NAME_SATURATION = "saturation";
   @SerializedName(SERIALIZED_NAME_SATURATION)
-  private Integer saturation;
+  private Long saturation;
 
   public static final String SERIALIZED_NAME_BRIGHTNESS = "brightness";
   @SerializedName(SERIALIZED_NAME_BRIGHTNESS)
-  private Integer brightness;
+  private Long brightness;
 
   public static final String SERIALIZED_NAME_IS_BLACK_AND_WHITE = "is_black_and_white";
   @SerializedName(SERIALIZED_NAME_IS_BLACK_AND_WHITE)
@@ -72,11 +72,11 @@ public class ListingImage {
 
   public static final String SERIALIZED_NAME_CREATION_TSZ = "creation_tsz";
   @SerializedName(SERIALIZED_NAME_CREATION_TSZ)
-  private Integer creationTsz;
+  private Long creationTsz;
 
   public static final String SERIALIZED_NAME_RANK = "rank";
   @SerializedName(SERIALIZED_NAME_RANK)
-  private Integer rank;
+  private Long rank;
 
   public static final String SERIALIZED_NAME_URL75X75 = "url_75x75";
   @SerializedName(SERIALIZED_NAME_URL75X75)
@@ -96,16 +96,16 @@ public class ListingImage {
 
   public static final String SERIALIZED_NAME_FULL_HEIGHT = "full_height";
   @SerializedName(SERIALIZED_NAME_FULL_HEIGHT)
-  private Integer fullHeight;
+  private Long fullHeight;
 
   public static final String SERIALIZED_NAME_FULL_WIDTH = "full_width";
   @SerializedName(SERIALIZED_NAME_FULL_WIDTH)
-  private Integer fullWidth;
+  private Long fullWidth;
 
   public ListingImage() { 
   }
 
-  public ListingImage listingId(Integer listingId) {
+  public ListingImage listingId(Long listingId) {
     
     this.listingId = listingId;
     return this;
@@ -119,17 +119,17 @@ public class ListingImage {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.")
 
-  public Integer getListingId() {
+  public Long getListingId() {
     return listingId;
   }
 
 
-  public void setListingId(Integer listingId) {
+  public void setListingId(Long listingId) {
     this.listingId = listingId;
   }
 
 
-  public ListingImage listingImageId(Integer listingImageId) {
+  public ListingImage listingImageId(Long listingImageId) {
     
     this.listingImageId = listingImageId;
     return this;
@@ -143,12 +143,12 @@ public class ListingImage {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The numeric ID of the primary [listing image](/documentation/reference#tag/ShopListing-Image) for this transaction.")
 
-  public Integer getListingImageId() {
+  public Long getListingImageId() {
     return listingImageId;
   }
 
 
-  public void setListingImageId(Integer listingImageId) {
+  public void setListingImageId(Long listingImageId) {
     this.listingImageId = listingImageId;
   }
 
@@ -176,7 +176,7 @@ public class ListingImage {
   }
 
 
-  public ListingImage red(Integer red) {
+  public ListingImage red(Long red) {
     
     this.red = red;
     return this;
@@ -190,17 +190,17 @@ public class ListingImage {
   @javax.annotation.Nullable
   @ApiModelProperty(required = true, value = "The numeric red value equal to the image's average red value, from 0-255 (RGB color).")
 
-  public Integer getRed() {
+  public Long getRed() {
     return red;
   }
 
 
-  public void setRed(Integer red) {
+  public void setRed(Long red) {
     this.red = red;
   }
 
 
-  public ListingImage green(Integer green) {
+  public ListingImage green(Long green) {
     
     this.green = green;
     return this;
@@ -214,17 +214,17 @@ public class ListingImage {
   @javax.annotation.Nullable
   @ApiModelProperty(required = true, value = "The numeric red value equal to the image's average red value, from 0-255 (RGB color).")
 
-  public Integer getGreen() {
+  public Long getGreen() {
     return green;
   }
 
 
-  public void setGreen(Integer green) {
+  public void setGreen(Long green) {
     this.green = green;
   }
 
 
-  public ListingImage blue(Integer blue) {
+  public ListingImage blue(Long blue) {
     
     this.blue = blue;
     return this;
@@ -238,17 +238,17 @@ public class ListingImage {
   @javax.annotation.Nullable
   @ApiModelProperty(required = true, value = "The numeric red value equal to the image's average red value, from 0-255 (RGB color).")
 
-  public Integer getBlue() {
+  public Long getBlue() {
     return blue;
   }
 
 
-  public void setBlue(Integer blue) {
+  public void setBlue(Long blue) {
     this.blue = blue;
   }
 
 
-  public ListingImage hue(Integer hue) {
+  public ListingImage hue(Long hue) {
     
     this.hue = hue;
     return this;
@@ -262,17 +262,17 @@ public class ListingImage {
   @javax.annotation.Nullable
   @ApiModelProperty(required = true, value = "The numeric hue equal to the image's average hue, from 0-360 (HSV color).")
 
-  public Integer getHue() {
+  public Long getHue() {
     return hue;
   }
 
 
-  public void setHue(Integer hue) {
+  public void setHue(Long hue) {
     this.hue = hue;
   }
 
 
-  public ListingImage saturation(Integer saturation) {
+  public ListingImage saturation(Long saturation) {
     
     this.saturation = saturation;
     return this;
@@ -286,17 +286,17 @@ public class ListingImage {
   @javax.annotation.Nullable
   @ApiModelProperty(required = true, value = "The numeric saturation equal to the image's average saturation, from 0-100 (HSV color).")
 
-  public Integer getSaturation() {
+  public Long getSaturation() {
     return saturation;
   }
 
 
-  public void setSaturation(Integer saturation) {
+  public void setSaturation(Long saturation) {
     this.saturation = saturation;
   }
 
 
-  public ListingImage brightness(Integer brightness) {
+  public ListingImage brightness(Long brightness) {
     
     this.brightness = brightness;
     return this;
@@ -310,12 +310,12 @@ public class ListingImage {
   @javax.annotation.Nullable
   @ApiModelProperty(required = true, value = "The numeric brightness equal to the image's average brightness, from 0-100 (HSV color).")
 
-  public Integer getBrightness() {
+  public Long getBrightness() {
     return brightness;
   }
 
 
-  public void setBrightness(Integer brightness) {
+  public void setBrightness(Long brightness) {
     this.brightness = brightness;
   }
 
@@ -343,7 +343,7 @@ public class ListingImage {
   }
 
 
-  public ListingImage creationTsz(Integer creationTsz) {
+  public ListingImage creationTsz(Long creationTsz) {
     
     this.creationTsz = creationTsz;
     return this;
@@ -357,17 +357,17 @@ public class ListingImage {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The listing image\\'s creation time, in epoch seconds.")
 
-  public Integer getCreationTsz() {
+  public Long getCreationTsz() {
     return creationTsz;
   }
 
 
-  public void setCreationTsz(Integer creationTsz) {
+  public void setCreationTsz(Long creationTsz) {
     this.creationTsz = creationTsz;
   }
 
 
-  public ListingImage rank(Integer rank) {
+  public ListingImage rank(Long rank) {
     
     this.rank = rank;
     return this;
@@ -381,12 +381,12 @@ public class ListingImage {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The positive non-zero numeric position in the images displayed in a listing, with rank 1 images appearing in the left-most position in a listing.")
 
-  public Integer getRank() {
+  public Long getRank() {
     return rank;
   }
 
 
-  public void setRank(Integer rank) {
+  public void setRank(Long rank) {
     this.rank = rank;
   }
 
@@ -483,7 +483,7 @@ public class ListingImage {
   }
 
 
-  public ListingImage fullHeight(Integer fullHeight) {
+  public ListingImage fullHeight(Long fullHeight) {
     
     this.fullHeight = fullHeight;
     return this;
@@ -497,17 +497,17 @@ public class ListingImage {
   @javax.annotation.Nullable
   @ApiModelProperty(required = true, value = "The numeric height, measured in pixels, of the full-sized image referenced in url_fullxfull.")
 
-  public Integer getFullHeight() {
+  public Long getFullHeight() {
     return fullHeight;
   }
 
 
-  public void setFullHeight(Integer fullHeight) {
+  public void setFullHeight(Long fullHeight) {
     this.fullHeight = fullHeight;
   }
 
 
-  public ListingImage fullWidth(Integer fullWidth) {
+  public ListingImage fullWidth(Long fullWidth) {
     
     this.fullWidth = fullWidth;
     return this;
@@ -521,12 +521,12 @@ public class ListingImage {
   @javax.annotation.Nullable
   @ApiModelProperty(required = true, value = "The numeric width, measured in pixels, of the full-sized image referenced in url_fullxfull.")
 
-  public Integer getFullWidth() {
+  public Long getFullWidth() {
     return fullWidth;
   }
 
 
-  public void setFullWidth(Integer fullWidth) {
+  public void setFullWidth(Long fullWidth) {
     this.fullWidth = fullWidth;
   }
 

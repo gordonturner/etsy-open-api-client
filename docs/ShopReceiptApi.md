@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 <a name="createReceiptShipment"></a>
 # **createReceiptShipment**
-> ShopReceipt createReceiptShipment(shopId, receiptId, trackingCode, carrierName, sendBcc)
+> ShopReceipt createReceiptShipment(shopId, receiptId, trackingCode, carrierName, sendBcc, noteToBuyer)
 
 
 
@@ -43,13 +43,14 @@ public class Example {
     oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
     ShopReceiptApi apiInstance = new ShopReceiptApi(defaultClient);
-    Integer shopId = 56; // Integer | The unique positive non-zero numeric ID for an Etsy Shop.
-    Integer receiptId = 56; // Integer | The receipt to submit tracking for.
+    Long shopId = 56L; // Long | The unique positive non-zero numeric ID for an Etsy Shop.
+    Long receiptId = 56L; // Long | The receipt to submit tracking for.
     String trackingCode = "trackingCode_example"; // String | The tracking code for this receipt.
     String carrierName = "carrierName_example"; // String | The carrier name for this receipt.
     Boolean sendBcc = true; // Boolean | If true, the shipping notification will be sent to the seller as well
+    String noteToBuyer = "noteToBuyer_example"; // String | Message to include in notification to the buyer.
     try {
-      ShopReceipt result = apiInstance.createReceiptShipment(shopId, receiptId, trackingCode, carrierName, sendBcc);
+      ShopReceipt result = apiInstance.createReceiptShipment(shopId, receiptId, trackingCode, carrierName, sendBcc, noteToBuyer);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ShopReceiptApi#createReceiptShipment");
@@ -66,11 +67,12 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **shopId** | **Integer**| The unique positive non-zero numeric ID for an Etsy Shop. |
- **receiptId** | **Integer**| The receipt to submit tracking for. |
+ **shopId** | **Long**| The unique positive non-zero numeric ID for an Etsy Shop. |
+ **receiptId** | **Long**| The receipt to submit tracking for. |
  **trackingCode** | **String**| The tracking code for this receipt. | [optional]
  **carrierName** | **String**| The carrier name for this receipt. | [optional]
  **sendBcc** | **Boolean**| If true, the shipping notification will be sent to the seller as well | [optional]
+ **noteToBuyer** | **String**| Message to include in notification to the buyer. | [optional]
 
 ### Return type
 
@@ -130,8 +132,8 @@ public class Example {
     oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
     ShopReceiptApi apiInstance = new ShopReceiptApi(defaultClient);
-    Integer shopId = 56; // Integer | The unique positive non-zero numeric ID for an Etsy Shop.
-    Integer receiptId = 56; // Integer | The numeric ID for the [receipt](/documentation/reference#tag/Shop-Receipt) associated to this transaction.
+    Long shopId = 56L; // Long | The unique positive non-zero numeric ID for an Etsy Shop.
+    Long receiptId = 56L; // Long | The numeric ID for the [receipt](/documentation/reference#tag/Shop-Receipt) associated to this transaction.
     try {
       ShopReceipt result = apiInstance.getShopReceipt(shopId, receiptId);
       System.out.println(result);
@@ -150,8 +152,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **shopId** | **Integer**| The unique positive non-zero numeric ID for an Etsy Shop. |
- **receiptId** | **Integer**| The numeric ID for the [receipt](/documentation/reference#tag/Shop-Receipt) associated to this transaction. |
+ **shopId** | **Long**| The unique positive non-zero numeric ID for an Etsy Shop. |
+ **receiptId** | **Long**| The numeric ID for the [receipt](/documentation/reference#tag/Shop-Receipt) associated to this transaction. |
 
 ### Return type
 
@@ -210,13 +212,13 @@ public class Example {
     oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
     ShopReceiptApi apiInstance = new ShopReceiptApi(defaultClient);
-    Integer shopId = 56; // Integer | The unique positive non-zero numeric ID for an Etsy Shop.
-    Integer minCreated = 56; // Integer | The earliest unix timestamp for when a record was created.
-    Integer maxCreated = 56; // Integer | The latest unix timestamp for when a record was created.
-    Integer minLastModified = 56; // Integer | The earliest unix timestamp for when a record last changed.
-    Integer maxLastModified = 56; // Integer | The latest unix timestamp for when a record last changed.
-    Integer limit = 25; // Integer | The maximum number of results to return.
-    Integer offset = 0; // Integer | The number of records to skip before selecting the first result.
+    Long shopId = 56L; // Long | The unique positive non-zero numeric ID for an Etsy Shop.
+    Long minCreated = 56L; // Long | The earliest unix timestamp for when a record was created.
+    Long maxCreated = 56L; // Long | The latest unix timestamp for when a record was created.
+    Long minLastModified = 56L; // Long | The earliest unix timestamp for when a record last changed.
+    Long maxLastModified = 56L; // Long | The latest unix timestamp for when a record last changed.
+    Long limit = 25L; // Long | The maximum number of results to return.
+    Long offset = 0L; // Long | The number of records to skip before selecting the first result.
     Boolean wasPaid = true; // Boolean | When true, the seller recieved payment for the product(s) in this receipt.
     Boolean wasShipped = true; // Boolean | When true, the seller shipped the product(s) in this receipt.
     Boolean wasDelivered = true; // Boolean | When true, returns receipts that have been delivered.
@@ -238,13 +240,13 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **shopId** | **Integer**| The unique positive non-zero numeric ID for an Etsy Shop. |
- **minCreated** | **Integer**| The earliest unix timestamp for when a record was created. | [optional]
- **maxCreated** | **Integer**| The latest unix timestamp for when a record was created. | [optional]
- **minLastModified** | **Integer**| The earliest unix timestamp for when a record last changed. | [optional]
- **maxLastModified** | **Integer**| The latest unix timestamp for when a record last changed. | [optional]
- **limit** | **Integer**| The maximum number of results to return. | [optional] [default to 25]
- **offset** | **Integer**| The number of records to skip before selecting the first result. | [optional] [default to 0]
+ **shopId** | **Long**| The unique positive non-zero numeric ID for an Etsy Shop. |
+ **minCreated** | **Long**| The earliest unix timestamp for when a record was created. | [optional]
+ **maxCreated** | **Long**| The latest unix timestamp for when a record was created. | [optional]
+ **minLastModified** | **Long**| The earliest unix timestamp for when a record last changed. | [optional]
+ **maxLastModified** | **Long**| The latest unix timestamp for when a record last changed. | [optional]
+ **limit** | **Long**| The maximum number of results to return. | [optional] [default to 25]
+ **offset** | **Long**| The number of records to skip before selecting the first result. | [optional] [default to 0]
  **wasPaid** | **Boolean**| When true, the seller recieved payment for the product(s) in this receipt. | [optional]
  **wasShipped** | **Boolean**| When true, the seller shipped the product(s) in this receipt. | [optional]
  **wasDelivered** | **Boolean**| When true, returns receipts that have been delivered. | [optional]

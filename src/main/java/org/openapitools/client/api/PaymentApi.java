@@ -90,7 +90,7 @@ public class PaymentApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPaymentAccountLedgerEntryPaymentsCall(Integer shopId, List<Integer> ledgerEntryIds, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getPaymentAccountLedgerEntryPaymentsCall(Long shopId, List<Long> ledgerEntryIds, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -142,7 +142,7 @@ public class PaymentApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getPaymentAccountLedgerEntryPaymentsValidateBeforeCall(Integer shopId, List<Integer> ledgerEntryIds, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getPaymentAccountLedgerEntryPaymentsValidateBeforeCall(Long shopId, List<Long> ledgerEntryIds, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'shopId' is set
         if (shopId == null) {
@@ -177,7 +177,7 @@ public class PaymentApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public Payments getPaymentAccountLedgerEntryPayments(Integer shopId, List<Integer> ledgerEntryIds) throws ApiException {
+    public Payments getPaymentAccountLedgerEntryPayments(Long shopId, List<Long> ledgerEntryIds) throws ApiException {
         ApiResponse<Payments> localVarResp = getPaymentAccountLedgerEntryPaymentsWithHttpInfo(shopId, ledgerEntryIds);
         return localVarResp.getData();
     }
@@ -199,7 +199,7 @@ public class PaymentApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Payments> getPaymentAccountLedgerEntryPaymentsWithHttpInfo(Integer shopId, List<Integer> ledgerEntryIds) throws ApiException {
+    public ApiResponse<Payments> getPaymentAccountLedgerEntryPaymentsWithHttpInfo(Long shopId, List<Long> ledgerEntryIds) throws ApiException {
         okhttp3.Call localVarCall = getPaymentAccountLedgerEntryPaymentsValidateBeforeCall(shopId, ledgerEntryIds, null);
         Type localVarReturnType = new TypeToken<Payments>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -223,7 +223,7 @@ public class PaymentApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPaymentAccountLedgerEntryPaymentsAsync(Integer shopId, List<Integer> ledgerEntryIds, final ApiCallback<Payments> _callback) throws ApiException {
+    public okhttp3.Call getPaymentAccountLedgerEntryPaymentsAsync(Long shopId, List<Long> ledgerEntryIds, final ApiCallback<Payments> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getPaymentAccountLedgerEntryPaymentsValidateBeforeCall(shopId, ledgerEntryIds, _callback);
         Type localVarReturnType = new TypeToken<Payments>(){}.getType();
@@ -248,7 +248,7 @@ public class PaymentApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPaymentsCall(Integer shopId, List<Integer> paymentIds, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getPaymentsCall(Long shopId, List<Long> paymentIds, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -300,7 +300,7 @@ public class PaymentApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getPaymentsValidateBeforeCall(Integer shopId, List<Integer> paymentIds, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getPaymentsValidateBeforeCall(Long shopId, List<Long> paymentIds, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'shopId' is set
         if (shopId == null) {
@@ -336,7 +336,7 @@ public class PaymentApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public Payments getPayments(Integer shopId, List<Integer> paymentIds) throws ApiException {
+    public Payments getPayments(Long shopId, List<Long> paymentIds) throws ApiException {
         ApiResponse<Payments> localVarResp = getPaymentsWithHttpInfo(shopId, paymentIds);
         return localVarResp.getData();
     }
@@ -359,7 +359,7 @@ public class PaymentApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Payments> getPaymentsWithHttpInfo(Integer shopId, List<Integer> paymentIds) throws ApiException {
+    public ApiResponse<Payments> getPaymentsWithHttpInfo(Long shopId, List<Long> paymentIds) throws ApiException {
         okhttp3.Call localVarCall = getPaymentsValidateBeforeCall(shopId, paymentIds, null);
         Type localVarReturnType = new TypeToken<Payments>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -384,7 +384,7 @@ public class PaymentApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPaymentsAsync(Integer shopId, List<Integer> paymentIds, final ApiCallback<Payments> _callback) throws ApiException {
+    public okhttp3.Call getPaymentsAsync(Long shopId, List<Long> paymentIds, final ApiCallback<Payments> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getPaymentsValidateBeforeCall(shopId, paymentIds, _callback);
         Type localVarReturnType = new TypeToken<Payments>(){}.getType();
@@ -409,7 +409,7 @@ public class PaymentApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getShopPaymentByReceiptIdCall(Integer shopId, Integer receiptId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getShopPaymentByReceiptIdCall(Long shopId, Long receiptId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -458,7 +458,7 @@ public class PaymentApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getShopPaymentByReceiptIdValidateBeforeCall(Integer shopId, Integer receiptId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getShopPaymentByReceiptIdValidateBeforeCall(Long shopId, Long receiptId, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'shopId' is set
         if (shopId == null) {
@@ -494,7 +494,7 @@ public class PaymentApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public Payments getShopPaymentByReceiptId(Integer shopId, Integer receiptId) throws ApiException {
+    public Payments getShopPaymentByReceiptId(Long shopId, Long receiptId) throws ApiException {
         ApiResponse<Payments> localVarResp = getShopPaymentByReceiptIdWithHttpInfo(shopId, receiptId);
         return localVarResp.getData();
     }
@@ -517,7 +517,7 @@ public class PaymentApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Payments> getShopPaymentByReceiptIdWithHttpInfo(Integer shopId, Integer receiptId) throws ApiException {
+    public ApiResponse<Payments> getShopPaymentByReceiptIdWithHttpInfo(Long shopId, Long receiptId) throws ApiException {
         okhttp3.Call localVarCall = getShopPaymentByReceiptIdValidateBeforeCall(shopId, receiptId, null);
         Type localVarReturnType = new TypeToken<Payments>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -542,7 +542,7 @@ public class PaymentApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getShopPaymentByReceiptIdAsync(Integer shopId, Integer receiptId, final ApiCallback<Payments> _callback) throws ApiException {
+    public okhttp3.Call getShopPaymentByReceiptIdAsync(Long shopId, Long receiptId, final ApiCallback<Payments> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getShopPaymentByReceiptIdValidateBeforeCall(shopId, receiptId, _callback);
         Type localVarReturnType = new TypeToken<Payments>(){}.getType();

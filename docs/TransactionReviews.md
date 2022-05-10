@@ -8,7 +8,7 @@ A set of transaction review records left by Users.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**count** | **Integer** | The number of TransactionReview resources found. | 
+**count** | **Long** | The number of TransactionReview resources found. | 
 **results** | [**List&lt;TransactionReview&gt;**](TransactionReview.md) | The TransactionReview resources found. | 
 
 

@@ -31,11 +31,11 @@ import org.openapitools.client.model.ShippingCarrierMailClass;
  * A supported shipping carrier, which is used to calculate an Estimated Delivery Date.
  */
 @ApiModel(description = "A supported shipping carrier, which is used to calculate an Estimated Delivery Date.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-04-08T15:52:16.342-04:00[America/Toronto]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-07T10:51:54.559-04:00[America/Toronto]")
 public class ShippingCarrier {
   public static final String SERIALIZED_NAME_SHIPPING_CARRIER_ID = "shipping_carrier_id";
   @SerializedName(SERIALIZED_NAME_SHIPPING_CARRIER_ID)
-  private Integer shippingCarrierId;
+  private Long shippingCarrierId;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -52,7 +52,7 @@ public class ShippingCarrier {
   public ShippingCarrier() { 
   }
 
-  public ShippingCarrier shippingCarrierId(Integer shippingCarrierId) {
+  public ShippingCarrier shippingCarrierId(Long shippingCarrierId) {
     
     this.shippingCarrierId = shippingCarrierId;
     return this;
@@ -66,12 +66,12 @@ public class ShippingCarrier {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The numeric ID of this shipping carrier.")
 
-  public Integer getShippingCarrierId() {
+  public Long getShippingCarrierId() {
     return shippingCarrierId;
   }
 
 
-  public void setShippingCarrierId(Integer shippingCarrierId) {
+  public void setShippingCarrierId(Long shippingCarrierId) {
     this.shippingCarrierId = shippingCarrierId;
   }
 

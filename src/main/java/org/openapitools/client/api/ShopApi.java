@@ -89,7 +89,7 @@ public class ShopApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call findShopsCall(String shopName, Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call findShopsCall(String shopName, Long limit, Long offset, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -148,7 +148,7 @@ public class ShopApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call findShopsValidateBeforeCall(String shopName, Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call findShopsValidateBeforeCall(String shopName, Long limit, Long offset, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'shopName' is set
         if (shopName == null) {
@@ -176,7 +176,7 @@ public class ShopApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public Shops findShops(String shopName, Integer limit, Integer offset) throws ApiException {
+    public Shops findShops(String shopName, Long limit, Long offset) throws ApiException {
         ApiResponse<Shops> localVarResp = findShopsWithHttpInfo(shopName, limit, offset);
         return localVarResp.getData();
     }
@@ -196,7 +196,7 @@ public class ShopApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Shops> findShopsWithHttpInfo(String shopName, Integer limit, Integer offset) throws ApiException {
+    public ApiResponse<Shops> findShopsWithHttpInfo(String shopName, Long limit, Long offset) throws ApiException {
         okhttp3.Call localVarCall = findShopsValidateBeforeCall(shopName, limit, offset, null);
         Type localVarReturnType = new TypeToken<Shops>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -218,7 +218,7 @@ public class ShopApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call findShopsAsync(String shopName, Integer limit, Integer offset, final ApiCallback<Shops> _callback) throws ApiException {
+    public okhttp3.Call findShopsAsync(String shopName, Long limit, Long offset, final ApiCallback<Shops> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = findShopsValidateBeforeCall(shopName, limit, offset, _callback);
         Type localVarReturnType = new TypeToken<Shops>(){}.getType();
@@ -240,7 +240,7 @@ public class ShopApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getShopCall(Integer shopId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getShopCall(Long shopId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -288,7 +288,7 @@ public class ShopApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getShopValidateBeforeCall(Integer shopId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getShopValidateBeforeCall(Long shopId, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'shopId' is set
         if (shopId == null) {
@@ -316,7 +316,7 @@ public class ShopApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public Shop getShop(Integer shopId) throws ApiException {
+    public Shop getShop(Long shopId) throws ApiException {
         ApiResponse<Shop> localVarResp = getShopWithHttpInfo(shopId);
         return localVarResp.getData();
     }
@@ -336,7 +336,7 @@ public class ShopApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Shop> getShopWithHttpInfo(Integer shopId) throws ApiException {
+    public ApiResponse<Shop> getShopWithHttpInfo(Long shopId) throws ApiException {
         okhttp3.Call localVarCall = getShopValidateBeforeCall(shopId, null);
         Type localVarReturnType = new TypeToken<Shop>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -358,7 +358,7 @@ public class ShopApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getShopAsync(Integer shopId, final ApiCallback<Shop> _callback) throws ApiException {
+    public okhttp3.Call getShopAsync(Long shopId, final ApiCallback<Shop> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getShopValidateBeforeCall(shopId, _callback);
         Type localVarReturnType = new TypeToken<Shop>(){}.getType();
@@ -380,7 +380,7 @@ public class ShopApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getShopByOwnerUserIdCall(Integer userId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getShopByOwnerUserIdCall(Long userId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -428,7 +428,7 @@ public class ShopApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getShopByOwnerUserIdValidateBeforeCall(Integer userId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getShopByOwnerUserIdValidateBeforeCall(Long userId, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'userId' is set
         if (userId == null) {
@@ -456,7 +456,7 @@ public class ShopApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public Shop getShopByOwnerUserId(Integer userId) throws ApiException {
+    public Shop getShopByOwnerUserId(Long userId) throws ApiException {
         ApiResponse<Shop> localVarResp = getShopByOwnerUserIdWithHttpInfo(userId);
         return localVarResp.getData();
     }
@@ -476,7 +476,7 @@ public class ShopApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Shop> getShopByOwnerUserIdWithHttpInfo(Integer userId) throws ApiException {
+    public ApiResponse<Shop> getShopByOwnerUserIdWithHttpInfo(Long userId) throws ApiException {
         okhttp3.Call localVarCall = getShopByOwnerUserIdValidateBeforeCall(userId, null);
         Type localVarReturnType = new TypeToken<Shop>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -498,7 +498,7 @@ public class ShopApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getShopByOwnerUserIdAsync(Integer userId, final ApiCallback<Shop> _callback) throws ApiException {
+    public okhttp3.Call getShopByOwnerUserIdAsync(Long userId, final ApiCallback<Shop> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getShopByOwnerUserIdValidateBeforeCall(userId, _callback);
         Type localVarReturnType = new TypeToken<Shop>(){}.getType();
@@ -526,7 +526,7 @@ public class ShopApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateShopCall(Integer shopId, String title, String announcement, String saleMessage, String digitalSaleMessage, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateShopCall(Long shopId, String title, String announcement, String saleMessage, String digitalSaleMessage, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -590,7 +590,7 @@ public class ShopApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateShopValidateBeforeCall(Integer shopId, String title, String announcement, String saleMessage, String digitalSaleMessage, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateShopValidateBeforeCall(Long shopId, String title, String announcement, String saleMessage, String digitalSaleMessage, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'shopId' is set
         if (shopId == null) {
@@ -624,7 +624,7 @@ public class ShopApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public Shop updateShop(Integer shopId, String title, String announcement, String saleMessage, String digitalSaleMessage) throws ApiException {
+    public Shop updateShop(Long shopId, String title, String announcement, String saleMessage, String digitalSaleMessage) throws ApiException {
         ApiResponse<Shop> localVarResp = updateShopWithHttpInfo(shopId, title, announcement, saleMessage, digitalSaleMessage);
         return localVarResp.getData();
     }
@@ -650,7 +650,7 @@ public class ShopApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Shop> updateShopWithHttpInfo(Integer shopId, String title, String announcement, String saleMessage, String digitalSaleMessage) throws ApiException {
+    public ApiResponse<Shop> updateShopWithHttpInfo(Long shopId, String title, String announcement, String saleMessage, String digitalSaleMessage) throws ApiException {
         okhttp3.Call localVarCall = updateShopValidateBeforeCall(shopId, title, announcement, saleMessage, digitalSaleMessage, null);
         Type localVarReturnType = new TypeToken<Shop>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -678,7 +678,7 @@ public class ShopApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateShopAsync(Integer shopId, String title, String announcement, String saleMessage, String digitalSaleMessage, final ApiCallback<Shop> _callback) throws ApiException {
+    public okhttp3.Call updateShopAsync(Long shopId, String title, String announcement, String saleMessage, String digitalSaleMessage, final ApiCallback<Shop> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateShopValidateBeforeCall(shopId, title, announcement, saleMessage, digitalSaleMessage, _callback);
         Type localVarReturnType = new TypeToken<Shop>(){}.getType();

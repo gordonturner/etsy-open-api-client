@@ -55,19 +55,19 @@ public class Example {
     oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
     ShopListingApi apiInstance = new ShopListingApi(defaultClient);
-    Integer shopId = 56; // Integer | The unique positive non-zero numeric ID for an Etsy Shop.
-    Integer quantity = 56; // Integer | The positive non-zero number of products available for purchase in the listing. Note: The listing quantity is the sum of available offering quantities. You can request the quantities for individual offerings from the ListingInventory resource using the [getListingInventory](/documentation/reference#operation/getListingInventory) endpoint.
+    Long shopId = 56L; // Long | The unique positive non-zero numeric ID for an Etsy Shop.
+    Long quantity = 56L; // Long | The positive non-zero number of products available for purchase in the listing. Note: The listing quantity is the sum of available offering quantities. You can request the quantities for individual offerings from the ListingInventory resource using the [getListingInventory](/documentation/reference#operation/getListingInventory) endpoint.
     String title = "title_example"; // String | The listing's title string. Valid title strings contain only letters, numbers, punctuation marks, mathematical symbols, whitespace characters, ™, ©, and ®. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{P}\\\\p{Sm}\\\\p{Zs}™©®]/u) You can only use the %, :, & and + characters once each.
     String description = "description_example"; // String | A description string of the product for sale in the listing.
-    Float price = 3.4F; // Float | The positive non-zero price of the product. (Sold product listings are private) Note: The price is the minimum possible price. The getInventory method requests exact prices for available offerings.
+    Float price = 3.4F; // Float | The positive non-zero price of the product. (Sold product listings are private) Note: The price is the minimum possible price. The [`getListingInventory`](/documentation/reference/#operation/getListingInventory) method requests exact prices for available offerings.
     String whoMade = "i_did"; // String | An enumerated string inidcated who made the product. Helps buyers locate the listing under the Handmade heading. Requires 'is_supply' and 'when_made'.
     String whenMade = "made_to_order"; // String | An enumerated string for the era in which the maker made the product in this listing. Helps buyers locate the listing under the Vintage heading. Requires 'is_supply' and 'who_made'.
-    Integer taxonomyId = 56; // Integer | The numeric taxonomy ID of the listing. See [SellerTaxonomy](/documentation/reference#tag/SellerTaxonomy) and [BuyerTaxonomy](/documentation/reference#tag/BuyerTaxonomy) for more information.
-    Integer shippingProfileId = 56; // Integer | The numeric ID of the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing. Required when listing type=physical.
+    Long taxonomyId = 56L; // Long | The numeric taxonomy ID of the listing. See [SellerTaxonomy](/documentation/reference#tag/SellerTaxonomy) and [BuyerTaxonomy](/documentation/reference#tag/BuyerTaxonomy) for more information.
+    Long shippingProfileId = 56L; // Long | The numeric ID of the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing. Required when listing type=physical.
     List<String> materials = Arrays.asList(); // List<String> | A list of material strings for materials used in the product. Valid materials strings contain only letters, numbers, and whitespace characters. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{Zs}]/u) Default value is null.
-    Integer shopSectionId = 56; // Integer | The numeric ID of the [shop section](/documentation/reference#tag/Shop-Section) for this listing. Default value is null.
-    Integer processingMin = 56; // Integer | The minimum number of days required to process this listing. Default value is null.
-    Integer processingMax = 56; // Integer | The maximum number of days required to process this listing. Default value is null.
+    Long shopSectionId = 56L; // Long | The numeric ID of the [shop section](/documentation/reference#tag/Shop-Section) for this listing. Default value is null.
+    Long processingMin = 56L; // Long | The minimum number of days required to process this listing. Default value is null.
+    Long processingMax = 56L; // Long | The maximum number of days required to process this listing. Default value is null.
     List<String> tags = Arrays.asList(); // List<String> | A comma-separated list of tag strings for the listing. Valid tag strings contain only letters, numbers, whitespace characters, -, ', ™, ©, and ®. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{Zs}\\\\-'™©®]/u) Default value is null.
     List<String> styles = Arrays.asList(); // List<String> | An array of style strings for this listing, each of which is free-form text string such as \\\"Formal\\\", or \\\"Steampunk\\\". A Listing may have up to two styles. Valid style strings contain only letters, numbers, and whitespace characters. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{Zs}]/u) Default value is null.
     Float itemWeight = 3.4F; // Float | The numeric weight of the product measured in units set in 'item_weight_unit'. Default value is null. If set, the value must be greater than 0.
@@ -78,10 +78,10 @@ public class Example {
     String itemDimensionsUnit = "in"; // String | A string defining the units used to measure the dimensions of the product. Default value is null.
     Boolean isPersonalizable = true; // Boolean | When true, this listing is personalizable. The default value is null.
     Boolean personalizationIsRequired = true; // Boolean | When true, this listing requires personalization. The default value is null. Will only change if is_personalizable is 'true'.
-    Integer personalizationCharCountMax = 56; // Integer | This an integer value representing the maximum length for the personalization message entered by the buyer. Will only change if is_personalizable is 'true'.
+    Long personalizationCharCountMax = 56L; // Long | This an integer value representing the maximum length for the personalization message entered by the buyer. Will only change if is_personalizable is 'true'.
     String personalizationInstructions = "personalizationInstructions_example"; // String | A string representing instructions for the buyer to enter the personalization. Will only change if is_personalizable is 'true'.
-    List<Integer> productionPartnerIds = Arrays.asList(); // List<Integer> | An array of unique IDs of production partner ids.
-    List<Integer> imageIds = Arrays.asList(); // List<Integer> | An array of numeric image IDs of the images in a listing, which can include up to 10 images.
+    List<Long> productionPartnerIds = Arrays.asList(); // List<Long> | An array of unique IDs of production partner ids.
+    List<Long> imageIds = Arrays.asList(); // List<Long> | An array of numeric image IDs of the images in a listing, which can include up to 10 images.
     Boolean isSupply = true; // Boolean | When true, tags the listing as a supply product, else indicates that it's a finished product. Helps buyers locate the listing under the Supplies heading. Requires 'who_made' and 'when_made'.
     Boolean isCustomizable = true; // Boolean | When true, a buyer may contact the seller for a customized order. The default value is true when a shop accepts custom orders. Does not apply to shops that do not accept custom orders.
     Boolean shouldAutoRenew = true; // Boolean | When true, renews a listing for four months upon expriation. If set to true when previously false, etsy.com renews the listing before it expires, but the renewal period starts immidiately rather than extending the listing's expiration date. Any unused time remaining on the listing is lost. Renewals result in charges to a user's bill.
@@ -105,19 +105,19 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **shopId** | **Integer**| The unique positive non-zero numeric ID for an Etsy Shop. |
- **quantity** | **Integer**| The positive non-zero number of products available for purchase in the listing. Note: The listing quantity is the sum of available offering quantities. You can request the quantities for individual offerings from the ListingInventory resource using the [getListingInventory](/documentation/reference#operation/getListingInventory) endpoint. |
+ **shopId** | **Long**| The unique positive non-zero numeric ID for an Etsy Shop. |
+ **quantity** | **Long**| The positive non-zero number of products available for purchase in the listing. Note: The listing quantity is the sum of available offering quantities. You can request the quantities for individual offerings from the ListingInventory resource using the [getListingInventory](/documentation/reference#operation/getListingInventory) endpoint. |
  **title** | **String**| The listing&#39;s title string. Valid title strings contain only letters, numbers, punctuation marks, mathematical symbols, whitespace characters, ™, ©, and ®. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{P}\\\\p{Sm}\\\\p{Zs}™©®]/u) You can only use the %, :, &amp; and + characters once each. |
  **description** | **String**| A description string of the product for sale in the listing. |
- **price** | **Float**| The positive non-zero price of the product. (Sold product listings are private) Note: The price is the minimum possible price. The getInventory method requests exact prices for available offerings. |
+ **price** | **Float**| The positive non-zero price of the product. (Sold product listings are private) Note: The price is the minimum possible price. The [&#x60;getListingInventory&#x60;](/documentation/reference/#operation/getListingInventory) method requests exact prices for available offerings. |
  **whoMade** | **String**| An enumerated string inidcated who made the product. Helps buyers locate the listing under the Handmade heading. Requires &#39;is_supply&#39; and &#39;when_made&#39;. | [enum: i_did, someone_else, collective]
  **whenMade** | **String**| An enumerated string for the era in which the maker made the product in this listing. Helps buyers locate the listing under the Vintage heading. Requires &#39;is_supply&#39; and &#39;who_made&#39;. | [enum: made_to_order, 2020_2022, 2010_2019, 2003_2009, before_2003, 2000_2002, 1990s, 1980s, 1970s, 1960s, 1950s, 1940s, 1930s, 1920s, 1910s, 1900s, 1800s, 1700s, before_1700]
- **taxonomyId** | **Integer**| The numeric taxonomy ID of the listing. See [SellerTaxonomy](/documentation/reference#tag/SellerTaxonomy) and [BuyerTaxonomy](/documentation/reference#tag/BuyerTaxonomy) for more information. |
- **shippingProfileId** | **Integer**| The numeric ID of the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing. Required when listing type&#x3D;physical. | [optional]
+ **taxonomyId** | **Long**| The numeric taxonomy ID of the listing. See [SellerTaxonomy](/documentation/reference#tag/SellerTaxonomy) and [BuyerTaxonomy](/documentation/reference#tag/BuyerTaxonomy) for more information. |
+ **shippingProfileId** | **Long**| The numeric ID of the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing. Required when listing type&#x3D;physical. | [optional]
  **materials** | [**List&lt;String&gt;**](String.md)| A list of material strings for materials used in the product. Valid materials strings contain only letters, numbers, and whitespace characters. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{Zs}]/u) Default value is null. | [optional]
- **shopSectionId** | **Integer**| The numeric ID of the [shop section](/documentation/reference#tag/Shop-Section) for this listing. Default value is null. | [optional]
- **processingMin** | **Integer**| The minimum number of days required to process this listing. Default value is null. | [optional]
- **processingMax** | **Integer**| The maximum number of days required to process this listing. Default value is null. | [optional]
+ **shopSectionId** | **Long**| The numeric ID of the [shop section](/documentation/reference#tag/Shop-Section) for this listing. Default value is null. | [optional]
+ **processingMin** | **Long**| The minimum number of days required to process this listing. Default value is null. | [optional]
+ **processingMax** | **Long**| The maximum number of days required to process this listing. Default value is null. | [optional]
  **tags** | [**List&lt;String&gt;**](String.md)| A comma-separated list of tag strings for the listing. Valid tag strings contain only letters, numbers, whitespace characters, -, &#39;, ™, ©, and ®. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{Zs}\\\\-&#39;™©®]/u) Default value is null. | [optional]
  **styles** | [**List&lt;String&gt;**](String.md)| An array of style strings for this listing, each of which is free-form text string such as \\\&quot;Formal\\\&quot;, or \\\&quot;Steampunk\\\&quot;. A Listing may have up to two styles. Valid style strings contain only letters, numbers, and whitespace characters. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{Zs}]/u) Default value is null. | [optional]
  **itemWeight** | **Float**| The numeric weight of the product measured in units set in &#39;item_weight_unit&#39;. Default value is null. If set, the value must be greater than 0. | [optional]
@@ -128,10 +128,10 @@ Name | Type | Description  | Notes
  **itemDimensionsUnit** | **String**| A string defining the units used to measure the dimensions of the product. Default value is null. | [optional] [enum: in, ft, mm, cm, m, yd, inches]
  **isPersonalizable** | **Boolean**| When true, this listing is personalizable. The default value is null. | [optional]
  **personalizationIsRequired** | **Boolean**| When true, this listing requires personalization. The default value is null. Will only change if is_personalizable is &#39;true&#39;. | [optional]
- **personalizationCharCountMax** | **Integer**| This an integer value representing the maximum length for the personalization message entered by the buyer. Will only change if is_personalizable is &#39;true&#39;. | [optional]
+ **personalizationCharCountMax** | **Long**| This an integer value representing the maximum length for the personalization message entered by the buyer. Will only change if is_personalizable is &#39;true&#39;. | [optional]
  **personalizationInstructions** | **String**| A string representing instructions for the buyer to enter the personalization. Will only change if is_personalizable is &#39;true&#39;. | [optional]
- **productionPartnerIds** | [**List&lt;Integer&gt;**](Integer.md)| An array of unique IDs of production partner ids. | [optional]
- **imageIds** | [**List&lt;Integer&gt;**](Integer.md)| An array of numeric image IDs of the images in a listing, which can include up to 10 images. | [optional]
+ **productionPartnerIds** | [**List&lt;Long&gt;**](Long.md)| An array of unique IDs of production partner ids. | [optional]
+ **imageIds** | [**List&lt;Long&gt;**](Long.md)| An array of numeric image IDs of the images in a listing, which can include up to 10 images. | [optional]
  **isSupply** | **Boolean**| When true, tags the listing as a supply product, else indicates that it&#39;s a finished product. Helps buyers locate the listing under the Supplies heading. Requires &#39;who_made&#39; and &#39;when_made&#39;. | [optional]
  **isCustomizable** | **Boolean**| When true, a buyer may contact the seller for a customized order. The default value is true when a shop accepts custom orders. Does not apply to shops that do not accept custom orders. | [optional]
  **shouldAutoRenew** | **Boolean**| When true, renews a listing for four months upon expriation. If set to true when previously false, etsy.com renews the listing before it expires, but the renewal period starts immidiately rather than extending the listing&#39;s expiration date. Any unused time remaining on the listing is lost. Renewals result in charges to a user&#39;s bill. | [optional]
@@ -195,7 +195,7 @@ public class Example {
     oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
     ShopListingApi apiInstance = new ShopListingApi(defaultClient);
-    Integer listingId = 56; // Integer | The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
+    Long listingId = 56L; // Long | The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
     try {
       apiInstance.deleteListing(listingId);
     } catch (ApiException e) {
@@ -213,7 +213,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **listingId** | **Integer**| The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. |
+ **listingId** | **Long**| The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. |
 
 ### Return type
 
@@ -273,9 +273,9 @@ public class Example {
     oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
     ShopListingApi apiInstance = new ShopListingApi(defaultClient);
-    Integer shopId = 56; // Integer | The unique positive non-zero numeric ID for an Etsy Shop.
-    Integer listingId = 56; // Integer | The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
-    Integer propertyId = 56; // Integer | The unique ID of an Etsy [listing property](/documentation/reference#operation/getListingProperties).
+    Long shopId = 56L; // Long | The unique positive non-zero numeric ID for an Etsy Shop.
+    Long listingId = 56L; // Long | The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
+    Long propertyId = 56L; // Long | The unique ID of an Etsy [listing property](/documentation/reference#operation/getListingProperties).
     try {
       apiInstance.deleteListingProperty(shopId, listingId, propertyId);
     } catch (ApiException e) {
@@ -293,9 +293,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **shopId** | **Integer**| The unique positive non-zero numeric ID for an Etsy Shop. |
- **listingId** | **Integer**| The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. |
- **propertyId** | **Integer**| The unique ID of an Etsy [listing property](/documentation/reference#operation/getListingProperties). |
+ **shopId** | **Long**| The unique positive non-zero numeric ID for an Etsy Shop. |
+ **listingId** | **Long**| The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. |
+ **propertyId** | **Long**| The unique ID of an Etsy [listing property](/documentation/reference#operation/getListingProperties). |
 
 ### Return type
 
@@ -350,11 +350,11 @@ public class Example {
     //api_key.setApiKeyPrefix("Token");
 
     ShopListingApi apiInstance = new ShopListingApi(defaultClient);
-    Integer shopId = 56; // Integer | The unique positive non-zero numeric ID for an Etsy Shop.
-    Integer limit = 25; // Integer | The maximum number of results to return.
+    Long shopId = 56L; // Long | The unique positive non-zero numeric ID for an Etsy Shop.
+    Long limit = 25L; // Long | The maximum number of results to return.
     String sortOn = "created"; // String | The value to sort a search result of listings on. NOTE: sort_on only works when combined with one of the search options (keywords, region, etc.). 
     String sortOrder = "asc"; // String | The ascending(up) or descending(down) order to sort listings by. NOTE: sort_order only works when combined with one of the search options (keywords, region, etc.).
-    Integer offset = 0; // Integer | The number of records to skip before selecting the first result.
+    Long offset = 0L; // Long | The number of records to skip before selecting the first result.
     String keywords = "null"; // String | Search term or phrase that must appear in all results.
     try {
       ShopListings result = apiInstance.findAllActiveListingsByShop(shopId, limit, sortOn, sortOrder, offset, keywords);
@@ -374,11 +374,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **shopId** | **Integer**| The unique positive non-zero numeric ID for an Etsy Shop. |
- **limit** | **Integer**| The maximum number of results to return. | [optional] [default to 25]
+ **shopId** | **Long**| The unique positive non-zero numeric ID for an Etsy Shop. |
+ **limit** | **Long**| The maximum number of results to return. | [optional] [default to 25]
  **sortOn** | **String**| The value to sort a search result of listings on. NOTE: sort_on only works when combined with one of the search options (keywords, region, etc.).  | [optional] [default to created] [enum: created, price, updated, score]
  **sortOrder** | **String**| The ascending(up) or descending(down) order to sort listings by. NOTE: sort_order only works when combined with one of the search options (keywords, region, etc.). | [optional] [default to desc] [enum: asc, ascending, desc, descending, up, down]
- **offset** | **Integer**| The number of records to skip before selecting the first result. | [optional] [default to 0]
+ **offset** | **Long**| The number of records to skip before selecting the first result. | [optional] [default to 0]
  **keywords** | **String**| Search term or phrase that must appear in all results. | [optional] [default to null]
 
 ### Return type
@@ -432,14 +432,14 @@ public class Example {
     //api_key.setApiKeyPrefix("Token");
 
     ShopListingApi apiInstance = new ShopListingApi(defaultClient);
-    Integer limit = 25; // Integer | The maximum number of results to return.
-    Integer offset = 0; // Integer | The number of records to skip before selecting the first result.
+    Long limit = 25L; // Long | The maximum number of results to return.
+    Long offset = 0L; // Long | The number of records to skip before selecting the first result.
     String keywords = "null"; // String | Search term or phrase that must appear in all results.
     String sortOn = "created"; // String | The value to sort a search result of listings on. NOTE: sort_on only works when combined with one of the search options (keywords, region, etc.). 
     String sortOrder = "asc"; // String | The ascending(up) or descending(down) order to sort listings by. NOTE: sort_order only works when combined with one of the search options (keywords, region, etc.).
     Float minPrice = 3.4F; // Float | The minimum price of listings to be returned by a search result.
     Float maxPrice = 3.4F; // Float | The maximum price of listings to be returned by a search result.
-    Integer taxonomyId = 56; // Integer | The numeric taxonomy ID of the listing. See [SellerTaxonomy](/documentation/reference#tag/SellerTaxonomy) and [BuyerTaxonomy](/documentation/reference#tag/BuyerTaxonomy) for more information.
+    Long taxonomyId = 56L; // Long | The numeric taxonomy ID of the listing. See [SellerTaxonomy](/documentation/reference#tag/SellerTaxonomy) and [BuyerTaxonomy](/documentation/reference#tag/BuyerTaxonomy) for more information.
     String shopLocation = "null"; // String | Filters by shop location. If location cannot be parsed, Etsy responds with an error.
     try {
       ShopListings result = apiInstance.findAllListingsActive(limit, offset, keywords, sortOn, sortOrder, minPrice, maxPrice, taxonomyId, shopLocation);
@@ -459,14 +459,14 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **limit** | **Integer**| The maximum number of results to return. | [optional] [default to 25]
- **offset** | **Integer**| The number of records to skip before selecting the first result. | [optional] [default to 0]
+ **limit** | **Long**| The maximum number of results to return. | [optional] [default to 25]
+ **offset** | **Long**| The number of records to skip before selecting the first result. | [optional] [default to 0]
  **keywords** | **String**| Search term or phrase that must appear in all results. | [optional] [default to null]
  **sortOn** | **String**| The value to sort a search result of listings on. NOTE: sort_on only works when combined with one of the search options (keywords, region, etc.).  | [optional] [default to created] [enum: created, price, updated, score]
  **sortOrder** | **String**| The ascending(up) or descending(down) order to sort listings by. NOTE: sort_order only works when combined with one of the search options (keywords, region, etc.). | [optional] [default to desc] [enum: asc, ascending, desc, descending, up, down]
  **minPrice** | **Float**| The minimum price of listings to be returned by a search result. | [optional]
  **maxPrice** | **Float**| The maximum price of listings to be returned by a search result. | [optional]
- **taxonomyId** | **Integer**| The numeric taxonomy ID of the listing. See [SellerTaxonomy](/documentation/reference#tag/SellerTaxonomy) and [BuyerTaxonomy](/documentation/reference#tag/BuyerTaxonomy) for more information. | [optional]
+ **taxonomyId** | **Long**| The numeric taxonomy ID of the listing. See [SellerTaxonomy](/documentation/reference#tag/SellerTaxonomy) and [BuyerTaxonomy](/documentation/reference#tag/BuyerTaxonomy) for more information. | [optional]
  **shopLocation** | **String**| Filters by shop location. If location cannot be parsed, Etsy responds with an error. | [optional] [default to null]
 
 ### Return type
@@ -519,9 +519,9 @@ public class Example {
     //api_key.setApiKeyPrefix("Token");
 
     ShopListingApi apiInstance = new ShopListingApi(defaultClient);
-    Integer shopId = 56; // Integer | The unique positive non-zero numeric ID for an Etsy Shop.
-    Integer limit = 25; // Integer | The maximum number of results to return.
-    Integer offset = 0; // Integer | The number of records to skip before selecting the first result.
+    Long shopId = 56L; // Long | The unique positive non-zero numeric ID for an Etsy Shop.
+    Long limit = 25L; // Long | The maximum number of results to return.
+    Long offset = 0L; // Long | The number of records to skip before selecting the first result.
     try {
       ShopListings result = apiInstance.getFeaturedListingsByShop(shopId, limit, offset);
       System.out.println(result);
@@ -540,9 +540,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **shopId** | **Integer**| The unique positive non-zero numeric ID for an Etsy Shop. |
- **limit** | **Integer**| The maximum number of results to return. | [optional] [default to 25]
- **offset** | **Integer**| The number of records to skip before selecting the first result. | [optional] [default to 0]
+ **shopId** | **Long**| The unique positive non-zero numeric ID for an Etsy Shop. |
+ **limit** | **Long**| The maximum number of results to return. | [optional] [default to 25]
+ **offset** | **Long**| The number of records to skip before selecting the first result. | [optional] [default to 0]
 
 ### Return type
 
@@ -595,8 +595,8 @@ public class Example {
     //api_key.setApiKeyPrefix("Token");
 
     ShopListingApi apiInstance = new ShopListingApi(defaultClient);
-    Integer listingId = 56; // Integer | The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
-    List<String> includes = Arrays.asList(); // List<String> | An enumerated string that attaches a valid association. Acceptable inputs are 'shop', 'images', 'user' and 'translations'. Default value is an empty array.
+    Long listingId = 56L; // Long | The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
+    List<String> includes = Arrays.asList(); // List<String> | An enumerated string that attaches a valid association. Acceptable inputs are 'Shipping', 'Shop', 'Images', 'User', 'Translations' and 'Inventory'. Default value is an empty array.
     try {
       ShopListingWithAssociations result = apiInstance.getListing(listingId, includes);
       System.out.println(result);
@@ -615,8 +615,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **listingId** | **Integer**| The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. |
- **includes** | [**List&lt;String&gt;**](String.md)| An enumerated string that attaches a valid association. Acceptable inputs are &#39;shop&#39;, &#39;images&#39;, &#39;user&#39; and &#39;translations&#39;. Default value is an empty array. | [optional] [enum: Shipping, Images, Shop, User, Translations]
+ **listingId** | **Long**| The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. |
+ **includes** | [**List&lt;String&gt;**](String.md)| An enumerated string that attaches a valid association. Acceptable inputs are &#39;Shipping&#39;, &#39;Shop&#39;, &#39;Images&#39;, &#39;User&#39;, &#39;Translations&#39; and &#39;Inventory&#39;. Default value is an empty array. | [optional] [enum: Shipping, Images, Shop, User, Translations, Inventory]
 
 ### Return type
 
@@ -669,8 +669,8 @@ public class Example {
     //api_key.setApiKeyPrefix("Token");
 
     ShopListingApi apiInstance = new ShopListingApi(defaultClient);
-    Integer shopId = 56; // Integer | The unique positive non-zero numeric ID for an Etsy Shop.
-    Integer listingId = 56; // Integer | The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
+    Long shopId = 56L; // Long | The unique positive non-zero numeric ID for an Etsy Shop.
+    Long listingId = 56L; // Long | The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
     try {
       ListingPropertyValues result = apiInstance.getListingProperties(shopId, listingId);
       System.out.println(result);
@@ -689,8 +689,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **shopId** | **Integer**| The unique positive non-zero numeric ID for an Etsy Shop. |
- **listingId** | **Integer**| The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. |
+ **shopId** | **Long**| The unique positive non-zero numeric ID for an Etsy Shop. |
+ **listingId** | **Long**| The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. |
 
 ### Return type
 
@@ -743,8 +743,8 @@ public class Example {
     //api_key.setApiKeyPrefix("Token");
 
     ShopListingApi apiInstance = new ShopListingApi(defaultClient);
-    Integer listingId = 56; // Integer | The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
-    Integer propertyId = 56; // Integer | The unique ID of an Etsy [listing property](/documentation/reference#operation/getListingProperties).
+    Long listingId = 56L; // Long | The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
+    Long propertyId = 56L; // Long | The unique ID of an Etsy [listing property](/documentation/reference#operation/getListingProperties).
     try {
       ListingPropertyValue result = apiInstance.getListingProperty(listingId, propertyId);
       System.out.println(result);
@@ -763,8 +763,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **listingId** | **Integer**| The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. |
- **propertyId** | **Integer**| The unique ID of an Etsy [listing property](/documentation/reference#operation/getListingProperties). |
+ **listingId** | **Long**| The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. |
+ **propertyId** | **Long**| The unique ID of an Etsy [listing property](/documentation/reference#operation/getListingProperties). |
 
 ### Return type
 
@@ -818,8 +818,8 @@ public class Example {
     //api_key.setApiKeyPrefix("Token");
 
     ShopListingApi apiInstance = new ShopListingApi(defaultClient);
-    List<Integer> listingIds = Arrays.asList(); // List<Integer> | The list of numeric IDS for the listings in a specific Etsy shop.
-    List<String> includes = Arrays.asList(); // List<String> | An enumerated string that attaches a valid association. Acceptable inputs are 'shop', 'images', 'user' and 'translations'. Default value is an empty array.
+    List<Long> listingIds = Arrays.asList(); // List<Long> | The list of numeric IDS for the listings in a specific Etsy shop.
+    List<String> includes = Arrays.asList(); // List<String> | An enumerated string that attaches a valid association. Acceptable inputs are 'Shipping', 'Shop', 'Images', 'User', 'Translations' and 'Inventory'. Default value is an empty array.
     try {
       ShopListingsWithAssociations result = apiInstance.getListingsByListingIds(listingIds, includes);
       System.out.println(result);
@@ -838,8 +838,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **listingIds** | [**List&lt;Integer&gt;**](Integer.md)| The list of numeric IDS for the listings in a specific Etsy shop. |
- **includes** | [**List&lt;String&gt;**](String.md)| An enumerated string that attaches a valid association. Acceptable inputs are &#39;shop&#39;, &#39;images&#39;, &#39;user&#39; and &#39;translations&#39;. Default value is an empty array. | [optional] [enum: Shipping, Images, Shop, User, Translations]
+ **listingIds** | [**List&lt;Long&gt;**](Long.md)| The list of numeric IDS for the listings in a specific Etsy shop. |
+ **includes** | [**List&lt;String&gt;**](String.md)| An enumerated string that attaches a valid association. Acceptable inputs are &#39;Shipping&#39;, &#39;Shop&#39;, &#39;Images&#39;, &#39;User&#39;, &#39;Translations&#39; and &#39;Inventory&#39;. Default value is an empty array. | [optional] [enum: Shipping, Images, Shop, User, Translations, Inventory]
 
 ### Return type
 
@@ -896,10 +896,10 @@ public class Example {
     oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
     ShopListingApi apiInstance = new ShopListingApi(defaultClient);
-    Integer shopId = 56; // Integer | The unique positive non-zero numeric ID for an Etsy Shop.
+    Long shopId = 56L; // Long | The unique positive non-zero numeric ID for an Etsy Shop.
     String state = "active"; // String | An enumerated string from any of: active or inactive. Note: Setting a draft listing to active will also publish the listing on etsy.com. Setting a sold out listing to active will update the quantity to 1 and renew the listing on etsy.com.
-    Integer limit = 25; // Integer | The maximum number of results to return.
-    Integer offset = 0; // Integer | The number of records to skip before selecting the first result.
+    Long limit = 25L; // Long | The maximum number of results to return.
+    Long offset = 0L; // Long | The number of records to skip before selecting the first result.
     String sortOn = "created"; // String | The value to sort a search result of listings on. NOTE: sort_on only works when combined with one of the search options (keywords, region, etc.). 
     String sortOrder = "asc"; // String | The ascending(up) or descending(down) order to sort listings by. NOTE: sort_order only works when combined with one of the search options (keywords, region, etc.).
     try {
@@ -920,10 +920,10 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **shopId** | **Integer**| The unique positive non-zero numeric ID for an Etsy Shop. |
+ **shopId** | **Long**| The unique positive non-zero numeric ID for an Etsy Shop. |
  **state** | **String**| An enumerated string from any of: active or inactive. Note: Setting a draft listing to active will also publish the listing on etsy.com. Setting a sold out listing to active will update the quantity to 1 and renew the listing on etsy.com. | [optional] [default to active] [enum: active, inactive, sold_out, draft, expired]
- **limit** | **Integer**| The maximum number of results to return. | [optional] [default to 25]
- **offset** | **Integer**| The number of records to skip before selecting the first result. | [optional] [default to 0]
+ **limit** | **Long**| The maximum number of results to return. | [optional] [default to 25]
+ **offset** | **Long**| The number of records to skip before selecting the first result. | [optional] [default to 0]
  **sortOn** | **String**| The value to sort a search result of listings on. NOTE: sort_on only works when combined with one of the search options (keywords, region, etc.).  | [optional] [default to created] [enum: created, price, updated, score]
  **sortOrder** | **String**| The ascending(up) or descending(down) order to sort listings by. NOTE: sort_order only works when combined with one of the search options (keywords, region, etc.). | [optional] [default to desc] [enum: asc, ascending, desc, descending, up, down]
 
@@ -983,10 +983,10 @@ public class Example {
     oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
     ShopListingApi apiInstance = new ShopListingApi(defaultClient);
-    Integer receiptId = 56; // Integer | The numeric ID for the [receipt](/documentation/reference#tag/Shop-Receipt) associated to this transaction.
-    Integer shopId = 56; // Integer | The unique positive non-zero numeric ID for an Etsy Shop.
-    Integer limit = 25; // Integer | The maximum number of results to return.
-    Integer offset = 0; // Integer | The number of records to skip before selecting the first result.
+    Long receiptId = 56L; // Long | The numeric ID for the [receipt](/documentation/reference#tag/Shop-Receipt) associated to this transaction.
+    Long shopId = 56L; // Long | The unique positive non-zero numeric ID for an Etsy Shop.
+    Long limit = 25L; // Long | The maximum number of results to return.
+    Long offset = 0L; // Long | The number of records to skip before selecting the first result.
     try {
       ShopListings result = apiInstance.getListingsByShopReceipt(receiptId, shopId, limit, offset);
       System.out.println(result);
@@ -1005,10 +1005,10 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **receiptId** | **Integer**| The numeric ID for the [receipt](/documentation/reference#tag/Shop-Receipt) associated to this transaction. |
- **shopId** | **Integer**| The unique positive non-zero numeric ID for an Etsy Shop. |
- **limit** | **Integer**| The maximum number of results to return. | [optional] [default to 25]
- **offset** | **Integer**| The number of records to skip before selecting the first result. | [optional] [default to 0]
+ **receiptId** | **Long**| The numeric ID for the [receipt](/documentation/reference#tag/Shop-Receipt) associated to this transaction. |
+ **shopId** | **Long**| The unique positive non-zero numeric ID for an Etsy Shop. |
+ **limit** | **Long**| The maximum number of results to return. | [optional] [default to 25]
+ **offset** | **Long**| The number of records to skip before selecting the first result. | [optional] [default to 0]
 
 ### Return type
 
@@ -1063,10 +1063,10 @@ public class Example {
     //api_key.setApiKeyPrefix("Token");
 
     ShopListingApi apiInstance = new ShopListingApi(defaultClient);
-    Integer shopId = 56; // Integer | The unique positive non-zero numeric ID for an Etsy Shop.
-    List<Integer> shopSectionIds = Arrays.asList(); // List<Integer> | A list of numeric IDS for all sections in a specific Etsy shop.
-    Integer limit = 25; // Integer | The maximum number of results to return.
-    Integer offset = 0; // Integer | The number of records to skip before selecting the first result.
+    Long shopId = 56L; // Long | The unique positive non-zero numeric ID for an Etsy Shop.
+    List<Long> shopSectionIds = Arrays.asList(); // List<Long> | A list of numeric IDS for all sections in a specific Etsy shop.
+    Long limit = 25L; // Long | The maximum number of results to return.
+    Long offset = 0L; // Long | The number of records to skip before selecting the first result.
     String sortOn = "created"; // String | The value to sort a search result of listings on. NOTE: sort_on only works when combined with one of the search options (keywords, region, etc.). 
     String sortOrder = "asc"; // String | The ascending(up) or descending(down) order to sort listings by. NOTE: sort_order only works when combined with one of the search options (keywords, region, etc.).
     try {
@@ -1087,10 +1087,10 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **shopId** | **Integer**| The unique positive non-zero numeric ID for an Etsy Shop. |
- **shopSectionIds** | [**List&lt;Integer&gt;**](Integer.md)| A list of numeric IDS for all sections in a specific Etsy shop. |
- **limit** | **Integer**| The maximum number of results to return. | [optional] [default to 25]
- **offset** | **Integer**| The number of records to skip before selecting the first result. | [optional] [default to 0]
+ **shopId** | **Long**| The unique positive non-zero numeric ID for an Etsy Shop. |
+ **shopSectionIds** | [**List&lt;Long&gt;**](Long.md)| A list of numeric IDS for all sections in a specific Etsy shop. |
+ **limit** | **Long**| The maximum number of results to return. | [optional] [default to 25]
+ **offset** | **Long**| The number of records to skip before selecting the first result. | [optional] [default to 0]
  **sortOn** | **String**| The value to sort a search result of listings on. NOTE: sort_on only works when combined with one of the search options (keywords, region, etc.).  | [optional] [default to created] [enum: created, price, updated, score]
  **sortOrder** | **String**| The ascending(up) or descending(down) order to sort listings by. NOTE: sort_order only works when combined with one of the search options (keywords, region, etc.). | [optional] [default to desc] [enum: asc, ascending, desc, descending, up, down]
 
@@ -1148,17 +1148,17 @@ public class Example {
     oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
     ShopListingApi apiInstance = new ShopListingApi(defaultClient);
-    Integer shopId = 56; // Integer | The unique positive non-zero numeric ID for an Etsy Shop.
-    Integer listingId = 56; // Integer | The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
-    List<Integer> imageIds = Arrays.asList(); // List<Integer> | An array of numeric image IDs of the images in a listing, which can include up to 10 images.
-    Integer quantity = 56; // Integer | The positive non-zero number of products available for purchase in the listing. Note: The listing quantity is the sum of available offering quantities. You can request the quantities for individual offerings from the ListingInventory resource using the [getListingInventory](/documentation/reference#operation/getListingInventory) endpoint.
-    Float price = 3.4F; // Float | The positive non-zero price of the product. (Sold product listings are private) Note: The price is the minimum possible price. The getInventory method requests exact prices for available offerings.
+    Long shopId = 56L; // Long | The unique positive non-zero numeric ID for an Etsy Shop.
+    Long listingId = 56L; // Long | The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
+    List<Long> imageIds = Arrays.asList(); // List<Long> | An array of numeric image IDs of the images in a listing, which can include up to 10 images.
+    Long quantity = 56L; // Long | The positive non-zero number of products available for purchase in the listing. Note: The listing quantity is the sum of available offering quantities. You can request the quantities for individual offerings from the ListingInventory resource using the [getListingInventory](/documentation/reference#operation/getListingInventory) endpoint.
+    Float price = 3.4F; // Float | The positive non-zero price of the product. (Sold product listings are private) Note: The price is the minimum possible price. The [`getListingInventory`](/documentation/reference/#operation/getListingInventory) method requests exact prices for available offerings.
     String title = "title_example"; // String | The listing's title string. Valid title strings contain only letters, numbers, punctuation marks, mathematical symbols, whitespace characters, ™, ©, and ®. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{P}\\\\p{Sm}\\\\p{Zs}™©®]/u) You can only use the %, :, & and + characters once each.
     String description = "description_example"; // String | A description string of the product for sale in the listing.
     List<String> materials = Arrays.asList(); // List<String> | A list of material strings for materials used in the product. Valid materials strings contain only letters, numbers, and whitespace characters. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{Zs}]/u) Default value is null.
     Boolean shouldAutoRenew = true; // Boolean | When true, renews a listing for four months upon expriation. If set to true when previously false, etsy.com renews the listing before it expires, but the renewal period starts immidiately rather than extending the listing's expiration date. Any unused time remaining on the listing is lost. Renewals result in charges to a user's bill.
-    Integer shippingProfileId = 56; // Integer | The numeric ID of the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing. Required when listing type=physical.
-    Integer shopSectionId = 56; // Integer | The numeric ID of the [shop section](/documentation/reference#tag/Shop-Section) for this listing. Default value is null.
+    Long shippingProfileId = 56L; // Long | The numeric ID of the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing. Required when listing type=physical.
+    Long shopSectionId = 56L; // Long | The numeric ID of the [shop section](/documentation/reference#tag/Shop-Section) for this listing. Default value is null.
     Float itemWeight = 3.4F; // Float | The numeric weight of the product measured in units set in 'item_weight_unit'. Default value is null. If set, the value must be greater than 0.
     Float itemLength = 3.4F; // Float | The numeric length of the product measured in units set in 'item_dimensions_unit'. Default value is null. If set, the value must be greater than 0.
     Float itemWidth = 3.4F; // Float | The numeric width of the product measured in units set in 'item_dimensions_unit'. Default value is null. If set, the value must be greater than 0.
@@ -1166,18 +1166,18 @@ public class Example {
     String itemWeightUnit = "oz"; // String | A string defining the units used to measure the weight of the product. Default value is null.
     String itemDimensionsUnit = "in"; // String | A string defining the units used to measure the dimensions of the product. Default value is null.
     Boolean isTaxable = true; // Boolean | When true, applicable [shop](/documentation/reference#tag/Shop) tax rates apply to this listing at checkout.
-    Integer taxonomyId = 56; // Integer | The numeric taxonomy ID of the listing. See [SellerTaxonomy](/documentation/reference#tag/SellerTaxonomy) and [BuyerTaxonomy](/documentation/reference#tag/BuyerTaxonomy) for more information.
+    Long taxonomyId = 56L; // Long | The numeric taxonomy ID of the listing. See [SellerTaxonomy](/documentation/reference#tag/SellerTaxonomy) and [BuyerTaxonomy](/documentation/reference#tag/BuyerTaxonomy) for more information.
     List<String> tags = Arrays.asList(); // List<String> | A comma-separated list of tag strings for the listing. Valid tag strings contain only letters, numbers, whitespace characters, -, ', ™, ©, and ®. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{Zs}\\\\-'™©®]/u) Default value is null.
     String whoMade = "i_did"; // String | An enumerated string inidcated who made the product. Helps buyers locate the listing under the Handmade heading. Requires 'is_supply' and 'when_made'.
     String whenMade = "made_to_order"; // String | An enumerated string for the era in which the maker made the product in this listing. Helps buyers locate the listing under the Vintage heading. Requires 'is_supply' and 'who_made'.
-    Integer featuredRank = 56; // Integer | The positive non-zero numeric position in the featured listings of the shop, with rank 1 listings appearing in the left-most position in featured listing on a shop’s home page.
+    Long featuredRank = 56L; // Long | The positive non-zero numeric position in the featured listings of the shop, with rank 1 listings appearing in the left-most position in featured listing on a shop’s home page.
     Boolean isPersonalizable = true; // Boolean | When true, this listing is personalizable. The default value is null.
     Boolean personalizationIsRequired = true; // Boolean | When true, this listing requires personalization. The default value is null. Will only change if is_personalizable is 'true'.
-    Integer personalizationCharCountMax = 56; // Integer | This an integer value representing the maximum length for the personalization message entered by the buyer. Will only change if is_personalizable is 'true'.
+    Long personalizationCharCountMax = 56L; // Long | This an integer value representing the maximum length for the personalization message entered by the buyer. Will only change if is_personalizable is 'true'.
     String personalizationInstructions = "personalizationInstructions_example"; // String | A string representing instructions for the buyer to enter the personalization. Will only change if is_personalizable is 'true'.
     String state = "active"; // String | An enumerated string from any of: active or inactive. Note: Setting a draft listing to active will also publish the listing on etsy.com. Setting a sold out listing to active will update the quantity to 1 and renew the listing on etsy.com.
     Boolean isSupply = true; // Boolean | When true, tags the listing as a supply product, else indicates that it's a finished product. Helps buyers locate the listing under the Supplies heading. Requires 'who_made' and 'when_made'.
-    List<Integer> productionPartnerIds = Arrays.asList(); // List<Integer> | An array of unique IDs of production partner ids.
+    List<Long> productionPartnerIds = Arrays.asList(); // List<Long> | An array of unique IDs of production partner ids.
     String type = "physical"; // String | An enumerated type string that indicates whether the listing is physical or a digital download.
     try {
       ShopListing result = apiInstance.updateListing(shopId, listingId, imageIds, quantity, price, title, description, materials, shouldAutoRenew, shippingProfileId, shopSectionId, itemWeight, itemLength, itemWidth, itemHeight, itemWeightUnit, itemDimensionsUnit, isTaxable, taxonomyId, tags, whoMade, whenMade, featuredRank, isPersonalizable, personalizationIsRequired, personalizationCharCountMax, personalizationInstructions, state, isSupply, productionPartnerIds, type);
@@ -1197,17 +1197,17 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **shopId** | **Integer**| The unique positive non-zero numeric ID for an Etsy Shop. |
- **listingId** | **Integer**| The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. |
- **imageIds** | [**List&lt;Integer&gt;**](Integer.md)| An array of numeric image IDs of the images in a listing, which can include up to 10 images. | [optional]
- **quantity** | **Integer**| The positive non-zero number of products available for purchase in the listing. Note: The listing quantity is the sum of available offering quantities. You can request the quantities for individual offerings from the ListingInventory resource using the [getListingInventory](/documentation/reference#operation/getListingInventory) endpoint. | [optional]
- **price** | **Float**| The positive non-zero price of the product. (Sold product listings are private) Note: The price is the minimum possible price. The getInventory method requests exact prices for available offerings. | [optional]
+ **shopId** | **Long**| The unique positive non-zero numeric ID for an Etsy Shop. |
+ **listingId** | **Long**| The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. |
+ **imageIds** | [**List&lt;Long&gt;**](Long.md)| An array of numeric image IDs of the images in a listing, which can include up to 10 images. | [optional]
+ **quantity** | **Long**| The positive non-zero number of products available for purchase in the listing. Note: The listing quantity is the sum of available offering quantities. You can request the quantities for individual offerings from the ListingInventory resource using the [getListingInventory](/documentation/reference#operation/getListingInventory) endpoint. | [optional]
+ **price** | **Float**| The positive non-zero price of the product. (Sold product listings are private) Note: The price is the minimum possible price. The [&#x60;getListingInventory&#x60;](/documentation/reference/#operation/getListingInventory) method requests exact prices for available offerings. | [optional]
  **title** | **String**| The listing&#39;s title string. Valid title strings contain only letters, numbers, punctuation marks, mathematical symbols, whitespace characters, ™, ©, and ®. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{P}\\\\p{Sm}\\\\p{Zs}™©®]/u) You can only use the %, :, &amp; and + characters once each. | [optional]
  **description** | **String**| A description string of the product for sale in the listing. | [optional]
  **materials** | [**List&lt;String&gt;**](String.md)| A list of material strings for materials used in the product. Valid materials strings contain only letters, numbers, and whitespace characters. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{Zs}]/u) Default value is null. | [optional]
  **shouldAutoRenew** | **Boolean**| When true, renews a listing for four months upon expriation. If set to true when previously false, etsy.com renews the listing before it expires, but the renewal period starts immidiately rather than extending the listing&#39;s expiration date. Any unused time remaining on the listing is lost. Renewals result in charges to a user&#39;s bill. | [optional]
- **shippingProfileId** | **Integer**| The numeric ID of the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing. Required when listing type&#x3D;physical. | [optional]
- **shopSectionId** | **Integer**| The numeric ID of the [shop section](/documentation/reference#tag/Shop-Section) for this listing. Default value is null. | [optional]
+ **shippingProfileId** | **Long**| The numeric ID of the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing. Required when listing type&#x3D;physical. | [optional]
+ **shopSectionId** | **Long**| The numeric ID of the [shop section](/documentation/reference#tag/Shop-Section) for this listing. Default value is null. | [optional]
  **itemWeight** | **Float**| The numeric weight of the product measured in units set in &#39;item_weight_unit&#39;. Default value is null. If set, the value must be greater than 0. | [optional]
  **itemLength** | **Float**| The numeric length of the product measured in units set in &#39;item_dimensions_unit&#39;. Default value is null. If set, the value must be greater than 0. | [optional]
  **itemWidth** | **Float**| The numeric width of the product measured in units set in &#39;item_dimensions_unit&#39;. Default value is null. If set, the value must be greater than 0. | [optional]
@@ -1215,18 +1215,18 @@ Name | Type | Description  | Notes
  **itemWeightUnit** | **String**| A string defining the units used to measure the weight of the product. Default value is null. | [optional] [enum: oz, lb, g, kg]
  **itemDimensionsUnit** | **String**| A string defining the units used to measure the dimensions of the product. Default value is null. | [optional] [enum: in, ft, mm, cm, m, yd, inches]
  **isTaxable** | **Boolean**| When true, applicable [shop](/documentation/reference#tag/Shop) tax rates apply to this listing at checkout. | [optional]
- **taxonomyId** | **Integer**| The numeric taxonomy ID of the listing. See [SellerTaxonomy](/documentation/reference#tag/SellerTaxonomy) and [BuyerTaxonomy](/documentation/reference#tag/BuyerTaxonomy) for more information. | [optional]
+ **taxonomyId** | **Long**| The numeric taxonomy ID of the listing. See [SellerTaxonomy](/documentation/reference#tag/SellerTaxonomy) and [BuyerTaxonomy](/documentation/reference#tag/BuyerTaxonomy) for more information. | [optional]
  **tags** | [**List&lt;String&gt;**](String.md)| A comma-separated list of tag strings for the listing. Valid tag strings contain only letters, numbers, whitespace characters, -, &#39;, ™, ©, and ®. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{Zs}\\\\-&#39;™©®]/u) Default value is null. | [optional]
  **whoMade** | **String**| An enumerated string inidcated who made the product. Helps buyers locate the listing under the Handmade heading. Requires &#39;is_supply&#39; and &#39;when_made&#39;. | [optional] [enum: i_did, someone_else, collective]
  **whenMade** | **String**| An enumerated string for the era in which the maker made the product in this listing. Helps buyers locate the listing under the Vintage heading. Requires &#39;is_supply&#39; and &#39;who_made&#39;. | [optional] [enum: made_to_order, 2020_2022, 2010_2019, 2003_2009, before_2003, 2000_2002, 1990s, 1980s, 1970s, 1960s, 1950s, 1940s, 1930s, 1920s, 1910s, 1900s, 1800s, 1700s, before_1700]
- **featuredRank** | **Integer**| The positive non-zero numeric position in the featured listings of the shop, with rank 1 listings appearing in the left-most position in featured listing on a shop’s home page. | [optional]
+ **featuredRank** | **Long**| The positive non-zero numeric position in the featured listings of the shop, with rank 1 listings appearing in the left-most position in featured listing on a shop’s home page. | [optional]
  **isPersonalizable** | **Boolean**| When true, this listing is personalizable. The default value is null. | [optional]
  **personalizationIsRequired** | **Boolean**| When true, this listing requires personalization. The default value is null. Will only change if is_personalizable is &#39;true&#39;. | [optional]
- **personalizationCharCountMax** | **Integer**| This an integer value representing the maximum length for the personalization message entered by the buyer. Will only change if is_personalizable is &#39;true&#39;. | [optional]
+ **personalizationCharCountMax** | **Long**| This an integer value representing the maximum length for the personalization message entered by the buyer. Will only change if is_personalizable is &#39;true&#39;. | [optional]
  **personalizationInstructions** | **String**| A string representing instructions for the buyer to enter the personalization. Will only change if is_personalizable is &#39;true&#39;. | [optional]
  **state** | **String**| An enumerated string from any of: active or inactive. Note: Setting a draft listing to active will also publish the listing on etsy.com. Setting a sold out listing to active will update the quantity to 1 and renew the listing on etsy.com. | [optional] [enum: active, inactive]
  **isSupply** | **Boolean**| When true, tags the listing as a supply product, else indicates that it&#39;s a finished product. Helps buyers locate the listing under the Supplies heading. Requires &#39;who_made&#39; and &#39;when_made&#39;. | [optional]
- **productionPartnerIds** | [**List&lt;Integer&gt;**](Integer.md)| An array of unique IDs of production partner ids. | [optional]
+ **productionPartnerIds** | [**List&lt;Long&gt;**](Long.md)| An array of unique IDs of production partner ids. | [optional]
  **type** | **String**| An enumerated type string that indicates whether the listing is physical or a digital download. | [optional] [enum: physical, download, both]
 
 ### Return type
@@ -1287,12 +1287,12 @@ public class Example {
     oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
     ShopListingApi apiInstance = new ShopListingApi(defaultClient);
-    Integer shopId = 56; // Integer | The unique positive non-zero numeric ID for an Etsy Shop.
-    Integer listingId = 56; // Integer | The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
-    Integer propertyId = 56; // Integer | The unique ID of an Etsy [listing property](/documentation/reference#operation/getListingProperties).
-    List<Integer> valueIds = Arrays.asList(); // List<Integer> | An array of unique IDs of multiple Etsy [listing property](/documentation/reference#operation/getListingProperties) values. For example, if your listing offers different sizes of a product, then the value ID list contains value IDs for each size.
+    Long shopId = 56L; // Long | The unique positive non-zero numeric ID for an Etsy Shop.
+    Long listingId = 56L; // Long | The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
+    Long propertyId = 56L; // Long | The unique ID of an Etsy [listing property](/documentation/reference#operation/getListingProperties).
+    List<Long> valueIds = Arrays.asList(); // List<Long> | An array of unique IDs of multiple Etsy [listing property](/documentation/reference#operation/getListingProperties) values. For example, if your listing offers different sizes of a product, then the value ID list contains value IDs for each size.
     List<String> values = Arrays.asList(); // List<String> | An array of value strings for multiple Etsy [listing property](/documentation/reference#operation/getListingProperties) values. For example, if your listing offers different colored products, then the values array contains the color strings for each color.
-    Integer scaleId = 56; // Integer | The numeric ID of a single Etsy.com measurement scale. For example, for shoe size, there are three `scale_id`s available - *UK*, *US/Canada*, and *EU*, where *US/Canada* has `scale_id` 19.
+    Long scaleId = 56L; // Long | The numeric ID of a single Etsy.com measurement scale. For example, for shoe size, there are three `scale_id`s available - *UK*, *US/Canada*, and *EU*, where *US/Canada* has `scale_id` 19.
     try {
       ListingPropertyValue result = apiInstance.updateListingProperty(shopId, listingId, propertyId, valueIds, values, scaleId);
       System.out.println(result);
@@ -1311,12 +1311,12 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **shopId** | **Integer**| The unique positive non-zero numeric ID for an Etsy Shop. |
- **listingId** | **Integer**| The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. |
- **propertyId** | **Integer**| The unique ID of an Etsy [listing property](/documentation/reference#operation/getListingProperties). |
- **valueIds** | [**List&lt;Integer&gt;**](Integer.md)| An array of unique IDs of multiple Etsy [listing property](/documentation/reference#operation/getListingProperties) values. For example, if your listing offers different sizes of a product, then the value ID list contains value IDs for each size. |
+ **shopId** | **Long**| The unique positive non-zero numeric ID for an Etsy Shop. |
+ **listingId** | **Long**| The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. |
+ **propertyId** | **Long**| The unique ID of an Etsy [listing property](/documentation/reference#operation/getListingProperties). |
+ **valueIds** | [**List&lt;Long&gt;**](Long.md)| An array of unique IDs of multiple Etsy [listing property](/documentation/reference#operation/getListingProperties) values. For example, if your listing offers different sizes of a product, then the value ID list contains value IDs for each size. |
  **values** | [**List&lt;String&gt;**](String.md)| An array of value strings for multiple Etsy [listing property](/documentation/reference#operation/getListingProperties) values. For example, if your listing offers different colored products, then the values array contains the color strings for each color. |
- **scaleId** | **Integer**| The numeric ID of a single Etsy.com measurement scale. For example, for shoe size, there are three &#x60;scale_id&#x60;s available - *UK*, *US/Canada*, and *EU*, where *US/Canada* has &#x60;scale_id&#x60; 19. | [optional]
+ **scaleId** | **Long**| The numeric ID of a single Etsy.com measurement scale. For example, for shoe size, there are three &#x60;scale_id&#x60;s available - *UK*, *US/Canada*, and *EU*, where *US/Canada* has &#x60;scale_id&#x60; 19. | [optional]
 
 ### Return type
 

@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * V3ApplicationListingsListingIdInventoryOfferings
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-04-08T15:52:16.342-04:00[America/Toronto]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-07T10:51:54.559-04:00[America/Toronto]")
 public class V3ApplicationListingsListingIdInventoryOfferings {
   public static final String SERIALIZED_NAME_PRICE = "price";
   @SerializedName(SERIALIZED_NAME_PRICE)
@@ -35,7 +35,7 @@ public class V3ApplicationListingsListingIdInventoryOfferings {
 
   public static final String SERIALIZED_NAME_QUANTITY = "quantity";
   @SerializedName(SERIALIZED_NAME_QUANTITY)
-  private Integer quantity;
+  private Long quantity;
 
   public static final String SERIALIZED_NAME_IS_ENABLED = "is_enabled";
   @SerializedName(SERIALIZED_NAME_IS_ENABLED)
@@ -67,7 +67,7 @@ public class V3ApplicationListingsListingIdInventoryOfferings {
   }
 
 
-  public V3ApplicationListingsListingIdInventoryOfferings quantity(Integer quantity) {
+  public V3ApplicationListingsListingIdInventoryOfferings quantity(Long quantity) {
     
     this.quantity = quantity;
     return this;
@@ -80,12 +80,12 @@ public class V3ApplicationListingsListingIdInventoryOfferings {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "How many of this product are available?")
 
-  public Integer getQuantity() {
+  public Long getQuantity() {
     return quantity;
   }
 
 
-  public void setQuantity(Integer quantity) {
+  public void setQuantity(Long quantity) {
     this.quantity = quantity;
   }
 

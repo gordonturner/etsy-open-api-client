@@ -43,8 +43,8 @@ public class Example {
     oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
     PaymentApi apiInstance = new PaymentApi(defaultClient);
-    Integer shopId = 56; // Integer | The unique positive non-zero numeric ID for an Etsy Shop.
-    List<Integer> ledgerEntryIds = Arrays.asList(); // List<Integer> | 
+    Long shopId = 56L; // Long | The unique positive non-zero numeric ID for an Etsy Shop.
+    List<Long> ledgerEntryIds = Arrays.asList(); // List<Long> | 
     try {
       Payments result = apiInstance.getPaymentAccountLedgerEntryPayments(shopId, ledgerEntryIds);
       System.out.println(result);
@@ -63,8 +63,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **shopId** | **Integer**| The unique positive non-zero numeric ID for an Etsy Shop. |
- **ledgerEntryIds** | [**List&lt;Integer&gt;**](Integer.md)|  |
+ **shopId** | **Long**| The unique positive non-zero numeric ID for an Etsy Shop. |
+ **ledgerEntryIds** | [**List&lt;Long&gt;**](Long.md)|  |
 
 ### Return type
 
@@ -122,8 +122,8 @@ public class Example {
     oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
     PaymentApi apiInstance = new PaymentApi(defaultClient);
-    Integer shopId = 56; // Integer | The unique positive non-zero numeric ID for an Etsy Shop.
-    List<Integer> paymentIds = Arrays.asList(); // List<Integer> | A comma-separated array of Payment IDs numbers.
+    Long shopId = 56L; // Long | The unique positive non-zero numeric ID for an Etsy Shop.
+    List<Long> paymentIds = Arrays.asList(); // List<Long> | A comma-separated array of Payment IDs numbers.
     try {
       Payments result = apiInstance.getPayments(shopId, paymentIds);
       System.out.println(result);
@@ -142,8 +142,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **shopId** | **Integer**| The unique positive non-zero numeric ID for an Etsy Shop. |
- **paymentIds** | [**List&lt;Integer&gt;**](Integer.md)| A comma-separated array of Payment IDs numbers. |
+ **shopId** | **Long**| The unique positive non-zero numeric ID for an Etsy Shop. |
+ **paymentIds** | [**List&lt;Long&gt;**](Long.md)| A comma-separated array of Payment IDs numbers. |
 
 ### Return type
 
@@ -202,8 +202,8 @@ public class Example {
     oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
     PaymentApi apiInstance = new PaymentApi(defaultClient);
-    Integer shopId = 56; // Integer | The unique positive non-zero numeric ID for an Etsy Shop.
-    Integer receiptId = 56; // Integer | The numeric ID for the [receipt](/documentation/reference#tag/Shop-Receipt) associated to this transaction.
+    Long shopId = 56L; // Long | The unique positive non-zero numeric ID for an Etsy Shop.
+    Long receiptId = 56L; // Long | The numeric ID for the [receipt](/documentation/reference#tag/Shop-Receipt) associated to this transaction.
     try {
       Payments result = apiInstance.getShopPaymentByReceiptId(shopId, receiptId);
       System.out.println(result);
@@ -222,8 +222,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **shopId** | **Integer**| The unique positive non-zero numeric ID for an Etsy Shop. |
- **receiptId** | **Integer**| The numeric ID for the [receipt](/documentation/reference#tag/Shop-Receipt) associated to this transaction. |
+ **shopId** | **Long**| The unique positive non-zero numeric ID for an Etsy Shop. |
+ **receiptId** | **Long**| The numeric ID for the [receipt](/documentation/reference#tag/Shop-Receipt) associated to this transaction. |
 
 ### Return type
 

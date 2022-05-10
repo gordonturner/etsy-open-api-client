@@ -28,11 +28,11 @@ import java.io.IOException;
  * A section within a shop, into which a user can sort listings.
  */
 @ApiModel(description = "A section within a shop, into which a user can sort listings.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-04-08T15:52:16.342-04:00[America/Toronto]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-07T10:51:54.559-04:00[America/Toronto]")
 public class ShopSection {
   public static final String SERIALIZED_NAME_SHOP_SECTION_ID = "shop_section_id";
   @SerializedName(SERIALIZED_NAME_SHOP_SECTION_ID)
-  private Integer shopSectionId;
+  private Long shopSectionId;
 
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
@@ -40,20 +40,20 @@ public class ShopSection {
 
   public static final String SERIALIZED_NAME_RANK = "rank";
   @SerializedName(SERIALIZED_NAME_RANK)
-  private Integer rank;
+  private Long rank;
 
   public static final String SERIALIZED_NAME_USER_ID = "user_id";
   @SerializedName(SERIALIZED_NAME_USER_ID)
-  private Integer userId;
+  private Long userId;
 
   public static final String SERIALIZED_NAME_ACTIVE_LISTING_COUNT = "active_listing_count";
   @SerializedName(SERIALIZED_NAME_ACTIVE_LISTING_COUNT)
-  private Integer activeListingCount;
+  private Long activeListingCount;
 
   public ShopSection() { 
   }
 
-  public ShopSection shopSectionId(Integer shopSectionId) {
+  public ShopSection shopSectionId(Long shopSectionId) {
     
     this.shopSectionId = shopSectionId;
     return this;
@@ -67,12 +67,12 @@ public class ShopSection {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The numeric ID of a section in a specific Etsy shop.")
 
-  public Integer getShopSectionId() {
+  public Long getShopSectionId() {
     return shopSectionId;
   }
 
 
-  public void setShopSectionId(Integer shopSectionId) {
+  public void setShopSectionId(Long shopSectionId) {
     this.shopSectionId = shopSectionId;
   }
 
@@ -100,7 +100,7 @@ public class ShopSection {
   }
 
 
-  public ShopSection rank(Integer rank) {
+  public ShopSection rank(Long rank) {
     
     this.rank = rank;
     return this;
@@ -114,17 +114,17 @@ public class ShopSection {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The positive non-zero numeric position of this section in the section display order for a shop, with rank 1 sections appearing first.")
 
-  public Integer getRank() {
+  public Long getRank() {
     return rank;
   }
 
 
-  public void setRank(Integer rank) {
+  public void setRank(Long rank) {
     this.rank = rank;
   }
 
 
-  public ShopSection userId(Integer userId) {
+  public ShopSection userId(Long userId) {
     
     this.userId = userId;
     return this;
@@ -138,17 +138,17 @@ public class ShopSection {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The numeric ID of the [user](/documentation/reference#tag/User) who owns this shop section.")
 
-  public Integer getUserId() {
+  public Long getUserId() {
     return userId;
   }
 
 
-  public void setUserId(Integer userId) {
+  public void setUserId(Long userId) {
     this.userId = userId;
   }
 
 
-  public ShopSection activeListingCount(Integer activeListingCount) {
+  public ShopSection activeListingCount(Long activeListingCount) {
     
     this.activeListingCount = activeListingCount;
     return this;
@@ -162,12 +162,12 @@ public class ShopSection {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The number of active listings in one section of a specific Etsy shop.")
 
-  public Integer getActiveListingCount() {
+  public Long getActiveListingCount() {
     return activeListingCount;
   }
 
 
-  public void setActiveListingCount(Integer activeListingCount) {
+  public void setActiveListingCount(Long activeListingCount) {
     this.activeListingCount = activeListingCount;
   }
 

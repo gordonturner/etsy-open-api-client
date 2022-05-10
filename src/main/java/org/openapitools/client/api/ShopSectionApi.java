@@ -92,7 +92,7 @@ public class ShopSectionApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createShopSectionCall(Integer shopId, String title, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createShopSectionCall(Long shopId, String title, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -144,7 +144,7 @@ public class ShopSectionApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createShopSectionValidateBeforeCall(Integer shopId, String title, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createShopSectionValidateBeforeCall(Long shopId, String title, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'shopId' is set
         if (shopId == null) {
@@ -180,7 +180,7 @@ public class ShopSectionApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ShopSection createShopSection(Integer shopId, String title) throws ApiException {
+    public ShopSection createShopSection(Long shopId, String title) throws ApiException {
         ApiResponse<ShopSection> localVarResp = createShopSectionWithHttpInfo(shopId, title);
         return localVarResp.getData();
     }
@@ -203,7 +203,7 @@ public class ShopSectionApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ShopSection> createShopSectionWithHttpInfo(Integer shopId, String title) throws ApiException {
+    public ApiResponse<ShopSection> createShopSectionWithHttpInfo(Long shopId, String title) throws ApiException {
         okhttp3.Call localVarCall = createShopSectionValidateBeforeCall(shopId, title, null);
         Type localVarReturnType = new TypeToken<ShopSection>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -228,11 +228,165 @@ public class ShopSectionApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createShopSectionAsync(Integer shopId, String title, final ApiCallback<ShopSection> _callback) throws ApiException {
+    public okhttp3.Call createShopSectionAsync(Long shopId, String title, final ApiCallback<ShopSection> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createShopSectionValidateBeforeCall(shopId, title, _callback);
         Type localVarReturnType = new TypeToken<ShopSection>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for deleteShopSection
+     * @param shopId The unique positive non-zero numeric ID for an Etsy Shop. (required)
+     * @param shopSectionId The numeric ID of a section in a specific Etsy shop. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> The shop section resource was correctly deleted </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> There was a problem with the request data. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 503 </td><td> This function is temporarily unavailable. Please try again later. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> The request attempted to perform an operation it is not allowed to. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> The request lacks valid authentication credentials. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteShopSectionCall(Long shopId, Long shopSectionId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v3/application/shops/{shop_id}/sections/{shop_section_id}"
+            .replaceAll("\\{" + "shop_id" + "\\}", localVarApiClient.escapeString(shopId.toString()))
+            .replaceAll("\\{" + "shop_section_id" + "\\}", localVarApiClient.escapeString(shopSectionId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key", "oauth2" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteShopSectionValidateBeforeCall(Long shopId, Long shopSectionId, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'shopId' is set
+        if (shopId == null) {
+            throw new ApiException("Missing the required parameter 'shopId' when calling deleteShopSection(Async)");
+        }
+        
+        // verify the required parameter 'shopSectionId' is set
+        if (shopSectionId == null) {
+            throw new ApiException("Missing the required parameter 'shopSectionId' when calling deleteShopSection(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = deleteShopSectionCall(shopId, shopSectionId, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * 
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Deletes a section in a specific shop given a valid shop_section_id.
+     * @param shopId The unique positive non-zero numeric ID for an Etsy Shop. (required)
+     * @param shopSectionId The numeric ID of a section in a specific Etsy shop. (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> The shop section resource was correctly deleted </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> There was a problem with the request data. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 503 </td><td> This function is temporarily unavailable. Please try again later. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> The request attempted to perform an operation it is not allowed to. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> The request lacks valid authentication credentials. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
+     </table>
+     */
+    public void deleteShopSection(Long shopId, Long shopSectionId) throws ApiException {
+        deleteShopSectionWithHttpInfo(shopId, shopSectionId);
+    }
+
+    /**
+     * 
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Deletes a section in a specific shop given a valid shop_section_id.
+     * @param shopId The unique positive non-zero numeric ID for an Etsy Shop. (required)
+     * @param shopSectionId The numeric ID of a section in a specific Etsy shop. (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> The shop section resource was correctly deleted </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> There was a problem with the request data. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 503 </td><td> This function is temporarily unavailable. Please try again later. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> The request attempted to perform an operation it is not allowed to. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> The request lacks valid authentication credentials. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> deleteShopSectionWithHttpInfo(Long shopId, Long shopSectionId) throws ApiException {
+        okhttp3.Call localVarCall = deleteShopSectionValidateBeforeCall(shopId, shopSectionId, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     *  (asynchronously)
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Deletes a section in a specific shop given a valid shop_section_id.
+     * @param shopId The unique positive non-zero numeric ID for an Etsy Shop. (required)
+     * @param shopSectionId The numeric ID of a section in a specific Etsy shop. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> The shop section resource was correctly deleted </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> There was a problem with the request data. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 503 </td><td> This function is temporarily unavailable. Please try again later. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> The request attempted to perform an operation it is not allowed to. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> The request lacks valid authentication credentials. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteShopSectionAsync(Long shopId, Long shopSectionId, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = deleteShopSectionValidateBeforeCall(shopId, shopSectionId, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
@@ -251,7 +405,7 @@ public class ShopSectionApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getShopSectionCall(Integer shopId, Integer shopSectionId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getShopSectionCall(Long shopId, Long shopSectionId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -300,7 +454,7 @@ public class ShopSectionApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getShopSectionValidateBeforeCall(Integer shopId, Integer shopSectionId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getShopSectionValidateBeforeCall(Long shopId, Long shopSectionId, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'shopId' is set
         if (shopId == null) {
@@ -334,7 +488,7 @@ public class ShopSectionApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ShopSection getShopSection(Integer shopId, Integer shopSectionId) throws ApiException {
+    public ShopSection getShopSection(Long shopId, Long shopSectionId) throws ApiException {
         ApiResponse<ShopSection> localVarResp = getShopSectionWithHttpInfo(shopId, shopSectionId);
         return localVarResp.getData();
     }
@@ -355,7 +509,7 @@ public class ShopSectionApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ShopSection> getShopSectionWithHttpInfo(Integer shopId, Integer shopSectionId) throws ApiException {
+    public ApiResponse<ShopSection> getShopSectionWithHttpInfo(Long shopId, Long shopSectionId) throws ApiException {
         okhttp3.Call localVarCall = getShopSectionValidateBeforeCall(shopId, shopSectionId, null);
         Type localVarReturnType = new TypeToken<ShopSection>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -378,7 +532,7 @@ public class ShopSectionApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getShopSectionAsync(Integer shopId, Integer shopSectionId, final ApiCallback<ShopSection> _callback) throws ApiException {
+    public okhttp3.Call getShopSectionAsync(Long shopId, Long shopSectionId, final ApiCallback<ShopSection> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getShopSectionValidateBeforeCall(shopId, shopSectionId, _callback);
         Type localVarReturnType = new TypeToken<ShopSection>(){}.getType();
@@ -400,7 +554,7 @@ public class ShopSectionApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getShopSectionsCall(Integer shopId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getShopSectionsCall(Long shopId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -448,7 +602,7 @@ public class ShopSectionApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getShopSectionsValidateBeforeCall(Integer shopId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getShopSectionsValidateBeforeCall(Long shopId, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'shopId' is set
         if (shopId == null) {
@@ -476,7 +630,7 @@ public class ShopSectionApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ShopSections getShopSections(Integer shopId) throws ApiException {
+    public ShopSections getShopSections(Long shopId) throws ApiException {
         ApiResponse<ShopSections> localVarResp = getShopSectionsWithHttpInfo(shopId);
         return localVarResp.getData();
     }
@@ -496,7 +650,7 @@ public class ShopSectionApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ShopSections> getShopSectionsWithHttpInfo(Integer shopId) throws ApiException {
+    public ApiResponse<ShopSections> getShopSectionsWithHttpInfo(Long shopId) throws ApiException {
         okhttp3.Call localVarCall = getShopSectionsValidateBeforeCall(shopId, null);
         Type localVarReturnType = new TypeToken<ShopSections>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -518,10 +672,181 @@ public class ShopSectionApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getShopSectionsAsync(Integer shopId, final ApiCallback<ShopSections> _callback) throws ApiException {
+    public okhttp3.Call getShopSectionsAsync(Long shopId, final ApiCallback<ShopSections> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getShopSectionsValidateBeforeCall(shopId, _callback);
         Type localVarReturnType = new TypeToken<ShopSections>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for updateShopSection
+     * @param shopId The unique positive non-zero numeric ID for an Etsy Shop. (required)
+     * @param shopSectionId The numeric ID of a section in a specific Etsy shop. (required)
+     * @param title The title string for a shop section. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A Shop Section resource </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> There was a problem with the request data. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 503 </td><td> This function is temporarily unavailable. Please try again later. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> The request attempted to perform an operation it is not allowed to. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> The request lacks valid authentication credentials. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateShopSectionCall(Long shopId, Long shopSectionId, String title, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v3/application/shops/{shop_id}/sections/{shop_section_id}"
+            .replaceAll("\\{" + "shop_id" + "\\}", localVarApiClient.escapeString(shopId.toString()))
+            .replaceAll("\\{" + "shop_section_id" + "\\}", localVarApiClient.escapeString(shopSectionId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (title != null) {
+            localVarFormParams.put("title", title);
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/x-www-form-urlencoded"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key", "oauth2" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateShopSectionValidateBeforeCall(Long shopId, Long shopSectionId, String title, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'shopId' is set
+        if (shopId == null) {
+            throw new ApiException("Missing the required parameter 'shopId' when calling updateShopSection(Async)");
+        }
+        
+        // verify the required parameter 'shopSectionId' is set
+        if (shopSectionId == null) {
+            throw new ApiException("Missing the required parameter 'shopSectionId' when calling updateShopSection(Async)");
+        }
+        
+        // verify the required parameter 'title' is set
+        if (title == null) {
+            throw new ApiException("Missing the required parameter 'title' when calling updateShopSection(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = updateShopSectionCall(shopId, shopSectionId, title, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * 
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Updates a section in a specific shop given a valid shop_section_id.
+     * @param shopId The unique positive non-zero numeric ID for an Etsy Shop. (required)
+     * @param shopSectionId The numeric ID of a section in a specific Etsy shop. (required)
+     * @param title The title string for a shop section. (required)
+     * @return ShopSection
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A Shop Section resource </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> There was a problem with the request data. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 503 </td><td> This function is temporarily unavailable. Please try again later. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> The request attempted to perform an operation it is not allowed to. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> The request lacks valid authentication credentials. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ShopSection updateShopSection(Long shopId, Long shopSectionId, String title) throws ApiException {
+        ApiResponse<ShopSection> localVarResp = updateShopSectionWithHttpInfo(shopId, shopSectionId, title);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Updates a section in a specific shop given a valid shop_section_id.
+     * @param shopId The unique positive non-zero numeric ID for an Etsy Shop. (required)
+     * @param shopSectionId The numeric ID of a section in a specific Etsy shop. (required)
+     * @param title The title string for a shop section. (required)
+     * @return ApiResponse&lt;ShopSection&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A Shop Section resource </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> There was a problem with the request data. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 503 </td><td> This function is temporarily unavailable. Please try again later. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> The request attempted to perform an operation it is not allowed to. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> The request lacks valid authentication credentials. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ShopSection> updateShopSectionWithHttpInfo(Long shopId, Long shopSectionId, String title) throws ApiException {
+        okhttp3.Call localVarCall = updateShopSectionValidateBeforeCall(shopId, shopSectionId, title, null);
+        Type localVarReturnType = new TypeToken<ShopSection>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Updates a section in a specific shop given a valid shop_section_id.
+     * @param shopId The unique positive non-zero numeric ID for an Etsy Shop. (required)
+     * @param shopSectionId The numeric ID of a section in a specific Etsy shop. (required)
+     * @param title The title string for a shop section. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A Shop Section resource </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> There was a problem with the request data. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 503 </td><td> This function is temporarily unavailable. Please try again later. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> The request attempted to perform an operation it is not allowed to. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> The request lacks valid authentication credentials. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateShopSectionAsync(Long shopId, Long shopSectionId, String title, final ApiCallback<ShopSection> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = updateShopSectionValidateBeforeCall(shopId, shopSectionId, title, _callback);
+        Type localVarReturnType = new TypeToken<ShopSection>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

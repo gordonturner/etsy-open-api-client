@@ -28,11 +28,11 @@ import java.io.IOException;
  * Represents a description of a shop production partner.
  */
 @ApiModel(description = "Represents a description of a shop production partner.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-04-08T15:52:16.342-04:00[America/Toronto]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-07T10:51:54.559-04:00[America/Toronto]")
 public class ShopProductionPartner {
   public static final String SERIALIZED_NAME_PRODUCTION_PARTNER_ID = "production_partner_id";
   @SerializedName(SERIALIZED_NAME_PRODUCTION_PARTNER_ID)
-  private Integer productionPartnerId;
+  private Long productionPartnerId;
 
   public static final String SERIALIZED_NAME_PARTNER_NAME = "partner_name";
   @SerializedName(SERIALIZED_NAME_PARTNER_NAME)
@@ -45,7 +45,7 @@ public class ShopProductionPartner {
   public ShopProductionPartner() { 
   }
 
-  public ShopProductionPartner productionPartnerId(Integer productionPartnerId) {
+  public ShopProductionPartner productionPartnerId(Long productionPartnerId) {
     
     this.productionPartnerId = productionPartnerId;
     return this;
@@ -59,12 +59,12 @@ public class ShopProductionPartner {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The numeric ID of a production partner.")
 
-  public Integer getProductionPartnerId() {
+  public Long getProductionPartnerId() {
     return productionPartnerId;
   }
 
 
-  public void setProductionPartnerId(Integer productionPartnerId) {
+  public void setProductionPartnerId(Long productionPartnerId) {
     this.productionPartnerId = productionPartnerId;
   }
 

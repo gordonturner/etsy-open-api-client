@@ -8,7 +8,7 @@ A representation of a product for a listing.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**productId** | **Integer** | The numeric ID for a specific [product](/documentation/reference#tag/ShopListing-Product) purchased from a listing. | 
+**productId** | **Long** | The numeric ID for a specific [product](/documentation/reference#tag/ShopListing-Product) purchased from a listing. | 
 **sku** | **String** | The SKU string for the product | 
 **isDeleted** | **Boolean** | When true, someone deleted this product. | 
 **offerings** | [**List&lt;ListingInventoryProductOffering&gt;**](ListingInventoryProductOffering.md) | A list of product offering entries for this product. | 

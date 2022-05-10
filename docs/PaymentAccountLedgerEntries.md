@@ -8,7 +8,7 @@ A set of PaymentAccountLedgerEntry resources
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**count** | **Integer** | The number of PaymentAccountLedgerEntry resources found. | 
+**count** | **Long** | The number of PaymentAccountLedgerEntry resources found. | 
 **results** | [**List&lt;PaymentAccountLedgerEntry&gt;**](PaymentAccountLedgerEntry.md) | The PaymentAccountLedgerEntry resources found. | 
 
 

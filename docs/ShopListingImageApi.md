@@ -46,9 +46,9 @@ public class Example {
     oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
     ShopListingImageApi apiInstance = new ShopListingImageApi(defaultClient);
-    Integer shopId = 56; // Integer | The unique positive non-zero numeric ID for an Etsy Shop.
-    Integer listingId = 56; // Integer | The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
-    Integer listingImageId = 56; // Integer | The numeric ID of the primary [listing image](/documentation/reference#tag/ShopListing-Image) for this transaction.
+    Long shopId = 56L; // Long | The unique positive non-zero numeric ID for an Etsy Shop.
+    Long listingId = 56L; // Long | The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
+    Long listingImageId = 56L; // Long | The numeric ID of the primary [listing image](/documentation/reference#tag/ShopListing-Image) for this transaction.
     try {
       apiInstance.deleteListingImage(shopId, listingId, listingImageId);
     } catch (ApiException e) {
@@ -66,9 +66,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **shopId** | **Integer**| The unique positive non-zero numeric ID for an Etsy Shop. |
- **listingId** | **Integer**| The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. |
- **listingImageId** | **Integer**| The numeric ID of the primary [listing image](/documentation/reference#tag/ShopListing-Image) for this transaction. |
+ **shopId** | **Long**| The unique positive non-zero numeric ID for an Etsy Shop. |
+ **listingId** | **Long**| The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. |
+ **listingImageId** | **Long**| The numeric ID of the primary [listing image](/documentation/reference#tag/ShopListing-Image) for this transaction. |
 
 ### Return type
 
@@ -123,8 +123,8 @@ public class Example {
     //api_key.setApiKeyPrefix("Token");
 
     ShopListingImageApi apiInstance = new ShopListingImageApi(defaultClient);
-    Integer listingId = 56; // Integer | The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
-    Integer listingImageId = 56; // Integer | The numeric ID of the primary [listing image](/documentation/reference#tag/ShopListing-Image) for this transaction.
+    Long listingId = 56L; // Long | The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
+    Long listingImageId = 56L; // Long | The numeric ID of the primary [listing image](/documentation/reference#tag/ShopListing-Image) for this transaction.
     try {
       ListingImage result = apiInstance.getListingImage(listingId, listingImageId);
       System.out.println(result);
@@ -143,8 +143,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **listingId** | **Integer**| The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. |
- **listingImageId** | **Integer**| The numeric ID of the primary [listing image](/documentation/reference#tag/ShopListing-Image) for this transaction. |
+ **listingId** | **Long**| The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. |
+ **listingImageId** | **Long**| The numeric ID of the primary [listing image](/documentation/reference#tag/ShopListing-Image) for this transaction. |
 
 ### Return type
 
@@ -198,9 +198,9 @@ public class Example {
     //api_key.setApiKeyPrefix("Token");
 
     ShopListingImageApi apiInstance = new ShopListingImageApi(defaultClient);
-    Integer shopId = 56; // Integer | The unique positive non-zero numeric ID for an Etsy Shop.
-    Integer listingId = 56; // Integer | The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
-    Integer listingImageId = 56; // Integer | The numeric ID of the primary [listing image](/documentation/reference#tag/ShopListing-Image) for this transaction.
+    Long shopId = 56L; // Long | The unique positive non-zero numeric ID for an Etsy Shop.
+    Long listingId = 56L; // Long | The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
+    Long listingImageId = 56L; // Long | The numeric ID of the primary [listing image](/documentation/reference#tag/ShopListing-Image) for this transaction.
     try {
       ListingImage result = apiInstance.getListingImageDeprecated(shopId, listingId, listingImageId);
       System.out.println(result);
@@ -219,9 +219,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **shopId** | **Integer**| The unique positive non-zero numeric ID for an Etsy Shop. |
- **listingId** | **Integer**| The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. |
- **listingImageId** | **Integer**| The numeric ID of the primary [listing image](/documentation/reference#tag/ShopListing-Image) for this transaction. |
+ **shopId** | **Long**| The unique positive non-zero numeric ID for an Etsy Shop. |
+ **listingId** | **Long**| The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. |
+ **listingImageId** | **Long**| The numeric ID of the primary [listing image](/documentation/reference#tag/ShopListing-Image) for this transaction. |
 
 ### Return type
 
@@ -275,7 +275,7 @@ public class Example {
     //api_key.setApiKeyPrefix("Token");
 
     ShopListingImageApi apiInstance = new ShopListingImageApi(defaultClient);
-    Integer listingId = 56; // Integer | The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
+    Long listingId = 56L; // Long | The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
     try {
       ListingImages result = apiInstance.getListingImages(listingId);
       System.out.println(result);
@@ -294,7 +294,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **listingId** | **Integer**| The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. |
+ **listingId** | **Long**| The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. |
 
 ### Return type
 
@@ -348,8 +348,8 @@ public class Example {
     //api_key.setApiKeyPrefix("Token");
 
     ShopListingImageApi apiInstance = new ShopListingImageApi(defaultClient);
-    Integer shopId = 56; // Integer | The unique positive non-zero numeric ID for an Etsy Shop.
-    Integer listingId = 56; // Integer | The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
+    Long shopId = 56L; // Long | The unique positive non-zero numeric ID for an Etsy Shop.
+    Long listingId = 56L; // Long | The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
     try {
       ListingImages result = apiInstance.getListingImagesDeprecated(shopId, listingId);
       System.out.println(result);
@@ -368,8 +368,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **shopId** | **Integer**| The unique positive non-zero numeric ID for an Etsy Shop. |
- **listingId** | **Integer**| The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. |
+ **shopId** | **Long**| The unique positive non-zero numeric ID for an Etsy Shop. |
+ **listingId** | **Long**| The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. |
 
 ### Return type
 
@@ -427,11 +427,11 @@ public class Example {
     oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
     ShopListingImageApi apiInstance = new ShopListingImageApi(defaultClient);
-    Integer shopId = 56; // Integer | The unique positive non-zero numeric ID for an Etsy Shop.
-    Integer listingId = 56; // Integer | The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
+    Long shopId = 56L; // Long | The unique positive non-zero numeric ID for an Etsy Shop.
+    Long listingId = 56L; // Long | The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
     File image = new File("/path/to/file"); // File | The file name string of a file to upload
-    Integer listingImageId = 56; // Integer | The numeric ID of the primary [listing image](/documentation/reference#tag/ShopListing-Image) for this transaction.
-    Integer rank = 1; // Integer | The positive non-zero numeric position in the images displayed in a listing, with rank 1 images appearing in the left-most position in a listing.
+    Long listingImageId = 56L; // Long | The numeric ID of the primary [listing image](/documentation/reference#tag/ShopListing-Image) for this transaction.
+    Long rank = 1L; // Long | The positive non-zero numeric position in the images displayed in a listing, with rank 1 images appearing in the left-most position in a listing.
     Boolean overwrite = false; // Boolean | When true, this request replaces the existing image at a given rank.
     Boolean isWatermarked = false; // Boolean | When true, indicates that the uploaded image has a watermark.
     try {
@@ -452,11 +452,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **shopId** | **Integer**| The unique positive non-zero numeric ID for an Etsy Shop. |
- **listingId** | **Integer**| The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. |
+ **shopId** | **Long**| The unique positive non-zero numeric ID for an Etsy Shop. |
+ **listingId** | **Long**| The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. |
  **image** | **File**| The file name string of a file to upload | [optional]
- **listingImageId** | **Integer**| The numeric ID of the primary [listing image](/documentation/reference#tag/ShopListing-Image) for this transaction. | [optional]
- **rank** | **Integer**| The positive non-zero numeric position in the images displayed in a listing, with rank 1 images appearing in the left-most position in a listing. | [optional] [default to 1]
+ **listingImageId** | **Long**| The numeric ID of the primary [listing image](/documentation/reference#tag/ShopListing-Image) for this transaction. | [optional]
+ **rank** | **Long**| The positive non-zero numeric position in the images displayed in a listing, with rank 1 images appearing in the left-most position in a listing. | [optional] [default to 1]
  **overwrite** | **Boolean**| When true, this request replaces the existing image at a given rank. | [optional] [default to false]
  **isWatermarked** | **Boolean**| When true, indicates that the uploaded image has a watermark. | [optional] [default to false]
 

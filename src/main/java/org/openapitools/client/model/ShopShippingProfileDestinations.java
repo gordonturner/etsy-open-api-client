@@ -31,11 +31,11 @@ import org.openapitools.client.model.ShopShippingProfileDestination;
  * Represents a list of shipping destination objects.
  */
 @ApiModel(description = "Represents a list of shipping destination objects.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-04-08T15:52:16.342-04:00[America/Toronto]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-07T10:51:54.559-04:00[America/Toronto]")
 public class ShopShippingProfileDestinations {
   public static final String SERIALIZED_NAME_COUNT = "count";
   @SerializedName(SERIALIZED_NAME_COUNT)
-  private Integer count;
+  private Long count;
 
   public static final String SERIALIZED_NAME_RESULTS = "results";
   @SerializedName(SERIALIZED_NAME_RESULTS)
@@ -44,7 +44,7 @@ public class ShopShippingProfileDestinations {
   public ShopShippingProfileDestinations() { 
   }
 
-  public ShopShippingProfileDestinations count(Integer count) {
+  public ShopShippingProfileDestinations count(Long count) {
     
     this.count = count;
     return this;
@@ -58,12 +58,12 @@ public class ShopShippingProfileDestinations {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The number of results.")
 
-  public Integer getCount() {
+  public Long getCount() {
     return count;
   }
 
 
-  public void setCount(Integer count) {
+  public void setCount(Long count) {
     this.count = count;
   }
 

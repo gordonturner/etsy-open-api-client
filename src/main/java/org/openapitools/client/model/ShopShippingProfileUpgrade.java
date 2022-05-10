@@ -29,15 +29,15 @@ import org.openapitools.client.model.Money;
  * A representation of a shipping profile upgrade option.
  */
 @ApiModel(description = "A representation of a shipping profile upgrade option.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-04-08T15:52:16.342-04:00[America/Toronto]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-07T10:51:54.559-04:00[America/Toronto]")
 public class ShopShippingProfileUpgrade {
   public static final String SERIALIZED_NAME_SHIPPING_PROFILE_ID = "shipping_profile_id";
   @SerializedName(SERIALIZED_NAME_SHIPPING_PROFILE_ID)
-  private Integer shippingProfileId;
+  private Long shippingProfileId;
 
   public static final String SERIALIZED_NAME_UPGRADE_ID = "upgrade_id";
   @SerializedName(SERIALIZED_NAME_UPGRADE_ID)
-  private Integer upgradeId;
+  private Long upgradeId;
 
   public static final String SERIALIZED_NAME_UPGRADE_NAME = "upgrade_name";
   @SerializedName(SERIALIZED_NAME_UPGRADE_NAME)
@@ -96,7 +96,7 @@ public class ShopShippingProfileUpgrade {
 
   public static final String SERIALIZED_NAME_RANK = "rank";
   @SerializedName(SERIALIZED_NAME_RANK)
-  private Integer rank;
+  private Long rank;
 
   public static final String SERIALIZED_NAME_LANGUAGE = "language";
   @SerializedName(SERIALIZED_NAME_LANGUAGE)
@@ -112,7 +112,7 @@ public class ShopShippingProfileUpgrade {
 
   public static final String SERIALIZED_NAME_SHIPPING_CARRIER_ID = "shipping_carrier_id";
   @SerializedName(SERIALIZED_NAME_SHIPPING_CARRIER_ID)
-  private Integer shippingCarrierId;
+  private Long shippingCarrierId;
 
   public static final String SERIALIZED_NAME_MAIL_CLASS = "mail_class";
   @SerializedName(SERIALIZED_NAME_MAIL_CLASS)
@@ -120,16 +120,16 @@ public class ShopShippingProfileUpgrade {
 
   public static final String SERIALIZED_NAME_MIN_DELIVERY_DAYS = "min_delivery_days";
   @SerializedName(SERIALIZED_NAME_MIN_DELIVERY_DAYS)
-  private Integer minDeliveryDays;
+  private Long minDeliveryDays;
 
   public static final String SERIALIZED_NAME_MAX_DELIVERY_DAYS = "max_delivery_days";
   @SerializedName(SERIALIZED_NAME_MAX_DELIVERY_DAYS)
-  private Integer maxDeliveryDays;
+  private Long maxDeliveryDays;
 
   public ShopShippingProfileUpgrade() { 
   }
 
-  public ShopShippingProfileUpgrade shippingProfileId(Integer shippingProfileId) {
+  public ShopShippingProfileUpgrade shippingProfileId(Long shippingProfileId) {
     
     this.shippingProfileId = shippingProfileId;
     return this;
@@ -143,17 +143,17 @@ public class ShopShippingProfileUpgrade {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The numeric ID of the base shipping profile.")
 
-  public Integer getShippingProfileId() {
+  public Long getShippingProfileId() {
     return shippingProfileId;
   }
 
 
-  public void setShippingProfileId(Integer shippingProfileId) {
+  public void setShippingProfileId(Long shippingProfileId) {
     this.shippingProfileId = shippingProfileId;
   }
 
 
-  public ShopShippingProfileUpgrade upgradeId(Integer upgradeId) {
+  public ShopShippingProfileUpgrade upgradeId(Long upgradeId) {
     
     this.upgradeId = upgradeId;
     return this;
@@ -167,12 +167,12 @@ public class ShopShippingProfileUpgrade {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The numeric ID that is associated with a shipping upgrade")
 
-  public Integer getUpgradeId() {
+  public Long getUpgradeId() {
     return upgradeId;
   }
 
 
-  public void setUpgradeId(Integer upgradeId) {
+  public void setUpgradeId(Long upgradeId) {
     this.upgradeId = upgradeId;
   }
 
@@ -223,7 +223,7 @@ public class ShopShippingProfileUpgrade {
   }
 
 
-  public ShopShippingProfileUpgrade rank(Integer rank) {
+  public ShopShippingProfileUpgrade rank(Long rank) {
     
     this.rank = rank;
     return this;
@@ -237,12 +237,12 @@ public class ShopShippingProfileUpgrade {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The positive non-zero numeric position in the images displayed in a listing, with rank 1 images appearing in the left-most position in a listing.")
 
-  public Integer getRank() {
+  public Long getRank() {
     return rank;
   }
 
 
-  public void setRank(Integer rank) {
+  public void setRank(Long rank) {
     this.rank = rank;
   }
 
@@ -316,7 +316,7 @@ public class ShopShippingProfileUpgrade {
   }
 
 
-  public ShopShippingProfileUpgrade shippingCarrierId(Integer shippingCarrierId) {
+  public ShopShippingProfileUpgrade shippingCarrierId(Long shippingCarrierId) {
     
     this.shippingCarrierId = shippingCarrierId;
     return this;
@@ -329,12 +329,12 @@ public class ShopShippingProfileUpgrade {
   @javax.annotation.Nullable
   @ApiModelProperty(required = true, value = "The unique ID of a supported shipping carrier, which is used to calculate an Estimated Delivery Date. **Required with `mail_class`** if `min_delivery_days` and `max_delivery_days` are null.")
 
-  public Integer getShippingCarrierId() {
+  public Long getShippingCarrierId() {
     return shippingCarrierId;
   }
 
 
-  public void setShippingCarrierId(Integer shippingCarrierId) {
+  public void setShippingCarrierId(Long shippingCarrierId) {
     this.shippingCarrierId = shippingCarrierId;
   }
 
@@ -362,7 +362,7 @@ public class ShopShippingProfileUpgrade {
   }
 
 
-  public ShopShippingProfileUpgrade minDeliveryDays(Integer minDeliveryDays) {
+  public ShopShippingProfileUpgrade minDeliveryDays(Long minDeliveryDays) {
     
     this.minDeliveryDays = minDeliveryDays;
     return this;
@@ -377,17 +377,17 @@ public class ShopShippingProfileUpgrade {
   @javax.annotation.Nullable
   @ApiModelProperty(required = true, value = "The minimum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with `max_delivery_days`** if `mail_class` is null.")
 
-  public Integer getMinDeliveryDays() {
+  public Long getMinDeliveryDays() {
     return minDeliveryDays;
   }
 
 
-  public void setMinDeliveryDays(Integer minDeliveryDays) {
+  public void setMinDeliveryDays(Long minDeliveryDays) {
     this.minDeliveryDays = minDeliveryDays;
   }
 
 
-  public ShopShippingProfileUpgrade maxDeliveryDays(Integer maxDeliveryDays) {
+  public ShopShippingProfileUpgrade maxDeliveryDays(Long maxDeliveryDays) {
     
     this.maxDeliveryDays = maxDeliveryDays;
     return this;
@@ -402,12 +402,12 @@ public class ShopShippingProfileUpgrade {
   @javax.annotation.Nullable
   @ApiModelProperty(required = true, value = "The maximum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with `min_delivery_days`** if `mail_class` is null.")
 
-  public Integer getMaxDeliveryDays() {
+  public Long getMaxDeliveryDays() {
     return maxDeliveryDays;
   }
 
 
-  public void setMaxDeliveryDays(Integer maxDeliveryDays) {
+  public void setMaxDeliveryDays(Long maxDeliveryDays) {
     this.maxDeliveryDays = maxDeliveryDays;
   }
 

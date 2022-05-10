@@ -8,7 +8,7 @@ A product property definition.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**propertyId** | **Integer** | The unique numeric ID of this product property. | 
+**propertyId** | **Long** | The unique numeric ID of this product property. | 
 **name** | **String** | The name string for this taxonomy node. | 
 **displayName** | **String** | The human-readable product property name string. | 
 **scales** | [**List&lt;BuyerTaxonomyPropertyScale&gt;**](BuyerTaxonomyPropertyScale.md) | A list of available scales. | 

@@ -41,8 +41,8 @@ public class Example {
 
     ShopApi apiInstance = new ShopApi(defaultClient);
     String shopName = "shopName_example"; // String | The shop's name string.
-    Integer limit = 25; // Integer | The maximum number of results to return.
-    Integer offset = 0; // Integer | The number of records to skip before selecting the first result.
+    Long limit = 25L; // Long | The maximum number of results to return.
+    Long offset = 0L; // Long | The number of records to skip before selecting the first result.
     try {
       Shops result = apiInstance.findShops(shopName, limit, offset);
       System.out.println(result);
@@ -62,8 +62,8 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **shopName** | **String**| The shop&#39;s name string. |
- **limit** | **Integer**| The maximum number of results to return. | [optional] [default to 25]
- **offset** | **Integer**| The number of records to skip before selecting the first result. | [optional] [default to 0]
+ **limit** | **Long**| The maximum number of results to return. | [optional] [default to 25]
+ **offset** | **Long**| The number of records to skip before selecting the first result. | [optional] [default to 0]
 
 ### Return type
 
@@ -114,7 +114,7 @@ public class Example {
     //api_key.setApiKeyPrefix("Token");
 
     ShopApi apiInstance = new ShopApi(defaultClient);
-    Integer shopId = 56; // Integer | The unique positive non-zero numeric ID for an Etsy Shop.
+    Long shopId = 56L; // Long | The unique positive non-zero numeric ID for an Etsy Shop.
     try {
       Shop result = apiInstance.getShop(shopId);
       System.out.println(result);
@@ -133,7 +133,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **shopId** | **Integer**| The unique positive non-zero numeric ID for an Etsy Shop. |
+ **shopId** | **Long**| The unique positive non-zero numeric ID for an Etsy Shop. |
 
 ### Return type
 
@@ -186,7 +186,7 @@ public class Example {
     //api_key.setApiKeyPrefix("Token");
 
     ShopApi apiInstance = new ShopApi(defaultClient);
-    Integer userId = 56; // Integer | The numeric user ID of the [user](/documentation/reference#tag/User) who owns this shop.
+    Long userId = 56L; // Long | The numeric user ID of the [user](/documentation/reference#tag/User) who owns this shop.
     try {
       Shop result = apiInstance.getShopByOwnerUserId(userId);
       System.out.println(result);
@@ -205,7 +205,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **Integer**| The numeric user ID of the [user](/documentation/reference#tag/User) who owns this shop. |
+ **userId** | **Long**| The numeric user ID of the [user](/documentation/reference#tag/User) who owns this shop. |
 
 ### Return type
 
@@ -262,7 +262,7 @@ public class Example {
     oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
     ShopApi apiInstance = new ShopApi(defaultClient);
-    Integer shopId = 56; // Integer | The unique positive non-zero numeric ID for an Etsy Shop.
+    Long shopId = 56L; // Long | The unique positive non-zero numeric ID for an Etsy Shop.
     String title = "title_example"; // String | A brief heading string for the shop's main page.
     String announcement = "announcement_example"; // String | An announcement string to buyers that displays on the shop's homepage.
     String saleMessage = "saleMessage_example"; // String | A message string sent to users who complete a purchase from this shop.
@@ -285,7 +285,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **shopId** | **Integer**| The unique positive non-zero numeric ID for an Etsy Shop. |
+ **shopId** | **Long**| The unique positive non-zero numeric ID for an Etsy Shop. |
  **title** | **String**| A brief heading string for the shop&#39;s main page. | [optional]
  **announcement** | **String**| An announcement string to buyers that displays on the shop&#39;s homepage. | [optional]
  **saleMessage** | **String**| A message string sent to users who complete a purchase from this shop. | [optional]

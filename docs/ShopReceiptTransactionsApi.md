@@ -44,8 +44,8 @@ public class Example {
     oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
     ShopReceiptTransactionsApi apiInstance = new ShopReceiptTransactionsApi(defaultClient);
-    Integer shopId = 56; // Integer | The unique positive non-zero numeric ID for an Etsy Shop.
-    Integer transactionId = 56; // Integer | The unique numeric ID for a transaction.
+    Long shopId = 56L; // Long | The unique positive non-zero numeric ID for an Etsy Shop.
+    Long transactionId = 56L; // Long | The unique numeric ID for a transaction.
     try {
       ShopReceiptTransaction result = apiInstance.getShopReceiptTransaction(shopId, transactionId);
       System.out.println(result);
@@ -64,8 +64,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **shopId** | **Integer**| The unique positive non-zero numeric ID for an Etsy Shop. |
- **transactionId** | **Integer**| The unique numeric ID for a transaction. |
+ **shopId** | **Long**| The unique positive non-zero numeric ID for an Etsy Shop. |
+ **transactionId** | **Long**| The unique numeric ID for a transaction. |
 
 ### Return type
 
@@ -124,10 +124,10 @@ public class Example {
     oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
     ShopReceiptTransactionsApi apiInstance = new ShopReceiptTransactionsApi(defaultClient);
-    Integer shopId = 56; // Integer | The unique positive non-zero numeric ID for an Etsy Shop.
-    Integer listingId = 56; // Integer | The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
-    Integer limit = 25; // Integer | The maximum number of results to return.
-    Integer offset = 0; // Integer | The number of records to skip before selecting the first result.
+    Long shopId = 56L; // Long | The unique positive non-zero numeric ID for an Etsy Shop.
+    Long listingId = 56L; // Long | The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
+    Long limit = 25L; // Long | The maximum number of results to return.
+    Long offset = 0L; // Long | The number of records to skip before selecting the first result.
     try {
       ShopReceiptTransactions result = apiInstance.getShopReceiptTransactionsByListing(shopId, listingId, limit, offset);
       System.out.println(result);
@@ -146,10 +146,10 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **shopId** | **Integer**| The unique positive non-zero numeric ID for an Etsy Shop. |
- **listingId** | **Integer**| The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. |
- **limit** | **Integer**| The maximum number of results to return. | [optional] [default to 25]
- **offset** | **Integer**| The number of records to skip before selecting the first result. | [optional] [default to 0]
+ **shopId** | **Long**| The unique positive non-zero numeric ID for an Etsy Shop. |
+ **listingId** | **Long**| The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. |
+ **limit** | **Long**| The maximum number of results to return. | [optional] [default to 25]
+ **offset** | **Long**| The number of records to skip before selecting the first result. | [optional] [default to 0]
 
 ### Return type
 
@@ -208,8 +208,8 @@ public class Example {
     oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
     ShopReceiptTransactionsApi apiInstance = new ShopReceiptTransactionsApi(defaultClient);
-    Integer shopId = 56; // Integer | The unique positive non-zero numeric ID for an Etsy Shop.
-    Integer receiptId = 56; // Integer | The numeric ID for the [receipt](/documentation/reference#tag/Shop-Receipt) associated to this transaction.
+    Long shopId = 56L; // Long | The unique positive non-zero numeric ID for an Etsy Shop.
+    Long receiptId = 56L; // Long | The numeric ID for the [receipt](/documentation/reference#tag/Shop-Receipt) associated to this transaction.
     try {
       ShopReceiptTransactions result = apiInstance.getShopReceiptTransactionsByReceipt(shopId, receiptId);
       System.out.println(result);
@@ -228,8 +228,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **shopId** | **Integer**| The unique positive non-zero numeric ID for an Etsy Shop. |
- **receiptId** | **Integer**| The numeric ID for the [receipt](/documentation/reference#tag/Shop-Receipt) associated to this transaction. |
+ **shopId** | **Long**| The unique positive non-zero numeric ID for an Etsy Shop. |
+ **receiptId** | **Long**| The numeric ID for the [receipt](/documentation/reference#tag/Shop-Receipt) associated to this transaction. |
 
 ### Return type
 
@@ -288,9 +288,9 @@ public class Example {
     oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
     ShopReceiptTransactionsApi apiInstance = new ShopReceiptTransactionsApi(defaultClient);
-    Integer shopId = 56; // Integer | The unique positive non-zero numeric ID for an Etsy Shop.
-    Integer limit = 25; // Integer | The maximum number of results to return.
-    Integer offset = 0; // Integer | The number of records to skip before selecting the first result.
+    Long shopId = 56L; // Long | The unique positive non-zero numeric ID for an Etsy Shop.
+    Long limit = 25L; // Long | The maximum number of results to return.
+    Long offset = 0L; // Long | The number of records to skip before selecting the first result.
     try {
       ShopReceiptTransactions result = apiInstance.getShopReceiptTransactionsByShop(shopId, limit, offset);
       System.out.println(result);
@@ -309,9 +309,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **shopId** | **Integer**| The unique positive non-zero numeric ID for an Etsy Shop. |
- **limit** | **Integer**| The maximum number of results to return. | [optional] [default to 25]
- **offset** | **Integer**| The number of records to skip before selecting the first result. | [optional] [default to 0]
+ **shopId** | **Long**| The unique positive non-zero numeric ID for an Etsy Shop. |
+ **limit** | **Long**| The maximum number of results to return. | [optional] [default to 25]
+ **offset** | **Long**| The number of records to skip before selecting the first result. | [optional] [default to 0]
 
 ### Return type
 

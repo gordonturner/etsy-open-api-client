@@ -30,11 +30,11 @@ import java.util.List;
  * A property value for a specific product property, which may also employ a specific scale.
  */
 @ApiModel(description = "A property value for a specific product property, which may also employ a specific scale.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-04-08T15:52:16.342-04:00[America/Toronto]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-07T10:51:54.559-04:00[America/Toronto]")
 public class TaxonomyPropertyValue {
   public static final String SERIALIZED_NAME_VALUE_ID = "value_id";
   @SerializedName(SERIALIZED_NAME_VALUE_ID)
-  private Integer valueId;
+  private Long valueId;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -42,16 +42,16 @@ public class TaxonomyPropertyValue {
 
   public static final String SERIALIZED_NAME_SCALE_ID = "scale_id";
   @SerializedName(SERIALIZED_NAME_SCALE_ID)
-  private Integer scaleId;
+  private Long scaleId;
 
   public static final String SERIALIZED_NAME_EQUAL_TO = "equal_to";
   @SerializedName(SERIALIZED_NAME_EQUAL_TO)
-  private List<Integer> equalTo = new ArrayList<Integer>();
+  private List<Long> equalTo = new ArrayList<Long>();
 
   public TaxonomyPropertyValue() { 
   }
 
-  public TaxonomyPropertyValue valueId(Integer valueId) {
+  public TaxonomyPropertyValue valueId(Long valueId) {
     
     this.valueId = valueId;
     return this;
@@ -65,12 +65,12 @@ public class TaxonomyPropertyValue {
   @javax.annotation.Nullable
   @ApiModelProperty(required = true, value = "The numeric ID of this property value.")
 
-  public Integer getValueId() {
+  public Long getValueId() {
     return valueId;
   }
 
 
-  public void setValueId(Integer valueId) {
+  public void setValueId(Long valueId) {
     this.valueId = valueId;
   }
 
@@ -98,7 +98,7 @@ public class TaxonomyPropertyValue {
   }
 
 
-  public TaxonomyPropertyValue scaleId(Integer scaleId) {
+  public TaxonomyPropertyValue scaleId(Long scaleId) {
     
     this.scaleId = scaleId;
     return this;
@@ -112,23 +112,23 @@ public class TaxonomyPropertyValue {
   @javax.annotation.Nullable
   @ApiModelProperty(required = true, value = "The numeric scale ID of the scale to which this property value belongs.")
 
-  public Integer getScaleId() {
+  public Long getScaleId() {
     return scaleId;
   }
 
 
-  public void setScaleId(Integer scaleId) {
+  public void setScaleId(Long scaleId) {
     this.scaleId = scaleId;
   }
 
 
-  public TaxonomyPropertyValue equalTo(List<Integer> equalTo) {
+  public TaxonomyPropertyValue equalTo(List<Long> equalTo) {
     
     this.equalTo = equalTo;
     return this;
   }
 
-  public TaxonomyPropertyValue addEqualToItem(Integer equalToItem) {
+  public TaxonomyPropertyValue addEqualToItem(Long equalToItem) {
     this.equalTo.add(equalToItem);
     return this;
   }
@@ -140,12 +140,12 @@ public class TaxonomyPropertyValue {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "A list of numeric property value IDs this property value is equal to (if any).")
 
-  public List<Integer> getEqualTo() {
+  public List<Long> getEqualTo() {
     return equalTo;
   }
 
 
-  public void setEqualTo(List<Integer> equalTo) {
+  public void setEqualTo(List<Long> equalTo) {
     this.equalTo = equalTo;
   }
 

@@ -54,21 +54,21 @@ public class Example {
     oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
     ShopShippingProfileApi apiInstance = new ShopShippingProfileApi(defaultClient);
-    Integer shopId = 56; // Integer | The unique positive non-zero numeric ID for an Etsy Shop.
+    Long shopId = 56L; // Long | The unique positive non-zero numeric ID for an Etsy Shop.
     String title = "title_example"; // String | The name string of this shipping profile.
     String originCountryIso = "originCountryIso_example"; // String | The ISO code of the country from which the listing ships.
     Float primaryCost = 3.4F; // Float | The cost of shipping to this country/region alone, measured in the store's default currency.
     Float secondaryCost = 3.4F; // Float | The cost of shipping to this country/region with another item, measured in the store's default currency.
-    Integer minProcessingTime = 56; // Integer | The minimum time required to process to ship listings with this shipping profile.
-    Integer maxProcessingTime = 56; // Integer | The maximum processing time the listing needs to ship.
+    Long minProcessingTime = 56L; // Long | The minimum time required to process to ship listings with this shipping profile.
+    Long maxProcessingTime = 56L; // Long | The maximum processing time the listing needs to ship.
     String processingTimeUnit = "business_days"; // String | The unit used to represent how long a processing time is. A week is equivalent to 5 business days. If none is provided, the unit is set to \\\"business_days\\\".
     String destinationCountryIso = "\"null\""; // String | The ISO code of the country to which the listing ships. If null, request sets destination to destination_region. Required if destination_region is null or not provided.
     String destinationRegion = "eu"; // String | The code of the region to which the listing ships. A region represents a set of countries. Supported regions are Europe Union and Non-Europe Union (countries in Europe not in EU). If `none`, request sets destination to destination_country_iso. Required if destination_country_iso is null or not provided.
     String originPostalCode = "\"\""; // String | The postal code string (not necessarily a number) for the location from which the listing ships. Required if the `origin_country_iso` is `US` or `CA`.
-    Integer shippingCarrierId = 0; // Integer | The unique ID of a supported shipping carrier, which is used to calculate an Estimated Delivery Date. **Required with `mail_class`** if `min_delivery_days` and `max_delivery_days` are null.
+    Long shippingCarrierId = 0L; // Long | The unique ID of a supported shipping carrier, which is used to calculate an Estimated Delivery Date. **Required with `mail_class`** if `min_delivery_days` and `max_delivery_days` are null.
     String mailClass = "\"null\""; // String | The unique ID string of a shipping carrier's mail class, which is used to calculate an estimated delivery date. **Required with `shipping_carrier_id`** if `min_delivery_days` and `max_delivery_days` are null.
-    Integer minDeliveryDays = 56; // Integer | The minimum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with `max_delivery_days`** if `mail_class` is null.
-    Integer maxDeliveryDays = 56; // Integer | The maximum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with `min_delivery_days`** if `mail_class` is null.
+    Long minDeliveryDays = 56L; // Long | The minimum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with `max_delivery_days`** if `mail_class` is null.
+    Long maxDeliveryDays = 56L; // Long | The maximum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with `min_delivery_days`** if `mail_class` is null.
     try {
       ShopShippingProfile result = apiInstance.createShopShippingProfile(shopId, title, originCountryIso, primaryCost, secondaryCost, minProcessingTime, maxProcessingTime, processingTimeUnit, destinationCountryIso, destinationRegion, originPostalCode, shippingCarrierId, mailClass, minDeliveryDays, maxDeliveryDays);
       System.out.println(result);
@@ -87,21 +87,21 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **shopId** | **Integer**| The unique positive non-zero numeric ID for an Etsy Shop. |
+ **shopId** | **Long**| The unique positive non-zero numeric ID for an Etsy Shop. |
  **title** | **String**| The name string of this shipping profile. |
  **originCountryIso** | **String**| The ISO code of the country from which the listing ships. |
  **primaryCost** | **Float**| The cost of shipping to this country/region alone, measured in the store&#39;s default currency. |
  **secondaryCost** | **Float**| The cost of shipping to this country/region with another item, measured in the store&#39;s default currency. |
- **minProcessingTime** | **Integer**| The minimum time required to process to ship listings with this shipping profile. |
- **maxProcessingTime** | **Integer**| The maximum processing time the listing needs to ship. |
+ **minProcessingTime** | **Long**| The minimum time required to process to ship listings with this shipping profile. |
+ **maxProcessingTime** | **Long**| The maximum processing time the listing needs to ship. |
  **processingTimeUnit** | **String**| The unit used to represent how long a processing time is. A week is equivalent to 5 business days. If none is provided, the unit is set to \\\&quot;business_days\\\&quot;. | [optional] [default to business_days] [enum: business_days, weeks]
  **destinationCountryIso** | **String**| The ISO code of the country to which the listing ships. If null, request sets destination to destination_region. Required if destination_region is null or not provided. | [optional] [default to &quot;null&quot;]
  **destinationRegion** | **String**| The code of the region to which the listing ships. A region represents a set of countries. Supported regions are Europe Union and Non-Europe Union (countries in Europe not in EU). If &#x60;none&#x60;, request sets destination to destination_country_iso. Required if destination_country_iso is null or not provided. | [optional] [default to none] [enum: eu, non_eu, none]
  **originPostalCode** | **String**| The postal code string (not necessarily a number) for the location from which the listing ships. Required if the &#x60;origin_country_iso&#x60; is &#x60;US&#x60; or &#x60;CA&#x60;. | [optional] [default to &quot;&quot;]
- **shippingCarrierId** | **Integer**| The unique ID of a supported shipping carrier, which is used to calculate an Estimated Delivery Date. **Required with &#x60;mail_class&#x60;** if &#x60;min_delivery_days&#x60; and &#x60;max_delivery_days&#x60; are null. | [optional] [default to 0]
+ **shippingCarrierId** | **Long**| The unique ID of a supported shipping carrier, which is used to calculate an Estimated Delivery Date. **Required with &#x60;mail_class&#x60;** if &#x60;min_delivery_days&#x60; and &#x60;max_delivery_days&#x60; are null. | [optional] [default to 0]
  **mailClass** | **String**| The unique ID string of a shipping carrier&#39;s mail class, which is used to calculate an estimated delivery date. **Required with &#x60;shipping_carrier_id&#x60;** if &#x60;min_delivery_days&#x60; and &#x60;max_delivery_days&#x60; are null. | [optional] [default to &quot;null&quot;]
- **minDeliveryDays** | **Integer**| The minimum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with &#x60;max_delivery_days&#x60;** if &#x60;mail_class&#x60; is null. | [optional]
- **maxDeliveryDays** | **Integer**| The maximum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with &#x60;min_delivery_days&#x60;** if &#x60;mail_class&#x60; is null. | [optional]
+ **minDeliveryDays** | **Long**| The minimum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with &#x60;max_delivery_days&#x60;** if &#x60;mail_class&#x60; is null. | [optional]
+ **maxDeliveryDays** | **Long**| The maximum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with &#x60;min_delivery_days&#x60;** if &#x60;mail_class&#x60; is null. | [optional]
 
 ### Return type
 
@@ -159,16 +159,16 @@ public class Example {
     oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
     ShopShippingProfileApi apiInstance = new ShopShippingProfileApi(defaultClient);
-    Integer shopId = 56; // Integer | The unique positive non-zero numeric ID for an Etsy Shop.
-    Integer shippingProfileId = 56; // Integer | The numeric ID of the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing. Required when listing type=physical.
+    Long shopId = 56L; // Long | The unique positive non-zero numeric ID for an Etsy Shop.
+    Long shippingProfileId = 56L; // Long | The numeric ID of the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing. Required when listing type=physical.
     Float primaryCost = 3.4F; // Float | The cost of shipping to this country/region alone, measured in the store's default currency.
     Float secondaryCost = 3.4F; // Float | The cost of shipping to this country/region with another item, measured in the store's default currency.
     String destinationCountryIso = "\"null\""; // String | The ISO code of the country to which the listing ships. If null, request sets destination to destination_region. Required if destination_region is null or not provided.
     String destinationRegion = "eu"; // String | The code of the region to which the listing ships. A region represents a set of countries. Supported regions are Europe Union and Non-Europe Union (countries in Europe not in EU). If `none`, request sets destination to destination_country_iso. Required if destination_country_iso is null or not provided.
-    Integer shippingCarrierId = 0; // Integer | The unique ID of a supported shipping carrier, which is used to calculate an Estimated Delivery Date. **Required with `mail_class`** if `min_delivery_days` and `max_delivery_days` are null.
+    Long shippingCarrierId = 0L; // Long | The unique ID of a supported shipping carrier, which is used to calculate an Estimated Delivery Date. **Required with `mail_class`** if `min_delivery_days` and `max_delivery_days` are null.
     String mailClass = "\"null\""; // String | The unique ID string of a shipping carrier's mail class, which is used to calculate an estimated delivery date. **Required with `shipping_carrier_id`** if `min_delivery_days` and `max_delivery_days` are null.
-    Integer minDeliveryDays = 56; // Integer | The minimum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with `max_delivery_days`** if `mail_class` is null.
-    Integer maxDeliveryDays = 56; // Integer | The maximum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with `min_delivery_days`** if `mail_class` is null.
+    Long minDeliveryDays = 56L; // Long | The minimum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with `max_delivery_days`** if `mail_class` is null.
+    Long maxDeliveryDays = 56L; // Long | The maximum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with `min_delivery_days`** if `mail_class` is null.
     try {
       ShopShippingProfileDestination result = apiInstance.createShopShippingProfileDestination(shopId, shippingProfileId, primaryCost, secondaryCost, destinationCountryIso, destinationRegion, shippingCarrierId, mailClass, minDeliveryDays, maxDeliveryDays);
       System.out.println(result);
@@ -187,16 +187,16 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **shopId** | **Integer**| The unique positive non-zero numeric ID for an Etsy Shop. |
- **shippingProfileId** | **Integer**| The numeric ID of the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing. Required when listing type&#x3D;physical. |
+ **shopId** | **Long**| The unique positive non-zero numeric ID for an Etsy Shop. |
+ **shippingProfileId** | **Long**| The numeric ID of the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing. Required when listing type&#x3D;physical. |
  **primaryCost** | **Float**| The cost of shipping to this country/region alone, measured in the store&#39;s default currency. |
  **secondaryCost** | **Float**| The cost of shipping to this country/region with another item, measured in the store&#39;s default currency. |
  **destinationCountryIso** | **String**| The ISO code of the country to which the listing ships. If null, request sets destination to destination_region. Required if destination_region is null or not provided. | [optional] [default to &quot;null&quot;]
  **destinationRegion** | **String**| The code of the region to which the listing ships. A region represents a set of countries. Supported regions are Europe Union and Non-Europe Union (countries in Europe not in EU). If &#x60;none&#x60;, request sets destination to destination_country_iso. Required if destination_country_iso is null or not provided. | [optional] [default to DestinationRegionEnum.NONE] [enum: eu, non_eu, none]
- **shippingCarrierId** | **Integer**| The unique ID of a supported shipping carrier, which is used to calculate an Estimated Delivery Date. **Required with &#x60;mail_class&#x60;** if &#x60;min_delivery_days&#x60; and &#x60;max_delivery_days&#x60; are null. | [optional] [default to 0]
+ **shippingCarrierId** | **Long**| The unique ID of a supported shipping carrier, which is used to calculate an Estimated Delivery Date. **Required with &#x60;mail_class&#x60;** if &#x60;min_delivery_days&#x60; and &#x60;max_delivery_days&#x60; are null. | [optional] [default to 0]
  **mailClass** | **String**| The unique ID string of a shipping carrier&#39;s mail class, which is used to calculate an estimated delivery date. **Required with &#x60;shipping_carrier_id&#x60;** if &#x60;min_delivery_days&#x60; and &#x60;max_delivery_days&#x60; are null. | [optional] [default to &quot;null&quot;]
- **minDeliveryDays** | **Integer**| The minimum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with &#x60;max_delivery_days&#x60;** if &#x60;mail_class&#x60; is null. | [optional]
- **maxDeliveryDays** | **Integer**| The maximum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with &#x60;min_delivery_days&#x60;** if &#x60;mail_class&#x60; is null. | [optional]
+ **minDeliveryDays** | **Long**| The minimum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with &#x60;max_delivery_days&#x60;** if &#x60;mail_class&#x60; is null. | [optional]
+ **maxDeliveryDays** | **Long**| The maximum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with &#x60;min_delivery_days&#x60;** if &#x60;mail_class&#x60; is null. | [optional]
 
 ### Return type
 
@@ -254,16 +254,16 @@ public class Example {
     oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
     ShopShippingProfileApi apiInstance = new ShopShippingProfileApi(defaultClient);
-    Integer shopId = 56; // Integer | The unique positive non-zero numeric ID for an Etsy Shop.
-    Integer shippingProfileId = 56; // Integer | The numeric ID of the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing. Required when listing type=physical.
+    Long shopId = 56L; // Long | The unique positive non-zero numeric ID for an Etsy Shop.
+    Long shippingProfileId = 56L; // Long | The numeric ID of the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing. Required when listing type=physical.
     String type = "0"; // String | The type of the shipping upgrade. Domestic (0) or international (1).
     String upgradeName = "upgradeName_example"; // String | Name for the shipping upgrade shown to shoppers at checkout, e.g. USPS Priority.
     Float price = 3.4F; // Float | Additional cost of adding the shipping upgrade.
     Float secondaryPrice = 3.4F; // Float | Additional cost of adding the shipping upgrade for each additional item.
-    Integer shippingCarrierId = 0; // Integer | The unique ID of a supported shipping carrier, which is used to calculate an Estimated Delivery Date. **Required with `mail_class`** if `min_delivery_days` and `max_delivery_days` are null.
+    Long shippingCarrierId = 0L; // Long | The unique ID of a supported shipping carrier, which is used to calculate an Estimated Delivery Date. **Required with `mail_class`** if `min_delivery_days` and `max_delivery_days` are null.
     String mailClass = "\"null\""; // String | The unique ID string of a shipping carrier's mail class, which is used to calculate an estimated delivery date. **Required with `shipping_carrier_id`** if `min_delivery_days` and `max_delivery_days` are null.
-    Integer minDeliveryDays = 56; // Integer | The minimum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with `max_delivery_days`** if `mail_class` is null.
-    Integer maxDeliveryDays = 56; // Integer | The maximum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with `min_delivery_days`** if `mail_class` is null.
+    Long minDeliveryDays = 56L; // Long | The minimum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with `max_delivery_days`** if `mail_class` is null.
+    Long maxDeliveryDays = 56L; // Long | The maximum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with `min_delivery_days`** if `mail_class` is null.
     try {
       ShopShippingProfileUpgrade result = apiInstance.createShopShippingProfileUpgrade(shopId, shippingProfileId, type, upgradeName, price, secondaryPrice, shippingCarrierId, mailClass, minDeliveryDays, maxDeliveryDays);
       System.out.println(result);
@@ -282,16 +282,16 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **shopId** | **Integer**| The unique positive non-zero numeric ID for an Etsy Shop. |
- **shippingProfileId** | **Integer**| The numeric ID of the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing. Required when listing type&#x3D;physical. |
+ **shopId** | **Long**| The unique positive non-zero numeric ID for an Etsy Shop. |
+ **shippingProfileId** | **Long**| The numeric ID of the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing. Required when listing type&#x3D;physical. |
  **type** | **String**| The type of the shipping upgrade. Domestic (0) or international (1). | [enum: 0, 1]
  **upgradeName** | **String**| Name for the shipping upgrade shown to shoppers at checkout, e.g. USPS Priority. |
  **price** | **Float**| Additional cost of adding the shipping upgrade. |
  **secondaryPrice** | **Float**| Additional cost of adding the shipping upgrade for each additional item. |
- **shippingCarrierId** | **Integer**| The unique ID of a supported shipping carrier, which is used to calculate an Estimated Delivery Date. **Required with &#x60;mail_class&#x60;** if &#x60;min_delivery_days&#x60; and &#x60;max_delivery_days&#x60; are null. | [optional] [default to 0]
+ **shippingCarrierId** | **Long**| The unique ID of a supported shipping carrier, which is used to calculate an Estimated Delivery Date. **Required with &#x60;mail_class&#x60;** if &#x60;min_delivery_days&#x60; and &#x60;max_delivery_days&#x60; are null. | [optional] [default to 0]
  **mailClass** | **String**| The unique ID string of a shipping carrier&#39;s mail class, which is used to calculate an estimated delivery date. **Required with &#x60;shipping_carrier_id&#x60;** if &#x60;min_delivery_days&#x60; and &#x60;max_delivery_days&#x60; are null. | [optional] [default to &quot;null&quot;]
- **minDeliveryDays** | **Integer**| The minimum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with &#x60;max_delivery_days&#x60;** if &#x60;mail_class&#x60; is null. | [optional]
- **maxDeliveryDays** | **Integer**| The maximum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with &#x60;min_delivery_days&#x60;** if &#x60;mail_class&#x60; is null. | [optional]
+ **minDeliveryDays** | **Long**| The minimum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with &#x60;max_delivery_days&#x60;** if &#x60;mail_class&#x60; is null. | [optional]
+ **maxDeliveryDays** | **Long**| The maximum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with &#x60;min_delivery_days&#x60;** if &#x60;mail_class&#x60; is null. | [optional]
 
 ### Return type
 
@@ -350,8 +350,8 @@ public class Example {
     oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
     ShopShippingProfileApi apiInstance = new ShopShippingProfileApi(defaultClient);
-    Integer shopId = 56; // Integer | The unique positive non-zero numeric ID for an Etsy Shop.
-    Integer shippingProfileId = 56; // Integer | The numeric ID of the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing. Required when listing type=physical.
+    Long shopId = 56L; // Long | The unique positive non-zero numeric ID for an Etsy Shop.
+    Long shippingProfileId = 56L; // Long | The numeric ID of the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing. Required when listing type=physical.
     try {
       apiInstance.deleteShopShippingProfile(shopId, shippingProfileId);
     } catch (ApiException e) {
@@ -369,8 +369,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **shopId** | **Integer**| The unique positive non-zero numeric ID for an Etsy Shop. |
- **shippingProfileId** | **Integer**| The numeric ID of the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing. Required when listing type&#x3D;physical. |
+ **shopId** | **Long**| The unique positive non-zero numeric ID for an Etsy Shop. |
+ **shippingProfileId** | **Long**| The numeric ID of the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing. Required when listing type&#x3D;physical. |
 
 ### Return type
 
@@ -429,9 +429,9 @@ public class Example {
     oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
     ShopShippingProfileApi apiInstance = new ShopShippingProfileApi(defaultClient);
-    Integer shopId = 56; // Integer | The unique positive non-zero numeric ID for an Etsy Shop.
-    Integer shippingProfileId = 56; // Integer | The numeric ID of the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing. Required when listing type=physical.
-    Integer shippingProfileDestinationId = 56; // Integer | The numeric ID of the shipping profile destination in the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing.
+    Long shopId = 56L; // Long | The unique positive non-zero numeric ID for an Etsy Shop.
+    Long shippingProfileId = 56L; // Long | The numeric ID of the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing. Required when listing type=physical.
+    Long shippingProfileDestinationId = 56L; // Long | The numeric ID of the shipping profile destination in the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing.
     try {
       apiInstance.deleteShopShippingProfileDestination(shopId, shippingProfileId, shippingProfileDestinationId);
     } catch (ApiException e) {
@@ -449,9 +449,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **shopId** | **Integer**| The unique positive non-zero numeric ID for an Etsy Shop. |
- **shippingProfileId** | **Integer**| The numeric ID of the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing. Required when listing type&#x3D;physical. |
- **shippingProfileDestinationId** | **Integer**| The numeric ID of the shipping profile destination in the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing. |
+ **shopId** | **Long**| The unique positive non-zero numeric ID for an Etsy Shop. |
+ **shippingProfileId** | **Long**| The numeric ID of the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing. Required when listing type&#x3D;physical. |
+ **shippingProfileDestinationId** | **Long**| The numeric ID of the shipping profile destination in the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing. |
 
 ### Return type
 
@@ -510,9 +510,9 @@ public class Example {
     oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
     ShopShippingProfileApi apiInstance = new ShopShippingProfileApi(defaultClient);
-    Integer shopId = 56; // Integer | The unique positive non-zero numeric ID for an Etsy Shop.
-    Integer shippingProfileId = 56; // Integer | The numeric ID of the shipping profile.
-    Integer upgradeId = 56; // Integer | The numeric ID that is associated with a shipping upgrade
+    Long shopId = 56L; // Long | The unique positive non-zero numeric ID for an Etsy Shop.
+    Long shippingProfileId = 56L; // Long | The numeric ID of the shipping profile.
+    Long upgradeId = 56L; // Long | The numeric ID that is associated with a shipping upgrade
     try {
       apiInstance.deleteShopShippingProfileUpgrade(shopId, shippingProfileId, upgradeId);
     } catch (ApiException e) {
@@ -530,9 +530,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **shopId** | **Integer**| The unique positive non-zero numeric ID for an Etsy Shop. |
- **shippingProfileId** | **Integer**| The numeric ID of the shipping profile. |
- **upgradeId** | **Integer**| The numeric ID that is associated with a shipping upgrade |
+ **shopId** | **Long**| The unique positive non-zero numeric ID for an Etsy Shop. |
+ **shippingProfileId** | **Long**| The numeric ID of the shipping profile. |
+ **upgradeId** | **Long**| The numeric ID that is associated with a shipping upgrade |
 
 ### Return type
 
@@ -662,8 +662,8 @@ public class Example {
     oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
     ShopShippingProfileApi apiInstance = new ShopShippingProfileApi(defaultClient);
-    Integer shopId = 56; // Integer | The unique positive non-zero numeric ID for an Etsy Shop.
-    Integer shippingProfileId = 56; // Integer | The numeric ID of the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing. Required when listing type=physical.
+    Long shopId = 56L; // Long | The unique positive non-zero numeric ID for an Etsy Shop.
+    Long shippingProfileId = 56L; // Long | The numeric ID of the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing. Required when listing type=physical.
     try {
       ShopShippingProfile result = apiInstance.getShopShippingProfile(shopId, shippingProfileId);
       System.out.println(result);
@@ -682,8 +682,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **shopId** | **Integer**| The unique positive non-zero numeric ID for an Etsy Shop. |
- **shippingProfileId** | **Integer**| The numeric ID of the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing. Required when listing type&#x3D;physical. |
+ **shopId** | **Long**| The unique positive non-zero numeric ID for an Etsy Shop. |
+ **shippingProfileId** | **Long**| The numeric ID of the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing. Required when listing type&#x3D;physical. |
 
 ### Return type
 
@@ -742,10 +742,10 @@ public class Example {
     oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
     ShopShippingProfileApi apiInstance = new ShopShippingProfileApi(defaultClient);
-    Integer shopId = 56; // Integer | The unique positive non-zero numeric ID for an Etsy Shop.
-    Integer shippingProfileId = 56; // Integer | The numeric ID of the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing. Required when listing type=physical.
-    Integer limit = 25; // Integer | The maximum number of results to return.
-    Integer offset = 0; // Integer | The number of records to skip before selecting the first result.
+    Long shopId = 56L; // Long | The unique positive non-zero numeric ID for an Etsy Shop.
+    Long shippingProfileId = 56L; // Long | The numeric ID of the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing. Required when listing type=physical.
+    Long limit = 25L; // Long | The maximum number of results to return.
+    Long offset = 0L; // Long | The number of records to skip before selecting the first result.
     try {
       ShopShippingProfileDestinations result = apiInstance.getShopShippingProfileDestinationsByShippingProfile(shopId, shippingProfileId, limit, offset);
       System.out.println(result);
@@ -764,10 +764,10 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **shopId** | **Integer**| The unique positive non-zero numeric ID for an Etsy Shop. |
- **shippingProfileId** | **Integer**| The numeric ID of the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing. Required when listing type&#x3D;physical. |
- **limit** | **Integer**| The maximum number of results to return. | [optional] [default to 25]
- **offset** | **Integer**| The number of records to skip before selecting the first result. | [optional] [default to 0]
+ **shopId** | **Long**| The unique positive non-zero numeric ID for an Etsy Shop. |
+ **shippingProfileId** | **Long**| The numeric ID of the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing. Required when listing type&#x3D;physical. |
+ **limit** | **Long**| The maximum number of results to return. | [optional] [default to 25]
+ **offset** | **Long**| The number of records to skip before selecting the first result. | [optional] [default to 0]
 
 ### Return type
 
@@ -826,8 +826,8 @@ public class Example {
     oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
     ShopShippingProfileApi apiInstance = new ShopShippingProfileApi(defaultClient);
-    Integer shopId = 56; // Integer | The unique positive non-zero numeric ID for an Etsy Shop.
-    Integer shippingProfileId = 56; // Integer | The numeric ID of the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing. Required when listing type=physical.
+    Long shopId = 56L; // Long | The unique positive non-zero numeric ID for an Etsy Shop.
+    Long shippingProfileId = 56L; // Long | The numeric ID of the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing. Required when listing type=physical.
     try {
       ShopShippingProfileUpgrades result = apiInstance.getShopShippingProfileUpgrades(shopId, shippingProfileId);
       System.out.println(result);
@@ -846,8 +846,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **shopId** | **Integer**| The unique positive non-zero numeric ID for an Etsy Shop. |
- **shippingProfileId** | **Integer**| The numeric ID of the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing. Required when listing type&#x3D;physical. |
+ **shopId** | **Long**| The unique positive non-zero numeric ID for an Etsy Shop. |
+ **shippingProfileId** | **Long**| The numeric ID of the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing. Required when listing type&#x3D;physical. |
 
 ### Return type
 
@@ -906,7 +906,7 @@ public class Example {
     oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
     ShopShippingProfileApi apiInstance = new ShopShippingProfileApi(defaultClient);
-    Integer shopId = 56; // Integer | The unique positive non-zero numeric ID for an Etsy Shop.
+    Long shopId = 56L; // Long | The unique positive non-zero numeric ID for an Etsy Shop.
     try {
       ShopShippingProfiles result = apiInstance.getShopShippingProfiles(shopId);
       System.out.println(result);
@@ -925,7 +925,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **shopId** | **Integer**| The unique positive non-zero numeric ID for an Etsy Shop. |
+ **shopId** | **Long**| The unique positive non-zero numeric ID for an Etsy Shop. |
 
 ### Return type
 
@@ -982,12 +982,12 @@ public class Example {
     oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
     ShopShippingProfileApi apiInstance = new ShopShippingProfileApi(defaultClient);
-    Integer shopId = 56; // Integer | The unique positive non-zero numeric ID for an Etsy Shop.
-    Integer shippingProfileId = 56; // Integer | The numeric ID of the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing. Required when listing type=physical.
+    Long shopId = 56L; // Long | The unique positive non-zero numeric ID for an Etsy Shop.
+    Long shippingProfileId = 56L; // Long | The numeric ID of the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing. Required when listing type=physical.
     String title = "title_example"; // String | The name string of this shipping profile.
     String originCountryIso = "originCountryIso_example"; // String | The ISO code of the country from which the listing ships.
-    Integer minProcessingTime = 56; // Integer | The minimum time required to process to ship listings with this shipping profile.
-    Integer maxProcessingTime = 56; // Integer | The maximum processing time the listing needs to ship.
+    Long minProcessingTime = 56L; // Long | The minimum time required to process to ship listings with this shipping profile.
+    Long maxProcessingTime = 56L; // Long | The maximum processing time the listing needs to ship.
     String processingTimeUnit = "business_days"; // String | The unit used to represent how long a processing time is. A week is equivalent to 5 business days. If none is provided, the unit is set to \\\"business_days\\\".
     String originPostalCode = "\"null\""; // String | The postal code string (not necessarily a number) for the location from which the listing ships. Required if the `origin_country_iso` is `US` or `CA`.
     try {
@@ -1008,12 +1008,12 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **shopId** | **Integer**| The unique positive non-zero numeric ID for an Etsy Shop. |
- **shippingProfileId** | **Integer**| The numeric ID of the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing. Required when listing type&#x3D;physical. |
+ **shopId** | **Long**| The unique positive non-zero numeric ID for an Etsy Shop. |
+ **shippingProfileId** | **Long**| The numeric ID of the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing. Required when listing type&#x3D;physical. |
  **title** | **String**| The name string of this shipping profile. | [optional]
  **originCountryIso** | **String**| The ISO code of the country from which the listing ships. | [optional]
- **minProcessingTime** | **Integer**| The minimum time required to process to ship listings with this shipping profile. | [optional]
- **maxProcessingTime** | **Integer**| The maximum processing time the listing needs to ship. | [optional]
+ **minProcessingTime** | **Long**| The minimum time required to process to ship listings with this shipping profile. | [optional]
+ **maxProcessingTime** | **Long**| The maximum processing time the listing needs to ship. | [optional]
  **processingTimeUnit** | **String**| The unit used to represent how long a processing time is. A week is equivalent to 5 business days. If none is provided, the unit is set to \\\&quot;business_days\\\&quot;. | [optional] [default to ProcessingTimeUnitEnum.BUSINESS_DAYS] [enum: business_days, weeks]
  **originPostalCode** | **String**| The postal code string (not necessarily a number) for the location from which the listing ships. Required if the &#x60;origin_country_iso&#x60; is &#x60;US&#x60; or &#x60;CA&#x60;. | [optional] [default to &quot;null&quot;]
 
@@ -1074,17 +1074,17 @@ public class Example {
     oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
     ShopShippingProfileApi apiInstance = new ShopShippingProfileApi(defaultClient);
-    Integer shopId = 56; // Integer | The unique positive non-zero numeric ID for an Etsy Shop.
-    Integer shippingProfileId = 56; // Integer | The numeric ID of the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing. Required when listing type=physical.
-    Integer shippingProfileDestinationId = 56; // Integer | The numeric ID of the shipping profile destination in the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing.
+    Long shopId = 56L; // Long | The unique positive non-zero numeric ID for an Etsy Shop.
+    Long shippingProfileId = 56L; // Long | The numeric ID of the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing. Required when listing type=physical.
+    Long shippingProfileDestinationId = 56L; // Long | The numeric ID of the shipping profile destination in the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing.
     Float primaryCost = 3.4F; // Float | The cost of shipping to this country/region alone, measured in the store's default currency.
     Float secondaryCost = 3.4F; // Float | The cost of shipping to this country/region with another item, measured in the store's default currency.
     String destinationCountryIso = "\"null\""; // String | The ISO code of the country to which the listing ships. If null, request sets destination to destination_region. Required if destination_region is null or not provided.
     String destinationRegion = "eu"; // String | The code of the region to which the listing ships. A region represents a set of countries. Supported regions are Europe Union and Non-Europe Union (countries in Europe not in EU). If `none`, request sets destination to destination_country_iso. Required if destination_country_iso is null or not provided.
-    Integer shippingCarrierId = 56; // Integer | The unique ID of a supported shipping carrier, which is used to calculate an Estimated Delivery Date. **Required with `mail_class`** if `min_delivery_days` and `max_delivery_days` are null.
+    Long shippingCarrierId = 56L; // Long | The unique ID of a supported shipping carrier, which is used to calculate an Estimated Delivery Date. **Required with `mail_class`** if `min_delivery_days` and `max_delivery_days` are null.
     String mailClass = "\"null\""; // String | The unique ID string of a shipping carrier's mail class, which is used to calculate an estimated delivery date. **Required with `shipping_carrier_id`** if `min_delivery_days` and `max_delivery_days` are null.
-    Integer minDeliveryDays = 56; // Integer | The minimum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with `max_delivery_days`** if `mail_class` is null.
-    Integer maxDeliveryDays = 56; // Integer | The maximum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with `min_delivery_days`** if `mail_class` is null.
+    Long minDeliveryDays = 56L; // Long | The minimum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with `max_delivery_days`** if `mail_class` is null.
+    Long maxDeliveryDays = 56L; // Long | The maximum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with `min_delivery_days`** if `mail_class` is null.
     try {
       ShopShippingProfileDestination result = apiInstance.updateShopShippingProfileDestination(shopId, shippingProfileId, shippingProfileDestinationId, primaryCost, secondaryCost, destinationCountryIso, destinationRegion, shippingCarrierId, mailClass, minDeliveryDays, maxDeliveryDays);
       System.out.println(result);
@@ -1103,17 +1103,17 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **shopId** | **Integer**| The unique positive non-zero numeric ID for an Etsy Shop. |
- **shippingProfileId** | **Integer**| The numeric ID of the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing. Required when listing type&#x3D;physical. |
- **shippingProfileDestinationId** | **Integer**| The numeric ID of the shipping profile destination in the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing. |
+ **shopId** | **Long**| The unique positive non-zero numeric ID for an Etsy Shop. |
+ **shippingProfileId** | **Long**| The numeric ID of the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing. Required when listing type&#x3D;physical. |
+ **shippingProfileDestinationId** | **Long**| The numeric ID of the shipping profile destination in the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing. |
  **primaryCost** | **Float**| The cost of shipping to this country/region alone, measured in the store&#39;s default currency. | [optional]
  **secondaryCost** | **Float**| The cost of shipping to this country/region with another item, measured in the store&#39;s default currency. | [optional]
  **destinationCountryIso** | **String**| The ISO code of the country to which the listing ships. If null, request sets destination to destination_region. Required if destination_region is null or not provided. | [optional] [default to &quot;null&quot;]
  **destinationRegion** | **String**| The code of the region to which the listing ships. A region represents a set of countries. Supported regions are Europe Union and Non-Europe Union (countries in Europe not in EU). If &#x60;none&#x60;, request sets destination to destination_country_iso. Required if destination_country_iso is null or not provided. | [optional] [default to DestinationRegionEnum.NONE] [enum: eu, non_eu, none]
- **shippingCarrierId** | **Integer**| The unique ID of a supported shipping carrier, which is used to calculate an Estimated Delivery Date. **Required with &#x60;mail_class&#x60;** if &#x60;min_delivery_days&#x60; and &#x60;max_delivery_days&#x60; are null. | [optional]
+ **shippingCarrierId** | **Long**| The unique ID of a supported shipping carrier, which is used to calculate an Estimated Delivery Date. **Required with &#x60;mail_class&#x60;** if &#x60;min_delivery_days&#x60; and &#x60;max_delivery_days&#x60; are null. | [optional]
  **mailClass** | **String**| The unique ID string of a shipping carrier&#39;s mail class, which is used to calculate an estimated delivery date. **Required with &#x60;shipping_carrier_id&#x60;** if &#x60;min_delivery_days&#x60; and &#x60;max_delivery_days&#x60; are null. | [optional] [default to &quot;null&quot;]
- **minDeliveryDays** | **Integer**| The minimum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with &#x60;max_delivery_days&#x60;** if &#x60;mail_class&#x60; is null. | [optional]
- **maxDeliveryDays** | **Integer**| The maximum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with &#x60;min_delivery_days&#x60;** if &#x60;mail_class&#x60; is null. | [optional]
+ **minDeliveryDays** | **Long**| The minimum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with &#x60;max_delivery_days&#x60;** if &#x60;mail_class&#x60; is null. | [optional]
+ **maxDeliveryDays** | **Long**| The maximum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with &#x60;min_delivery_days&#x60;** if &#x60;mail_class&#x60; is null. | [optional]
 
 ### Return type
 
@@ -1172,17 +1172,17 @@ public class Example {
     oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
     ShopShippingProfileApi apiInstance = new ShopShippingProfileApi(defaultClient);
-    Integer shopId = 56; // Integer | The unique positive non-zero numeric ID for an Etsy Shop.
-    Integer shippingProfileId = 56; // Integer | The numeric ID of the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing. Required when listing type=physical.
-    Integer upgradeId = 56; // Integer | The numeric ID that is associated with a shipping upgrade
+    Long shopId = 56L; // Long | The unique positive non-zero numeric ID for an Etsy Shop.
+    Long shippingProfileId = 56L; // Long | The numeric ID of the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing. Required when listing type=physical.
+    Long upgradeId = 56L; // Long | The numeric ID that is associated with a shipping upgrade
     String upgradeName = "\"null\""; // String | Name for the shipping upgrade shown to shoppers at checkout, e.g. USPS Priority.
     String type = "0"; // String | The type of the shipping upgrade. Domestic (0) or international (1).
     Float price = 3.4F; // Float | Additional cost of adding the shipping upgrade.
     Float secondaryPrice = 3.4F; // Float | Additional cost of adding the shipping upgrade for each additional item.
-    Integer shippingCarrierId = 56; // Integer | The unique ID of a supported shipping carrier, which is used to calculate an Estimated Delivery Date. **Required with `mail_class`** if `min_delivery_days` and `max_delivery_days` are null.
+    Long shippingCarrierId = 56L; // Long | The unique ID of a supported shipping carrier, which is used to calculate an Estimated Delivery Date. **Required with `mail_class`** if `min_delivery_days` and `max_delivery_days` are null.
     String mailClass = "\"null\""; // String | The unique ID string of a shipping carrier's mail class, which is used to calculate an estimated delivery date. **Required with `shipping_carrier_id`** if `min_delivery_days` and `max_delivery_days` are null.
-    Integer minDeliveryDays = 56; // Integer | The minimum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with `max_delivery_days`** if `mail_class` is null.
-    Integer maxDeliveryDays = 56; // Integer | The maximum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with `min_delivery_days`** if `mail_class` is null.
+    Long minDeliveryDays = 56L; // Long | The minimum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with `max_delivery_days`** if `mail_class` is null.
+    Long maxDeliveryDays = 56L; // Long | The maximum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with `min_delivery_days`** if `mail_class` is null.
     try {
       ShopShippingProfileUpgrade result = apiInstance.updateShopShippingProfileUpgrade(shopId, shippingProfileId, upgradeId, upgradeName, type, price, secondaryPrice, shippingCarrierId, mailClass, minDeliveryDays, maxDeliveryDays);
       System.out.println(result);
@@ -1201,17 +1201,17 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **shopId** | **Integer**| The unique positive non-zero numeric ID for an Etsy Shop. |
- **shippingProfileId** | **Integer**| The numeric ID of the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing. Required when listing type&#x3D;physical. |
- **upgradeId** | **Integer**| The numeric ID that is associated with a shipping upgrade |
+ **shopId** | **Long**| The unique positive non-zero numeric ID for an Etsy Shop. |
+ **shippingProfileId** | **Long**| The numeric ID of the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing. Required when listing type&#x3D;physical. |
+ **upgradeId** | **Long**| The numeric ID that is associated with a shipping upgrade |
  **upgradeName** | **String**| Name for the shipping upgrade shown to shoppers at checkout, e.g. USPS Priority. | [optional] [default to &quot;null&quot;]
  **type** | **String**| The type of the shipping upgrade. Domestic (0) or international (1). | [optional] [enum: 0, 1]
  **price** | **Float**| Additional cost of adding the shipping upgrade. | [optional]
  **secondaryPrice** | **Float**| Additional cost of adding the shipping upgrade for each additional item. | [optional]
- **shippingCarrierId** | **Integer**| The unique ID of a supported shipping carrier, which is used to calculate an Estimated Delivery Date. **Required with &#x60;mail_class&#x60;** if &#x60;min_delivery_days&#x60; and &#x60;max_delivery_days&#x60; are null. | [optional]
+ **shippingCarrierId** | **Long**| The unique ID of a supported shipping carrier, which is used to calculate an Estimated Delivery Date. **Required with &#x60;mail_class&#x60;** if &#x60;min_delivery_days&#x60; and &#x60;max_delivery_days&#x60; are null. | [optional]
  **mailClass** | **String**| The unique ID string of a shipping carrier&#39;s mail class, which is used to calculate an estimated delivery date. **Required with &#x60;shipping_carrier_id&#x60;** if &#x60;min_delivery_days&#x60; and &#x60;max_delivery_days&#x60; are null. | [optional] [default to &quot;null&quot;]
- **minDeliveryDays** | **Integer**| The minimum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with &#x60;max_delivery_days&#x60;** if &#x60;mail_class&#x60; is null. | [optional]
- **maxDeliveryDays** | **Integer**| The maximum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with &#x60;min_delivery_days&#x60;** if &#x60;mail_class&#x60; is null. | [optional]
+ **minDeliveryDays** | **Long**| The minimum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with &#x60;max_delivery_days&#x60;** if &#x60;mail_class&#x60; is null. | [optional]
+ **maxDeliveryDays** | **Long**| The maximum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with &#x60;min_delivery_days&#x60;** if &#x60;mail_class&#x60; is null. | [optional]
 
 ### Return type
 

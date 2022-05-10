@@ -8,8 +8,8 @@ Represents a user's address.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**userAddressId** | **Integer** | The numeric ID of the user&#39;s address. | 
-**userId** | **Integer** | The user&#39;s numeric ID. | 
+**userAddressId** | **Long** | The numeric ID of the user&#39;s address. | 
+**userId** | **Long** | The user&#39;s numeric ID. | 
 **name** | **String** | The user&#39;s name for this address. | 
 **firstLine** | **String** | The first line of the user&#39;s address. | 
 **secondLine** | **String** | The second line of the user&#39;s address. | 

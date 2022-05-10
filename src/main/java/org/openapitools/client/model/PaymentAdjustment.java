@@ -28,15 +28,15 @@ import java.io.IOException;
  * Represents a refund, which applies to a prior Etsy payment. All monetary amounts are in USD pennies unless otherwise specified.
  */
 @ApiModel(description = "Represents a refund, which applies to a prior Etsy payment. All monetary amounts are in USD pennies unless otherwise specified.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-04-08T15:52:16.342-04:00[America/Toronto]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-07T10:51:54.559-04:00[America/Toronto]")
 public class PaymentAdjustment {
   public static final String SERIALIZED_NAME_PAYMENT_ADJUSTMENT_ID = "payment_adjustment_id";
   @SerializedName(SERIALIZED_NAME_PAYMENT_ADJUSTMENT_ID)
-  private Integer paymentAdjustmentId;
+  private Long paymentAdjustmentId;
 
   public static final String SERIALIZED_NAME_PAYMENT_ID = "payment_id";
   @SerializedName(SERIALIZED_NAME_PAYMENT_ID)
-  private Integer paymentId;
+  private Long paymentId;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
@@ -48,7 +48,7 @@ public class PaymentAdjustment {
 
   public static final String SERIALIZED_NAME_USER_ID = "user_id";
   @SerializedName(SERIALIZED_NAME_USER_ID)
-  private Integer userId;
+  private Long userId;
 
   public static final String SERIALIZED_NAME_REASON_CODE = "reason_code";
   @SerializedName(SERIALIZED_NAME_REASON_CODE)
@@ -56,32 +56,32 @@ public class PaymentAdjustment {
 
   public static final String SERIALIZED_NAME_TOTAL_ADJUSTMENT_AMOUNT = "total_adjustment_amount";
   @SerializedName(SERIALIZED_NAME_TOTAL_ADJUSTMENT_AMOUNT)
-  private Integer totalAdjustmentAmount;
+  private Long totalAdjustmentAmount;
 
   public static final String SERIALIZED_NAME_SHOP_TOTAL_ADJUSTMENT_AMOUNT = "shop_total_adjustment_amount";
   @SerializedName(SERIALIZED_NAME_SHOP_TOTAL_ADJUSTMENT_AMOUNT)
-  private Integer shopTotalAdjustmentAmount;
+  private Long shopTotalAdjustmentAmount;
 
   public static final String SERIALIZED_NAME_BUYER_TOTAL_ADJUSTMENT_AMOUNT = "buyer_total_adjustment_amount";
   @SerializedName(SERIALIZED_NAME_BUYER_TOTAL_ADJUSTMENT_AMOUNT)
-  private Integer buyerTotalAdjustmentAmount;
+  private Long buyerTotalAdjustmentAmount;
 
   public static final String SERIALIZED_NAME_TOTAL_FEE_ADJUSTMENT_AMOUNT = "total_fee_adjustment_amount";
   @SerializedName(SERIALIZED_NAME_TOTAL_FEE_ADJUSTMENT_AMOUNT)
-  private Integer totalFeeAdjustmentAmount;
+  private Long totalFeeAdjustmentAmount;
 
   public static final String SERIALIZED_NAME_CREATE_TIMESTAMP = "create_timestamp";
   @SerializedName(SERIALIZED_NAME_CREATE_TIMESTAMP)
-  private Integer createTimestamp;
+  private Long createTimestamp;
 
   public static final String SERIALIZED_NAME_UPDATE_TIMESTAMP = "update_timestamp";
   @SerializedName(SERIALIZED_NAME_UPDATE_TIMESTAMP)
-  private Integer updateTimestamp;
+  private Long updateTimestamp;
 
   public PaymentAdjustment() { 
   }
 
-  public PaymentAdjustment paymentAdjustmentId(Integer paymentAdjustmentId) {
+  public PaymentAdjustment paymentAdjustmentId(Long paymentAdjustmentId) {
     
     this.paymentAdjustmentId = paymentAdjustmentId;
     return this;
@@ -95,17 +95,17 @@ public class PaymentAdjustment {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The numeric ID for a payment adjustment.")
 
-  public Integer getPaymentAdjustmentId() {
+  public Long getPaymentAdjustmentId() {
     return paymentAdjustmentId;
   }
 
 
-  public void setPaymentAdjustmentId(Integer paymentAdjustmentId) {
+  public void setPaymentAdjustmentId(Long paymentAdjustmentId) {
     this.paymentAdjustmentId = paymentAdjustmentId;
   }
 
 
-  public PaymentAdjustment paymentId(Integer paymentId) {
+  public PaymentAdjustment paymentId(Long paymentId) {
     
     this.paymentId = paymentId;
     return this;
@@ -119,12 +119,12 @@ public class PaymentAdjustment {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "A unique numeric ID for a payment to a specific Etsy [shop](/documentation/reference#tag/Shop).")
 
-  public Integer getPaymentId() {
+  public Long getPaymentId() {
     return paymentId;
   }
 
 
-  public void setPaymentId(Integer paymentId) {
+  public void setPaymentId(Long paymentId) {
     this.paymentId = paymentId;
   }
 
@@ -175,7 +175,7 @@ public class PaymentAdjustment {
   }
 
 
-  public PaymentAdjustment userId(Integer userId) {
+  public PaymentAdjustment userId(Long userId) {
     
     this.userId = userId;
     return this;
@@ -189,12 +189,12 @@ public class PaymentAdjustment {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The numeric ID for the [user](/documentation/reference#tag/User) (seller) fulfilling the purchase.")
 
-  public Integer getUserId() {
+  public Long getUserId() {
     return userId;
   }
 
 
-  public void setUserId(Integer userId) {
+  public void setUserId(Long userId) {
     this.userId = userId;
   }
 
@@ -222,7 +222,7 @@ public class PaymentAdjustment {
   }
 
 
-  public PaymentAdjustment totalAdjustmentAmount(Integer totalAdjustmentAmount) {
+  public PaymentAdjustment totalAdjustmentAmount(Long totalAdjustmentAmount) {
     
     this.totalAdjustmentAmount = totalAdjustmentAmount;
     return this;
@@ -236,17 +236,17 @@ public class PaymentAdjustment {
   @javax.annotation.Nullable
   @ApiModelProperty(required = true, value = "The total numeric amount of the refund in the payment currency.")
 
-  public Integer getTotalAdjustmentAmount() {
+  public Long getTotalAdjustmentAmount() {
     return totalAdjustmentAmount;
   }
 
 
-  public void setTotalAdjustmentAmount(Integer totalAdjustmentAmount) {
+  public void setTotalAdjustmentAmount(Long totalAdjustmentAmount) {
     this.totalAdjustmentAmount = totalAdjustmentAmount;
   }
 
 
-  public PaymentAdjustment shopTotalAdjustmentAmount(Integer shopTotalAdjustmentAmount) {
+  public PaymentAdjustment shopTotalAdjustmentAmount(Long shopTotalAdjustmentAmount) {
     
     this.shopTotalAdjustmentAmount = shopTotalAdjustmentAmount;
     return this;
@@ -260,17 +260,17 @@ public class PaymentAdjustment {
   @javax.annotation.Nullable
   @ApiModelProperty(required = true, value = "The numeric amount of the refund in the shop currency.")
 
-  public Integer getShopTotalAdjustmentAmount() {
+  public Long getShopTotalAdjustmentAmount() {
     return shopTotalAdjustmentAmount;
   }
 
 
-  public void setShopTotalAdjustmentAmount(Integer shopTotalAdjustmentAmount) {
+  public void setShopTotalAdjustmentAmount(Long shopTotalAdjustmentAmount) {
     this.shopTotalAdjustmentAmount = shopTotalAdjustmentAmount;
   }
 
 
-  public PaymentAdjustment buyerTotalAdjustmentAmount(Integer buyerTotalAdjustmentAmount) {
+  public PaymentAdjustment buyerTotalAdjustmentAmount(Long buyerTotalAdjustmentAmount) {
     
     this.buyerTotalAdjustmentAmount = buyerTotalAdjustmentAmount;
     return this;
@@ -284,17 +284,17 @@ public class PaymentAdjustment {
   @javax.annotation.Nullable
   @ApiModelProperty(required = true, value = "The numeric amount of the refund in the buyer currency.")
 
-  public Integer getBuyerTotalAdjustmentAmount() {
+  public Long getBuyerTotalAdjustmentAmount() {
     return buyerTotalAdjustmentAmount;
   }
 
 
-  public void setBuyerTotalAdjustmentAmount(Integer buyerTotalAdjustmentAmount) {
+  public void setBuyerTotalAdjustmentAmount(Long buyerTotalAdjustmentAmount) {
     this.buyerTotalAdjustmentAmount = buyerTotalAdjustmentAmount;
   }
 
 
-  public PaymentAdjustment totalFeeAdjustmentAmount(Integer totalFeeAdjustmentAmount) {
+  public PaymentAdjustment totalFeeAdjustmentAmount(Long totalFeeAdjustmentAmount) {
     
     this.totalFeeAdjustmentAmount = totalFeeAdjustmentAmount;
     return this;
@@ -308,17 +308,17 @@ public class PaymentAdjustment {
   @javax.annotation.Nullable
   @ApiModelProperty(required = true, value = "The numeric amount of card processing fees associated with a payment adjustment.")
 
-  public Integer getTotalFeeAdjustmentAmount() {
+  public Long getTotalFeeAdjustmentAmount() {
     return totalFeeAdjustmentAmount;
   }
 
 
-  public void setTotalFeeAdjustmentAmount(Integer totalFeeAdjustmentAmount) {
+  public void setTotalFeeAdjustmentAmount(Long totalFeeAdjustmentAmount) {
     this.totalFeeAdjustmentAmount = totalFeeAdjustmentAmount;
   }
 
 
-  public PaymentAdjustment createTimestamp(Integer createTimestamp) {
+  public PaymentAdjustment createTimestamp(Long createTimestamp) {
     
     this.createTimestamp = createTimestamp;
     return this;
@@ -332,17 +332,17 @@ public class PaymentAdjustment {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The transaction\\'s creation date and time, in epoch seconds.")
 
-  public Integer getCreateTimestamp() {
+  public Long getCreateTimestamp() {
     return createTimestamp;
   }
 
 
-  public void setCreateTimestamp(Integer createTimestamp) {
+  public void setCreateTimestamp(Long createTimestamp) {
     this.createTimestamp = createTimestamp;
   }
 
 
-  public PaymentAdjustment updateTimestamp(Integer updateTimestamp) {
+  public PaymentAdjustment updateTimestamp(Long updateTimestamp) {
     
     this.updateTimestamp = updateTimestamp;
     return this;
@@ -356,12 +356,12 @@ public class PaymentAdjustment {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The date and time of the last change to the payment adjustment in epoch seconds.")
 
-  public Integer getUpdateTimestamp() {
+  public Long getUpdateTimestamp() {
     return updateTimestamp;
   }
 
 
-  public void setUpdateTimestamp(Integer updateTimestamp) {
+  public void setUpdateTimestamp(Long updateTimestamp) {
     this.updateTimestamp = updateTimestamp;
   }
 

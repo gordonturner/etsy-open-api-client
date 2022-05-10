@@ -30,15 +30,15 @@ import java.util.List;
  * A shop created by an Etsy user.
  */
 @ApiModel(description = "A shop created by an Etsy user.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-04-08T15:52:16.342-04:00[America/Toronto]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-07T10:51:54.559-04:00[America/Toronto]")
 public class Shop {
   public static final String SERIALIZED_NAME_SHOP_ID = "shop_id";
   @SerializedName(SERIALIZED_NAME_SHOP_ID)
-  private Integer shopId;
+  private Long shopId;
 
   public static final String SERIALIZED_NAME_USER_ID = "user_id";
   @SerializedName(SERIALIZED_NAME_USER_ID)
-  private Integer userId;
+  private Long userId;
 
   public static final String SERIALIZED_NAME_SHOP_NAME = "shop_name";
   @SerializedName(SERIALIZED_NAME_SHOP_NAME)
@@ -46,7 +46,7 @@ public class Shop {
 
   public static final String SERIALIZED_NAME_CREATE_DATE = "create_date";
   @SerializedName(SERIALIZED_NAME_CREATE_DATE)
-  private Integer createDate;
+  private Long createDate;
 
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
@@ -78,15 +78,15 @@ public class Shop {
 
   public static final String SERIALIZED_NAME_UPDATE_DATE = "update_date";
   @SerializedName(SERIALIZED_NAME_UPDATE_DATE)
-  private Integer updateDate;
+  private Long updateDate;
 
   public static final String SERIALIZED_NAME_LISTING_ACTIVE_COUNT = "listing_active_count";
   @SerializedName(SERIALIZED_NAME_LISTING_ACTIVE_COUNT)
-  private Integer listingActiveCount;
+  private Long listingActiveCount;
 
   public static final String SERIALIZED_NAME_DIGITAL_LISTING_COUNT = "digital_listing_count";
   @SerializedName(SERIALIZED_NAME_DIGITAL_LISTING_COUNT)
-  private Integer digitalListingCount;
+  private Long digitalListingCount;
 
   public static final String SERIALIZED_NAME_LOGIN_NAME = "login_name";
   @SerializedName(SERIALIZED_NAME_LOGIN_NAME)
@@ -122,7 +122,7 @@ public class Shop {
 
   public static final String SERIALIZED_NAME_POLICY_UPDATE_DATE = "policy_update_date";
   @SerializedName(SERIALIZED_NAME_POLICY_UPDATE_DATE)
-  private Integer policyUpdateDate;
+  private Long policyUpdateDate;
 
   public static final String SERIALIZED_NAME_POLICY_HAS_PRIVATE_RECEIPT_INFO = "policy_has_private_receipt_info";
   @SerializedName(SERIALIZED_NAME_POLICY_HAS_PRIVATE_RECEIPT_INFO)
@@ -150,7 +150,7 @@ public class Shop {
 
   public static final String SERIALIZED_NAME_NUM_FAVORERS = "num_favorers";
   @SerializedName(SERIALIZED_NAME_NUM_FAVORERS)
-  private Integer numFavorers;
+  private Long numFavorers;
 
   public static final String SERIALIZED_NAME_LANGUAGES = "languages";
   @SerializedName(SERIALIZED_NAME_LANGUAGES)
@@ -194,7 +194,7 @@ public class Shop {
 
   public static final String SERIALIZED_NAME_TRANSACTION_SOLD_COUNT = "transaction_sold_count";
   @SerializedName(SERIALIZED_NAME_TRANSACTION_SOLD_COUNT)
-  private Integer transactionSoldCount;
+  private Long transactionSoldCount;
 
   public static final String SERIALIZED_NAME_SHIPPING_FROM_COUNTRY_ISO = "shipping_from_country_iso";
   @SerializedName(SERIALIZED_NAME_SHIPPING_FROM_COUNTRY_ISO)
@@ -206,7 +206,7 @@ public class Shop {
 
   public static final String SERIALIZED_NAME_REVIEW_COUNT = "review_count";
   @SerializedName(SERIALIZED_NAME_REVIEW_COUNT)
-  private Integer reviewCount;
+  private Long reviewCount;
 
   public static final String SERIALIZED_NAME_REVIEW_AVERAGE = "review_average";
   @SerializedName(SERIALIZED_NAME_REVIEW_AVERAGE)
@@ -215,7 +215,7 @@ public class Shop {
   public Shop() { 
   }
 
-  public Shop shopId(Integer shopId) {
+  public Shop shopId(Long shopId) {
     
     this.shopId = shopId;
     return this;
@@ -229,17 +229,17 @@ public class Shop {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The unique positive non-zero numeric ID for an Etsy Shop.")
 
-  public Integer getShopId() {
+  public Long getShopId() {
     return shopId;
   }
 
 
-  public void setShopId(Integer shopId) {
+  public void setShopId(Long shopId) {
     this.shopId = shopId;
   }
 
 
-  public Shop userId(Integer userId) {
+  public Shop userId(Long userId) {
     
     this.userId = userId;
     return this;
@@ -253,12 +253,12 @@ public class Shop {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The numeric user ID of the [user](/documentation/reference#tag/User) who owns this shop.")
 
-  public Integer getUserId() {
+  public Long getUserId() {
     return userId;
   }
 
 
-  public void setUserId(Integer userId) {
+  public void setUserId(Long userId) {
     this.userId = userId;
   }
 
@@ -286,7 +286,7 @@ public class Shop {
   }
 
 
-  public Shop createDate(Integer createDate) {
+  public Shop createDate(Long createDate) {
     
     this.createDate = createDate;
     return this;
@@ -300,12 +300,12 @@ public class Shop {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The date and time this shop was created, in epoch seconds.")
 
-  public Integer getCreateDate() {
+  public Long getCreateDate() {
     return createDate;
   }
 
 
-  public void setCreateDate(Integer createDate) {
+  public void setCreateDate(Long createDate) {
     this.createDate = createDate;
   }
 
@@ -471,7 +471,7 @@ public class Shop {
   }
 
 
-  public Shop updateDate(Integer updateDate) {
+  public Shop updateDate(Long updateDate) {
     
     this.updateDate = updateDate;
     return this;
@@ -485,17 +485,17 @@ public class Shop {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The date and time of the last update to the shop, in epoch seconds.")
 
-  public Integer getUpdateDate() {
+  public Long getUpdateDate() {
     return updateDate;
   }
 
 
-  public void setUpdateDate(Integer updateDate) {
+  public void setUpdateDate(Long updateDate) {
     this.updateDate = updateDate;
   }
 
 
-  public Shop listingActiveCount(Integer listingActiveCount) {
+  public Shop listingActiveCount(Long listingActiveCount) {
     
     this.listingActiveCount = listingActiveCount;
     return this;
@@ -509,17 +509,17 @@ public class Shop {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The number of active listings in the shop.")
 
-  public Integer getListingActiveCount() {
+  public Long getListingActiveCount() {
     return listingActiveCount;
   }
 
 
-  public void setListingActiveCount(Integer listingActiveCount) {
+  public void setListingActiveCount(Long listingActiveCount) {
     this.listingActiveCount = listingActiveCount;
   }
 
 
-  public Shop digitalListingCount(Integer digitalListingCount) {
+  public Shop digitalListingCount(Long digitalListingCount) {
     
     this.digitalListingCount = digitalListingCount;
     return this;
@@ -533,12 +533,12 @@ public class Shop {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The number of digital listings in the shop.")
 
-  public Integer getDigitalListingCount() {
+  public Long getDigitalListingCount() {
     return digitalListingCount;
   }
 
 
-  public void setDigitalListingCount(Integer digitalListingCount) {
+  public void setDigitalListingCount(Long digitalListingCount) {
     this.digitalListingCount = digitalListingCount;
   }
 
@@ -727,7 +727,7 @@ public class Shop {
   }
 
 
-  public Shop policyUpdateDate(Integer policyUpdateDate) {
+  public Shop policyUpdateDate(Long policyUpdateDate) {
     
     this.policyUpdateDate = policyUpdateDate;
     return this;
@@ -741,12 +741,12 @@ public class Shop {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The date and time of the last update to the shop's policies, in epoch seconds.")
 
-  public Integer getPolicyUpdateDate() {
+  public Long getPolicyUpdateDate() {
     return policyUpdateDate;
   }
 
 
-  public void setPolicyUpdateDate(Integer policyUpdateDate) {
+  public void setPolicyUpdateDate(Long policyUpdateDate) {
     this.policyUpdateDate = policyUpdateDate;
   }
 
@@ -889,7 +889,7 @@ public class Shop {
   }
 
 
-  public Shop numFavorers(Integer numFavorers) {
+  public Shop numFavorers(Long numFavorers) {
     
     this.numFavorers = numFavorers;
     return this;
@@ -903,12 +903,12 @@ public class Shop {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The number of users who marked this shop a favorite.")
 
-  public Integer getNumFavorers() {
+  public Long getNumFavorers() {
     return numFavorers;
   }
 
 
-  public void setNumFavorers(Integer numFavorers) {
+  public void setNumFavorers(Long numFavorers) {
     this.numFavorers = numFavorers;
   }
 
@@ -1148,7 +1148,7 @@ public class Shop {
   }
 
 
-  public Shop transactionSoldCount(Integer transactionSoldCount) {
+  public Shop transactionSoldCount(Long transactionSoldCount) {
     
     this.transactionSoldCount = transactionSoldCount;
     return this;
@@ -1162,12 +1162,12 @@ public class Shop {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The total number of sales ([transactions](/documentation/reference#tag/Shop-Receipt-Transactions)) for this shop")
 
-  public Integer getTransactionSoldCount() {
+  public Long getTransactionSoldCount() {
     return transactionSoldCount;
   }
 
 
-  public void setTransactionSoldCount(Integer transactionSoldCount) {
+  public void setTransactionSoldCount(Long transactionSoldCount) {
     this.transactionSoldCount = transactionSoldCount;
   }
 
@@ -1218,7 +1218,7 @@ public class Shop {
   }
 
 
-  public Shop reviewCount(Integer reviewCount) {
+  public Shop reviewCount(Long reviewCount) {
     
     this.reviewCount = reviewCount;
     return this;
@@ -1231,12 +1231,12 @@ public class Shop {
   @javax.annotation.Nullable
   @ApiModelProperty(required = true, value = "Number of reviews of shop listings in the past year.")
 
-  public Integer getReviewCount() {
+  public Long getReviewCount() {
     return reviewCount;
   }
 
 
-  public void setReviewCount(Integer reviewCount) {
+  public void setReviewCount(Long reviewCount) {
     this.reviewCount = reviewCount;
   }
 

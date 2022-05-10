@@ -37,9 +37,9 @@ public class Example {
     //api_key.setApiKeyPrefix("Token");
 
     ShopListingOfferingApi apiInstance = new ShopListingOfferingApi(defaultClient);
-    Integer listingId = 56; // Integer | 
-    Integer productId = 56; // Integer | 
-    Integer productOfferingId = 56; // Integer | 
+    Long listingId = 56L; // Long | 
+    Long productId = 56L; // Long | 
+    Long productOfferingId = 56L; // Long | 
     try {
       ListingInventoryProductOffering result = apiInstance.getListingOffering(listingId, productId, productOfferingId);
       System.out.println(result);
@@ -58,9 +58,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **listingId** | **Integer**|  |
- **productId** | **Integer**|  |
- **productOfferingId** | **Integer**|  |
+ **listingId** | **Long**|  |
+ **productId** | **Long**|  |
+ **productOfferingId** | **Long**|  |
 
 ### Return type
 

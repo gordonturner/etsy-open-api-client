@@ -29,15 +29,15 @@ import org.openapitools.client.model.Money;
  * A representation of an offering for a listing.
  */
 @ApiModel(description = "A representation of an offering for a listing.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-04-08T15:52:16.342-04:00[America/Toronto]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-07T10:51:54.559-04:00[America/Toronto]")
 public class ListingInventoryProductOffering {
   public static final String SERIALIZED_NAME_OFFERING_ID = "offering_id";
   @SerializedName(SERIALIZED_NAME_OFFERING_ID)
-  private Integer offeringId;
+  private Long offeringId;
 
   public static final String SERIALIZED_NAME_QUANTITY = "quantity";
   @SerializedName(SERIALIZED_NAME_QUANTITY)
-  private Integer quantity;
+  private Long quantity;
 
   public static final String SERIALIZED_NAME_IS_ENABLED = "is_enabled";
   @SerializedName(SERIALIZED_NAME_IS_ENABLED)
@@ -54,7 +54,7 @@ public class ListingInventoryProductOffering {
   public ListingInventoryProductOffering() { 
   }
 
-  public ListingInventoryProductOffering offeringId(Integer offeringId) {
+  public ListingInventoryProductOffering offeringId(Long offeringId) {
     
     this.offeringId = offeringId;
     return this;
@@ -68,17 +68,17 @@ public class ListingInventoryProductOffering {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The ID for the ProductOffering")
 
-  public Integer getOfferingId() {
+  public Long getOfferingId() {
     return offeringId;
   }
 
 
-  public void setOfferingId(Integer offeringId) {
+  public void setOfferingId(Long offeringId) {
     this.offeringId = offeringId;
   }
 
 
-  public ListingInventoryProductOffering quantity(Integer quantity) {
+  public ListingInventoryProductOffering quantity(Long quantity) {
     
     this.quantity = quantity;
     return this;
@@ -92,12 +92,12 @@ public class ListingInventoryProductOffering {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The quantity the ProductOffering")
 
-  public Integer getQuantity() {
+  public Long getQuantity() {
     return quantity;
   }
 
 
-  public void setQuantity(Integer quantity) {
+  public void setQuantity(Long quantity) {
     this.quantity = quantity;
   }
 

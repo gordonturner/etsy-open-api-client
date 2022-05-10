@@ -8,10 +8,10 @@ Represents a payment made with Etsy Payments. All monetary amounts are in USD pe
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**paymentId** | **Integer** | A unique numeric ID for a payment to a specific Etsy [shop](/documentation/reference#tag/Shop). | 
-**buyerUserId** | **Integer** | The numeric ID for the [user](/documentation/reference#tag/User) who paid the purchase. | 
-**shopId** | **Integer** | The unique positive non-zero numeric ID for an Etsy Shop. | 
-**receiptId** | **Integer** | The numeric ID for the [receipt](/documentation/reference#tag/Shop-Receipt) associated to this transaction. | 
+**paymentId** | **Long** | A unique numeric ID for a payment to a specific Etsy [shop](/documentation/reference#tag/Shop). | 
+**buyerUserId** | **Long** | The numeric ID for the [user](/documentation/reference#tag/User) who paid the purchase. | 
+**shopId** | **Long** | The unique positive non-zero numeric ID for an Etsy Shop. | 
+**receiptId** | **Long** | The numeric ID for the [receipt](/documentation/reference#tag/Shop-Receipt) associated to this transaction. | 
 **amountGross** | [**Money**](Money.md) | An integer equal to gross amount of the order, in pennies, including shipping and taxes. | 
 **amountFees** | [**Money**](Money.md) | An integer equal to the original card processing fee of the order in pennies. | 
 **amountNet** | [**Money**](Money.md) | An integer equal to the payment value, in pennies, less fees (&#x60;amount_gross&#x60; - &#x60;amount_fees&#x60;). | 
@@ -24,13 +24,13 @@ Name | Type | Description | Notes
 **currency** | **String** | The ISO (alphabetic) code string for the payment&#39;s currency. | 
 **shopCurrency** | **String** | The ISO (alphabetic) code for the shop&#39;s currency. The shop displays all prices in this currency by default. | 
 **buyerCurrency** | **String** | The currency string of the buyer. | 
-**shippingUserId** | **Integer** | The numeric ID of the user to which the seller ships the order. | 
-**shippingAddressId** | **Integer** | The numeric id identifying the shipping address. | 
-**billingAddressId** | **Integer** | The numeric ID identifying the billing address of the buyer. | 
+**shippingUserId** | **Long** | The numeric ID of the user to which the seller ships the order. | 
+**shippingAddressId** | **Long** | The numeric id identifying the shipping address. | 
+**billingAddressId** | **Long** | The numeric ID identifying the billing address of the buyer. | 
 **status** | **String** | A string indicating the current status of the payment, most commonly \&quot;settled\&quot; or \&quot;authed\&quot;. | 
-**shippedTimestamp** | **Integer** | The transaction\\&#39;s shipping date and time, in epoch seconds. | 
-**createTimestamp** | **Integer** | The transaction\\&#39;s creation date and time, in epoch seconds. | 
-**updateTimestamp** | **Integer** | The date and time of the last change to the payment adjustment in epoch seconds. | 
+**shippedTimestamp** | **Long** | The transaction\\&#39;s shipping date and time, in epoch seconds. | 
+**createTimestamp** | **Long** | The transaction\\&#39;s creation date and time, in epoch seconds. | 
+**updateTimestamp** | **Long** | The date and time of the last change to the payment adjustment in epoch seconds. | 
 **paymentAdjustments** | [**List&lt;PaymentAdjustment&gt;**](PaymentAdjustment.md) | List of refund objects on an Etsy Payments transaction. All monetary amounts are in USD pennies unless otherwise specified. | 
 
 

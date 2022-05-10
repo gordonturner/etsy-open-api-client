@@ -25,6 +25,7 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import org.openapitools.client.model.ListingPropertyValue;
 import org.openapitools.client.model.Money;
 import org.openapitools.client.model.TransactionVariations;
 
@@ -32,11 +33,11 @@ import org.openapitools.client.model.TransactionVariations;
  * A transaction object associated with a shop receipt. Etsy generates one transaction per listing purchased as recorded on the order receipt.
  */
 @ApiModel(description = "A transaction object associated with a shop receipt. Etsy generates one transaction per listing purchased as recorded on the order receipt.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-04-08T15:52:16.342-04:00[America/Toronto]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-07T10:51:54.559-04:00[America/Toronto]")
 public class ShopReceiptTransaction {
   public static final String SERIALIZED_NAME_TRANSACTION_ID = "transaction_id";
   @SerializedName(SERIALIZED_NAME_TRANSACTION_ID)
-  private Integer transactionId;
+  private Long transactionId;
 
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
@@ -48,35 +49,35 @@ public class ShopReceiptTransaction {
 
   public static final String SERIALIZED_NAME_SELLER_USER_ID = "seller_user_id";
   @SerializedName(SERIALIZED_NAME_SELLER_USER_ID)
-  private Integer sellerUserId;
+  private Long sellerUserId;
 
   public static final String SERIALIZED_NAME_BUYER_USER_ID = "buyer_user_id";
   @SerializedName(SERIALIZED_NAME_BUYER_USER_ID)
-  private Integer buyerUserId;
+  private Long buyerUserId;
 
   public static final String SERIALIZED_NAME_CREATE_TIMESTAMP = "create_timestamp";
   @SerializedName(SERIALIZED_NAME_CREATE_TIMESTAMP)
-  private Integer createTimestamp;
+  private Long createTimestamp;
 
   public static final String SERIALIZED_NAME_PAID_TIMESTAMP = "paid_timestamp";
   @SerializedName(SERIALIZED_NAME_PAID_TIMESTAMP)
-  private Integer paidTimestamp;
+  private Long paidTimestamp;
 
   public static final String SERIALIZED_NAME_SHIPPED_TIMESTAMP = "shipped_timestamp";
   @SerializedName(SERIALIZED_NAME_SHIPPED_TIMESTAMP)
-  private Integer shippedTimestamp;
+  private Long shippedTimestamp;
 
   public static final String SERIALIZED_NAME_QUANTITY = "quantity";
   @SerializedName(SERIALIZED_NAME_QUANTITY)
-  private Integer quantity;
+  private Long quantity;
 
   public static final String SERIALIZED_NAME_LISTING_IMAGE_ID = "listing_image_id";
   @SerializedName(SERIALIZED_NAME_LISTING_IMAGE_ID)
-  private Integer listingImageId;
+  private Long listingImageId;
 
   public static final String SERIALIZED_NAME_RECEIPT_ID = "receipt_id";
   @SerializedName(SERIALIZED_NAME_RECEIPT_ID)
-  private Integer receiptId;
+  private Long receiptId;
 
   public static final String SERIALIZED_NAME_IS_DIGITAL = "is_digital";
   @SerializedName(SERIALIZED_NAME_IS_DIGITAL)
@@ -88,7 +89,7 @@ public class ShopReceiptTransaction {
 
   public static final String SERIALIZED_NAME_LISTING_ID = "listing_id";
   @SerializedName(SERIALIZED_NAME_LISTING_ID)
-  private Integer listingId;
+  private Long listingId;
 
   public static final String SERIALIZED_NAME_TRANSACTION_TYPE = "transaction_type";
   @SerializedName(SERIALIZED_NAME_TRANSACTION_TYPE)
@@ -96,7 +97,7 @@ public class ShopReceiptTransaction {
 
   public static final String SERIALIZED_NAME_PRODUCT_ID = "product_id";
   @SerializedName(SERIALIZED_NAME_PRODUCT_ID)
-  private Integer productId;
+  private Long productId;
 
   public static final String SERIALIZED_NAME_SKU = "sku";
   @SerializedName(SERIALIZED_NAME_SKU)
@@ -114,17 +115,21 @@ public class ShopReceiptTransaction {
   @SerializedName(SERIALIZED_NAME_VARIATIONS)
   private List<TransactionVariations> variations = new ArrayList<TransactionVariations>();
 
+  public static final String SERIALIZED_NAME_PRODUCT_DATA = "product_data";
+  @SerializedName(SERIALIZED_NAME_PRODUCT_DATA)
+  private List<ListingPropertyValue> productData = new ArrayList<ListingPropertyValue>();
+
   public static final String SERIALIZED_NAME_SHIPPING_PROFILE_ID = "shipping_profile_id";
   @SerializedName(SERIALIZED_NAME_SHIPPING_PROFILE_ID)
-  private Integer shippingProfileId;
+  private Long shippingProfileId;
 
   public static final String SERIALIZED_NAME_MIN_PROCESSING_DAYS = "min_processing_days";
   @SerializedName(SERIALIZED_NAME_MIN_PROCESSING_DAYS)
-  private Integer minProcessingDays;
+  private Long minProcessingDays;
 
   public static final String SERIALIZED_NAME_MAX_PROCESSING_DAYS = "max_processing_days";
   @SerializedName(SERIALIZED_NAME_MAX_PROCESSING_DAYS)
-  private Integer maxProcessingDays;
+  private Long maxProcessingDays;
 
   public static final String SERIALIZED_NAME_SHIPPING_METHOD = "shipping_method";
   @SerializedName(SERIALIZED_NAME_SHIPPING_METHOD)
@@ -136,12 +141,12 @@ public class ShopReceiptTransaction {
 
   public static final String SERIALIZED_NAME_EXPECTED_SHIP_DATE = "expected_ship_date";
   @SerializedName(SERIALIZED_NAME_EXPECTED_SHIP_DATE)
-  private Integer expectedShipDate;
+  private Long expectedShipDate;
 
   public ShopReceiptTransaction() { 
   }
 
-  public ShopReceiptTransaction transactionId(Integer transactionId) {
+  public ShopReceiptTransaction transactionId(Long transactionId) {
     
     this.transactionId = transactionId;
     return this;
@@ -155,12 +160,12 @@ public class ShopReceiptTransaction {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The unique numeric ID for a transaction.")
 
-  public Integer getTransactionId() {
+  public Long getTransactionId() {
     return transactionId;
   }
 
 
-  public void setTransactionId(Integer transactionId) {
+  public void setTransactionId(Long transactionId) {
     this.transactionId = transactionId;
   }
 
@@ -211,7 +216,7 @@ public class ShopReceiptTransaction {
   }
 
 
-  public ShopReceiptTransaction sellerUserId(Integer sellerUserId) {
+  public ShopReceiptTransaction sellerUserId(Long sellerUserId) {
     
     this.sellerUserId = sellerUserId;
     return this;
@@ -225,17 +230,17 @@ public class ShopReceiptTransaction {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The numeric user ID for the seller in this transaction.")
 
-  public Integer getSellerUserId() {
+  public Long getSellerUserId() {
     return sellerUserId;
   }
 
 
-  public void setSellerUserId(Integer sellerUserId) {
+  public void setSellerUserId(Long sellerUserId) {
     this.sellerUserId = sellerUserId;
   }
 
 
-  public ShopReceiptTransaction buyerUserId(Integer buyerUserId) {
+  public ShopReceiptTransaction buyerUserId(Long buyerUserId) {
     
     this.buyerUserId = buyerUserId;
     return this;
@@ -249,17 +254,17 @@ public class ShopReceiptTransaction {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The numeric user ID for the buyer in this transaction.")
 
-  public Integer getBuyerUserId() {
+  public Long getBuyerUserId() {
     return buyerUserId;
   }
 
 
-  public void setBuyerUserId(Integer buyerUserId) {
+  public void setBuyerUserId(Long buyerUserId) {
     this.buyerUserId = buyerUserId;
   }
 
 
-  public ShopReceiptTransaction createTimestamp(Integer createTimestamp) {
+  public ShopReceiptTransaction createTimestamp(Long createTimestamp) {
     
     this.createTimestamp = createTimestamp;
     return this;
@@ -273,17 +278,17 @@ public class ShopReceiptTransaction {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The transaction\\'s creation date and time, in epoch seconds.")
 
-  public Integer getCreateTimestamp() {
+  public Long getCreateTimestamp() {
     return createTimestamp;
   }
 
 
-  public void setCreateTimestamp(Integer createTimestamp) {
+  public void setCreateTimestamp(Long createTimestamp) {
     this.createTimestamp = createTimestamp;
   }
 
 
-  public ShopReceiptTransaction paidTimestamp(Integer paidTimestamp) {
+  public ShopReceiptTransaction paidTimestamp(Long paidTimestamp) {
     
     this.paidTimestamp = paidTimestamp;
     return this;
@@ -297,17 +302,17 @@ public class ShopReceiptTransaction {
   @javax.annotation.Nullable
   @ApiModelProperty(required = true, value = "The transaction\\'s paid date and time, in epoch seconds.")
 
-  public Integer getPaidTimestamp() {
+  public Long getPaidTimestamp() {
     return paidTimestamp;
   }
 
 
-  public void setPaidTimestamp(Integer paidTimestamp) {
+  public void setPaidTimestamp(Long paidTimestamp) {
     this.paidTimestamp = paidTimestamp;
   }
 
 
-  public ShopReceiptTransaction shippedTimestamp(Integer shippedTimestamp) {
+  public ShopReceiptTransaction shippedTimestamp(Long shippedTimestamp) {
     
     this.shippedTimestamp = shippedTimestamp;
     return this;
@@ -321,17 +326,17 @@ public class ShopReceiptTransaction {
   @javax.annotation.Nullable
   @ApiModelProperty(required = true, value = "The transaction\\'s shipping date and time, in epoch seconds.")
 
-  public Integer getShippedTimestamp() {
+  public Long getShippedTimestamp() {
     return shippedTimestamp;
   }
 
 
-  public void setShippedTimestamp(Integer shippedTimestamp) {
+  public void setShippedTimestamp(Long shippedTimestamp) {
     this.shippedTimestamp = shippedTimestamp;
   }
 
 
-  public ShopReceiptTransaction quantity(Integer quantity) {
+  public ShopReceiptTransaction quantity(Long quantity) {
     
     this.quantity = quantity;
     return this;
@@ -345,17 +350,17 @@ public class ShopReceiptTransaction {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The numeric quantity of products purchased in this transaction.")
 
-  public Integer getQuantity() {
+  public Long getQuantity() {
     return quantity;
   }
 
 
-  public void setQuantity(Integer quantity) {
+  public void setQuantity(Long quantity) {
     this.quantity = quantity;
   }
 
 
-  public ShopReceiptTransaction listingImageId(Integer listingImageId) {
+  public ShopReceiptTransaction listingImageId(Long listingImageId) {
     
     this.listingImageId = listingImageId;
     return this;
@@ -369,17 +374,17 @@ public class ShopReceiptTransaction {
   @javax.annotation.Nullable
   @ApiModelProperty(required = true, value = "The numeric ID of the primary [listing image](/documentation/reference#tag/ShopListing-Image) for this transaction.")
 
-  public Integer getListingImageId() {
+  public Long getListingImageId() {
     return listingImageId;
   }
 
 
-  public void setListingImageId(Integer listingImageId) {
+  public void setListingImageId(Long listingImageId) {
     this.listingImageId = listingImageId;
   }
 
 
-  public ShopReceiptTransaction receiptId(Integer receiptId) {
+  public ShopReceiptTransaction receiptId(Long receiptId) {
     
     this.receiptId = receiptId;
     return this;
@@ -393,12 +398,12 @@ public class ShopReceiptTransaction {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The numeric ID for the [receipt](/documentation/reference#tag/Shop-Receipt) associated to this transaction.")
 
-  public Integer getReceiptId() {
+  public Long getReceiptId() {
     return receiptId;
   }
 
 
-  public void setReceiptId(Integer receiptId) {
+  public void setReceiptId(Long receiptId) {
     this.receiptId = receiptId;
   }
 
@@ -449,7 +454,7 @@ public class ShopReceiptTransaction {
   }
 
 
-  public ShopReceiptTransaction listingId(Integer listingId) {
+  public ShopReceiptTransaction listingId(Long listingId) {
     
     this.listingId = listingId;
     return this;
@@ -463,12 +468,12 @@ public class ShopReceiptTransaction {
   @javax.annotation.Nullable
   @ApiModelProperty(required = true, value = "The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.")
 
-  public Integer getListingId() {
+  public Long getListingId() {
     return listingId;
   }
 
 
-  public void setListingId(Integer listingId) {
+  public void setListingId(Long listingId) {
     this.listingId = listingId;
   }
 
@@ -496,7 +501,7 @@ public class ShopReceiptTransaction {
   }
 
 
-  public ShopReceiptTransaction productId(Integer productId) {
+  public ShopReceiptTransaction productId(Long productId) {
     
     this.productId = productId;
     return this;
@@ -510,12 +515,12 @@ public class ShopReceiptTransaction {
   @javax.annotation.Nullable
   @ApiModelProperty(required = true, value = "The numeric ID for a specific [product](/documentation/reference#tag/ShopListing-Product) purchased from a listing.")
 
-  public Integer getProductId() {
+  public Long getProductId() {
     return productId;
   }
 
 
-  public void setProductId(Integer productId) {
+  public void setProductId(Long productId) {
     this.productId = productId;
   }
 
@@ -617,7 +622,35 @@ public class ShopReceiptTransaction {
   }
 
 
-  public ShopReceiptTransaction shippingProfileId(Integer shippingProfileId) {
+  public ShopReceiptTransaction productData(List<ListingPropertyValue> productData) {
+    
+    this.productData = productData;
+    return this;
+  }
+
+  public ShopReceiptTransaction addProductDataItem(ListingPropertyValue productDataItem) {
+    this.productData.add(productDataItem);
+    return this;
+  }
+
+   /**
+   * A list of property value entries for this product.
+   * @return productData
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "A list of property value entries for this product.")
+
+  public List<ListingPropertyValue> getProductData() {
+    return productData;
+  }
+
+
+  public void setProductData(List<ListingPropertyValue> productData) {
+    this.productData = productData;
+  }
+
+
+  public ShopReceiptTransaction shippingProfileId(Long shippingProfileId) {
     
     this.shippingProfileId = shippingProfileId;
     return this;
@@ -631,17 +664,17 @@ public class ShopReceiptTransaction {
   @javax.annotation.Nullable
   @ApiModelProperty(required = true, value = "The ID of the shipping profile selected for this listing.")
 
-  public Integer getShippingProfileId() {
+  public Long getShippingProfileId() {
     return shippingProfileId;
   }
 
 
-  public void setShippingProfileId(Integer shippingProfileId) {
+  public void setShippingProfileId(Long shippingProfileId) {
     this.shippingProfileId = shippingProfileId;
   }
 
 
-  public ShopReceiptTransaction minProcessingDays(Integer minProcessingDays) {
+  public ShopReceiptTransaction minProcessingDays(Long minProcessingDays) {
     
     this.minProcessingDays = minProcessingDays;
     return this;
@@ -655,17 +688,17 @@ public class ShopReceiptTransaction {
   @javax.annotation.Nullable
   @ApiModelProperty(required = true, value = "The minimum number of days for processing the listing.")
 
-  public Integer getMinProcessingDays() {
+  public Long getMinProcessingDays() {
     return minProcessingDays;
   }
 
 
-  public void setMinProcessingDays(Integer minProcessingDays) {
+  public void setMinProcessingDays(Long minProcessingDays) {
     this.minProcessingDays = minProcessingDays;
   }
 
 
-  public ShopReceiptTransaction maxProcessingDays(Integer maxProcessingDays) {
+  public ShopReceiptTransaction maxProcessingDays(Long maxProcessingDays) {
     
     this.maxProcessingDays = maxProcessingDays;
     return this;
@@ -679,12 +712,12 @@ public class ShopReceiptTransaction {
   @javax.annotation.Nullable
   @ApiModelProperty(required = true, value = "The maximum number of days for processing the listing.")
 
-  public Integer getMaxProcessingDays() {
+  public Long getMaxProcessingDays() {
     return maxProcessingDays;
   }
 
 
-  public void setMaxProcessingDays(Integer maxProcessingDays) {
+  public void setMaxProcessingDays(Long maxProcessingDays) {
     this.maxProcessingDays = maxProcessingDays;
   }
 
@@ -735,7 +768,7 @@ public class ShopReceiptTransaction {
   }
 
 
-  public ShopReceiptTransaction expectedShipDate(Integer expectedShipDate) {
+  public ShopReceiptTransaction expectedShipDate(Long expectedShipDate) {
     
     this.expectedShipDate = expectedShipDate;
     return this;
@@ -749,12 +782,12 @@ public class ShopReceiptTransaction {
   @javax.annotation.Nullable
   @ApiModelProperty(required = true, value = "The date & time of the expected ship date, in epoch seconds.")
 
-  public Integer getExpectedShipDate() {
+  public Long getExpectedShipDate() {
     return expectedShipDate;
   }
 
 
-  public void setExpectedShipDate(Integer expectedShipDate) {
+  public void setExpectedShipDate(Long expectedShipDate) {
     this.expectedShipDate = expectedShipDate;
   }
 
@@ -788,6 +821,7 @@ public class ShopReceiptTransaction {
         Objects.equals(this.price, shopReceiptTransaction.price) &&
         Objects.equals(this.shippingCost, shopReceiptTransaction.shippingCost) &&
         Objects.equals(this.variations, shopReceiptTransaction.variations) &&
+        Objects.equals(this.productData, shopReceiptTransaction.productData) &&
         Objects.equals(this.shippingProfileId, shopReceiptTransaction.shippingProfileId) &&
         Objects.equals(this.minProcessingDays, shopReceiptTransaction.minProcessingDays) &&
         Objects.equals(this.maxProcessingDays, shopReceiptTransaction.maxProcessingDays) &&
@@ -798,7 +832,7 @@ public class ShopReceiptTransaction {
 
   @Override
   public int hashCode() {
-    return Objects.hash(transactionId, title, description, sellerUserId, buyerUserId, createTimestamp, paidTimestamp, shippedTimestamp, quantity, listingImageId, receiptId, isDigital, fileData, listingId, transactionType, productId, sku, price, shippingCost, variations, shippingProfileId, minProcessingDays, maxProcessingDays, shippingMethod, shippingUpgrade, expectedShipDate);
+    return Objects.hash(transactionId, title, description, sellerUserId, buyerUserId, createTimestamp, paidTimestamp, shippedTimestamp, quantity, listingImageId, receiptId, isDigital, fileData, listingId, transactionType, productId, sku, price, shippingCost, variations, productData, shippingProfileId, minProcessingDays, maxProcessingDays, shippingMethod, shippingUpgrade, expectedShipDate);
   }
 
   @Override
@@ -825,6 +859,7 @@ public class ShopReceiptTransaction {
     sb.append("    price: ").append(toIndentedString(price)).append("\n");
     sb.append("    shippingCost: ").append(toIndentedString(shippingCost)).append("\n");
     sb.append("    variations: ").append(toIndentedString(variations)).append("\n");
+    sb.append("    productData: ").append(toIndentedString(productData)).append("\n");
     sb.append("    shippingProfileId: ").append(toIndentedString(shippingProfileId)).append("\n");
     sb.append("    minProcessingDays: ").append(toIndentedString(minProcessingDays)).append("\n");
     sb.append("    maxProcessingDays: ").append(toIndentedString(maxProcessingDays)).append("\n");

@@ -8,7 +8,7 @@ Represents a list of shop production partners.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**count** | **Integer** | The number of results. | 
+**count** | **Long** | The number of results. | 
 **results** | [**List&lt;ShopProductionPartner&gt;**](ShopProductionPartner.md) | The list of requested resources. | 
 
 

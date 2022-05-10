@@ -41,8 +41,8 @@ public class Example {
     oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
     ShopListingProductApi apiInstance = new ShopListingProductApi(defaultClient);
-    Integer listingId = 56; // Integer | The listing to return a ListingProduct for.
-    Integer productId = 56; // Integer | The numeric ID for a specific [product](/documentation/reference#tag/ShopListing-Product) purchased from a listing.
+    Long listingId = 56L; // Long | The listing to return a ListingProduct for.
+    Long productId = 56L; // Long | The numeric ID for a specific [product](/documentation/reference#tag/ShopListing-Product) purchased from a listing.
     try {
       ListingInventoryProduct result = apiInstance.getListingProduct(listingId, productId);
       System.out.println(result);
@@ -61,8 +61,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **listingId** | **Integer**| The listing to return a ListingProduct for. |
- **productId** | **Integer**| The numeric ID for a specific [product](/documentation/reference#tag/ShopListing-Product) purchased from a listing. |
+ **listingId** | **Long**| The listing to return a ListingProduct for. |
+ **productId** | **Long**| The numeric ID for a specific [product](/documentation/reference#tag/ShopListing-Product) purchased from a listing. |
 
 ### Return type
 

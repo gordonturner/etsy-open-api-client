@@ -42,7 +42,7 @@ public class Example {
     oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
     ShopListingInventoryApi apiInstance = new ShopListingInventoryApi(defaultClient);
-    Integer listingId = 56; // Integer | The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
+    Long listingId = 56L; // Long | The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
     String includes = "Listing"; // String | An enumerated string that attaches an valid association. Default value is null.
     try {
       ListingInventoryWithAssociations result = apiInstance.getListingInventory(listingId, includes);
@@ -62,7 +62,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **listingId** | **Integer**| The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. |
+ **listingId** | **Long**| The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. |
  **includes** | **String**| An enumerated string that attaches an valid association. Default value is null. | [optional] [enum: Listing]
 
 ### Return type
@@ -121,7 +121,7 @@ public class Example {
     oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
     ShopListingInventoryApi apiInstance = new ShopListingInventoryApi(defaultClient);
-    Integer listingId = 56; // Integer | The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
+    Long listingId = 56L; // Long | The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
     InlineObject3 inlineObject3 = new InlineObject3(); // InlineObject3 | 
     try {
       ListingInventory result = apiInstance.updateListingInventory(listingId, inlineObject3);
@@ -141,7 +141,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **listingId** | **Integer**| The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. |
+ **listingId** | **Long**| The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. |
  **inlineObject3** | [**InlineObject3**](InlineObject3.md)|  | [optional]
 
 ### Return type

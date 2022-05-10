@@ -28,15 +28,15 @@ import java.io.IOException;
  * A list of variations chosen by the buyer during checkout.
  */
 @ApiModel(description = "A list of variations chosen by the buyer during checkout.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-04-08T15:52:16.342-04:00[America/Toronto]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-07T10:51:54.559-04:00[America/Toronto]")
 public class TransactionVariations {
   public static final String SERIALIZED_NAME_PROPERTY_ID = "property_id";
   @SerializedName(SERIALIZED_NAME_PROPERTY_ID)
-  private Integer propertyId;
+  private Long propertyId;
 
   public static final String SERIALIZED_NAME_VALUE_ID = "value_id";
   @SerializedName(SERIALIZED_NAME_VALUE_ID)
-  private Integer valueId;
+  private Long valueId;
 
   public static final String SERIALIZED_NAME_FORMATTED_NAME = "formatted_name";
   @SerializedName(SERIALIZED_NAME_FORMATTED_NAME)
@@ -49,7 +49,7 @@ public class TransactionVariations {
   public TransactionVariations() { 
   }
 
-  public TransactionVariations propertyId(Integer propertyId) {
+  public TransactionVariations propertyId(Long propertyId) {
     
     this.propertyId = propertyId;
     return this;
@@ -62,17 +62,17 @@ public class TransactionVariations {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The variation property ID.")
 
-  public Integer getPropertyId() {
+  public Long getPropertyId() {
     return propertyId;
   }
 
 
-  public void setPropertyId(Integer propertyId) {
+  public void setPropertyId(Long propertyId) {
     this.propertyId = propertyId;
   }
 
 
-  public TransactionVariations valueId(Integer valueId) {
+  public TransactionVariations valueId(Long valueId) {
     
     this.valueId = valueId;
     return this;
@@ -85,12 +85,12 @@ public class TransactionVariations {
   @javax.annotation.Nullable
   @ApiModelProperty(required = true, value = "The ID of the variation value selected.")
 
-  public Integer getValueId() {
+  public Long getValueId() {
     return valueId;
   }
 
 
-  public void setValueId(Integer valueId) {
+  public void setValueId(Long valueId) {
     this.valueId = valueId;
   }
 

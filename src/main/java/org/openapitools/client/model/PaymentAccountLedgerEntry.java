@@ -28,23 +28,23 @@ import java.io.IOException;
  * Represents an entry in a shop&#39;s ledger.
  */
 @ApiModel(description = "Represents an entry in a shop's ledger.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-04-08T15:52:16.342-04:00[America/Toronto]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-07T10:51:54.559-04:00[America/Toronto]")
 public class PaymentAccountLedgerEntry {
   public static final String SERIALIZED_NAME_ENTRY_ID = "entry_id";
   @SerializedName(SERIALIZED_NAME_ENTRY_ID)
-  private Integer entryId;
+  private Long entryId;
 
   public static final String SERIALIZED_NAME_LEDGER_ID = "ledger_id";
   @SerializedName(SERIALIZED_NAME_LEDGER_ID)
-  private Integer ledgerId;
+  private Long ledgerId;
 
   public static final String SERIALIZED_NAME_SEQUENCE_NUMBER = "sequence_number";
   @SerializedName(SERIALIZED_NAME_SEQUENCE_NUMBER)
-  private Integer sequenceNumber;
+  private Long sequenceNumber;
 
   public static final String SERIALIZED_NAME_AMOUNT = "amount";
   @SerializedName(SERIALIZED_NAME_AMOUNT)
-  private Integer amount;
+  private Long amount;
 
   public static final String SERIALIZED_NAME_CURRENCY = "currency";
   @SerializedName(SERIALIZED_NAME_CURRENCY)
@@ -56,11 +56,11 @@ public class PaymentAccountLedgerEntry {
 
   public static final String SERIALIZED_NAME_BALANCE = "balance";
   @SerializedName(SERIALIZED_NAME_BALANCE)
-  private Integer balance;
+  private Long balance;
 
   public static final String SERIALIZED_NAME_CREATE_DATE = "create_date";
   @SerializedName(SERIALIZED_NAME_CREATE_DATE)
-  private Integer createDate;
+  private Long createDate;
 
   public static final String SERIALIZED_NAME_LEDGER_TYPE = "ledger_type";
   @SerializedName(SERIALIZED_NAME_LEDGER_TYPE)
@@ -77,7 +77,7 @@ public class PaymentAccountLedgerEntry {
   public PaymentAccountLedgerEntry() { 
   }
 
-  public PaymentAccountLedgerEntry entryId(Integer entryId) {
+  public PaymentAccountLedgerEntry entryId(Long entryId) {
     
     this.entryId = entryId;
     return this;
@@ -91,17 +91,17 @@ public class PaymentAccountLedgerEntry {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The ledger entry's numeric ID.")
 
-  public Integer getEntryId() {
+  public Long getEntryId() {
     return entryId;
   }
 
 
-  public void setEntryId(Integer entryId) {
+  public void setEntryId(Long entryId) {
     this.entryId = entryId;
   }
 
 
-  public PaymentAccountLedgerEntry ledgerId(Integer ledgerId) {
+  public PaymentAccountLedgerEntry ledgerId(Long ledgerId) {
     
     this.ledgerId = ledgerId;
     return this;
@@ -115,17 +115,17 @@ public class PaymentAccountLedgerEntry {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The ledger's numeric ID.")
 
-  public Integer getLedgerId() {
+  public Long getLedgerId() {
     return ledgerId;
   }
 
 
-  public void setLedgerId(Integer ledgerId) {
+  public void setLedgerId(Long ledgerId) {
     this.ledgerId = ledgerId;
   }
 
 
-  public PaymentAccountLedgerEntry sequenceNumber(Integer sequenceNumber) {
+  public PaymentAccountLedgerEntry sequenceNumber(Long sequenceNumber) {
     
     this.sequenceNumber = sequenceNumber;
     return this;
@@ -139,17 +139,17 @@ public class PaymentAccountLedgerEntry {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The sequence allows ledger entries to be sorted chronologically. The higher the sequence, the more recent the entry.")
 
-  public Integer getSequenceNumber() {
+  public Long getSequenceNumber() {
     return sequenceNumber;
   }
 
 
-  public void setSequenceNumber(Integer sequenceNumber) {
+  public void setSequenceNumber(Long sequenceNumber) {
     this.sequenceNumber = sequenceNumber;
   }
 
 
-  public PaymentAccountLedgerEntry amount(Integer amount) {
+  public PaymentAccountLedgerEntry amount(Long amount) {
     
     this.amount = amount;
     return this;
@@ -162,12 +162,12 @@ public class PaymentAccountLedgerEntry {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The amount of money credited to the ledger.")
 
-  public Integer getAmount() {
+  public Long getAmount() {
     return amount;
   }
 
 
-  public void setAmount(Integer amount) {
+  public void setAmount(Long amount) {
     this.amount = amount;
   }
 
@@ -218,7 +218,7 @@ public class PaymentAccountLedgerEntry {
   }
 
 
-  public PaymentAccountLedgerEntry balance(Integer balance) {
+  public PaymentAccountLedgerEntry balance(Long balance) {
     
     this.balance = balance;
     return this;
@@ -231,17 +231,17 @@ public class PaymentAccountLedgerEntry {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The amount of money in the shop's ledger the moment after this entry was applied.")
 
-  public Integer getBalance() {
+  public Long getBalance() {
     return balance;
   }
 
 
-  public void setBalance(Integer balance) {
+  public void setBalance(Long balance) {
     this.balance = balance;
   }
 
 
-  public PaymentAccountLedgerEntry createDate(Integer createDate) {
+  public PaymentAccountLedgerEntry createDate(Long createDate) {
     
     this.createDate = createDate;
     return this;
@@ -255,12 +255,12 @@ public class PaymentAccountLedgerEntry {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The date and time the ledger entry was created in Epoch seconds..")
 
-  public Integer getCreateDate() {
+  public Long getCreateDate() {
     return createDate;
   }
 
 
-  public void setCreateDate(Integer createDate) {
+  public void setCreateDate(Long createDate) {
     this.createDate = createDate;
   }
 

@@ -92,7 +92,7 @@ public class ShopListingInventoryApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getListingInventoryCall(Integer listingId, String includes, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getListingInventoryCall(Long listingId, String includes, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -144,7 +144,7 @@ public class ShopListingInventoryApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getListingInventoryValidateBeforeCall(Integer listingId, String includes, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getListingInventoryValidateBeforeCall(Long listingId, String includes, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'listingId' is set
         if (listingId == null) {
@@ -174,7 +174,7 @@ public class ShopListingInventoryApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ListingInventoryWithAssociations getListingInventory(Integer listingId, String includes) throws ApiException {
+    public ListingInventoryWithAssociations getListingInventory(Long listingId, String includes) throws ApiException {
         ApiResponse<ListingInventoryWithAssociations> localVarResp = getListingInventoryWithHttpInfo(listingId, includes);
         return localVarResp.getData();
     }
@@ -196,7 +196,7 @@ public class ShopListingInventoryApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ListingInventoryWithAssociations> getListingInventoryWithHttpInfo(Integer listingId, String includes) throws ApiException {
+    public ApiResponse<ListingInventoryWithAssociations> getListingInventoryWithHttpInfo(Long listingId, String includes) throws ApiException {
         okhttp3.Call localVarCall = getListingInventoryValidateBeforeCall(listingId, includes, null);
         Type localVarReturnType = new TypeToken<ListingInventoryWithAssociations>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -220,7 +220,7 @@ public class ShopListingInventoryApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getListingInventoryAsync(Integer listingId, String includes, final ApiCallback<ListingInventoryWithAssociations> _callback) throws ApiException {
+    public okhttp3.Call getListingInventoryAsync(Long listingId, String includes, final ApiCallback<ListingInventoryWithAssociations> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getListingInventoryValidateBeforeCall(listingId, includes, _callback);
         Type localVarReturnType = new TypeToken<ListingInventoryWithAssociations>(){}.getType();
@@ -245,7 +245,7 @@ public class ShopListingInventoryApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateListingInventoryCall(Integer listingId, InlineObject3 inlineObject3, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateListingInventoryCall(Long listingId, InlineObject3 inlineObject3, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -293,7 +293,7 @@ public class ShopListingInventoryApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateListingInventoryValidateBeforeCall(Integer listingId, InlineObject3 inlineObject3, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateListingInventoryValidateBeforeCall(Long listingId, InlineObject3 inlineObject3, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'listingId' is set
         if (listingId == null) {
@@ -324,7 +324,7 @@ public class ShopListingInventoryApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ListingInventory updateListingInventory(Integer listingId, InlineObject3 inlineObject3) throws ApiException {
+    public ListingInventory updateListingInventory(Long listingId, InlineObject3 inlineObject3) throws ApiException {
         ApiResponse<ListingInventory> localVarResp = updateListingInventoryWithHttpInfo(listingId, inlineObject3);
         return localVarResp.getData();
     }
@@ -347,7 +347,7 @@ public class ShopListingInventoryApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ListingInventory> updateListingInventoryWithHttpInfo(Integer listingId, InlineObject3 inlineObject3) throws ApiException {
+    public ApiResponse<ListingInventory> updateListingInventoryWithHttpInfo(Long listingId, InlineObject3 inlineObject3) throws ApiException {
         okhttp3.Call localVarCall = updateListingInventoryValidateBeforeCall(listingId, inlineObject3, null);
         Type localVarReturnType = new TypeToken<ListingInventory>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -372,7 +372,7 @@ public class ShopListingInventoryApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateListingInventoryAsync(Integer listingId, InlineObject3 inlineObject3, final ApiCallback<ListingInventory> _callback) throws ApiException {
+    public okhttp3.Call updateListingInventoryAsync(Long listingId, InlineObject3 inlineObject3, final ApiCallback<ListingInventory> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateListingInventoryValidateBeforeCall(listingId, inlineObject3, _callback);
         Type localVarReturnType = new TypeToken<ListingInventory>(){}.getType();

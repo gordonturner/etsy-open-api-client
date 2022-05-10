@@ -33,23 +33,23 @@ import org.openapitools.jackson.nullable.JsonNullable;
  * Represents a payment made with Etsy Payments. All monetary amounts are in USD pennies unless otherwise specified.
  */
 @ApiModel(description = "Represents a payment made with Etsy Payments. All monetary amounts are in USD pennies unless otherwise specified.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-04-08T15:52:16.342-04:00[America/Toronto]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-07T10:51:54.559-04:00[America/Toronto]")
 public class Payment {
   public static final String SERIALIZED_NAME_PAYMENT_ID = "payment_id";
   @SerializedName(SERIALIZED_NAME_PAYMENT_ID)
-  private Integer paymentId;
+  private Long paymentId;
 
   public static final String SERIALIZED_NAME_BUYER_USER_ID = "buyer_user_id";
   @SerializedName(SERIALIZED_NAME_BUYER_USER_ID)
-  private Integer buyerUserId;
+  private Long buyerUserId;
 
   public static final String SERIALIZED_NAME_SHOP_ID = "shop_id";
   @SerializedName(SERIALIZED_NAME_SHOP_ID)
-  private Integer shopId;
+  private Long shopId;
 
   public static final String SERIALIZED_NAME_RECEIPT_ID = "receipt_id";
   @SerializedName(SERIALIZED_NAME_RECEIPT_ID)
-  private Integer receiptId;
+  private Long receiptId;
 
   public static final String SERIALIZED_NAME_AMOUNT_GROSS = "amount_gross";
   @SerializedName(SERIALIZED_NAME_AMOUNT_GROSS)
@@ -101,15 +101,15 @@ public class Payment {
 
   public static final String SERIALIZED_NAME_SHIPPING_USER_ID = "shipping_user_id";
   @SerializedName(SERIALIZED_NAME_SHIPPING_USER_ID)
-  private Integer shippingUserId;
+  private Long shippingUserId;
 
   public static final String SERIALIZED_NAME_SHIPPING_ADDRESS_ID = "shipping_address_id";
   @SerializedName(SERIALIZED_NAME_SHIPPING_ADDRESS_ID)
-  private Integer shippingAddressId;
+  private Long shippingAddressId;
 
   public static final String SERIALIZED_NAME_BILLING_ADDRESS_ID = "billing_address_id";
   @SerializedName(SERIALIZED_NAME_BILLING_ADDRESS_ID)
-  private Integer billingAddressId;
+  private Long billingAddressId;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
@@ -117,15 +117,15 @@ public class Payment {
 
   public static final String SERIALIZED_NAME_SHIPPED_TIMESTAMP = "shipped_timestamp";
   @SerializedName(SERIALIZED_NAME_SHIPPED_TIMESTAMP)
-  private Integer shippedTimestamp;
+  private Long shippedTimestamp;
 
   public static final String SERIALIZED_NAME_CREATE_TIMESTAMP = "create_timestamp";
   @SerializedName(SERIALIZED_NAME_CREATE_TIMESTAMP)
-  private Integer createTimestamp;
+  private Long createTimestamp;
 
   public static final String SERIALIZED_NAME_UPDATE_TIMESTAMP = "update_timestamp";
   @SerializedName(SERIALIZED_NAME_UPDATE_TIMESTAMP)
-  private Integer updateTimestamp;
+  private Long updateTimestamp;
 
   public static final String SERIALIZED_NAME_PAYMENT_ADJUSTMENTS = "payment_adjustments";
   @SerializedName(SERIALIZED_NAME_PAYMENT_ADJUSTMENTS)
@@ -134,7 +134,7 @@ public class Payment {
   public Payment() { 
   }
 
-  public Payment paymentId(Integer paymentId) {
+  public Payment paymentId(Long paymentId) {
     
     this.paymentId = paymentId;
     return this;
@@ -148,17 +148,17 @@ public class Payment {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "A unique numeric ID for a payment to a specific Etsy [shop](/documentation/reference#tag/Shop).")
 
-  public Integer getPaymentId() {
+  public Long getPaymentId() {
     return paymentId;
   }
 
 
-  public void setPaymentId(Integer paymentId) {
+  public void setPaymentId(Long paymentId) {
     this.paymentId = paymentId;
   }
 
 
-  public Payment buyerUserId(Integer buyerUserId) {
+  public Payment buyerUserId(Long buyerUserId) {
     
     this.buyerUserId = buyerUserId;
     return this;
@@ -172,17 +172,17 @@ public class Payment {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The numeric ID for the [user](/documentation/reference#tag/User) who paid the purchase.")
 
-  public Integer getBuyerUserId() {
+  public Long getBuyerUserId() {
     return buyerUserId;
   }
 
 
-  public void setBuyerUserId(Integer buyerUserId) {
+  public void setBuyerUserId(Long buyerUserId) {
     this.buyerUserId = buyerUserId;
   }
 
 
-  public Payment shopId(Integer shopId) {
+  public Payment shopId(Long shopId) {
     
     this.shopId = shopId;
     return this;
@@ -196,17 +196,17 @@ public class Payment {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The unique positive non-zero numeric ID for an Etsy Shop.")
 
-  public Integer getShopId() {
+  public Long getShopId() {
     return shopId;
   }
 
 
-  public void setShopId(Integer shopId) {
+  public void setShopId(Long shopId) {
     this.shopId = shopId;
   }
 
 
-  public Payment receiptId(Integer receiptId) {
+  public Payment receiptId(Long receiptId) {
     
     this.receiptId = receiptId;
     return this;
@@ -220,12 +220,12 @@ public class Payment {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The numeric ID for the [receipt](/documentation/reference#tag/Shop-Receipt) associated to this transaction.")
 
-  public Integer getReceiptId() {
+  public Long getReceiptId() {
     return receiptId;
   }
 
 
-  public void setReceiptId(Integer receiptId) {
+  public void setReceiptId(Long receiptId) {
     this.receiptId = receiptId;
   }
 
@@ -506,7 +506,7 @@ public class Payment {
   }
 
 
-  public Payment shippingUserId(Integer shippingUserId) {
+  public Payment shippingUserId(Long shippingUserId) {
     
     this.shippingUserId = shippingUserId;
     return this;
@@ -520,17 +520,17 @@ public class Payment {
   @javax.annotation.Nullable
   @ApiModelProperty(required = true, value = "The numeric ID of the user to which the seller ships the order.")
 
-  public Integer getShippingUserId() {
+  public Long getShippingUserId() {
     return shippingUserId;
   }
 
 
-  public void setShippingUserId(Integer shippingUserId) {
+  public void setShippingUserId(Long shippingUserId) {
     this.shippingUserId = shippingUserId;
   }
 
 
-  public Payment shippingAddressId(Integer shippingAddressId) {
+  public Payment shippingAddressId(Long shippingAddressId) {
     
     this.shippingAddressId = shippingAddressId;
     return this;
@@ -544,17 +544,17 @@ public class Payment {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The numeric id identifying the shipping address.")
 
-  public Integer getShippingAddressId() {
+  public Long getShippingAddressId() {
     return shippingAddressId;
   }
 
 
-  public void setShippingAddressId(Integer shippingAddressId) {
+  public void setShippingAddressId(Long shippingAddressId) {
     this.shippingAddressId = shippingAddressId;
   }
 
 
-  public Payment billingAddressId(Integer billingAddressId) {
+  public Payment billingAddressId(Long billingAddressId) {
     
     this.billingAddressId = billingAddressId;
     return this;
@@ -569,12 +569,12 @@ public class Payment {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The numeric ID identifying the billing address of the buyer.")
 
-  public Integer getBillingAddressId() {
+  public Long getBillingAddressId() {
     return billingAddressId;
   }
 
 
-  public void setBillingAddressId(Integer billingAddressId) {
+  public void setBillingAddressId(Long billingAddressId) {
     this.billingAddressId = billingAddressId;
   }
 
@@ -602,7 +602,7 @@ public class Payment {
   }
 
 
-  public Payment shippedTimestamp(Integer shippedTimestamp) {
+  public Payment shippedTimestamp(Long shippedTimestamp) {
     
     this.shippedTimestamp = shippedTimestamp;
     return this;
@@ -616,17 +616,17 @@ public class Payment {
   @javax.annotation.Nullable
   @ApiModelProperty(required = true, value = "The transaction\\'s shipping date and time, in epoch seconds.")
 
-  public Integer getShippedTimestamp() {
+  public Long getShippedTimestamp() {
     return shippedTimestamp;
   }
 
 
-  public void setShippedTimestamp(Integer shippedTimestamp) {
+  public void setShippedTimestamp(Long shippedTimestamp) {
     this.shippedTimestamp = shippedTimestamp;
   }
 
 
-  public Payment createTimestamp(Integer createTimestamp) {
+  public Payment createTimestamp(Long createTimestamp) {
     
     this.createTimestamp = createTimestamp;
     return this;
@@ -640,17 +640,17 @@ public class Payment {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The transaction\\'s creation date and time, in epoch seconds.")
 
-  public Integer getCreateTimestamp() {
+  public Long getCreateTimestamp() {
     return createTimestamp;
   }
 
 
-  public void setCreateTimestamp(Integer createTimestamp) {
+  public void setCreateTimestamp(Long createTimestamp) {
     this.createTimestamp = createTimestamp;
   }
 
 
-  public Payment updateTimestamp(Integer updateTimestamp) {
+  public Payment updateTimestamp(Long updateTimestamp) {
     
     this.updateTimestamp = updateTimestamp;
     return this;
@@ -664,12 +664,12 @@ public class Payment {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The date and time of the last change to the payment adjustment in epoch seconds.")
 
-  public Integer getUpdateTimestamp() {
+  public Long getUpdateTimestamp() {
     return updateTimestamp;
   }
 
 
-  public void setUpdateTimestamp(Integer updateTimestamp) {
+  public void setUpdateTimestamp(Long updateTimestamp) {
     this.updateTimestamp = updateTimestamp;
   }
 

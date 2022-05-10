@@ -41,7 +41,7 @@ public class Example {
     oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
     UserApi apiInstance = new UserApi(defaultClient);
-    Integer userId = 56; // Integer | 
+    Long userId = 56L; // Long | 
     try {
       User result = apiInstance.getUser(userId);
       System.out.println(result);
@@ -60,7 +60,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **Integer**|  |
+ **userId** | **Long**|  |
 
 ### Return type
 

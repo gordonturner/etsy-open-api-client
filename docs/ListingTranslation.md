@@ -8,7 +8,7 @@ Represents the translation data for a Listing.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**listingId** | **Integer** | The numeric ID for the Listing. | 
+**listingId** | **Long** | The numeric ID for the Listing. | 
 **language** | **String** | The IETF language tag (e.g. &#39;fr&#39;) for the language of this translation. | 
 **title** | **String** | The title of the Listing of this Translation. | 
 **description** | **String** | The description of the Listing of this Translation. | 

@@ -28,11 +28,11 @@ import java.io.IOException;
  * A scale defnining the assignable increments for the property values available to specific product properties.
  */
 @ApiModel(description = "A scale defnining the assignable increments for the property values available to specific product properties.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-04-08T15:52:16.342-04:00[America/Toronto]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-07T10:51:54.559-04:00[America/Toronto]")
 public class BuyerTaxonomyPropertyScale {
   public static final String SERIALIZED_NAME_SCALE_ID = "scale_id";
   @SerializedName(SERIALIZED_NAME_SCALE_ID)
-  private Integer scaleId;
+  private Long scaleId;
 
   public static final String SERIALIZED_NAME_DISPLAY_NAME = "display_name";
   @SerializedName(SERIALIZED_NAME_DISPLAY_NAME)
@@ -45,7 +45,7 @@ public class BuyerTaxonomyPropertyScale {
   public BuyerTaxonomyPropertyScale() { 
   }
 
-  public BuyerTaxonomyPropertyScale scaleId(Integer scaleId) {
+  public BuyerTaxonomyPropertyScale scaleId(Long scaleId) {
     
     this.scaleId = scaleId;
     return this;
@@ -59,12 +59,12 @@ public class BuyerTaxonomyPropertyScale {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The unique numeric ID of a scale.")
 
-  public Integer getScaleId() {
+  public Long getScaleId() {
     return scaleId;
   }
 
 
-  public void setScaleId(Integer scaleId) {
+  public void setScaleId(Long scaleId) {
     this.scaleId = scaleId;
   }
 

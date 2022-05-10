@@ -8,7 +8,7 @@ Represents several ShopShippingProfiles.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**count** | **Integer** |  | 
+**count** | **Long** |  | 
 **results** | [**List&lt;ShopShippingProfile&gt;**](ShopShippingProfile.md) |  | 
 
 

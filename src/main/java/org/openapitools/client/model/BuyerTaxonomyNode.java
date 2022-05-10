@@ -31,15 +31,15 @@ import org.openapitools.jackson.nullable.JsonNullable;
  * A taxonomy node in the buyer taxonomy tree.
  */
 @ApiModel(description = "A taxonomy node in the buyer taxonomy tree.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-04-08T15:52:16.342-04:00[America/Toronto]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-07T10:51:54.559-04:00[America/Toronto]")
 public class BuyerTaxonomyNode {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  private Integer id;
+  private Long id;
 
   public static final String SERIALIZED_NAME_LEVEL = "level";
   @SerializedName(SERIALIZED_NAME_LEVEL)
-  private Integer level;
+  private Long level;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -47,7 +47,7 @@ public class BuyerTaxonomyNode {
 
   public static final String SERIALIZED_NAME_PARENT_ID = "parent_id";
   @SerializedName(SERIALIZED_NAME_PARENT_ID)
-  private Integer parentId;
+  private Long parentId;
 
   public static final String SERIALIZED_NAME_CHILDREN = "children";
   @SerializedName(SERIALIZED_NAME_CHILDREN)
@@ -55,12 +55,12 @@ public class BuyerTaxonomyNode {
 
   public static final String SERIALIZED_NAME_FULL_PATH_TAXONOMY_IDS = "full_path_taxonomy_ids";
   @SerializedName(SERIALIZED_NAME_FULL_PATH_TAXONOMY_IDS)
-  private List<Integer> fullPathTaxonomyIds = new ArrayList<Integer>();
+  private List<Long> fullPathTaxonomyIds = new ArrayList<Long>();
 
   public BuyerTaxonomyNode() { 
   }
 
-  public BuyerTaxonomyNode id(Integer id) {
+  public BuyerTaxonomyNode id(Long id) {
     
     this.id = id;
     return this;
@@ -74,17 +74,17 @@ public class BuyerTaxonomyNode {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The unique numeric ID of an Etsy taxonomy node, which is a metadata category for listings organized into the seller taxonomy hierarchy tree. For example, the \\\"shoes\\\" taxonomy node (ID: 1429, level: 1) is higher in the hierarchy than \\\"girls' shoes\\\" (ID: 1440, level: 2). The taxonomy nodes assigned to a listing support access to specific standardized product scales and properties. For example, listings assigned the taxonomy nodes \\\"shoes\\\" or \\\"girls' shoes\\\" support access to the \\\"EU\\\" shoe size scale with its associated property names and IDs for EU shoe sizes, such as property `value_id`:\\\"1394\\\", and `name`:\\\"38\\\".")
 
-  public Integer getId() {
+  public Long getId() {
     return id;
   }
 
 
-  public void setId(Integer id) {
+  public void setId(Long id) {
     this.id = id;
   }
 
 
-  public BuyerTaxonomyNode level(Integer level) {
+  public BuyerTaxonomyNode level(Long level) {
     
     this.level = level;
     return this;
@@ -98,12 +98,12 @@ public class BuyerTaxonomyNode {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The integer depth of this taxonomy node in the seller taxonomy tree, with roots at level 0.")
 
-  public Integer getLevel() {
+  public Long getLevel() {
     return level;
   }
 
 
-  public void setLevel(Integer level) {
+  public void setLevel(Long level) {
     this.level = level;
   }
 
@@ -131,7 +131,7 @@ public class BuyerTaxonomyNode {
   }
 
 
-  public BuyerTaxonomyNode parentId(Integer parentId) {
+  public BuyerTaxonomyNode parentId(Long parentId) {
     
     this.parentId = parentId;
     return this;
@@ -145,12 +145,12 @@ public class BuyerTaxonomyNode {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The numeric taxonomy ID of the parent of this node.")
 
-  public Integer getParentId() {
+  public Long getParentId() {
     return parentId;
   }
 
 
-  public void setParentId(Integer parentId) {
+  public void setParentId(Long parentId) {
     this.parentId = parentId;
   }
 
@@ -183,13 +183,13 @@ public class BuyerTaxonomyNode {
   }
 
 
-  public BuyerTaxonomyNode fullPathTaxonomyIds(List<Integer> fullPathTaxonomyIds) {
+  public BuyerTaxonomyNode fullPathTaxonomyIds(List<Long> fullPathTaxonomyIds) {
     
     this.fullPathTaxonomyIds = fullPathTaxonomyIds;
     return this;
   }
 
-  public BuyerTaxonomyNode addFullPathTaxonomyIdsItem(Integer fullPathTaxonomyIdsItem) {
+  public BuyerTaxonomyNode addFullPathTaxonomyIdsItem(Long fullPathTaxonomyIdsItem) {
     this.fullPathTaxonomyIds.add(fullPathTaxonomyIdsItem);
     return this;
   }
@@ -201,12 +201,12 @@ public class BuyerTaxonomyNode {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "An array of `taxonomy_id`s including this node and all of its direct parents in the seller taxonomy tree up to a root node. They are listed in order from root to leaf.")
 
-  public List<Integer> getFullPathTaxonomyIds() {
+  public List<Long> getFullPathTaxonomyIds() {
     return fullPathTaxonomyIds;
   }
 
 
-  public void setFullPathTaxonomyIds(List<Integer> fullPathTaxonomyIds) {
+  public void setFullPathTaxonomyIds(List<Long> fullPathTaxonomyIds) {
     this.fullPathTaxonomyIds = fullPathTaxonomyIds;
   }
 

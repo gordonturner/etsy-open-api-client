@@ -95,7 +95,7 @@ public class ShopListingTranslationApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createListingTranslationCall(Integer shopId, Integer listingId, String language, String title, String description, List<String> tags, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createListingTranslationCall(Long shopId, Long listingId, String language, String title, String description, List<String> tags, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -157,7 +157,7 @@ public class ShopListingTranslationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createListingTranslationValidateBeforeCall(Integer shopId, Integer listingId, String language, String title, String description, List<String> tags, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createListingTranslationValidateBeforeCall(Long shopId, Long listingId, String language, String title, String description, List<String> tags, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'shopId' is set
         if (shopId == null) {
@@ -212,7 +212,7 @@ public class ShopListingTranslationApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ListingTranslation createListingTranslation(Integer shopId, Integer listingId, String language, String title, String description, List<String> tags) throws ApiException {
+    public ListingTranslation createListingTranslation(Long shopId, Long listingId, String language, String title, String description, List<String> tags) throws ApiException {
         ApiResponse<ListingTranslation> localVarResp = createListingTranslationWithHttpInfo(shopId, listingId, language, title, description, tags);
         return localVarResp.getData();
     }
@@ -239,7 +239,7 @@ public class ShopListingTranslationApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ListingTranslation> createListingTranslationWithHttpInfo(Integer shopId, Integer listingId, String language, String title, String description, List<String> tags) throws ApiException {
+    public ApiResponse<ListingTranslation> createListingTranslationWithHttpInfo(Long shopId, Long listingId, String language, String title, String description, List<String> tags) throws ApiException {
         okhttp3.Call localVarCall = createListingTranslationValidateBeforeCall(shopId, listingId, language, title, description, tags, null);
         Type localVarReturnType = new TypeToken<ListingTranslation>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -268,7 +268,7 @@ public class ShopListingTranslationApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createListingTranslationAsync(Integer shopId, Integer listingId, String language, String title, String description, List<String> tags, final ApiCallback<ListingTranslation> _callback) throws ApiException {
+    public okhttp3.Call createListingTranslationAsync(Long shopId, Long listingId, String language, String title, String description, List<String> tags, final ApiCallback<ListingTranslation> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createListingTranslationValidateBeforeCall(shopId, listingId, language, title, description, tags, _callback);
         Type localVarReturnType = new TypeToken<ListingTranslation>(){}.getType();
@@ -292,7 +292,7 @@ public class ShopListingTranslationApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getListingTranslationCall(Integer shopId, Integer listingId, String language, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getListingTranslationCall(Long shopId, Long listingId, String language, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -342,7 +342,7 @@ public class ShopListingTranslationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getListingTranslationValidateBeforeCall(Integer shopId, Integer listingId, String language, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getListingTranslationValidateBeforeCall(Long shopId, Long listingId, String language, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'shopId' is set
         if (shopId == null) {
@@ -382,7 +382,7 @@ public class ShopListingTranslationApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ListingTranslation getListingTranslation(Integer shopId, Integer listingId, String language) throws ApiException {
+    public ListingTranslation getListingTranslation(Long shopId, Long listingId, String language) throws ApiException {
         ApiResponse<ListingTranslation> localVarResp = getListingTranslationWithHttpInfo(shopId, listingId, language);
         return localVarResp.getData();
     }
@@ -404,7 +404,7 @@ public class ShopListingTranslationApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ListingTranslation> getListingTranslationWithHttpInfo(Integer shopId, Integer listingId, String language) throws ApiException {
+    public ApiResponse<ListingTranslation> getListingTranslationWithHttpInfo(Long shopId, Long listingId, String language) throws ApiException {
         okhttp3.Call localVarCall = getListingTranslationValidateBeforeCall(shopId, listingId, language, null);
         Type localVarReturnType = new TypeToken<ListingTranslation>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -428,7 +428,7 @@ public class ShopListingTranslationApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getListingTranslationAsync(Integer shopId, Integer listingId, String language, final ApiCallback<ListingTranslation> _callback) throws ApiException {
+    public okhttp3.Call getListingTranslationAsync(Long shopId, Long listingId, String language, final ApiCallback<ListingTranslation> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getListingTranslationValidateBeforeCall(shopId, listingId, language, _callback);
         Type localVarReturnType = new TypeToken<ListingTranslation>(){}.getType();
@@ -457,7 +457,7 @@ public class ShopListingTranslationApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateListingTranslationCall(Integer shopId, Integer listingId, String language, String title, String description, List<String> tags, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateListingTranslationCall(Long shopId, Long listingId, String language, String title, String description, List<String> tags, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -519,7 +519,7 @@ public class ShopListingTranslationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateListingTranslationValidateBeforeCall(Integer shopId, Integer listingId, String language, String title, String description, List<String> tags, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateListingTranslationValidateBeforeCall(Long shopId, Long listingId, String language, String title, String description, List<String> tags, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'shopId' is set
         if (shopId == null) {
@@ -574,7 +574,7 @@ public class ShopListingTranslationApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ListingTranslation updateListingTranslation(Integer shopId, Integer listingId, String language, String title, String description, List<String> tags) throws ApiException {
+    public ListingTranslation updateListingTranslation(Long shopId, Long listingId, String language, String title, String description, List<String> tags) throws ApiException {
         ApiResponse<ListingTranslation> localVarResp = updateListingTranslationWithHttpInfo(shopId, listingId, language, title, description, tags);
         return localVarResp.getData();
     }
@@ -601,7 +601,7 @@ public class ShopListingTranslationApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ListingTranslation> updateListingTranslationWithHttpInfo(Integer shopId, Integer listingId, String language, String title, String description, List<String> tags) throws ApiException {
+    public ApiResponse<ListingTranslation> updateListingTranslationWithHttpInfo(Long shopId, Long listingId, String language, String title, String description, List<String> tags) throws ApiException {
         okhttp3.Call localVarCall = updateListingTranslationValidateBeforeCall(shopId, listingId, language, title, description, tags, null);
         Type localVarReturnType = new TypeToken<ListingTranslation>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -630,7 +630,7 @@ public class ShopListingTranslationApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateListingTranslationAsync(Integer shopId, Integer listingId, String language, String title, String description, List<String> tags, final ApiCallback<ListingTranslation> _callback) throws ApiException {
+    public okhttp3.Call updateListingTranslationAsync(Long shopId, Long listingId, String language, String title, String description, List<String> tags, final ApiCallback<ListingTranslation> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateListingTranslationValidateBeforeCall(shopId, listingId, language, title, description, tags, _callback);
         Type localVarReturnType = new TypeToken<ListingTranslation>(){}.getType();

@@ -28,19 +28,19 @@ import java.io.IOException;
  * A file associated with a digital listing.
  */
 @ApiModel(description = "A file associated with a digital listing.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-04-08T15:52:16.342-04:00[America/Toronto]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-07T10:51:54.559-04:00[America/Toronto]")
 public class ShopListingFile {
   public static final String SERIALIZED_NAME_LISTING_FILE_ID = "listing_file_id";
   @SerializedName(SERIALIZED_NAME_LISTING_FILE_ID)
-  private Integer listingFileId;
+  private Long listingFileId;
 
   public static final String SERIALIZED_NAME_LISTING_ID = "listing_id";
   @SerializedName(SERIALIZED_NAME_LISTING_ID)
-  private Integer listingId;
+  private Long listingId;
 
   public static final String SERIALIZED_NAME_RANK = "rank";
   @SerializedName(SERIALIZED_NAME_RANK)
-  private Integer rank;
+  private Long rank;
 
   public static final String SERIALIZED_NAME_FILENAME = "filename";
   @SerializedName(SERIALIZED_NAME_FILENAME)
@@ -52,7 +52,7 @@ public class ShopListingFile {
 
   public static final String SERIALIZED_NAME_SIZE_BYTES = "size_bytes";
   @SerializedName(SERIALIZED_NAME_SIZE_BYTES)
-  private Integer sizeBytes;
+  private Long sizeBytes;
 
   public static final String SERIALIZED_NAME_FILETYPE = "filetype";
   @SerializedName(SERIALIZED_NAME_FILETYPE)
@@ -60,12 +60,12 @@ public class ShopListingFile {
 
   public static final String SERIALIZED_NAME_CREATE_TIMESTAMP = "create_timestamp";
   @SerializedName(SERIALIZED_NAME_CREATE_TIMESTAMP)
-  private Integer createTimestamp;
+  private Long createTimestamp;
 
   public ShopListingFile() { 
   }
 
-  public ShopListingFile listingFileId(Integer listingFileId) {
+  public ShopListingFile listingFileId(Long listingFileId) {
     
     this.listingFileId = listingFileId;
     return this;
@@ -79,17 +79,17 @@ public class ShopListingFile {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The unique numeric ID of a file associated with a digital listing.")
 
-  public Integer getListingFileId() {
+  public Long getListingFileId() {
     return listingFileId;
   }
 
 
-  public void setListingFileId(Integer listingFileId) {
+  public void setListingFileId(Long listingFileId) {
     this.listingFileId = listingFileId;
   }
 
 
-  public ShopListingFile listingId(Integer listingId) {
+  public ShopListingFile listingId(Long listingId) {
     
     this.listingId = listingId;
     return this;
@@ -103,17 +103,17 @@ public class ShopListingFile {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.")
 
-  public Integer getListingId() {
+  public Long getListingId() {
     return listingId;
   }
 
 
-  public void setListingId(Integer listingId) {
+  public void setListingId(Long listingId) {
     this.listingId = listingId;
   }
 
 
-  public ShopListingFile rank(Integer rank) {
+  public ShopListingFile rank(Long rank) {
     
     this.rank = rank;
     return this;
@@ -127,12 +127,12 @@ public class ShopListingFile {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The numeric index of the display order position of this file in the listing, starting at 1.")
 
-  public Integer getRank() {
+  public Long getRank() {
     return rank;
   }
 
 
-  public void setRank(Integer rank) {
+  public void setRank(Long rank) {
     this.rank = rank;
   }
 
@@ -183,7 +183,7 @@ public class ShopListingFile {
   }
 
 
-  public ShopListingFile sizeBytes(Integer sizeBytes) {
+  public ShopListingFile sizeBytes(Long sizeBytes) {
     
     this.sizeBytes = sizeBytes;
     return this;
@@ -197,12 +197,12 @@ public class ShopListingFile {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "A number indicating the size of a file, measured in bytes.")
 
-  public Integer getSizeBytes() {
+  public Long getSizeBytes() {
     return sizeBytes;
   }
 
 
-  public void setSizeBytes(Integer sizeBytes) {
+  public void setSizeBytes(Long sizeBytes) {
     this.sizeBytes = sizeBytes;
   }
 
@@ -230,7 +230,7 @@ public class ShopListingFile {
   }
 
 
-  public ShopListingFile createTimestamp(Integer createTimestamp) {
+  public ShopListingFile createTimestamp(Long createTimestamp) {
     
     this.createTimestamp = createTimestamp;
     return this;
@@ -244,12 +244,12 @@ public class ShopListingFile {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The unique numeric ID of a file associated with a digital listing.")
 
-  public Integer getCreateTimestamp() {
+  public Long getCreateTimestamp() {
     return createTimestamp;
   }
 
 
-  public void setCreateTimestamp(Integer createTimestamp) {
+  public void setCreateTimestamp(Long createTimestamp) {
     this.createTimestamp = createTimestamp;
   }
 

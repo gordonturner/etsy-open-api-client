@@ -8,7 +8,7 @@ Represents several ShippingCarriers.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**count** | **Integer** |  | 
+**count** | **Long** |  | 
 **results** | [**List&lt;ShippingCarrier&gt;**](ShippingCarrier.md) |  | 
 
 

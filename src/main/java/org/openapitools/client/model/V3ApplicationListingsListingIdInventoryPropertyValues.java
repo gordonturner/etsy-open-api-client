@@ -30,19 +30,19 @@ import org.openapitools.jackson.nullable.JsonNullable;
 /**
  * V3ApplicationListingsListingIdInventoryPropertyValues
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-04-08T15:52:16.342-04:00[America/Toronto]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-07T10:51:54.559-04:00[America/Toronto]")
 public class V3ApplicationListingsListingIdInventoryPropertyValues {
   public static final String SERIALIZED_NAME_PROPERTY_ID = "property_id";
   @SerializedName(SERIALIZED_NAME_PROPERTY_ID)
-  private Integer propertyId;
+  private Long propertyId;
 
   public static final String SERIALIZED_NAME_VALUE_IDS = "value_ids";
   @SerializedName(SERIALIZED_NAME_VALUE_IDS)
-  private List<Integer> valueIds = new ArrayList<Integer>();
+  private List<Long> valueIds = new ArrayList<Long>();
 
   public static final String SERIALIZED_NAME_SCALE_ID = "scale_id";
   @SerializedName(SERIALIZED_NAME_SCALE_ID)
-  private Integer scaleId;
+  private Long scaleId;
 
   public static final String SERIALIZED_NAME_PROPERTY_NAME = "property_name";
   @SerializedName(SERIALIZED_NAME_PROPERTY_NAME)
@@ -55,7 +55,7 @@ public class V3ApplicationListingsListingIdInventoryPropertyValues {
   public V3ApplicationListingsListingIdInventoryPropertyValues() { 
   }
 
-  public V3ApplicationListingsListingIdInventoryPropertyValues propertyId(Integer propertyId) {
+  public V3ApplicationListingsListingIdInventoryPropertyValues propertyId(Long propertyId) {
     
     this.propertyId = propertyId;
     return this;
@@ -69,23 +69,23 @@ public class V3ApplicationListingsListingIdInventoryPropertyValues {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The unique ID of an Etsy [listing property](/documentation/reference#operation/getListingProperties).")
 
-  public Integer getPropertyId() {
+  public Long getPropertyId() {
     return propertyId;
   }
 
 
-  public void setPropertyId(Integer propertyId) {
+  public void setPropertyId(Long propertyId) {
     this.propertyId = propertyId;
   }
 
 
-  public V3ApplicationListingsListingIdInventoryPropertyValues valueIds(List<Integer> valueIds) {
+  public V3ApplicationListingsListingIdInventoryPropertyValues valueIds(List<Long> valueIds) {
     
     this.valueIds = valueIds;
     return this;
   }
 
-  public V3ApplicationListingsListingIdInventoryPropertyValues addValueIdsItem(Integer valueIdsItem) {
+  public V3ApplicationListingsListingIdInventoryPropertyValues addValueIdsItem(Long valueIdsItem) {
     this.valueIds.add(valueIdsItem);
     return this;
   }
@@ -97,17 +97,17 @@ public class V3ApplicationListingsListingIdInventoryPropertyValues {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "An array of unique IDs of multiple Etsy [listing property](/documentation/reference#operation/getListingProperties) values. For example, if your listing offers different sizes of a product, then the value ID list contains value IDs for each size.")
 
-  public List<Integer> getValueIds() {
+  public List<Long> getValueIds() {
     return valueIds;
   }
 
 
-  public void setValueIds(List<Integer> valueIds) {
+  public void setValueIds(List<Long> valueIds) {
     this.valueIds = valueIds;
   }
 
 
-  public V3ApplicationListingsListingIdInventoryPropertyValues scaleId(Integer scaleId) {
+  public V3ApplicationListingsListingIdInventoryPropertyValues scaleId(Long scaleId) {
     
     this.scaleId = scaleId;
     return this;
@@ -121,12 +121,12 @@ public class V3ApplicationListingsListingIdInventoryPropertyValues {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The numeric ID of a single Etsy.com measurement scale. For example, for shoe size, there are three `scale_id`s available - *UK*, *US/Canada*, and *EU*, where *US/Canada* has `scale_id` 19.")
 
-  public Integer getScaleId() {
+  public Long getScaleId() {
     return scaleId;
   }
 
 
-  public void setScaleId(Integer scaleId) {
+  public void setScaleId(Long scaleId) {
     this.scaleId = scaleId;
   }
 

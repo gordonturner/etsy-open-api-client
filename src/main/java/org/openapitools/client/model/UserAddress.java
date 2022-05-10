@@ -28,15 +28,15 @@ import java.io.IOException;
  * Represents a user&#39;s address.
  */
 @ApiModel(description = "Represents a user's address.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-04-08T15:52:16.342-04:00[America/Toronto]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-07T10:51:54.559-04:00[America/Toronto]")
 public class UserAddress {
   public static final String SERIALIZED_NAME_USER_ADDRESS_ID = "user_address_id";
   @SerializedName(SERIALIZED_NAME_USER_ADDRESS_ID)
-  private Integer userAddressId;
+  private Long userAddressId;
 
   public static final String SERIALIZED_NAME_USER_ID = "user_id";
   @SerializedName(SERIALIZED_NAME_USER_ID)
-  private Integer userId;
+  private Long userId;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -77,7 +77,7 @@ public class UserAddress {
   public UserAddress() { 
   }
 
-  public UserAddress userAddressId(Integer userAddressId) {
+  public UserAddress userAddressId(Long userAddressId) {
     
     this.userAddressId = userAddressId;
     return this;
@@ -91,17 +91,17 @@ public class UserAddress {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The numeric ID of the user's address.")
 
-  public Integer getUserAddressId() {
+  public Long getUserAddressId() {
     return userAddressId;
   }
 
 
-  public void setUserAddressId(Integer userAddressId) {
+  public void setUserAddressId(Long userAddressId) {
     this.userAddressId = userAddressId;
   }
 
 
-  public UserAddress userId(Integer userId) {
+  public UserAddress userId(Long userId) {
     
     this.userId = userId;
     return this;
@@ -115,12 +115,12 @@ public class UserAddress {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The user's numeric ID.")
 
-  public Integer getUserId() {
+  public Long getUserId() {
     return userId;
   }
 
 
-  public void setUserId(Integer userId) {
+  public void setUserId(Long userId) {
     this.userId = userId;
   }
 

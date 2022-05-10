@@ -33,19 +33,19 @@ import org.openapitools.client.model.ShopReceiptTransaction;
  * The record of a purchase from a shop. Shop receipts display monetary values using the shop&#39;s currency.
  */
 @ApiModel(description = "The record of a purchase from a shop. Shop receipts display monetary values using the shop's currency.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-04-08T15:52:16.342-04:00[America/Toronto]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-07T10:51:54.559-04:00[America/Toronto]")
 public class ShopReceipt {
   public static final String SERIALIZED_NAME_RECEIPT_ID = "receipt_id";
   @SerializedName(SERIALIZED_NAME_RECEIPT_ID)
-  private Integer receiptId;
+  private Long receiptId;
 
   public static final String SERIALIZED_NAME_RECEIPT_TYPE = "receipt_type";
   @SerializedName(SERIALIZED_NAME_RECEIPT_TYPE)
-  private Integer receiptType;
+  private Long receiptType;
 
   public static final String SERIALIZED_NAME_SELLER_USER_ID = "seller_user_id";
   @SerializedName(SERIALIZED_NAME_SELLER_USER_ID)
-  private Integer sellerUserId;
+  private Long sellerUserId;
 
   public static final String SERIALIZED_NAME_SELLER_EMAIL = "seller_email";
   @SerializedName(SERIALIZED_NAME_SELLER_EMAIL)
@@ -53,7 +53,7 @@ public class ShopReceipt {
 
   public static final String SERIALIZED_NAME_BUYER_USER_ID = "buyer_user_id";
   @SerializedName(SERIALIZED_NAME_BUYER_USER_ID)
-  private Integer buyerUserId;
+  private Long buyerUserId;
 
   public static final String SERIALIZED_NAME_BUYER_EMAIL = "buyer_email";
   @SerializedName(SERIALIZED_NAME_BUYER_EMAIL)
@@ -88,15 +88,15 @@ public class ShopReceipt {
    */
   @JsonAdapter(StatusEnum.Adapter.class)
   public enum StatusEnum {
-    PAID("paid"),
+    PAID("Paid"),
     
-    COMPLETED("completed"),
+    COMPLETED("Completed"),
     
-    OPEN("open"),
+    OPEN("Open"),
     
-    PAYMENT_PROCESSING("payment processing"),
+    PAYMENT_PROCESSING("Payment Processing"),
     
-    CANCELED("canceled");
+    CANCELED("Canceled");
 
     private String value;
 
@@ -178,11 +178,11 @@ public class ShopReceipt {
 
   public static final String SERIALIZED_NAME_CREATE_TIMESTAMP = "create_timestamp";
   @SerializedName(SERIALIZED_NAME_CREATE_TIMESTAMP)
-  private Integer createTimestamp;
+  private Long createTimestamp;
 
   public static final String SERIALIZED_NAME_UPDATE_TIMESTAMP = "update_timestamp";
   @SerializedName(SERIALIZED_NAME_UPDATE_TIMESTAMP)
-  private Integer updateTimestamp;
+  private Long updateTimestamp;
 
   public static final String SERIALIZED_NAME_IS_GIFT = "is_gift";
   @SerializedName(SERIALIZED_NAME_IS_GIFT)
@@ -235,7 +235,7 @@ public class ShopReceipt {
   public ShopReceipt() { 
   }
 
-  public ShopReceipt receiptId(Integer receiptId) {
+  public ShopReceipt receiptId(Long receiptId) {
     
     this.receiptId = receiptId;
     return this;
@@ -249,17 +249,17 @@ public class ShopReceipt {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The numeric ID for the [receipt](/documentation/reference#tag/Shop-Receipt) associated to this transaction.")
 
-  public Integer getReceiptId() {
+  public Long getReceiptId() {
     return receiptId;
   }
 
 
-  public void setReceiptId(Integer receiptId) {
+  public void setReceiptId(Long receiptId) {
     this.receiptId = receiptId;
   }
 
 
-  public ShopReceipt receiptType(Integer receiptType) {
+  public ShopReceipt receiptType(Long receiptType) {
     
     this.receiptType = receiptType;
     return this;
@@ -273,17 +273,17 @@ public class ShopReceipt {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The numeric value for the Etsy channel that serviced the purchase: 0 for Etsy.com, 1 for a Pattern shop.")
 
-  public Integer getReceiptType() {
+  public Long getReceiptType() {
     return receiptType;
   }
 
 
-  public void setReceiptType(Integer receiptType) {
+  public void setReceiptType(Long receiptType) {
     this.receiptType = receiptType;
   }
 
 
-  public ShopReceipt sellerUserId(Integer sellerUserId) {
+  public ShopReceipt sellerUserId(Long sellerUserId) {
     
     this.sellerUserId = sellerUserId;
     return this;
@@ -297,12 +297,12 @@ public class ShopReceipt {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The numeric ID for the [user](/documentation/reference#tag/User) (seller) fulfilling the purchase.")
 
-  public Integer getSellerUserId() {
+  public Long getSellerUserId() {
     return sellerUserId;
   }
 
 
-  public void setSellerUserId(Integer sellerUserId) {
+  public void setSellerUserId(Long sellerUserId) {
     this.sellerUserId = sellerUserId;
   }
 
@@ -330,7 +330,7 @@ public class ShopReceipt {
   }
 
 
-  public ShopReceipt buyerUserId(Integer buyerUserId) {
+  public ShopReceipt buyerUserId(Long buyerUserId) {
     
     this.buyerUserId = buyerUserId;
     return this;
@@ -344,12 +344,12 @@ public class ShopReceipt {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The numeric ID for the [user](/documentation/reference#tag/User) making the purchase.")
 
-  public Integer getBuyerUserId() {
+  public Long getBuyerUserId() {
     return buyerUserId;
   }
 
 
-  public void setBuyerUserId(Integer buyerUserId) {
+  public void setBuyerUserId(Long buyerUserId) {
     this.buyerUserId = buyerUserId;
   }
 
@@ -745,7 +745,7 @@ public class ShopReceipt {
   }
 
 
-  public ShopReceipt createTimestamp(Integer createTimestamp) {
+  public ShopReceipt createTimestamp(Long createTimestamp) {
     
     this.createTimestamp = createTimestamp;
     return this;
@@ -759,17 +759,17 @@ public class ShopReceipt {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The receipt\\'s creation time, in epoch seconds.")
 
-  public Integer getCreateTimestamp() {
+  public Long getCreateTimestamp() {
     return createTimestamp;
   }
 
 
-  public void setCreateTimestamp(Integer createTimestamp) {
+  public void setCreateTimestamp(Long createTimestamp) {
     this.createTimestamp = createTimestamp;
   }
 
 
-  public ShopReceipt updateTimestamp(Integer updateTimestamp) {
+  public ShopReceipt updateTimestamp(Long updateTimestamp) {
     
     this.updateTimestamp = updateTimestamp;
     return this;
@@ -783,12 +783,12 @@ public class ShopReceipt {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The time of the last update to the receipt, in epoch seconds.")
 
-  public Integer getUpdateTimestamp() {
+  public Long getUpdateTimestamp() {
     return updateTimestamp;
   }
 
 
-  public void setUpdateTimestamp(Integer updateTimestamp) {
+  public void setUpdateTimestamp(Long updateTimestamp) {
     this.updateTimestamp = updateTimestamp;
   }
 

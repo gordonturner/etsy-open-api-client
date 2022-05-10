@@ -43,8 +43,8 @@ public class Example {
     oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
     ShopListingTranslationApi apiInstance = new ShopListingTranslationApi(defaultClient);
-    Integer shopId = 56; // Integer | The unique positive non-zero numeric ID for an Etsy Shop.
-    Integer listingId = 56; // Integer | The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
+    Long shopId = 56L; // Long | The unique positive non-zero numeric ID for an Etsy Shop.
+    Long listingId = 56L; // Long | The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
     String language = "language_example"; // String | The IETF language tag for the language of this translation. Ex: de, en, es, fr, it, ja, nl, pl, pt, ru.
     String title = "title_example"; // String | The title of the Listing of this Translation.
     String description = "description_example"; // String | The description of the Listing of this Translation.
@@ -67,8 +67,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **shopId** | **Integer**| The unique positive non-zero numeric ID for an Etsy Shop. |
- **listingId** | **Integer**| The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. |
+ **shopId** | **Long**| The unique positive non-zero numeric ID for an Etsy Shop. |
+ **listingId** | **Long**| The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. |
  **language** | **String**| The IETF language tag for the language of this translation. Ex: de, en, es, fr, it, ja, nl, pl, pt, ru. |
  **title** | **String**| The title of the Listing of this Translation. |
  **description** | **String**| The description of the Listing of this Translation. |
@@ -127,8 +127,8 @@ public class Example {
     //api_key.setApiKeyPrefix("Token");
 
     ShopListingTranslationApi apiInstance = new ShopListingTranslationApi(defaultClient);
-    Integer shopId = 56; // Integer | The unique positive non-zero numeric ID for an Etsy Shop.
-    Integer listingId = 56; // Integer | The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
+    Long shopId = 56L; // Long | The unique positive non-zero numeric ID for an Etsy Shop.
+    Long listingId = 56L; // Long | The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
     String language = "language_example"; // String | The IETF language tag for the language of this translation. Ex: de, en, es, fr, it, ja, nl, pl, pt, ru.
     try {
       ListingTranslation result = apiInstance.getListingTranslation(shopId, listingId, language);
@@ -148,8 +148,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **shopId** | **Integer**| The unique positive non-zero numeric ID for an Etsy Shop. |
- **listingId** | **Integer**| The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. |
+ **shopId** | **Long**| The unique positive non-zero numeric ID for an Etsy Shop. |
+ **listingId** | **Long**| The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. |
  **language** | **String**| The IETF language tag for the language of this translation. Ex: de, en, es, fr, it, ja, nl, pl, pt, ru. |
 
 ### Return type
@@ -207,8 +207,8 @@ public class Example {
     oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
     ShopListingTranslationApi apiInstance = new ShopListingTranslationApi(defaultClient);
-    Integer shopId = 56; // Integer | The unique positive non-zero numeric ID for an Etsy Shop.
-    Integer listingId = 56; // Integer | The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
+    Long shopId = 56L; // Long | The unique positive non-zero numeric ID for an Etsy Shop.
+    Long listingId = 56L; // Long | The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
     String language = "language_example"; // String | The IETF language tag for the language of this translation. Ex: de, en, es, fr, it, ja, nl, pl, pt, ru.
     String title = "title_example"; // String | The title of the Listing of this Translation.
     String description = "description_example"; // String | The description of the Listing of this Translation.
@@ -231,8 +231,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **shopId** | **Integer**| The unique positive non-zero numeric ID for an Etsy Shop. |
- **listingId** | **Integer**| The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. |
+ **shopId** | **Long**| The unique positive non-zero numeric ID for an Etsy Shop. |
+ **listingId** | **Long**| The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. |
  **language** | **String**| The IETF language tag for the language of this translation. Ex: de, en, es, fr, it, ja, nl, pl, pt, ru. |
  **title** | **String**| The title of the Listing of this Translation. |
  **description** | **String**| The description of the Listing of this Translation. |

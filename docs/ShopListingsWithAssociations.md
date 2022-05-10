@@ -8,7 +8,7 @@ A set of ShopListing resources with associations.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**count** | **Integer** | The number of ShopListing resources found. | 
+**count** | **Long** | The number of ShopListing resources found. | 
 **results** | [**List&lt;ShopListing&gt;**](ShopListing.md) | The ShopListing resources found. | 
 
 

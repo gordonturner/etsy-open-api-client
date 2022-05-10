@@ -8,7 +8,7 @@ Represents a description of a shop production partner.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**productionPartnerId** | **Integer** | The numeric ID of a production partner. | 
+**productionPartnerId** | **Long** | The numeric ID of a production partner. | 
 **partnerName** | **String** | The name or title of the production partner. | 
 **location** | **String** | A string representing the production partner location. | 
 

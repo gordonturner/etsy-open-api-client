@@ -28,27 +28,27 @@ import java.io.IOException;
  * A transaction review record left by a User.
  */
 @ApiModel(description = "A transaction review record left by a User.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-04-08T15:52:16.342-04:00[America/Toronto]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-07T10:51:54.559-04:00[America/Toronto]")
 public class TransactionReview {
   public static final String SERIALIZED_NAME_SHOP_ID = "shop_id";
   @SerializedName(SERIALIZED_NAME_SHOP_ID)
-  private Integer shopId;
+  private Long shopId;
 
   public static final String SERIALIZED_NAME_LISTING_ID = "listing_id";
   @SerializedName(SERIALIZED_NAME_LISTING_ID)
-  private Integer listingId;
+  private Long listingId;
 
   public static final String SERIALIZED_NAME_TRANSACTION_ID = "transaction_id";
   @SerializedName(SERIALIZED_NAME_TRANSACTION_ID)
-  private Integer transactionId;
+  private Long transactionId;
 
   public static final String SERIALIZED_NAME_BUYER_USER_ID = "buyer_user_id";
   @SerializedName(SERIALIZED_NAME_BUYER_USER_ID)
-  private Integer buyerUserId;
+  private Long buyerUserId;
 
   public static final String SERIALIZED_NAME_RATING = "rating";
   @SerializedName(SERIALIZED_NAME_RATING)
-  private Integer rating;
+  private Long rating;
 
   public static final String SERIALIZED_NAME_REVIEW = "review";
   @SerializedName(SERIALIZED_NAME_REVIEW)
@@ -64,16 +64,16 @@ public class TransactionReview {
 
   public static final String SERIALIZED_NAME_CREATE_TIMESTAMP = "create_timestamp";
   @SerializedName(SERIALIZED_NAME_CREATE_TIMESTAMP)
-  private Integer createTimestamp;
+  private Long createTimestamp;
 
   public static final String SERIALIZED_NAME_UPDATE_TIMESTAMP = "update_timestamp";
   @SerializedName(SERIALIZED_NAME_UPDATE_TIMESTAMP)
-  private Integer updateTimestamp;
+  private Long updateTimestamp;
 
   public TransactionReview() { 
   }
 
-  public TransactionReview shopId(Integer shopId) {
+  public TransactionReview shopId(Long shopId) {
     
     this.shopId = shopId;
     return this;
@@ -87,17 +87,17 @@ public class TransactionReview {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The shop's numeric ID.")
 
-  public Integer getShopId() {
+  public Long getShopId() {
     return shopId;
   }
 
 
-  public void setShopId(Integer shopId) {
+  public void setShopId(Long shopId) {
     this.shopId = shopId;
   }
 
 
-  public TransactionReview listingId(Integer listingId) {
+  public TransactionReview listingId(Long listingId) {
     
     this.listingId = listingId;
     return this;
@@ -111,17 +111,17 @@ public class TransactionReview {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The ID of the ShopListing that the TransactionReview belongs to.")
 
-  public Integer getListingId() {
+  public Long getListingId() {
     return listingId;
   }
 
 
-  public void setListingId(Integer listingId) {
+  public void setListingId(Long listingId) {
     this.listingId = listingId;
   }
 
 
-  public TransactionReview transactionId(Integer transactionId) {
+  public TransactionReview transactionId(Long transactionId) {
     
     this.transactionId = transactionId;
     return this;
@@ -135,17 +135,17 @@ public class TransactionReview {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The ID of the ShopReceipt Transaction that the TransactionReview belongs to.")
 
-  public Integer getTransactionId() {
+  public Long getTransactionId() {
     return transactionId;
   }
 
 
-  public void setTransactionId(Integer transactionId) {
+  public void setTransactionId(Long transactionId) {
     this.transactionId = transactionId;
   }
 
 
-  public TransactionReview buyerUserId(Integer buyerUserId) {
+  public TransactionReview buyerUserId(Long buyerUserId) {
     
     this.buyerUserId = buyerUserId;
     return this;
@@ -159,17 +159,17 @@ public class TransactionReview {
   @javax.annotation.Nullable
   @ApiModelProperty(required = true, value = "The numeric ID of the user who was the buyer in this transaction. Note: This field may be absent, depending on the buyer's privacy settings.")
 
-  public Integer getBuyerUserId() {
+  public Long getBuyerUserId() {
     return buyerUserId;
   }
 
 
-  public void setBuyerUserId(Integer buyerUserId) {
+  public void setBuyerUserId(Long buyerUserId) {
     this.buyerUserId = buyerUserId;
   }
 
 
-  public TransactionReview rating(Integer rating) {
+  public TransactionReview rating(Long rating) {
     
     this.rating = rating;
     return this;
@@ -184,12 +184,12 @@ public class TransactionReview {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Rating value on scale from 1 to 5")
 
-  public Integer getRating() {
+  public Long getRating() {
     return rating;
   }
 
 
-  public void setRating(Integer rating) {
+  public void setRating(Long rating) {
     this.rating = rating;
   }
 
@@ -263,7 +263,7 @@ public class TransactionReview {
   }
 
 
-  public TransactionReview createTimestamp(Integer createTimestamp) {
+  public TransactionReview createTimestamp(Long createTimestamp) {
     
     this.createTimestamp = createTimestamp;
     return this;
@@ -277,17 +277,17 @@ public class TransactionReview {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The date and time the TransactionReview was created in epoch seconds.")
 
-  public Integer getCreateTimestamp() {
+  public Long getCreateTimestamp() {
     return createTimestamp;
   }
 
 
-  public void setCreateTimestamp(Integer createTimestamp) {
+  public void setCreateTimestamp(Long createTimestamp) {
     this.createTimestamp = createTimestamp;
   }
 
 
-  public TransactionReview updateTimestamp(Integer updateTimestamp) {
+  public TransactionReview updateTimestamp(Long updateTimestamp) {
     
     this.updateTimestamp = updateTimestamp;
     return this;
@@ -301,12 +301,12 @@ public class TransactionReview {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The date and time the TransactionReview was updated in epoch seconds.")
 
-  public Integer getUpdateTimestamp() {
+  public Long getUpdateTimestamp() {
     return updateTimestamp;
   }
 
 
-  public void setUpdateTimestamp(Integer updateTimestamp) {
+  public void setUpdateTimestamp(Long updateTimestamp) {
     this.updateTimestamp = updateTimestamp;
   }
 

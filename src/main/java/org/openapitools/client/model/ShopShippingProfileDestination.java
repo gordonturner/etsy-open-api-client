@@ -29,15 +29,15 @@ import org.openapitools.client.model.Money;
  * Represents a shipping destination assigned to a shipping profile.
  */
 @ApiModel(description = "Represents a shipping destination assigned to a shipping profile.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-04-08T15:52:16.342-04:00[America/Toronto]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-07T10:51:54.559-04:00[America/Toronto]")
 public class ShopShippingProfileDestination {
   public static final String SERIALIZED_NAME_SHIPPING_PROFILE_DESTINATION_ID = "shipping_profile_destination_id";
   @SerializedName(SERIALIZED_NAME_SHIPPING_PROFILE_DESTINATION_ID)
-  private Integer shippingProfileDestinationId;
+  private Long shippingProfileDestinationId;
 
   public static final String SERIALIZED_NAME_SHIPPING_PROFILE_ID = "shipping_profile_id";
   @SerializedName(SERIALIZED_NAME_SHIPPING_PROFILE_ID)
-  private Integer shippingProfileId;
+  private Long shippingProfileId;
 
   public static final String SERIALIZED_NAME_ORIGIN_COUNTRY_ISO = "origin_country_iso";
   @SerializedName(SERIALIZED_NAME_ORIGIN_COUNTRY_ISO)
@@ -110,7 +110,7 @@ public class ShopShippingProfileDestination {
 
   public static final String SERIALIZED_NAME_SHIPPING_CARRIER_ID = "shipping_carrier_id";
   @SerializedName(SERIALIZED_NAME_SHIPPING_CARRIER_ID)
-  private Integer shippingCarrierId;
+  private Long shippingCarrierId;
 
   public static final String SERIALIZED_NAME_MAIL_CLASS = "mail_class";
   @SerializedName(SERIALIZED_NAME_MAIL_CLASS)
@@ -118,16 +118,16 @@ public class ShopShippingProfileDestination {
 
   public static final String SERIALIZED_NAME_MIN_DELIVERY_DAYS = "min_delivery_days";
   @SerializedName(SERIALIZED_NAME_MIN_DELIVERY_DAYS)
-  private Integer minDeliveryDays;
+  private Long minDeliveryDays;
 
   public static final String SERIALIZED_NAME_MAX_DELIVERY_DAYS = "max_delivery_days";
   @SerializedName(SERIALIZED_NAME_MAX_DELIVERY_DAYS)
-  private Integer maxDeliveryDays;
+  private Long maxDeliveryDays;
 
   public ShopShippingProfileDestination() { 
   }
 
-  public ShopShippingProfileDestination shippingProfileDestinationId(Integer shippingProfileDestinationId) {
+  public ShopShippingProfileDestination shippingProfileDestinationId(Long shippingProfileDestinationId) {
     
     this.shippingProfileDestinationId = shippingProfileDestinationId;
     return this;
@@ -141,17 +141,17 @@ public class ShopShippingProfileDestination {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The numeric ID of the shipping profile destination in the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing.")
 
-  public Integer getShippingProfileDestinationId() {
+  public Long getShippingProfileDestinationId() {
     return shippingProfileDestinationId;
   }
 
 
-  public void setShippingProfileDestinationId(Integer shippingProfileDestinationId) {
+  public void setShippingProfileDestinationId(Long shippingProfileDestinationId) {
     this.shippingProfileDestinationId = shippingProfileDestinationId;
   }
 
 
-  public ShopShippingProfileDestination shippingProfileId(Integer shippingProfileId) {
+  public ShopShippingProfileDestination shippingProfileId(Long shippingProfileId) {
     
     this.shippingProfileId = shippingProfileId;
     return this;
@@ -165,12 +165,12 @@ public class ShopShippingProfileDestination {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The numeric ID of the shipping profile.")
 
-  public Integer getShippingProfileId() {
+  public Long getShippingProfileId() {
     return shippingProfileId;
   }
 
 
-  public void setShippingProfileId(Integer shippingProfileId) {
+  public void setShippingProfileId(Long shippingProfileId) {
     this.shippingProfileId = shippingProfileId;
   }
 
@@ -290,7 +290,7 @@ public class ShopShippingProfileDestination {
   }
 
 
-  public ShopShippingProfileDestination shippingCarrierId(Integer shippingCarrierId) {
+  public ShopShippingProfileDestination shippingCarrierId(Long shippingCarrierId) {
     
     this.shippingCarrierId = shippingCarrierId;
     return this;
@@ -303,12 +303,12 @@ public class ShopShippingProfileDestination {
   @javax.annotation.Nullable
   @ApiModelProperty(required = true, value = "The unique ID of a supported shipping carrier, which is used to calculate an Estimated Delivery Date. **Required with `mail_class`** if `min_delivery_days` and `max_delivery_days` are null.")
 
-  public Integer getShippingCarrierId() {
+  public Long getShippingCarrierId() {
     return shippingCarrierId;
   }
 
 
-  public void setShippingCarrierId(Integer shippingCarrierId) {
+  public void setShippingCarrierId(Long shippingCarrierId) {
     this.shippingCarrierId = shippingCarrierId;
   }
 
@@ -336,7 +336,7 @@ public class ShopShippingProfileDestination {
   }
 
 
-  public ShopShippingProfileDestination minDeliveryDays(Integer minDeliveryDays) {
+  public ShopShippingProfileDestination minDeliveryDays(Long minDeliveryDays) {
     
     this.minDeliveryDays = minDeliveryDays;
     return this;
@@ -351,17 +351,17 @@ public class ShopShippingProfileDestination {
   @javax.annotation.Nullable
   @ApiModelProperty(required = true, value = "The minimum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with `max_delivery_days`** if `mail_class` is null.")
 
-  public Integer getMinDeliveryDays() {
+  public Long getMinDeliveryDays() {
     return minDeliveryDays;
   }
 
 
-  public void setMinDeliveryDays(Integer minDeliveryDays) {
+  public void setMinDeliveryDays(Long minDeliveryDays) {
     this.minDeliveryDays = minDeliveryDays;
   }
 
 
-  public ShopShippingProfileDestination maxDeliveryDays(Integer maxDeliveryDays) {
+  public ShopShippingProfileDestination maxDeliveryDays(Long maxDeliveryDays) {
     
     this.maxDeliveryDays = maxDeliveryDays;
     return this;
@@ -376,12 +376,12 @@ public class ShopShippingProfileDestination {
   @javax.annotation.Nullable
   @ApiModelProperty(required = true, value = "The maximum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with `min_delivery_days`** if `mail_class` is null.")
 
-  public Integer getMaxDeliveryDays() {
+  public Long getMaxDeliveryDays() {
     return maxDeliveryDays;
   }
 
 
-  public void setMaxDeliveryDays(Integer maxDeliveryDays) {
+  public void setMaxDeliveryDays(Long maxDeliveryDays) {
     this.maxDeliveryDays = maxDeliveryDays;
   }
 

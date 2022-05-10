@@ -41,7 +41,7 @@ public class Example {
     oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
     ShopProductionPartnerApi apiInstance = new ShopProductionPartnerApi(defaultClient);
-    Integer shopId = 56; // Integer | The unique positive non-zero numeric ID for an Etsy Shop.
+    Long shopId = 56L; // Long | The unique positive non-zero numeric ID for an Etsy Shop.
     try {
       ShopProductionPartners result = apiInstance.getShopProductionPartners(shopId);
       System.out.println(result);
@@ -60,7 +60,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **shopId** | **Integer**| The unique positive non-zero numeric ID for an Etsy Shop. |
+ **shopId** | **Long**| The unique positive non-zero numeric ID for an Etsy Shop. |
 
 ### Return type
 

@@ -109,7 +109,7 @@ public class ShopShippingProfileApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createShopShippingProfileCall(Integer shopId, String title, String originCountryIso, Float primaryCost, Float secondaryCost, Integer minProcessingTime, Integer maxProcessingTime, String processingTimeUnit, String destinationCountryIso, String destinationRegion, String originPostalCode, Integer shippingCarrierId, String mailClass, Integer minDeliveryDays, Integer maxDeliveryDays, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createShopShippingProfileCall(Long shopId, String title, String originCountryIso, Float primaryCost, Float secondaryCost, Long minProcessingTime, Long maxProcessingTime, String processingTimeUnit, String destinationCountryIso, String destinationRegion, String originPostalCode, Long shippingCarrierId, String mailClass, Long minDeliveryDays, Long maxDeliveryDays, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -213,7 +213,7 @@ public class ShopShippingProfileApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createShopShippingProfileValidateBeforeCall(Integer shopId, String title, String originCountryIso, Float primaryCost, Float secondaryCost, Integer minProcessingTime, Integer maxProcessingTime, String processingTimeUnit, String destinationCountryIso, String destinationRegion, String originPostalCode, Integer shippingCarrierId, String mailClass, Integer minDeliveryDays, Integer maxDeliveryDays, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createShopShippingProfileValidateBeforeCall(Long shopId, String title, String originCountryIso, Float primaryCost, Float secondaryCost, Long minProcessingTime, Long maxProcessingTime, String processingTimeUnit, String destinationCountryIso, String destinationRegion, String originPostalCode, Long shippingCarrierId, String mailClass, Long minDeliveryDays, Long maxDeliveryDays, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'shopId' is set
         if (shopId == null) {
@@ -286,7 +286,7 @@ public class ShopShippingProfileApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ShopShippingProfile createShopShippingProfile(Integer shopId, String title, String originCountryIso, Float primaryCost, Float secondaryCost, Integer minProcessingTime, Integer maxProcessingTime, String processingTimeUnit, String destinationCountryIso, String destinationRegion, String originPostalCode, Integer shippingCarrierId, String mailClass, Integer minDeliveryDays, Integer maxDeliveryDays) throws ApiException {
+    public ShopShippingProfile createShopShippingProfile(Long shopId, String title, String originCountryIso, Float primaryCost, Float secondaryCost, Long minProcessingTime, Long maxProcessingTime, String processingTimeUnit, String destinationCountryIso, String destinationRegion, String originPostalCode, Long shippingCarrierId, String mailClass, Long minDeliveryDays, Long maxDeliveryDays) throws ApiException {
         ApiResponse<ShopShippingProfile> localVarResp = createShopShippingProfileWithHttpInfo(shopId, title, originCountryIso, primaryCost, secondaryCost, minProcessingTime, maxProcessingTime, processingTimeUnit, destinationCountryIso, destinationRegion, originPostalCode, shippingCarrierId, mailClass, minDeliveryDays, maxDeliveryDays);
         return localVarResp.getData();
     }
@@ -321,7 +321,7 @@ public class ShopShippingProfileApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ShopShippingProfile> createShopShippingProfileWithHttpInfo(Integer shopId, String title, String originCountryIso, Float primaryCost, Float secondaryCost, Integer minProcessingTime, Integer maxProcessingTime, String processingTimeUnit, String destinationCountryIso, String destinationRegion, String originPostalCode, Integer shippingCarrierId, String mailClass, Integer minDeliveryDays, Integer maxDeliveryDays) throws ApiException {
+    public ApiResponse<ShopShippingProfile> createShopShippingProfileWithHttpInfo(Long shopId, String title, String originCountryIso, Float primaryCost, Float secondaryCost, Long minProcessingTime, Long maxProcessingTime, String processingTimeUnit, String destinationCountryIso, String destinationRegion, String originPostalCode, Long shippingCarrierId, String mailClass, Long minDeliveryDays, Long maxDeliveryDays) throws ApiException {
         okhttp3.Call localVarCall = createShopShippingProfileValidateBeforeCall(shopId, title, originCountryIso, primaryCost, secondaryCost, minProcessingTime, maxProcessingTime, processingTimeUnit, destinationCountryIso, destinationRegion, originPostalCode, shippingCarrierId, mailClass, minDeliveryDays, maxDeliveryDays, null);
         Type localVarReturnType = new TypeToken<ShopShippingProfile>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -358,7 +358,7 @@ public class ShopShippingProfileApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createShopShippingProfileAsync(Integer shopId, String title, String originCountryIso, Float primaryCost, Float secondaryCost, Integer minProcessingTime, Integer maxProcessingTime, String processingTimeUnit, String destinationCountryIso, String destinationRegion, String originPostalCode, Integer shippingCarrierId, String mailClass, Integer minDeliveryDays, Integer maxDeliveryDays, final ApiCallback<ShopShippingProfile> _callback) throws ApiException {
+    public okhttp3.Call createShopShippingProfileAsync(Long shopId, String title, String originCountryIso, Float primaryCost, Float secondaryCost, Long minProcessingTime, Long maxProcessingTime, String processingTimeUnit, String destinationCountryIso, String destinationRegion, String originPostalCode, Long shippingCarrierId, String mailClass, Long minDeliveryDays, Long maxDeliveryDays, final ApiCallback<ShopShippingProfile> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createShopShippingProfileValidateBeforeCall(shopId, title, originCountryIso, primaryCost, secondaryCost, minProcessingTime, maxProcessingTime, processingTimeUnit, destinationCountryIso, destinationRegion, originPostalCode, shippingCarrierId, mailClass, minDeliveryDays, maxDeliveryDays, _callback);
         Type localVarReturnType = new TypeToken<ShopShippingProfile>(){}.getType();
@@ -390,7 +390,7 @@ public class ShopShippingProfileApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createShopShippingProfileDestinationCall(Integer shopId, Integer shippingProfileId, Float primaryCost, Float secondaryCost, String destinationCountryIso, String destinationRegion, Integer shippingCarrierId, String mailClass, Integer minDeliveryDays, Integer maxDeliveryDays, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createShopShippingProfileDestinationCall(Long shopId, Long shippingProfileId, Float primaryCost, Float secondaryCost, String destinationCountryIso, String destinationRegion, Long shippingCarrierId, String mailClass, Long minDeliveryDays, Long maxDeliveryDays, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -471,7 +471,7 @@ public class ShopShippingProfileApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createShopShippingProfileDestinationValidateBeforeCall(Integer shopId, Integer shippingProfileId, Float primaryCost, Float secondaryCost, String destinationCountryIso, String destinationRegion, Integer shippingCarrierId, String mailClass, Integer minDeliveryDays, Integer maxDeliveryDays, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createShopShippingProfileDestinationValidateBeforeCall(Long shopId, Long shippingProfileId, Float primaryCost, Float secondaryCost, String destinationCountryIso, String destinationRegion, Long shippingCarrierId, String mailClass, Long minDeliveryDays, Long maxDeliveryDays, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'shopId' is set
         if (shopId == null) {
@@ -524,7 +524,7 @@ public class ShopShippingProfileApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ShopShippingProfileDestination createShopShippingProfileDestination(Integer shopId, Integer shippingProfileId, Float primaryCost, Float secondaryCost, String destinationCountryIso, String destinationRegion, Integer shippingCarrierId, String mailClass, Integer minDeliveryDays, Integer maxDeliveryDays) throws ApiException {
+    public ShopShippingProfileDestination createShopShippingProfileDestination(Long shopId, Long shippingProfileId, Float primaryCost, Float secondaryCost, String destinationCountryIso, String destinationRegion, Long shippingCarrierId, String mailClass, Long minDeliveryDays, Long maxDeliveryDays) throws ApiException {
         ApiResponse<ShopShippingProfileDestination> localVarResp = createShopShippingProfileDestinationWithHttpInfo(shopId, shippingProfileId, primaryCost, secondaryCost, destinationCountryIso, destinationRegion, shippingCarrierId, mailClass, minDeliveryDays, maxDeliveryDays);
         return localVarResp.getData();
     }
@@ -554,7 +554,7 @@ public class ShopShippingProfileApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ShopShippingProfileDestination> createShopShippingProfileDestinationWithHttpInfo(Integer shopId, Integer shippingProfileId, Float primaryCost, Float secondaryCost, String destinationCountryIso, String destinationRegion, Integer shippingCarrierId, String mailClass, Integer minDeliveryDays, Integer maxDeliveryDays) throws ApiException {
+    public ApiResponse<ShopShippingProfileDestination> createShopShippingProfileDestinationWithHttpInfo(Long shopId, Long shippingProfileId, Float primaryCost, Float secondaryCost, String destinationCountryIso, String destinationRegion, Long shippingCarrierId, String mailClass, Long minDeliveryDays, Long maxDeliveryDays) throws ApiException {
         okhttp3.Call localVarCall = createShopShippingProfileDestinationValidateBeforeCall(shopId, shippingProfileId, primaryCost, secondaryCost, destinationCountryIso, destinationRegion, shippingCarrierId, mailClass, minDeliveryDays, maxDeliveryDays, null);
         Type localVarReturnType = new TypeToken<ShopShippingProfileDestination>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -586,7 +586,7 @@ public class ShopShippingProfileApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createShopShippingProfileDestinationAsync(Integer shopId, Integer shippingProfileId, Float primaryCost, Float secondaryCost, String destinationCountryIso, String destinationRegion, Integer shippingCarrierId, String mailClass, Integer minDeliveryDays, Integer maxDeliveryDays, final ApiCallback<ShopShippingProfileDestination> _callback) throws ApiException {
+    public okhttp3.Call createShopShippingProfileDestinationAsync(Long shopId, Long shippingProfileId, Float primaryCost, Float secondaryCost, String destinationCountryIso, String destinationRegion, Long shippingCarrierId, String mailClass, Long minDeliveryDays, Long maxDeliveryDays, final ApiCallback<ShopShippingProfileDestination> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createShopShippingProfileDestinationValidateBeforeCall(shopId, shippingProfileId, primaryCost, secondaryCost, destinationCountryIso, destinationRegion, shippingCarrierId, mailClass, minDeliveryDays, maxDeliveryDays, _callback);
         Type localVarReturnType = new TypeToken<ShopShippingProfileDestination>(){}.getType();
@@ -619,7 +619,7 @@ public class ShopShippingProfileApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createShopShippingProfileUpgradeCall(Integer shopId, Integer shippingProfileId, String type, String upgradeName, Float price, Float secondaryPrice, Integer shippingCarrierId, String mailClass, Integer minDeliveryDays, Integer maxDeliveryDays, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createShopShippingProfileUpgradeCall(Long shopId, Long shippingProfileId, String type, String upgradeName, Float price, Float secondaryPrice, Long shippingCarrierId, String mailClass, Long minDeliveryDays, Long maxDeliveryDays, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -700,7 +700,7 @@ public class ShopShippingProfileApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createShopShippingProfileUpgradeValidateBeforeCall(Integer shopId, Integer shippingProfileId, String type, String upgradeName, Float price, Float secondaryPrice, Integer shippingCarrierId, String mailClass, Integer minDeliveryDays, Integer maxDeliveryDays, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createShopShippingProfileUpgradeValidateBeforeCall(Long shopId, Long shippingProfileId, String type, String upgradeName, Float price, Float secondaryPrice, Long shippingCarrierId, String mailClass, Long minDeliveryDays, Long maxDeliveryDays, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'shopId' is set
         if (shopId == null) {
@@ -764,7 +764,7 @@ public class ShopShippingProfileApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ShopShippingProfileUpgrade createShopShippingProfileUpgrade(Integer shopId, Integer shippingProfileId, String type, String upgradeName, Float price, Float secondaryPrice, Integer shippingCarrierId, String mailClass, Integer minDeliveryDays, Integer maxDeliveryDays) throws ApiException {
+    public ShopShippingProfileUpgrade createShopShippingProfileUpgrade(Long shopId, Long shippingProfileId, String type, String upgradeName, Float price, Float secondaryPrice, Long shippingCarrierId, String mailClass, Long minDeliveryDays, Long maxDeliveryDays) throws ApiException {
         ApiResponse<ShopShippingProfileUpgrade> localVarResp = createShopShippingProfileUpgradeWithHttpInfo(shopId, shippingProfileId, type, upgradeName, price, secondaryPrice, shippingCarrierId, mailClass, minDeliveryDays, maxDeliveryDays);
         return localVarResp.getData();
     }
@@ -795,7 +795,7 @@ public class ShopShippingProfileApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ShopShippingProfileUpgrade> createShopShippingProfileUpgradeWithHttpInfo(Integer shopId, Integer shippingProfileId, String type, String upgradeName, Float price, Float secondaryPrice, Integer shippingCarrierId, String mailClass, Integer minDeliveryDays, Integer maxDeliveryDays) throws ApiException {
+    public ApiResponse<ShopShippingProfileUpgrade> createShopShippingProfileUpgradeWithHttpInfo(Long shopId, Long shippingProfileId, String type, String upgradeName, Float price, Float secondaryPrice, Long shippingCarrierId, String mailClass, Long minDeliveryDays, Long maxDeliveryDays) throws ApiException {
         okhttp3.Call localVarCall = createShopShippingProfileUpgradeValidateBeforeCall(shopId, shippingProfileId, type, upgradeName, price, secondaryPrice, shippingCarrierId, mailClass, minDeliveryDays, maxDeliveryDays, null);
         Type localVarReturnType = new TypeToken<ShopShippingProfileUpgrade>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -828,7 +828,7 @@ public class ShopShippingProfileApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createShopShippingProfileUpgradeAsync(Integer shopId, Integer shippingProfileId, String type, String upgradeName, Float price, Float secondaryPrice, Integer shippingCarrierId, String mailClass, Integer minDeliveryDays, Integer maxDeliveryDays, final ApiCallback<ShopShippingProfileUpgrade> _callback) throws ApiException {
+    public okhttp3.Call createShopShippingProfileUpgradeAsync(Long shopId, Long shippingProfileId, String type, String upgradeName, Float price, Float secondaryPrice, Long shippingCarrierId, String mailClass, Long minDeliveryDays, Long maxDeliveryDays, final ApiCallback<ShopShippingProfileUpgrade> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createShopShippingProfileUpgradeValidateBeforeCall(shopId, shippingProfileId, type, upgradeName, price, secondaryPrice, shippingCarrierId, mailClass, minDeliveryDays, maxDeliveryDays, _callback);
         Type localVarReturnType = new TypeToken<ShopShippingProfileUpgrade>(){}.getType();
@@ -853,7 +853,7 @@ public class ShopShippingProfileApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteShopShippingProfileCall(Integer shopId, Integer shippingProfileId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteShopShippingProfileCall(Long shopId, Long shippingProfileId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -902,7 +902,7 @@ public class ShopShippingProfileApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteShopShippingProfileValidateBeforeCall(Integer shopId, Integer shippingProfileId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteShopShippingProfileValidateBeforeCall(Long shopId, Long shippingProfileId, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'shopId' is set
         if (shopId == null) {
@@ -937,7 +937,7 @@ public class ShopShippingProfileApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public void deleteShopShippingProfile(Integer shopId, Integer shippingProfileId) throws ApiException {
+    public void deleteShopShippingProfile(Long shopId, Long shippingProfileId) throws ApiException {
         deleteShopShippingProfileWithHttpInfo(shopId, shippingProfileId);
     }
 
@@ -959,7 +959,7 @@ public class ShopShippingProfileApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> deleteShopShippingProfileWithHttpInfo(Integer shopId, Integer shippingProfileId) throws ApiException {
+    public ApiResponse<Void> deleteShopShippingProfileWithHttpInfo(Long shopId, Long shippingProfileId) throws ApiException {
         okhttp3.Call localVarCall = deleteShopShippingProfileValidateBeforeCall(shopId, shippingProfileId, null);
         return localVarApiClient.execute(localVarCall);
     }
@@ -983,7 +983,7 @@ public class ShopShippingProfileApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteShopShippingProfileAsync(Integer shopId, Integer shippingProfileId, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call deleteShopShippingProfileAsync(Long shopId, Long shippingProfileId, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteShopShippingProfileValidateBeforeCall(shopId, shippingProfileId, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
@@ -1008,7 +1008,7 @@ public class ShopShippingProfileApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteShopShippingProfileDestinationCall(Integer shopId, Integer shippingProfileId, Integer shippingProfileDestinationId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteShopShippingProfileDestinationCall(Long shopId, Long shippingProfileId, Long shippingProfileDestinationId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -1058,7 +1058,7 @@ public class ShopShippingProfileApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteShopShippingProfileDestinationValidateBeforeCall(Integer shopId, Integer shippingProfileId, Integer shippingProfileDestinationId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteShopShippingProfileDestinationValidateBeforeCall(Long shopId, Long shippingProfileId, Long shippingProfileDestinationId, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'shopId' is set
         if (shopId == null) {
@@ -1099,7 +1099,7 @@ public class ShopShippingProfileApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public void deleteShopShippingProfileDestination(Integer shopId, Integer shippingProfileId, Integer shippingProfileDestinationId) throws ApiException {
+    public void deleteShopShippingProfileDestination(Long shopId, Long shippingProfileId, Long shippingProfileDestinationId) throws ApiException {
         deleteShopShippingProfileDestinationWithHttpInfo(shopId, shippingProfileId, shippingProfileDestinationId);
     }
 
@@ -1122,7 +1122,7 @@ public class ShopShippingProfileApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> deleteShopShippingProfileDestinationWithHttpInfo(Integer shopId, Integer shippingProfileId, Integer shippingProfileDestinationId) throws ApiException {
+    public ApiResponse<Void> deleteShopShippingProfileDestinationWithHttpInfo(Long shopId, Long shippingProfileId, Long shippingProfileDestinationId) throws ApiException {
         okhttp3.Call localVarCall = deleteShopShippingProfileDestinationValidateBeforeCall(shopId, shippingProfileId, shippingProfileDestinationId, null);
         return localVarApiClient.execute(localVarCall);
     }
@@ -1147,7 +1147,7 @@ public class ShopShippingProfileApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteShopShippingProfileDestinationAsync(Integer shopId, Integer shippingProfileId, Integer shippingProfileDestinationId, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call deleteShopShippingProfileDestinationAsync(Long shopId, Long shippingProfileId, Long shippingProfileDestinationId, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteShopShippingProfileDestinationValidateBeforeCall(shopId, shippingProfileId, shippingProfileDestinationId, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
@@ -1172,7 +1172,7 @@ public class ShopShippingProfileApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteShopShippingProfileUpgradeCall(Integer shopId, Integer shippingProfileId, Integer upgradeId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteShopShippingProfileUpgradeCall(Long shopId, Long shippingProfileId, Long upgradeId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -1222,7 +1222,7 @@ public class ShopShippingProfileApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteShopShippingProfileUpgradeValidateBeforeCall(Integer shopId, Integer shippingProfileId, Integer upgradeId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteShopShippingProfileUpgradeValidateBeforeCall(Long shopId, Long shippingProfileId, Long upgradeId, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'shopId' is set
         if (shopId == null) {
@@ -1263,7 +1263,7 @@ public class ShopShippingProfileApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public void deleteShopShippingProfileUpgrade(Integer shopId, Integer shippingProfileId, Integer upgradeId) throws ApiException {
+    public void deleteShopShippingProfileUpgrade(Long shopId, Long shippingProfileId, Long upgradeId) throws ApiException {
         deleteShopShippingProfileUpgradeWithHttpInfo(shopId, shippingProfileId, upgradeId);
     }
 
@@ -1286,7 +1286,7 @@ public class ShopShippingProfileApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> deleteShopShippingProfileUpgradeWithHttpInfo(Integer shopId, Integer shippingProfileId, Integer upgradeId) throws ApiException {
+    public ApiResponse<Void> deleteShopShippingProfileUpgradeWithHttpInfo(Long shopId, Long shippingProfileId, Long upgradeId) throws ApiException {
         okhttp3.Call localVarCall = deleteShopShippingProfileUpgradeValidateBeforeCall(shopId, shippingProfileId, upgradeId, null);
         return localVarApiClient.execute(localVarCall);
     }
@@ -1311,7 +1311,7 @@ public class ShopShippingProfileApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteShopShippingProfileUpgradeAsync(Integer shopId, Integer shippingProfileId, Integer upgradeId, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call deleteShopShippingProfileUpgradeAsync(Long shopId, Long shippingProfileId, Long upgradeId, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteShopShippingProfileUpgradeValidateBeforeCall(shopId, shippingProfileId, upgradeId, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
@@ -1474,7 +1474,7 @@ public class ShopShippingProfileApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getShopShippingProfileCall(Integer shopId, Integer shippingProfileId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getShopShippingProfileCall(Long shopId, Long shippingProfileId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -1523,7 +1523,7 @@ public class ShopShippingProfileApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getShopShippingProfileValidateBeforeCall(Integer shopId, Integer shippingProfileId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getShopShippingProfileValidateBeforeCall(Long shopId, Long shippingProfileId, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'shopId' is set
         if (shopId == null) {
@@ -1559,7 +1559,7 @@ public class ShopShippingProfileApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ShopShippingProfile getShopShippingProfile(Integer shopId, Integer shippingProfileId) throws ApiException {
+    public ShopShippingProfile getShopShippingProfile(Long shopId, Long shippingProfileId) throws ApiException {
         ApiResponse<ShopShippingProfile> localVarResp = getShopShippingProfileWithHttpInfo(shopId, shippingProfileId);
         return localVarResp.getData();
     }
@@ -1582,7 +1582,7 @@ public class ShopShippingProfileApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ShopShippingProfile> getShopShippingProfileWithHttpInfo(Integer shopId, Integer shippingProfileId) throws ApiException {
+    public ApiResponse<ShopShippingProfile> getShopShippingProfileWithHttpInfo(Long shopId, Long shippingProfileId) throws ApiException {
         okhttp3.Call localVarCall = getShopShippingProfileValidateBeforeCall(shopId, shippingProfileId, null);
         Type localVarReturnType = new TypeToken<ShopShippingProfile>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -1607,7 +1607,7 @@ public class ShopShippingProfileApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getShopShippingProfileAsync(Integer shopId, Integer shippingProfileId, final ApiCallback<ShopShippingProfile> _callback) throws ApiException {
+    public okhttp3.Call getShopShippingProfileAsync(Long shopId, Long shippingProfileId, final ApiCallback<ShopShippingProfile> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getShopShippingProfileValidateBeforeCall(shopId, shippingProfileId, _callback);
         Type localVarReturnType = new TypeToken<ShopShippingProfile>(){}.getType();
@@ -1634,7 +1634,7 @@ public class ShopShippingProfileApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getShopShippingProfileDestinationsByShippingProfileCall(Integer shopId, Integer shippingProfileId, Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getShopShippingProfileDestinationsByShippingProfileCall(Long shopId, Long shippingProfileId, Long limit, Long offset, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -1691,7 +1691,7 @@ public class ShopShippingProfileApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getShopShippingProfileDestinationsByShippingProfileValidateBeforeCall(Integer shopId, Integer shippingProfileId, Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getShopShippingProfileDestinationsByShippingProfileValidateBeforeCall(Long shopId, Long shippingProfileId, Long limit, Long offset, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'shopId' is set
         if (shopId == null) {
@@ -1729,7 +1729,7 @@ public class ShopShippingProfileApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ShopShippingProfileDestinations getShopShippingProfileDestinationsByShippingProfile(Integer shopId, Integer shippingProfileId, Integer limit, Integer offset) throws ApiException {
+    public ShopShippingProfileDestinations getShopShippingProfileDestinationsByShippingProfile(Long shopId, Long shippingProfileId, Long limit, Long offset) throws ApiException {
         ApiResponse<ShopShippingProfileDestinations> localVarResp = getShopShippingProfileDestinationsByShippingProfileWithHttpInfo(shopId, shippingProfileId, limit, offset);
         return localVarResp.getData();
     }
@@ -1754,7 +1754,7 @@ public class ShopShippingProfileApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ShopShippingProfileDestinations> getShopShippingProfileDestinationsByShippingProfileWithHttpInfo(Integer shopId, Integer shippingProfileId, Integer limit, Integer offset) throws ApiException {
+    public ApiResponse<ShopShippingProfileDestinations> getShopShippingProfileDestinationsByShippingProfileWithHttpInfo(Long shopId, Long shippingProfileId, Long limit, Long offset) throws ApiException {
         okhttp3.Call localVarCall = getShopShippingProfileDestinationsByShippingProfileValidateBeforeCall(shopId, shippingProfileId, limit, offset, null);
         Type localVarReturnType = new TypeToken<ShopShippingProfileDestinations>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -1781,7 +1781,7 @@ public class ShopShippingProfileApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getShopShippingProfileDestinationsByShippingProfileAsync(Integer shopId, Integer shippingProfileId, Integer limit, Integer offset, final ApiCallback<ShopShippingProfileDestinations> _callback) throws ApiException {
+    public okhttp3.Call getShopShippingProfileDestinationsByShippingProfileAsync(Long shopId, Long shippingProfileId, Long limit, Long offset, final ApiCallback<ShopShippingProfileDestinations> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getShopShippingProfileDestinationsByShippingProfileValidateBeforeCall(shopId, shippingProfileId, limit, offset, _callback);
         Type localVarReturnType = new TypeToken<ShopShippingProfileDestinations>(){}.getType();
@@ -1806,7 +1806,7 @@ public class ShopShippingProfileApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getShopShippingProfileUpgradesCall(Integer shopId, Integer shippingProfileId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getShopShippingProfileUpgradesCall(Long shopId, Long shippingProfileId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -1855,7 +1855,7 @@ public class ShopShippingProfileApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getShopShippingProfileUpgradesValidateBeforeCall(Integer shopId, Integer shippingProfileId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getShopShippingProfileUpgradesValidateBeforeCall(Long shopId, Long shippingProfileId, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'shopId' is set
         if (shopId == null) {
@@ -1891,7 +1891,7 @@ public class ShopShippingProfileApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ShopShippingProfileUpgrades getShopShippingProfileUpgrades(Integer shopId, Integer shippingProfileId) throws ApiException {
+    public ShopShippingProfileUpgrades getShopShippingProfileUpgrades(Long shopId, Long shippingProfileId) throws ApiException {
         ApiResponse<ShopShippingProfileUpgrades> localVarResp = getShopShippingProfileUpgradesWithHttpInfo(shopId, shippingProfileId);
         return localVarResp.getData();
     }
@@ -1914,7 +1914,7 @@ public class ShopShippingProfileApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ShopShippingProfileUpgrades> getShopShippingProfileUpgradesWithHttpInfo(Integer shopId, Integer shippingProfileId) throws ApiException {
+    public ApiResponse<ShopShippingProfileUpgrades> getShopShippingProfileUpgradesWithHttpInfo(Long shopId, Long shippingProfileId) throws ApiException {
         okhttp3.Call localVarCall = getShopShippingProfileUpgradesValidateBeforeCall(shopId, shippingProfileId, null);
         Type localVarReturnType = new TypeToken<ShopShippingProfileUpgrades>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -1939,7 +1939,7 @@ public class ShopShippingProfileApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getShopShippingProfileUpgradesAsync(Integer shopId, Integer shippingProfileId, final ApiCallback<ShopShippingProfileUpgrades> _callback) throws ApiException {
+    public okhttp3.Call getShopShippingProfileUpgradesAsync(Long shopId, Long shippingProfileId, final ApiCallback<ShopShippingProfileUpgrades> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getShopShippingProfileUpgradesValidateBeforeCall(shopId, shippingProfileId, _callback);
         Type localVarReturnType = new TypeToken<ShopShippingProfileUpgrades>(){}.getType();
@@ -1961,7 +1961,7 @@ public class ShopShippingProfileApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getShopShippingProfilesCall(Integer shopId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getShopShippingProfilesCall(Long shopId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -2009,7 +2009,7 @@ public class ShopShippingProfileApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getShopShippingProfilesValidateBeforeCall(Integer shopId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getShopShippingProfilesValidateBeforeCall(Long shopId, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'shopId' is set
         if (shopId == null) {
@@ -2037,7 +2037,7 @@ public class ShopShippingProfileApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ShopShippingProfiles getShopShippingProfiles(Integer shopId) throws ApiException {
+    public ShopShippingProfiles getShopShippingProfiles(Long shopId) throws ApiException {
         ApiResponse<ShopShippingProfiles> localVarResp = getShopShippingProfilesWithHttpInfo(shopId);
         return localVarResp.getData();
     }
@@ -2057,7 +2057,7 @@ public class ShopShippingProfileApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ShopShippingProfiles> getShopShippingProfilesWithHttpInfo(Integer shopId) throws ApiException {
+    public ApiResponse<ShopShippingProfiles> getShopShippingProfilesWithHttpInfo(Long shopId) throws ApiException {
         okhttp3.Call localVarCall = getShopShippingProfilesValidateBeforeCall(shopId, null);
         Type localVarReturnType = new TypeToken<ShopShippingProfiles>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -2079,7 +2079,7 @@ public class ShopShippingProfileApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getShopShippingProfilesAsync(Integer shopId, final ApiCallback<ShopShippingProfiles> _callback) throws ApiException {
+    public okhttp3.Call getShopShippingProfilesAsync(Long shopId, final ApiCallback<ShopShippingProfiles> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getShopShippingProfilesValidateBeforeCall(shopId, _callback);
         Type localVarReturnType = new TypeToken<ShopShippingProfiles>(){}.getType();
@@ -2110,7 +2110,7 @@ public class ShopShippingProfileApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateShopShippingProfileCall(Integer shopId, Integer shippingProfileId, String title, String originCountryIso, Integer minProcessingTime, Integer maxProcessingTime, String processingTimeUnit, String originPostalCode, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateShopShippingProfileCall(Long shopId, Long shippingProfileId, String title, String originCountryIso, Long minProcessingTime, Long maxProcessingTime, String processingTimeUnit, String originPostalCode, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -2183,7 +2183,7 @@ public class ShopShippingProfileApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateShopShippingProfileValidateBeforeCall(Integer shopId, Integer shippingProfileId, String title, String originCountryIso, Integer minProcessingTime, Integer maxProcessingTime, String processingTimeUnit, String originPostalCode, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateShopShippingProfileValidateBeforeCall(Long shopId, Long shippingProfileId, String title, String originCountryIso, Long minProcessingTime, Long maxProcessingTime, String processingTimeUnit, String originPostalCode, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'shopId' is set
         if (shopId == null) {
@@ -2225,7 +2225,7 @@ public class ShopShippingProfileApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ShopShippingProfile updateShopShippingProfile(Integer shopId, Integer shippingProfileId, String title, String originCountryIso, Integer minProcessingTime, Integer maxProcessingTime, String processingTimeUnit, String originPostalCode) throws ApiException {
+    public ShopShippingProfile updateShopShippingProfile(Long shopId, Long shippingProfileId, String title, String originCountryIso, Long minProcessingTime, Long maxProcessingTime, String processingTimeUnit, String originPostalCode) throws ApiException {
         ApiResponse<ShopShippingProfile> localVarResp = updateShopShippingProfileWithHttpInfo(shopId, shippingProfileId, title, originCountryIso, minProcessingTime, maxProcessingTime, processingTimeUnit, originPostalCode);
         return localVarResp.getData();
     }
@@ -2254,7 +2254,7 @@ public class ShopShippingProfileApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ShopShippingProfile> updateShopShippingProfileWithHttpInfo(Integer shopId, Integer shippingProfileId, String title, String originCountryIso, Integer minProcessingTime, Integer maxProcessingTime, String processingTimeUnit, String originPostalCode) throws ApiException {
+    public ApiResponse<ShopShippingProfile> updateShopShippingProfileWithHttpInfo(Long shopId, Long shippingProfileId, String title, String originCountryIso, Long minProcessingTime, Long maxProcessingTime, String processingTimeUnit, String originPostalCode) throws ApiException {
         okhttp3.Call localVarCall = updateShopShippingProfileValidateBeforeCall(shopId, shippingProfileId, title, originCountryIso, minProcessingTime, maxProcessingTime, processingTimeUnit, originPostalCode, null);
         Type localVarReturnType = new TypeToken<ShopShippingProfile>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -2285,7 +2285,7 @@ public class ShopShippingProfileApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateShopShippingProfileAsync(Integer shopId, Integer shippingProfileId, String title, String originCountryIso, Integer minProcessingTime, Integer maxProcessingTime, String processingTimeUnit, String originPostalCode, final ApiCallback<ShopShippingProfile> _callback) throws ApiException {
+    public okhttp3.Call updateShopShippingProfileAsync(Long shopId, Long shippingProfileId, String title, String originCountryIso, Long minProcessingTime, Long maxProcessingTime, String processingTimeUnit, String originPostalCode, final ApiCallback<ShopShippingProfile> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateShopShippingProfileValidateBeforeCall(shopId, shippingProfileId, title, originCountryIso, minProcessingTime, maxProcessingTime, processingTimeUnit, originPostalCode, _callback);
         Type localVarReturnType = new TypeToken<ShopShippingProfile>(){}.getType();
@@ -2319,7 +2319,7 @@ public class ShopShippingProfileApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateShopShippingProfileDestinationCall(Integer shopId, Integer shippingProfileId, Integer shippingProfileDestinationId, Float primaryCost, Float secondaryCost, String destinationCountryIso, String destinationRegion, Integer shippingCarrierId, String mailClass, Integer minDeliveryDays, Integer maxDeliveryDays, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateShopShippingProfileDestinationCall(Long shopId, Long shippingProfileId, Long shippingProfileDestinationId, Float primaryCost, Float secondaryCost, String destinationCountryIso, String destinationRegion, Long shippingCarrierId, String mailClass, Long minDeliveryDays, Long maxDeliveryDays, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -2401,7 +2401,7 @@ public class ShopShippingProfileApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateShopShippingProfileDestinationValidateBeforeCall(Integer shopId, Integer shippingProfileId, Integer shippingProfileDestinationId, Float primaryCost, Float secondaryCost, String destinationCountryIso, String destinationRegion, Integer shippingCarrierId, String mailClass, Integer minDeliveryDays, Integer maxDeliveryDays, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateShopShippingProfileDestinationValidateBeforeCall(Long shopId, Long shippingProfileId, Long shippingProfileDestinationId, Float primaryCost, Float secondaryCost, String destinationCountryIso, String destinationRegion, Long shippingCarrierId, String mailClass, Long minDeliveryDays, Long maxDeliveryDays, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'shopId' is set
         if (shopId == null) {
@@ -2451,7 +2451,7 @@ public class ShopShippingProfileApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ShopShippingProfileDestination updateShopShippingProfileDestination(Integer shopId, Integer shippingProfileId, Integer shippingProfileDestinationId, Float primaryCost, Float secondaryCost, String destinationCountryIso, String destinationRegion, Integer shippingCarrierId, String mailClass, Integer minDeliveryDays, Integer maxDeliveryDays) throws ApiException {
+    public ShopShippingProfileDestination updateShopShippingProfileDestination(Long shopId, Long shippingProfileId, Long shippingProfileDestinationId, Float primaryCost, Float secondaryCost, String destinationCountryIso, String destinationRegion, Long shippingCarrierId, String mailClass, Long minDeliveryDays, Long maxDeliveryDays) throws ApiException {
         ApiResponse<ShopShippingProfileDestination> localVarResp = updateShopShippingProfileDestinationWithHttpInfo(shopId, shippingProfileId, shippingProfileDestinationId, primaryCost, secondaryCost, destinationCountryIso, destinationRegion, shippingCarrierId, mailClass, minDeliveryDays, maxDeliveryDays);
         return localVarResp.getData();
     }
@@ -2483,7 +2483,7 @@ public class ShopShippingProfileApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ShopShippingProfileDestination> updateShopShippingProfileDestinationWithHttpInfo(Integer shopId, Integer shippingProfileId, Integer shippingProfileDestinationId, Float primaryCost, Float secondaryCost, String destinationCountryIso, String destinationRegion, Integer shippingCarrierId, String mailClass, Integer minDeliveryDays, Integer maxDeliveryDays) throws ApiException {
+    public ApiResponse<ShopShippingProfileDestination> updateShopShippingProfileDestinationWithHttpInfo(Long shopId, Long shippingProfileId, Long shippingProfileDestinationId, Float primaryCost, Float secondaryCost, String destinationCountryIso, String destinationRegion, Long shippingCarrierId, String mailClass, Long minDeliveryDays, Long maxDeliveryDays) throws ApiException {
         okhttp3.Call localVarCall = updateShopShippingProfileDestinationValidateBeforeCall(shopId, shippingProfileId, shippingProfileDestinationId, primaryCost, secondaryCost, destinationCountryIso, destinationRegion, shippingCarrierId, mailClass, minDeliveryDays, maxDeliveryDays, null);
         Type localVarReturnType = new TypeToken<ShopShippingProfileDestination>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -2517,7 +2517,7 @@ public class ShopShippingProfileApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateShopShippingProfileDestinationAsync(Integer shopId, Integer shippingProfileId, Integer shippingProfileDestinationId, Float primaryCost, Float secondaryCost, String destinationCountryIso, String destinationRegion, Integer shippingCarrierId, String mailClass, Integer minDeliveryDays, Integer maxDeliveryDays, final ApiCallback<ShopShippingProfileDestination> _callback) throws ApiException {
+    public okhttp3.Call updateShopShippingProfileDestinationAsync(Long shopId, Long shippingProfileId, Long shippingProfileDestinationId, Float primaryCost, Float secondaryCost, String destinationCountryIso, String destinationRegion, Long shippingCarrierId, String mailClass, Long minDeliveryDays, Long maxDeliveryDays, final ApiCallback<ShopShippingProfileDestination> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateShopShippingProfileDestinationValidateBeforeCall(shopId, shippingProfileId, shippingProfileDestinationId, primaryCost, secondaryCost, destinationCountryIso, destinationRegion, shippingCarrierId, mailClass, minDeliveryDays, maxDeliveryDays, _callback);
         Type localVarReturnType = new TypeToken<ShopShippingProfileDestination>(){}.getType();
@@ -2551,7 +2551,7 @@ public class ShopShippingProfileApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateShopShippingProfileUpgradeCall(Integer shopId, Integer shippingProfileId, Integer upgradeId, String upgradeName, String type, Float price, Float secondaryPrice, Integer shippingCarrierId, String mailClass, Integer minDeliveryDays, Integer maxDeliveryDays, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateShopShippingProfileUpgradeCall(Long shopId, Long shippingProfileId, Long upgradeId, String upgradeName, String type, Float price, Float secondaryPrice, Long shippingCarrierId, String mailClass, Long minDeliveryDays, Long maxDeliveryDays, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -2633,7 +2633,7 @@ public class ShopShippingProfileApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateShopShippingProfileUpgradeValidateBeforeCall(Integer shopId, Integer shippingProfileId, Integer upgradeId, String upgradeName, String type, Float price, Float secondaryPrice, Integer shippingCarrierId, String mailClass, Integer minDeliveryDays, Integer maxDeliveryDays, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateShopShippingProfileUpgradeValidateBeforeCall(Long shopId, Long shippingProfileId, Long upgradeId, String upgradeName, String type, Float price, Float secondaryPrice, Long shippingCarrierId, String mailClass, Long minDeliveryDays, Long maxDeliveryDays, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'shopId' is set
         if (shopId == null) {
@@ -2683,7 +2683,7 @@ public class ShopShippingProfileApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ShopShippingProfileUpgrade updateShopShippingProfileUpgrade(Integer shopId, Integer shippingProfileId, Integer upgradeId, String upgradeName, String type, Float price, Float secondaryPrice, Integer shippingCarrierId, String mailClass, Integer minDeliveryDays, Integer maxDeliveryDays) throws ApiException {
+    public ShopShippingProfileUpgrade updateShopShippingProfileUpgrade(Long shopId, Long shippingProfileId, Long upgradeId, String upgradeName, String type, Float price, Float secondaryPrice, Long shippingCarrierId, String mailClass, Long minDeliveryDays, Long maxDeliveryDays) throws ApiException {
         ApiResponse<ShopShippingProfileUpgrade> localVarResp = updateShopShippingProfileUpgradeWithHttpInfo(shopId, shippingProfileId, upgradeId, upgradeName, type, price, secondaryPrice, shippingCarrierId, mailClass, minDeliveryDays, maxDeliveryDays);
         return localVarResp.getData();
     }
@@ -2715,7 +2715,7 @@ public class ShopShippingProfileApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ShopShippingProfileUpgrade> updateShopShippingProfileUpgradeWithHttpInfo(Integer shopId, Integer shippingProfileId, Integer upgradeId, String upgradeName, String type, Float price, Float secondaryPrice, Integer shippingCarrierId, String mailClass, Integer minDeliveryDays, Integer maxDeliveryDays) throws ApiException {
+    public ApiResponse<ShopShippingProfileUpgrade> updateShopShippingProfileUpgradeWithHttpInfo(Long shopId, Long shippingProfileId, Long upgradeId, String upgradeName, String type, Float price, Float secondaryPrice, Long shippingCarrierId, String mailClass, Long minDeliveryDays, Long maxDeliveryDays) throws ApiException {
         okhttp3.Call localVarCall = updateShopShippingProfileUpgradeValidateBeforeCall(shopId, shippingProfileId, upgradeId, upgradeName, type, price, secondaryPrice, shippingCarrierId, mailClass, minDeliveryDays, maxDeliveryDays, null);
         Type localVarReturnType = new TypeToken<ShopShippingProfileUpgrade>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -2749,7 +2749,7 @@ public class ShopShippingProfileApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateShopShippingProfileUpgradeAsync(Integer shopId, Integer shippingProfileId, Integer upgradeId, String upgradeName, String type, Float price, Float secondaryPrice, Integer shippingCarrierId, String mailClass, Integer minDeliveryDays, Integer maxDeliveryDays, final ApiCallback<ShopShippingProfileUpgrade> _callback) throws ApiException {
+    public okhttp3.Call updateShopShippingProfileUpgradeAsync(Long shopId, Long shippingProfileId, Long upgradeId, String upgradeName, String type, Float price, Float secondaryPrice, Long shippingCarrierId, String mailClass, Long minDeliveryDays, Long maxDeliveryDays, final ApiCallback<ShopShippingProfileUpgrade> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateShopShippingProfileUpgradeValidateBeforeCall(shopId, shippingProfileId, upgradeId, upgradeName, type, price, secondaryPrice, shippingCarrierId, mailClass, minDeliveryDays, maxDeliveryDays, _callback);
         Type localVarReturnType = new TypeToken<ShopShippingProfileUpgrade>(){}.getType();
