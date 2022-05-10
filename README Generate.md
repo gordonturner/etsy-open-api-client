@@ -28,7 +28,7 @@ java -jar openapi-generator-cli.jar generate \
 --skip-validate-spec \
 --group-id com.gordonturner.etsy \
 --artifact-id etsy-open-api-client \
---artifact-version 1.1.0 \
+--artifact-version 2.0.0 \
 --type-mappings=integer=Long,int=Long
 ```
 
