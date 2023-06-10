@@ -1,6 +1,6 @@
 /*
  * Etsy Open API v3
- * <div class=\"wt-text-body-01\"><p class=\"wt-pt-xs-2 wt-pb-xs-2\">Etsy's Open API provides a simple RESTful interface for various Etsy.com features. The API endpoints are meant to replace <a class=\"wt-text-link wt-p-xs-0\" href=\"https://www.etsy.com/developers/documentation\">Etsy's Open API v2</a>, which is scheduled to end service in 2022.</p><p class=\"wt-pb-xs-2\">All of the endpoints are callable and the majority of the API endpoints are now in a beta phase. This means we do not expect to make any breaking changes before our general release. A handful of endpoints are currently interface stubs (labeled “Feedback Only”) and returns a \"501 Not Implemented\" response code when called.</p><p class=\"wt-pb-xs-2\">If you'd like to report an issue or provide feedback on the API design, <a target=\"_blank\" class=\"wt-text-link wt-p-xs-0\" href=\"https://github.com/etsy/open-api/issues/new/choose\">please add an issue in Github</a>.</p></div>&copy; 2021-2022 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.
+ * <div class=\"wt-text-body-01\"><p class=\"wt-pt-xs-2 wt-pb-xs-2\">Etsy's Open API provides a simple RESTful interface for various Etsy.com features. The API endpoints are meant to replace Etsy's Open API v2, which is scheduled to end service in 2022.</p><p class=\"wt-pb-xs-2\">All of the endpoints are callable and the majority of the API endpoints are now in a beta phase. This means we do not expect to make any breaking changes before our general release. A handful of endpoints are currently interface stubs (labeled “Feedback Only”) and returns a \"501 Not Implemented\" response code when called.</p><p class=\"wt-pb-xs-2\">If you'd like to report an issue or provide feedback on the API design, <a target=\"_blank\" class=\"wt-text-link wt-p-xs-0\" href=\"https://github.com/etsy/open-api/discussions\">please add an issue in Github</a>.</p></div>&copy; 2021-2023 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: developers@etsy.com
@@ -24,12 +24,13 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import org.openapitools.client.model.Money;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
  * A representation of a shipping profile upgrade option.
  */
 @ApiModel(description = "A representation of a shipping profile upgrade option.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-07T10:51:54.559-04:00[America/Toronto]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-08T08:37:51.285-04:00[America/Toronto]")
 public class ShopShippingProfileUpgrade {
   public static final String SERIALIZED_NAME_SHIPPING_PROFILE_ID = "shipping_profile_id";
   @SerializedName(SERIALIZED_NAME_SHIPPING_PROFILE_ID)
@@ -140,8 +141,8 @@ public class ShopShippingProfileUpgrade {
    * minimum: 1
    * @return shippingProfileId
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The numeric ID of the base shipping profile.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The numeric ID of the base shipping profile.")
 
   public Long getShippingProfileId() {
     return shippingProfileId;
@@ -164,8 +165,8 @@ public class ShopShippingProfileUpgrade {
    * minimum: 1
    * @return upgradeId
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The numeric ID that is associated with a shipping upgrade")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The numeric ID that is associated with a shipping upgrade")
 
   public Long getUpgradeId() {
     return upgradeId;
@@ -187,8 +188,8 @@ public class ShopShippingProfileUpgrade {
    * Name for the shipping upgrade shown to shoppers at checkout, e.g. USPS Priority.
    * @return upgradeName
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Name for the shipping upgrade shown to shoppers at checkout, e.g. USPS Priority.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Name for the shipping upgrade shown to shoppers at checkout, e.g. USPS Priority.")
 
   public String getUpgradeName() {
     return upgradeName;
@@ -210,8 +211,8 @@ public class ShopShippingProfileUpgrade {
    * The type of the shipping upgrade. Domestic (0) or international (1).
    * @return type
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The type of the shipping upgrade. Domestic (0) or international (1).")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The type of the shipping upgrade. Domestic (0) or international (1).")
 
   public TypeEnum getType() {
     return type;
@@ -234,8 +235,8 @@ public class ShopShippingProfileUpgrade {
    * minimum: 0
    * @return rank
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The positive non-zero numeric position in the images displayed in a listing, with rank 1 images appearing in the left-most position in a listing.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The positive non-zero numeric position in the images displayed in a listing, with rank 1 images appearing in the left-most position in a listing.")
 
   public Long getRank() {
     return rank;
@@ -254,11 +255,11 @@ public class ShopShippingProfileUpgrade {
   }
 
    /**
-   * The IETF language tag for the language of the shipping profile. Ex: de, en, es, fr, it, ja, nl, pl, pt, ru.
+   * The IETF language tag for the language of the shipping profile. Ex: &#x60;de&#x60;, &#x60;en&#x60;, &#x60;es&#x60;, &#x60;fr&#x60;, &#x60;it&#x60;, &#x60;ja&#x60;, &#x60;nl&#x60;, &#x60;pl&#x60;, &#x60;pt&#x60;
    * @return language
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The IETF language tag for the language of the shipping profile. Ex: de, en, es, fr, it, ja, nl, pl, pt, ru.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The IETF language tag for the language of the shipping profile. Ex: `de`, `en`, `es`, `fr`, `it`, `ja`, `nl`, `pl`, `pt`")
 
   public String getLanguage() {
     return language;
@@ -281,7 +282,7 @@ public class ShopShippingProfileUpgrade {
    * @return price
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "Additional cost of adding the shipping upgrade.")
+  @ApiModelProperty(value = "Additional cost of adding the shipping upgrade.")
 
   public Money getPrice() {
     return price;
@@ -304,7 +305,7 @@ public class ShopShippingProfileUpgrade {
    * @return secondaryPrice
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "Additional cost of adding the shipping upgrade for each additional item.")
+  @ApiModelProperty(value = "Additional cost of adding the shipping upgrade for each additional item.")
 
   public Money getSecondaryPrice() {
     return secondaryPrice;
@@ -327,7 +328,7 @@ public class ShopShippingProfileUpgrade {
    * @return shippingCarrierId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The unique ID of a supported shipping carrier, which is used to calculate an Estimated Delivery Date. **Required with `mail_class`** if `min_delivery_days` and `max_delivery_days` are null.")
+  @ApiModelProperty(value = "The unique ID of a supported shipping carrier, which is used to calculate an Estimated Delivery Date. **Required with `mail_class`** if `min_delivery_days` and `max_delivery_days` are null.")
 
   public Long getShippingCarrierId() {
     return shippingCarrierId;
@@ -350,7 +351,7 @@ public class ShopShippingProfileUpgrade {
    * @return mailClass
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The unique ID string of a shipping carrier's mail class, which is used to calculate an estimated delivery date. **Required with `shipping_carrier_id`** if `min_delivery_days` and `max_delivery_days` are null.")
+  @ApiModelProperty(value = "The unique ID string of a shipping carrier's mail class, which is used to calculate an estimated delivery date. **Required with `shipping_carrier_id`** if `min_delivery_days` and `max_delivery_days` are null.")
 
   public String getMailClass() {
     return mailClass;
@@ -375,7 +376,7 @@ public class ShopShippingProfileUpgrade {
    * @return minDeliveryDays
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The minimum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with `max_delivery_days`** if `mail_class` is null.")
+  @ApiModelProperty(value = "The minimum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with `max_delivery_days`** if `mail_class` is null.")
 
   public Long getMinDeliveryDays() {
     return minDeliveryDays;
@@ -400,7 +401,7 @@ public class ShopShippingProfileUpgrade {
    * @return maxDeliveryDays
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The maximum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with `min_delivery_days`** if `mail_class` is null.")
+  @ApiModelProperty(value = "The maximum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with `min_delivery_days`** if `mail_class` is null.")
 
   public Long getMaxDeliveryDays() {
     return maxDeliveryDays;
@@ -435,9 +436,20 @@ public class ShopShippingProfileUpgrade {
         Objects.equals(this.maxDeliveryDays, shopShippingProfileUpgrade.maxDeliveryDays);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
     return Objects.hash(shippingProfileId, upgradeId, upgradeName, type, rank, language, price, secondaryPrice, shippingCarrierId, mailClass, minDeliveryDays, maxDeliveryDays);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

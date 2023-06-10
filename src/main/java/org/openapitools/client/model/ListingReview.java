@@ -1,6 +1,6 @@
 /*
  * Etsy Open API v3
- * <div class=\"wt-text-body-01\"><p class=\"wt-pt-xs-2 wt-pb-xs-2\">Etsy's Open API provides a simple RESTful interface for various Etsy.com features. The API endpoints are meant to replace <a class=\"wt-text-link wt-p-xs-0\" href=\"https://www.etsy.com/developers/documentation\">Etsy's Open API v2</a>, which is scheduled to end service in 2022.</p><p class=\"wt-pb-xs-2\">All of the endpoints are callable and the majority of the API endpoints are now in a beta phase. This means we do not expect to make any breaking changes before our general release. A handful of endpoints are currently interface stubs (labeled “Feedback Only”) and returns a \"501 Not Implemented\" response code when called.</p><p class=\"wt-pb-xs-2\">If you'd like to report an issue or provide feedback on the API design, <a target=\"_blank\" class=\"wt-text-link wt-p-xs-0\" href=\"https://github.com/etsy/open-api/issues/new/choose\">please add an issue in Github</a>.</p></div>&copy; 2021-2022 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.
+ * <div class=\"wt-text-body-01\"><p class=\"wt-pt-xs-2 wt-pb-xs-2\">Etsy's Open API provides a simple RESTful interface for various Etsy.com features. The API endpoints are meant to replace Etsy's Open API v2, which is scheduled to end service in 2022.</p><p class=\"wt-pb-xs-2\">All of the endpoints are callable and the majority of the API endpoints are now in a beta phase. This means we do not expect to make any breaking changes before our general release. A handful of endpoints are currently interface stubs (labeled “Feedback Only”) and returns a \"501 Not Implemented\" response code when called.</p><p class=\"wt-pb-xs-2\">If you'd like to report an issue or provide feedback on the API design, <a target=\"_blank\" class=\"wt-text-link wt-p-xs-0\" href=\"https://github.com/etsy/open-api/discussions\">please add an issue in Github</a>.</p></div>&copy; 2021-2023 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: developers@etsy.com
@@ -23,12 +23,13 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
  * A listing review record left by a User.
  */
 @ApiModel(description = "A listing review record left by a User.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-07T10:51:54.559-04:00[America/Toronto]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-08T08:37:51.285-04:00[America/Toronto]")
 public class ListingReview {
   public static final String SERIALIZED_NAME_SHOP_ID = "shop_id";
   @SerializedName(SERIALIZED_NAME_SHOP_ID)
@@ -58,9 +59,17 @@ public class ListingReview {
   @SerializedName(SERIALIZED_NAME_CREATE_TIMESTAMP)
   private Long createTimestamp;
 
+  public static final String SERIALIZED_NAME_CREATED_TIMESTAMP = "created_timestamp";
+  @SerializedName(SERIALIZED_NAME_CREATED_TIMESTAMP)
+  private Long createdTimestamp;
+
   public static final String SERIALIZED_NAME_UPDATE_TIMESTAMP = "update_timestamp";
   @SerializedName(SERIALIZED_NAME_UPDATE_TIMESTAMP)
   private Long updateTimestamp;
+
+  public static final String SERIALIZED_NAME_UPDATED_TIMESTAMP = "updated_timestamp";
+  @SerializedName(SERIALIZED_NAME_UPDATED_TIMESTAMP)
+  private Long updatedTimestamp;
 
   public ListingReview() { 
   }
@@ -76,8 +85,8 @@ public class ListingReview {
    * minimum: 1
    * @return shopId
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The shop's numeric ID.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The shop's numeric ID.")
 
   public Long getShopId() {
     return shopId;
@@ -100,8 +109,8 @@ public class ListingReview {
    * minimum: 1
    * @return listingId
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The ID of the ShopListing that the TransactionReview belongs to.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The ID of the ShopListing that the TransactionReview belongs to.")
 
   public Long getListingId() {
     return listingId;
@@ -125,8 +134,8 @@ public class ListingReview {
    * maximum: 5
    * @return rating
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Rating value on scale from 1 to 5")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Rating value on scale from 1 to 5")
 
   public Long getRating() {
     return rating;
@@ -149,7 +158,7 @@ public class ListingReview {
    * @return review
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "A message left by the author, explaining the feedback, if provided.")
+  @ApiModelProperty(value = "A message left by the author, explaining the feedback, if provided.")
 
   public String getReview() {
     return review;
@@ -171,8 +180,8 @@ public class ListingReview {
    * The language of the TransactionReview
    * @return language
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The language of the TransactionReview")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The language of the TransactionReview")
 
   public String getLanguage() {
     return language;
@@ -195,7 +204,7 @@ public class ListingReview {
    * @return imageUrlFullxfull
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The url to a photo provided with the feedback, dimensions fullxfull. Note: This field may be absent, depending on the buyer's privacy settings.")
+  @ApiModelProperty(value = "The url to a photo provided with the feedback, dimensions fullxfull. Note: This field may be absent, depending on the buyer's privacy settings.")
 
   public String getImageUrlFullxfull() {
     return imageUrlFullxfull;
@@ -218,8 +227,8 @@ public class ListingReview {
    * minimum: 946684800
    * @return createTimestamp
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The date and time the TransactionReview was created in epoch seconds.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The date and time the TransactionReview was created in epoch seconds.")
 
   public Long getCreateTimestamp() {
     return createTimestamp;
@@ -228,6 +237,30 @@ public class ListingReview {
 
   public void setCreateTimestamp(Long createTimestamp) {
     this.createTimestamp = createTimestamp;
+  }
+
+
+  public ListingReview createdTimestamp(Long createdTimestamp) {
+    
+    this.createdTimestamp = createdTimestamp;
+    return this;
+  }
+
+   /**
+   * The date and time the TransactionReview was created in epoch seconds.
+   * minimum: 946684800
+   * @return createdTimestamp
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The date and time the TransactionReview was created in epoch seconds.")
+
+  public Long getCreatedTimestamp() {
+    return createdTimestamp;
+  }
+
+
+  public void setCreatedTimestamp(Long createdTimestamp) {
+    this.createdTimestamp = createdTimestamp;
   }
 
 
@@ -242,8 +275,8 @@ public class ListingReview {
    * minimum: 946684800
    * @return updateTimestamp
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The date and time the TransactionReview was updated in epoch seconds.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The date and time the TransactionReview was updated in epoch seconds.")
 
   public Long getUpdateTimestamp() {
     return updateTimestamp;
@@ -252,6 +285,30 @@ public class ListingReview {
 
   public void setUpdateTimestamp(Long updateTimestamp) {
     this.updateTimestamp = updateTimestamp;
+  }
+
+
+  public ListingReview updatedTimestamp(Long updatedTimestamp) {
+    
+    this.updatedTimestamp = updatedTimestamp;
+    return this;
+  }
+
+   /**
+   * The date and time the TransactionReview was updated in epoch seconds.
+   * minimum: 946684800
+   * @return updatedTimestamp
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The date and time the TransactionReview was updated in epoch seconds.")
+
+  public Long getUpdatedTimestamp() {
+    return updatedTimestamp;
+  }
+
+
+  public void setUpdatedTimestamp(Long updatedTimestamp) {
+    this.updatedTimestamp = updatedTimestamp;
   }
 
 
@@ -271,12 +328,25 @@ public class ListingReview {
         Objects.equals(this.language, listingReview.language) &&
         Objects.equals(this.imageUrlFullxfull, listingReview.imageUrlFullxfull) &&
         Objects.equals(this.createTimestamp, listingReview.createTimestamp) &&
-        Objects.equals(this.updateTimestamp, listingReview.updateTimestamp);
+        Objects.equals(this.createdTimestamp, listingReview.createdTimestamp) &&
+        Objects.equals(this.updateTimestamp, listingReview.updateTimestamp) &&
+        Objects.equals(this.updatedTimestamp, listingReview.updatedTimestamp);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(shopId, listingId, rating, review, language, imageUrlFullxfull, createTimestamp, updateTimestamp);
+    return Objects.hash(shopId, listingId, rating, review, language, imageUrlFullxfull, createTimestamp, createdTimestamp, updateTimestamp, updatedTimestamp);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -290,7 +360,9 @@ public class ListingReview {
     sb.append("    language: ").append(toIndentedString(language)).append("\n");
     sb.append("    imageUrlFullxfull: ").append(toIndentedString(imageUrlFullxfull)).append("\n");
     sb.append("    createTimestamp: ").append(toIndentedString(createTimestamp)).append("\n");
+    sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
     sb.append("    updateTimestamp: ").append(toIndentedString(updateTimestamp)).append("\n");
+    sb.append("    updatedTimestamp: ").append(toIndentedString(updatedTimestamp)).append("\n");
     sb.append("}");
     return sb.toString();
   }

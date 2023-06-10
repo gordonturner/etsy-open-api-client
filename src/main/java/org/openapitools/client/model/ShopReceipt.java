@@ -1,6 +1,6 @@
 /*
  * Etsy Open API v3
- * <div class=\"wt-text-body-01\"><p class=\"wt-pt-xs-2 wt-pb-xs-2\">Etsy's Open API provides a simple RESTful interface for various Etsy.com features. The API endpoints are meant to replace <a class=\"wt-text-link wt-p-xs-0\" href=\"https://www.etsy.com/developers/documentation\">Etsy's Open API v2</a>, which is scheduled to end service in 2022.</p><p class=\"wt-pb-xs-2\">All of the endpoints are callable and the majority of the API endpoints are now in a beta phase. This means we do not expect to make any breaking changes before our general release. A handful of endpoints are currently interface stubs (labeled “Feedback Only”) and returns a \"501 Not Implemented\" response code when called.</p><p class=\"wt-pb-xs-2\">If you'd like to report an issue or provide feedback on the API design, <a target=\"_blank\" class=\"wt-text-link wt-p-xs-0\" href=\"https://github.com/etsy/open-api/issues/new/choose\">please add an issue in Github</a>.</p></div>&copy; 2021-2022 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.
+ * <div class=\"wt-text-body-01\"><p class=\"wt-pt-xs-2 wt-pb-xs-2\">Etsy's Open API provides a simple RESTful interface for various Etsy.com features. The API endpoints are meant to replace Etsy's Open API v2, which is scheduled to end service in 2022.</p><p class=\"wt-pb-xs-2\">All of the endpoints are callable and the majority of the API endpoints are now in a beta phase. This means we do not expect to make any breaking changes before our general release. A handful of endpoints are currently interface stubs (labeled “Feedback Only”) and returns a \"501 Not Implemented\" response code when called.</p><p class=\"wt-pb-xs-2\">If you'd like to report an issue or provide feedback on the API design, <a target=\"_blank\" class=\"wt-text-link wt-p-xs-0\" href=\"https://github.com/etsy/open-api/discussions\">please add an issue in Github</a>.</p></div>&copy; 2021-2023 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: developers@etsy.com
@@ -28,12 +28,14 @@ import java.util.List;
 import org.openapitools.client.model.Money;
 import org.openapitools.client.model.ShopReceiptShipment;
 import org.openapitools.client.model.ShopReceiptTransaction;
+import org.openapitools.client.model.ShopRefund;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
  * The record of a purchase from a shop. Shop receipts display monetary values using the shop&#39;s currency.
  */
 @ApiModel(description = "The record of a purchase from a shop. Shop receipts display monetary values using the shop's currency.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-07T10:51:54.559-04:00[America/Toronto]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-08T08:37:51.285-04:00[America/Toronto]")
 public class ShopReceipt {
   public static final String SERIALIZED_NAME_RECEIPT_ID = "receipt_id";
   @SerializedName(SERIALIZED_NAME_RECEIPT_ID)
@@ -84,7 +86,7 @@ public class ShopReceipt {
   private String zip;
 
   /**
-   * The current order status string. One of: &#x60;Open&#x60;, &#x60;Paid&#x60;, &#x60;Completed&#x60;, &#x60;Payment Processing&#x60;.
+   * The current order status string. One of: &#x60;paid&#x60;, &#x60;completed&#x60;, &#x60;open&#x60;, &#x60;payment processing&#x60; or &#x60;canceled&#x60;.
    */
   @JsonAdapter(StatusEnum.Adapter.class)
   public enum StatusEnum {
@@ -96,7 +98,11 @@ public class ShopReceipt {
     
     PAYMENT_PROCESSING("Payment Processing"),
     
-    CANCELED("Canceled");
+    CANCELED("Canceled"),
+    
+    FULLY_REFUNDED("Fully Refunded"),
+    
+    PARTIALLY_REFUNDED("Partially Refunded");
 
     private String value;
 
@@ -180,9 +186,17 @@ public class ShopReceipt {
   @SerializedName(SERIALIZED_NAME_CREATE_TIMESTAMP)
   private Long createTimestamp;
 
+  public static final String SERIALIZED_NAME_CREATED_TIMESTAMP = "created_timestamp";
+  @SerializedName(SERIALIZED_NAME_CREATED_TIMESTAMP)
+  private Long createdTimestamp;
+
   public static final String SERIALIZED_NAME_UPDATE_TIMESTAMP = "update_timestamp";
   @SerializedName(SERIALIZED_NAME_UPDATE_TIMESTAMP)
   private Long updateTimestamp;
+
+  public static final String SERIALIZED_NAME_UPDATED_TIMESTAMP = "updated_timestamp";
+  @SerializedName(SERIALIZED_NAME_UPDATED_TIMESTAMP)
+  private Long updatedTimestamp;
 
   public static final String SERIALIZED_NAME_IS_GIFT = "is_gift";
   @SerializedName(SERIALIZED_NAME_IS_GIFT)
@@ -226,11 +240,15 @@ public class ShopReceipt {
 
   public static final String SERIALIZED_NAME_SHIPMENTS = "shipments";
   @SerializedName(SERIALIZED_NAME_SHIPMENTS)
-  private List<ShopReceiptShipment> shipments = new ArrayList<ShopReceiptShipment>();
+  private List<ShopReceiptShipment> shipments = null;
 
   public static final String SERIALIZED_NAME_TRANSACTIONS = "transactions";
   @SerializedName(SERIALIZED_NAME_TRANSACTIONS)
-  private List<ShopReceiptTransaction> transactions = new ArrayList<ShopReceiptTransaction>();
+  private List<ShopReceiptTransaction> transactions = null;
+
+  public static final String SERIALIZED_NAME_REFUNDS = "refunds";
+  @SerializedName(SERIALIZED_NAME_REFUNDS)
+  private List<ShopRefund> refunds = null;
 
   public ShopReceipt() { 
   }
@@ -246,8 +264,8 @@ public class ShopReceipt {
    * minimum: 1
    * @return receiptId
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The numeric ID for the [receipt](/documentation/reference#tag/Shop-Receipt) associated to this transaction.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The numeric ID for the [receipt](/documentation/reference#tag/Shop-Receipt) associated to this transaction.")
 
   public Long getReceiptId() {
     return receiptId;
@@ -270,8 +288,8 @@ public class ShopReceipt {
    * minimum: 0
    * @return receiptType
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The numeric value for the Etsy channel that serviced the purchase: 0 for Etsy.com, 1 for a Pattern shop.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The numeric value for the Etsy channel that serviced the purchase: 0 for Etsy.com, 1 for a Pattern shop.")
 
   public Long getReceiptType() {
     return receiptType;
@@ -294,8 +312,8 @@ public class ShopReceipt {
    * minimum: 1
    * @return sellerUserId
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The numeric ID for the [user](/documentation/reference#tag/User) (seller) fulfilling the purchase.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The numeric ID for the [user](/documentation/reference#tag/User) (seller) fulfilling the purchase.")
 
   public Long getSellerUserId() {
     return sellerUserId;
@@ -318,7 +336,7 @@ public class ShopReceipt {
    * @return sellerEmail
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The email address string for the seller of the listing.")
+  @ApiModelProperty(value = "The email address string for the seller of the listing.")
 
   public String getSellerEmail() {
     return sellerEmail;
@@ -341,8 +359,8 @@ public class ShopReceipt {
    * minimum: 1
    * @return buyerUserId
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The numeric ID for the [user](/documentation/reference#tag/User) making the purchase.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The numeric ID for the [user](/documentation/reference#tag/User) making the purchase.")
 
   public Long getBuyerUserId() {
     return buyerUserId;
@@ -365,7 +383,7 @@ public class ShopReceipt {
    * @return buyerEmail
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The email address string for the buyer of the listing.")
+  @ApiModelProperty(value = "The email address string for the buyer of the listing.")
 
   public String getBuyerEmail() {
     return buyerEmail;
@@ -387,8 +405,8 @@ public class ShopReceipt {
    * The name string for the recipient in the shipping address.
    * @return name
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The name string for the recipient in the shipping address.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The name string for the recipient in the shipping address.")
 
   public String getName() {
     return name;
@@ -410,8 +428,8 @@ public class ShopReceipt {
    * The first address line string for the recipient in the shipping address.
    * @return firstLine
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The first address line string for the recipient in the shipping address.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The first address line string for the recipient in the shipping address.")
 
   public String getFirstLine() {
     return firstLine;
@@ -434,7 +452,7 @@ public class ShopReceipt {
    * @return secondLine
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The optional second address line string for the recipient in the shipping address.")
+  @ApiModelProperty(value = "The optional second address line string for the recipient in the shipping address.")
 
   public String getSecondLine() {
     return secondLine;
@@ -456,8 +474,8 @@ public class ShopReceipt {
    * The city string for the recipient in the shipping address.
    * @return city
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The city string for the recipient in the shipping address.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The city string for the recipient in the shipping address.")
 
   public String getCity() {
     return city;
@@ -480,7 +498,7 @@ public class ShopReceipt {
    * @return state
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The state string for the recipient in the shipping address.")
+  @ApiModelProperty(value = "The state string for the recipient in the shipping address.")
 
   public String getState() {
     return state;
@@ -502,8 +520,8 @@ public class ShopReceipt {
    * The zip code string (not necessarily a number) for the recipient in the shipping address.
    * @return zip
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The zip code string (not necessarily a number) for the recipient in the shipping address.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The zip code string (not necessarily a number) for the recipient in the shipping address.")
 
   public String getZip() {
     return zip;
@@ -522,11 +540,11 @@ public class ShopReceipt {
   }
 
    /**
-   * The current order status string. One of: &#x60;Open&#x60;, &#x60;Paid&#x60;, &#x60;Completed&#x60;, &#x60;Payment Processing&#x60;.
+   * The current order status string. One of: &#x60;paid&#x60;, &#x60;completed&#x60;, &#x60;open&#x60;, &#x60;payment processing&#x60; or &#x60;canceled&#x60;.
    * @return status
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The current order status string. One of: `Open`, `Paid`, `Completed`, `Payment Processing`.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The current order status string. One of: `paid`, `completed`, `open`, `payment processing` or `canceled`.")
 
   public StatusEnum getStatus() {
     return status;
@@ -548,8 +566,8 @@ public class ShopReceipt {
    * The formatted shipping address string for the recipient in the shipping address.
    * @return formattedAddress
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The formatted shipping address string for the recipient in the shipping address.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The formatted shipping address string for the recipient in the shipping address.")
 
   public String getFormattedAddress() {
     return formattedAddress;
@@ -571,8 +589,8 @@ public class ShopReceipt {
    * The ISO-3166 alpha-2 country code string for the recipient in the shipping address.
    * @return countryIso
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The ISO-3166 alpha-2 country code string for the recipient in the shipping address.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The ISO-3166 alpha-2 country code string for the recipient in the shipping address.")
 
   public String getCountryIso() {
     return countryIso;
@@ -594,8 +612,8 @@ public class ShopReceipt {
    * The payment method string identifying purchaser&#39;s payment method, which must be one of: \\&#39;cc\\&#39; (credit card), \\&#39;paypal\\&#39;, \\&#39;check\\&#39;, \\&#39;mo\\&#39; (money order), \\&#39;bt\\&#39; (bank transfer), \\&#39;other\\&#39;, \\&#39;ideal\\&#39;, \\&#39;sofort\\&#39;, \\&#39;apple_pay\\&#39;, \\&#39;google\\&#39;, \\&#39;android_pay\\&#39;, \\&#39;google_pay\\&#39;, \\&#39;klarna\\&#39;, \\&#39;k_pay_in_4\\&#39; (klarna), \\&#39;k_pay_in_3\\&#39; (klarna), or \\&#39;k_financing\\&#39; (klarna).
    * @return paymentMethod
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The payment method string identifying purchaser's payment method, which must be one of: \\'cc\\' (credit card), \\'paypal\\', \\'check\\', \\'mo\\' (money order), \\'bt\\' (bank transfer), \\'other\\', \\'ideal\\', \\'sofort\\', \\'apple_pay\\', \\'google\\', \\'android_pay\\', \\'google_pay\\', \\'klarna\\', \\'k_pay_in_4\\' (klarna), \\'k_pay_in_3\\' (klarna), or \\'k_financing\\' (klarna).")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The payment method string identifying purchaser's payment method, which must be one of: \\'cc\\' (credit card), \\'paypal\\', \\'check\\', \\'mo\\' (money order), \\'bt\\' (bank transfer), \\'other\\', \\'ideal\\', \\'sofort\\', \\'apple_pay\\', \\'google\\', \\'android_pay\\', \\'google_pay\\', \\'klarna\\', \\'k_pay_in_4\\' (klarna), \\'k_pay_in_3\\' (klarna), or \\'k_financing\\' (klarna).")
 
   public String getPaymentMethod() {
     return paymentMethod;
@@ -617,8 +635,8 @@ public class ShopReceipt {
    * The email address string for the email address to which to send payment confirmation
    * @return paymentEmail
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The email address string for the email address to which to send payment confirmation")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The email address string for the email address to which to send payment confirmation")
 
   public String getPaymentEmail() {
     return paymentEmail;
@@ -641,7 +659,7 @@ public class ShopReceipt {
    * @return messageFromSeller
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "An optional message string from the seller.")
+  @ApiModelProperty(value = "An optional message string from the seller.")
 
   public String getMessageFromSeller() {
     return messageFromSeller;
@@ -664,7 +682,7 @@ public class ShopReceipt {
    * @return messageFromBuyer
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "An optional message string from the buyer.")
+  @ApiModelProperty(value = "An optional message string from the buyer.")
 
   public String getMessageFromBuyer() {
     return messageFromBuyer;
@@ -687,7 +705,7 @@ public class ShopReceipt {
    * @return messageFromPayment
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The machine-generated acknowledgement string from the payment system.")
+  @ApiModelProperty(value = "The machine-generated acknowledgement string from the payment system.")
 
   public String getMessageFromPayment() {
     return messageFromPayment;
@@ -709,8 +727,8 @@ public class ShopReceipt {
    * When true, buyer paid for this purchase.
    * @return isPaid
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "When true, buyer paid for this purchase.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "When true, buyer paid for this purchase.")
 
   public Boolean getIsPaid() {
     return isPaid;
@@ -732,8 +750,8 @@ public class ShopReceipt {
    * When true, seller shipped the products.
    * @return isShipped
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "When true, seller shipped the products.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "When true, seller shipped the products.")
 
   public Boolean getIsShipped() {
     return isShipped;
@@ -756,8 +774,8 @@ public class ShopReceipt {
    * minimum: 946684800
    * @return createTimestamp
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The receipt\\'s creation time, in epoch seconds.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The receipt\\'s creation time, in epoch seconds.")
 
   public Long getCreateTimestamp() {
     return createTimestamp;
@@ -766,6 +784,30 @@ public class ShopReceipt {
 
   public void setCreateTimestamp(Long createTimestamp) {
     this.createTimestamp = createTimestamp;
+  }
+
+
+  public ShopReceipt createdTimestamp(Long createdTimestamp) {
+    
+    this.createdTimestamp = createdTimestamp;
+    return this;
+  }
+
+   /**
+   * The receipt\\&#39;s creation time, in epoch seconds.
+   * minimum: 946684800
+   * @return createdTimestamp
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The receipt\\'s creation time, in epoch seconds.")
+
+  public Long getCreatedTimestamp() {
+    return createdTimestamp;
+  }
+
+
+  public void setCreatedTimestamp(Long createdTimestamp) {
+    this.createdTimestamp = createdTimestamp;
   }
 
 
@@ -780,8 +822,8 @@ public class ShopReceipt {
    * minimum: 946684800
    * @return updateTimestamp
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The time of the last update to the receipt, in epoch seconds.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The time of the last update to the receipt, in epoch seconds.")
 
   public Long getUpdateTimestamp() {
     return updateTimestamp;
@@ -790,6 +832,30 @@ public class ShopReceipt {
 
   public void setUpdateTimestamp(Long updateTimestamp) {
     this.updateTimestamp = updateTimestamp;
+  }
+
+
+  public ShopReceipt updatedTimestamp(Long updatedTimestamp) {
+    
+    this.updatedTimestamp = updatedTimestamp;
+    return this;
+  }
+
+   /**
+   * The time of the last update to the receipt, in epoch seconds.
+   * minimum: 946684800
+   * @return updatedTimestamp
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The time of the last update to the receipt, in epoch seconds.")
+
+  public Long getUpdatedTimestamp() {
+    return updatedTimestamp;
+  }
+
+
+  public void setUpdatedTimestamp(Long updatedTimestamp) {
+    this.updatedTimestamp = updatedTimestamp;
   }
 
 
@@ -803,8 +869,8 @@ public class ShopReceipt {
    * When true, the buyer indicated this purchase is a gift.
    * @return isGift
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "When true, the buyer indicated this purchase is a gift.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "When true, the buyer indicated this purchase is a gift.")
 
   public Boolean getIsGift() {
     return isGift;
@@ -826,8 +892,8 @@ public class ShopReceipt {
    * A gift message string the buyer requests delivered with the product.
    * @return giftMessage
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "A gift message string the buyer requests delivered with the product.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A gift message string the buyer requests delivered with the product.")
 
   public String getGiftMessage() {
     return giftMessage;
@@ -850,7 +916,7 @@ public class ShopReceipt {
    * @return grandtotal
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "A number equal to the total_price minus the coupon discount plus tax and shipping costs.")
+  @ApiModelProperty(value = "A number equal to the total_price minus the coupon discount plus tax and shipping costs.")
 
   public Money getGrandtotal() {
     return grandtotal;
@@ -873,7 +939,7 @@ public class ShopReceipt {
    * @return subtotal
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "A number equal to the total_price minus coupon discounts. Does not included tax or shipping costs.")
+  @ApiModelProperty(value = "A number equal to the total_price minus coupon discounts. Does not included tax or shipping costs.")
 
   public Money getSubtotal() {
     return subtotal;
@@ -896,7 +962,7 @@ public class ShopReceipt {
    * @return totalPrice
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "A number equal to the sum of the individual listings\\' (price * quantity). Does not included tax or shipping costs.")
+  @ApiModelProperty(value = "A number equal to the sum of the individual listings\\' (price * quantity). Does not included tax or shipping costs.")
 
   public Money getTotalPrice() {
     return totalPrice;
@@ -919,7 +985,7 @@ public class ShopReceipt {
    * @return totalShippingCost
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "A number equal to the total shipping cost of the receipt.")
+  @ApiModelProperty(value = "A number equal to the total shipping cost of the receipt.")
 
   public Money getTotalShippingCost() {
     return totalShippingCost;
@@ -942,7 +1008,7 @@ public class ShopReceipt {
    * @return totalTaxCost
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The total sales tax of the receipt.")
+  @ApiModelProperty(value = "The total sales tax of the receipt.")
 
   public Money getTotalTaxCost() {
     return totalTaxCost;
@@ -965,7 +1031,7 @@ public class ShopReceipt {
    * @return totalVatCost
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "A number equal to the total value-added tax (VAT) of the receipt.")
+  @ApiModelProperty(value = "A number equal to the total value-added tax (VAT) of the receipt.")
 
   public Money getTotalVatCost() {
     return totalVatCost;
@@ -988,7 +1054,7 @@ public class ShopReceipt {
    * @return discountAmt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The numeric total discounted price for the receipt when using a discount (percent or fixed) coupon. Free shipping coupons are not included in this discount amount.")
+  @ApiModelProperty(value = "The numeric total discounted price for the receipt when using a discount (percent or fixed) coupon. Free shipping coupons are not included in this discount amount.")
 
   public Money getDiscountAmt() {
     return discountAmt;
@@ -1011,7 +1077,7 @@ public class ShopReceipt {
    * @return giftWrapPrice
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The numeric price of gift wrap for this receipt.")
+  @ApiModelProperty(value = "The numeric price of gift wrap for this receipt.")
 
   public Money getGiftWrapPrice() {
     return giftWrapPrice;
@@ -1030,6 +1096,9 @@ public class ShopReceipt {
   }
 
   public ShopReceipt addShipmentsItem(ShopReceiptShipment shipmentsItem) {
+    if (this.shipments == null) {
+      this.shipments = new ArrayList<ShopReceiptShipment>();
+    }
     this.shipments.add(shipmentsItem);
     return this;
   }
@@ -1038,8 +1107,8 @@ public class ShopReceipt {
    * A list of shipment statements for this receipt.
    * @return shipments
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "A list of shipment statements for this receipt.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A list of shipment statements for this receipt.")
 
   public List<ShopReceiptShipment> getShipments() {
     return shipments;
@@ -1058,6 +1127,9 @@ public class ShopReceipt {
   }
 
   public ShopReceipt addTransactionsItem(ShopReceiptTransaction transactionsItem) {
+    if (this.transactions == null) {
+      this.transactions = new ArrayList<ShopReceiptTransaction>();
+    }
     this.transactions.add(transactionsItem);
     return this;
   }
@@ -1066,8 +1138,8 @@ public class ShopReceipt {
    * Array of transactions for the receipt.
    * @return transactions
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Array of transactions for the receipt.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Array of transactions for the receipt.")
 
   public List<ShopReceiptTransaction> getTransactions() {
     return transactions;
@@ -1076,6 +1148,37 @@ public class ShopReceipt {
 
   public void setTransactions(List<ShopReceiptTransaction> transactions) {
     this.transactions = transactions;
+  }
+
+
+  public ShopReceipt refunds(List<ShopRefund> refunds) {
+    
+    this.refunds = refunds;
+    return this;
+  }
+
+  public ShopReceipt addRefundsItem(ShopRefund refundsItem) {
+    if (this.refunds == null) {
+      this.refunds = new ArrayList<ShopRefund>();
+    }
+    this.refunds.add(refundsItem);
+    return this;
+  }
+
+   /**
+   * Refunds for a given receipt.
+   * @return refunds
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Refunds for a given receipt.")
+
+  public List<ShopRefund> getRefunds() {
+    return refunds;
+  }
+
+
+  public void setRefunds(List<ShopRefund> refunds) {
+    this.refunds = refunds;
   }
 
 
@@ -1111,7 +1214,9 @@ public class ShopReceipt {
         Objects.equals(this.isPaid, shopReceipt.isPaid) &&
         Objects.equals(this.isShipped, shopReceipt.isShipped) &&
         Objects.equals(this.createTimestamp, shopReceipt.createTimestamp) &&
+        Objects.equals(this.createdTimestamp, shopReceipt.createdTimestamp) &&
         Objects.equals(this.updateTimestamp, shopReceipt.updateTimestamp) &&
+        Objects.equals(this.updatedTimestamp, shopReceipt.updatedTimestamp) &&
         Objects.equals(this.isGift, shopReceipt.isGift) &&
         Objects.equals(this.giftMessage, shopReceipt.giftMessage) &&
         Objects.equals(this.grandtotal, shopReceipt.grandtotal) &&
@@ -1123,12 +1228,24 @@ public class ShopReceipt {
         Objects.equals(this.discountAmt, shopReceipt.discountAmt) &&
         Objects.equals(this.giftWrapPrice, shopReceipt.giftWrapPrice) &&
         Objects.equals(this.shipments, shopReceipt.shipments) &&
-        Objects.equals(this.transactions, shopReceipt.transactions);
+        Objects.equals(this.transactions, shopReceipt.transactions) &&
+        Objects.equals(this.refunds, shopReceipt.refunds);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(receiptId, receiptType, sellerUserId, sellerEmail, buyerUserId, buyerEmail, name, firstLine, secondLine, city, state, zip, status, formattedAddress, countryIso, paymentMethod, paymentEmail, messageFromSeller, messageFromBuyer, messageFromPayment, isPaid, isShipped, createTimestamp, updateTimestamp, isGift, giftMessage, grandtotal, subtotal, totalPrice, totalShippingCost, totalTaxCost, totalVatCost, discountAmt, giftWrapPrice, shipments, transactions);
+    return Objects.hash(receiptId, receiptType, sellerUserId, sellerEmail, buyerUserId, buyerEmail, name, firstLine, secondLine, city, state, zip, status, formattedAddress, countryIso, paymentMethod, paymentEmail, messageFromSeller, messageFromBuyer, messageFromPayment, isPaid, isShipped, createTimestamp, createdTimestamp, updateTimestamp, updatedTimestamp, isGift, giftMessage, grandtotal, subtotal, totalPrice, totalShippingCost, totalTaxCost, totalVatCost, discountAmt, giftWrapPrice, shipments, transactions, refunds);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -1158,7 +1275,9 @@ public class ShopReceipt {
     sb.append("    isPaid: ").append(toIndentedString(isPaid)).append("\n");
     sb.append("    isShipped: ").append(toIndentedString(isShipped)).append("\n");
     sb.append("    createTimestamp: ").append(toIndentedString(createTimestamp)).append("\n");
+    sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
     sb.append("    updateTimestamp: ").append(toIndentedString(updateTimestamp)).append("\n");
+    sb.append("    updatedTimestamp: ").append(toIndentedString(updatedTimestamp)).append("\n");
     sb.append("    isGift: ").append(toIndentedString(isGift)).append("\n");
     sb.append("    giftMessage: ").append(toIndentedString(giftMessage)).append("\n");
     sb.append("    grandtotal: ").append(toIndentedString(grandtotal)).append("\n");
@@ -1171,6 +1290,7 @@ public class ShopReceipt {
     sb.append("    giftWrapPrice: ").append(toIndentedString(giftWrapPrice)).append("\n");
     sb.append("    shipments: ").append(toIndentedString(shipments)).append("\n");
     sb.append("    transactions: ").append(toIndentedString(transactions)).append("\n");
+    sb.append("    refunds: ").append(toIndentedString(refunds)).append("\n");
     sb.append("}");
     return sb.toString();
   }

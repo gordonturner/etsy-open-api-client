@@ -8,8 +8,8 @@ Represents several ShopShippingProfiles.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**count** | **Long** |  | 
-**results** | [**List&lt;ShopShippingProfile&gt;**](ShopShippingProfile.md) |  | 
+**count** | **Long** |  |  [optional]
+**results** | [**List&lt;ShopShippingProfile&gt;**](ShopShippingProfile.md) |  |  [optional]
 
 
 

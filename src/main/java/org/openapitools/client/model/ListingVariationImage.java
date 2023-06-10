@@ -1,6 +1,6 @@
 /*
  * Etsy Open API v3
- * <div class=\"wt-text-body-01\"><p class=\"wt-pt-xs-2 wt-pb-xs-2\">Etsy's Open API provides a simple RESTful interface for various Etsy.com features. The API endpoints are meant to replace <a class=\"wt-text-link wt-p-xs-0\" href=\"https://www.etsy.com/developers/documentation\">Etsy's Open API v2</a>, which is scheduled to end service in 2022.</p><p class=\"wt-pb-xs-2\">All of the endpoints are callable and the majority of the API endpoints are now in a beta phase. This means we do not expect to make any breaking changes before our general release. A handful of endpoints are currently interface stubs (labeled “Feedback Only”) and returns a \"501 Not Implemented\" response code when called.</p><p class=\"wt-pb-xs-2\">If you'd like to report an issue or provide feedback on the API design, <a target=\"_blank\" class=\"wt-text-link wt-p-xs-0\" href=\"https://github.com/etsy/open-api/issues/new/choose\">please add an issue in Github</a>.</p></div>&copy; 2021-2022 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.
+ * <div class=\"wt-text-body-01\"><p class=\"wt-pt-xs-2 wt-pb-xs-2\">Etsy's Open API provides a simple RESTful interface for various Etsy.com features. The API endpoints are meant to replace Etsy's Open API v2, which is scheduled to end service in 2022.</p><p class=\"wt-pb-xs-2\">All of the endpoints are callable and the majority of the API endpoints are now in a beta phase. This means we do not expect to make any breaking changes before our general release. A handful of endpoints are currently interface stubs (labeled “Feedback Only”) and returns a \"501 Not Implemented\" response code when called.</p><p class=\"wt-pb-xs-2\">If you'd like to report an issue or provide feedback on the API design, <a target=\"_blank\" class=\"wt-text-link wt-p-xs-0\" href=\"https://github.com/etsy/open-api/discussions\">please add an issue in Github</a>.</p></div>&copy; 2021-2023 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: developers@etsy.com
@@ -23,12 +23,13 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
  * A representation of the associations of variations and images on a listing.
  */
 @ApiModel(description = "A representation of the associations of variations and images on a listing.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-07T10:51:54.559-04:00[America/Toronto]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-08T08:37:51.285-04:00[America/Toronto]")
 public class ListingVariationImage {
   public static final String SERIALIZED_NAME_PROPERTY_ID = "property_id";
   @SerializedName(SERIALIZED_NAME_PROPERTY_ID)
@@ -60,8 +61,8 @@ public class ListingVariationImage {
    * minimum: 1
    * @return propertyId
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The numeric ID of the Property.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The numeric ID of the Property.")
 
   public Long getPropertyId() {
     return propertyId;
@@ -84,8 +85,8 @@ public class ListingVariationImage {
    * minimum: 1
    * @return valueId
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The numeric ID of the Value.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The numeric ID of the Value.")
 
   public Long getValueId() {
     return valueId;
@@ -108,7 +109,7 @@ public class ListingVariationImage {
    * @return value
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The string value of the property.")
+  @ApiModelProperty(value = "The string value of the property.")
 
   public String getValue() {
     return value;
@@ -131,8 +132,8 @@ public class ListingVariationImage {
    * minimum: 1
    * @return imageId
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The numeric ID of the Image.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The numeric ID of the Image.")
 
   public Long getImageId() {
     return imageId;
@@ -159,9 +160,20 @@ public class ListingVariationImage {
         Objects.equals(this.imageId, listingVariationImage.imageId);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
     return Objects.hash(propertyId, valueId, value, imageId);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

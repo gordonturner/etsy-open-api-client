@@ -1,6 +1,6 @@
 /*
  * Etsy Open API v3
- * <div class=\"wt-text-body-01\"><p class=\"wt-pt-xs-2 wt-pb-xs-2\">Etsy's Open API provides a simple RESTful interface for various Etsy.com features. The API endpoints are meant to replace <a class=\"wt-text-link wt-p-xs-0\" href=\"https://www.etsy.com/developers/documentation\">Etsy's Open API v2</a>, which is scheduled to end service in 2022.</p><p class=\"wt-pb-xs-2\">All of the endpoints are callable and the majority of the API endpoints are now in a beta phase. This means we do not expect to make any breaking changes before our general release. A handful of endpoints are currently interface stubs (labeled “Feedback Only”) and returns a \"501 Not Implemented\" response code when called.</p><p class=\"wt-pb-xs-2\">If you'd like to report an issue or provide feedback on the API design, <a target=\"_blank\" class=\"wt-text-link wt-p-xs-0\" href=\"https://github.com/etsy/open-api/issues/new/choose\">please add an issue in Github</a>.</p></div>&copy; 2021-2022 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.
+ * <div class=\"wt-text-body-01\"><p class=\"wt-pt-xs-2 wt-pb-xs-2\">Etsy's Open API provides a simple RESTful interface for various Etsy.com features. The API endpoints are meant to replace Etsy's Open API v2, which is scheduled to end service in 2022.</p><p class=\"wt-pb-xs-2\">All of the endpoints are callable and the majority of the API endpoints are now in a beta phase. This means we do not expect to make any breaking changes before our general release. A handful of endpoints are currently interface stubs (labeled “Feedback Only”) and returns a \"501 Not Implemented\" response code when called.</p><p class=\"wt-pb-xs-2\">If you'd like to report an issue or provide feedback on the API design, <a target=\"_blank\" class=\"wt-text-link wt-p-xs-0\" href=\"https://github.com/etsy/open-api/discussions\">please add an issue in Github</a>.</p></div>&copy; 2021-2023 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: developers@etsy.com
@@ -25,12 +25,13 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
  * A shop created by an Etsy user.
  */
 @ApiModel(description = "A shop created by an Etsy user.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-07T10:51:54.559-04:00[America/Toronto]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-08T08:37:51.285-04:00[America/Toronto]")
 public class Shop {
   public static final String SERIALIZED_NAME_SHOP_ID = "shop_id";
   @SerializedName(SERIALIZED_NAME_SHOP_ID)
@@ -47,6 +48,10 @@ public class Shop {
   public static final String SERIALIZED_NAME_CREATE_DATE = "create_date";
   @SerializedName(SERIALIZED_NAME_CREATE_DATE)
   private Long createDate;
+
+  public static final String SERIALIZED_NAME_CREATED_TIMESTAMP = "created_timestamp";
+  @SerializedName(SERIALIZED_NAME_CREATED_TIMESTAMP)
+  private Long createdTimestamp;
 
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
@@ -79,6 +84,10 @@ public class Shop {
   public static final String SERIALIZED_NAME_UPDATE_DATE = "update_date";
   @SerializedName(SERIALIZED_NAME_UPDATE_DATE)
   private Long updateDate;
+
+  public static final String SERIALIZED_NAME_UPDATED_TIMESTAMP = "updated_timestamp";
+  @SerializedName(SERIALIZED_NAME_UPDATED_TIMESTAMP)
+  private Long updatedTimestamp;
 
   public static final String SERIALIZED_NAME_LISTING_ACTIVE_COUNT = "listing_active_count";
   @SerializedName(SERIALIZED_NAME_LISTING_ACTIVE_COUNT)
@@ -154,7 +163,7 @@ public class Shop {
 
   public static final String SERIALIZED_NAME_LANGUAGES = "languages";
   @SerializedName(SERIALIZED_NAME_LANGUAGES)
-  private List<String> languages = new ArrayList<String>();
+  private List<String> languages = null;
 
   public static final String SERIALIZED_NAME_ICON_URL_FULLXFULL = "icon_url_fullxfull";
   @SerializedName(SERIALIZED_NAME_ICON_URL_FULLXFULL)
@@ -226,8 +235,8 @@ public class Shop {
    * minimum: 1
    * @return shopId
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The unique positive non-zero numeric ID for an Etsy Shop.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The unique positive non-zero numeric ID for an Etsy Shop.")
 
   public Long getShopId() {
     return shopId;
@@ -250,8 +259,8 @@ public class Shop {
    * minimum: 1
    * @return userId
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The numeric user ID of the [user](/documentation/reference#tag/User) who owns this shop.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The numeric user ID of the [user](/documentation/reference#tag/User) who owns this shop.")
 
   public Long getUserId() {
     return userId;
@@ -273,8 +282,8 @@ public class Shop {
    * The shop&#39;s name string.
    * @return shopName
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The shop's name string.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The shop's name string.")
 
   public String getShopName() {
     return shopName;
@@ -297,8 +306,8 @@ public class Shop {
    * minimum: 0
    * @return createDate
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The date and time this shop was created, in epoch seconds.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The date and time this shop was created, in epoch seconds.")
 
   public Long getCreateDate() {
     return createDate;
@@ -307,6 +316,30 @@ public class Shop {
 
   public void setCreateDate(Long createDate) {
     this.createDate = createDate;
+  }
+
+
+  public Shop createdTimestamp(Long createdTimestamp) {
+    
+    this.createdTimestamp = createdTimestamp;
+    return this;
+  }
+
+   /**
+   * The date and time this shop was created, in epoch seconds.
+   * minimum: 0
+   * @return createdTimestamp
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The date and time this shop was created, in epoch seconds.")
+
+  public Long getCreatedTimestamp() {
+    return createdTimestamp;
+  }
+
+
+  public void setCreatedTimestamp(Long createdTimestamp) {
+    this.createdTimestamp = createdTimestamp;
   }
 
 
@@ -321,7 +354,7 @@ public class Shop {
    * @return title
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "A brief heading string for the shop\\'s main page.")
+  @ApiModelProperty(value = "A brief heading string for the shop\\'s main page.")
 
   public String getTitle() {
     return title;
@@ -344,7 +377,7 @@ public class Shop {
    * @return announcement
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "An announcement string to buyers that displays on the shop's homepage.")
+  @ApiModelProperty(value = "An announcement string to buyers that displays on the shop's homepage.")
 
   public String getAnnouncement() {
     return announcement;
@@ -366,8 +399,8 @@ public class Shop {
    * The ISO (alphabetic) code for the shop&#39;s currency. The shop displays all prices in this currency by default.
    * @return currencyCode
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The ISO (alphabetic) code for the shop's currency. The shop displays all prices in this currency by default.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The ISO (alphabetic) code for the shop's currency. The shop displays all prices in this currency by default.")
 
   public String getCurrencyCode() {
     return currencyCode;
@@ -389,8 +422,8 @@ public class Shop {
    * When true, this shop is not accepting purchases.
    * @return isVacation
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "When true, this shop is not accepting purchases.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "When true, this shop is not accepting purchases.")
 
   public Boolean getIsVacation() {
     return isVacation;
@@ -409,11 +442,11 @@ public class Shop {
   }
 
    /**
-   * The shop&#39;s message string displayed when is_vacation is true.
+   * The shop&#39;s message string displayed when &#x60;is_vacation&#x60; is true.
    * @return vacationMessage
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The shop's message string displayed when is_vacation is true.")
+  @ApiModelProperty(value = "The shop's message string displayed when `is_vacation` is true.")
 
   public String getVacationMessage() {
     return vacationMessage;
@@ -436,7 +469,7 @@ public class Shop {
    * @return saleMessage
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "A message string sent to users who complete a purchase from this shop.")
+  @ApiModelProperty(value = "A message string sent to users who complete a purchase from this shop.")
 
   public String getSaleMessage() {
     return saleMessage;
@@ -459,7 +492,7 @@ public class Shop {
    * @return digitalSaleMessage
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "A message string sent to users who purchase a digital item from this shop.")
+  @ApiModelProperty(value = "A message string sent to users who purchase a digital item from this shop.")
 
   public String getDigitalSaleMessage() {
     return digitalSaleMessage;
@@ -482,8 +515,8 @@ public class Shop {
    * minimum: 0
    * @return updateDate
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The date and time of the last update to the shop, in epoch seconds.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The date and time of the last update to the shop, in epoch seconds.")
 
   public Long getUpdateDate() {
     return updateDate;
@@ -492,6 +525,30 @@ public class Shop {
 
   public void setUpdateDate(Long updateDate) {
     this.updateDate = updateDate;
+  }
+
+
+  public Shop updatedTimestamp(Long updatedTimestamp) {
+    
+    this.updatedTimestamp = updatedTimestamp;
+    return this;
+  }
+
+   /**
+   * The date and time of the last update to the shop, in epoch seconds.
+   * minimum: 0
+   * @return updatedTimestamp
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The date and time of the last update to the shop, in epoch seconds.")
+
+  public Long getUpdatedTimestamp() {
+    return updatedTimestamp;
+  }
+
+
+  public void setUpdatedTimestamp(Long updatedTimestamp) {
+    this.updatedTimestamp = updatedTimestamp;
   }
 
 
@@ -506,8 +563,8 @@ public class Shop {
    * minimum: 0
    * @return listingActiveCount
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The number of active listings in the shop.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The number of active listings in the shop.")
 
   public Long getListingActiveCount() {
     return listingActiveCount;
@@ -530,8 +587,8 @@ public class Shop {
    * minimum: 0
    * @return digitalListingCount
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The number of digital listings in the shop.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The number of digital listings in the shop.")
 
   public Long getDigitalListingCount() {
     return digitalListingCount;
@@ -553,8 +610,8 @@ public class Shop {
    * The shop owner\\&#39;s login name string.
    * @return loginName
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The shop owner\\'s login name string.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The shop owner\\'s login name string.")
 
   public String getLoginName() {
     return loginName;
@@ -576,8 +633,8 @@ public class Shop {
    * When true, the shop accepts customization requests.
    * @return acceptsCustomRequests
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "When true, the shop accepts customization requests.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "When true, the shop accepts customization requests.")
 
   public Boolean getAcceptsCustomRequests() {
     return acceptsCustomRequests;
@@ -600,7 +657,7 @@ public class Shop {
    * @return policyWelcome
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The shop's policy welcome string (may be blank).")
+  @ApiModelProperty(value = "The shop's policy welcome string (may be blank).")
 
   public String getPolicyWelcome() {
     return policyWelcome;
@@ -623,7 +680,7 @@ public class Shop {
    * @return policyPayment
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The shop's payment policy string (may be blank).")
+  @ApiModelProperty(value = "The shop's payment policy string (may be blank).")
 
   public String getPolicyPayment() {
     return policyPayment;
@@ -646,7 +703,7 @@ public class Shop {
    * @return policyShipping
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The shop's shipping policy string (may be blank).")
+  @ApiModelProperty(value = "The shop's shipping policy string (may be blank).")
 
   public String getPolicyShipping() {
     return policyShipping;
@@ -669,7 +726,7 @@ public class Shop {
    * @return policyRefunds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The shop's refund policy string (may be blank).")
+  @ApiModelProperty(value = "The shop's refund policy string (may be blank).")
 
   public String getPolicyRefunds() {
     return policyRefunds;
@@ -692,7 +749,7 @@ public class Shop {
    * @return policyAdditional
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The shop's additional policies string (may be blank).")
+  @ApiModelProperty(value = "The shop's additional policies string (may be blank).")
 
   public String getPolicyAdditional() {
     return policyAdditional;
@@ -711,11 +768,11 @@ public class Shop {
   }
 
    /**
-   * The shop&#39;s seller infomation string (may be blank).
+   * The shop&#39;s seller information string (may be blank).
    * @return policySellerInfo
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The shop's seller infomation string (may be blank).")
+  @ApiModelProperty(value = "The shop's seller information string (may be blank).")
 
   public String getPolicySellerInfo() {
     return policySellerInfo;
@@ -738,8 +795,8 @@ public class Shop {
    * minimum: 0
    * @return policyUpdateDate
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The date and time of the last update to the shop's policies, in epoch seconds.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The date and time of the last update to the shop's policies, in epoch seconds.")
 
   public Long getPolicyUpdateDate() {
     return policyUpdateDate;
@@ -761,8 +818,8 @@ public class Shop {
    * When true, EU receipts display private info.
    * @return policyHasPrivateReceiptInfo
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "When true, EU receipts display private info.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "When true, EU receipts display private info.")
 
   public Boolean getPolicyHasPrivateReceiptInfo() {
     return policyHasPrivateReceiptInfo;
@@ -784,8 +841,8 @@ public class Shop {
    * When true, the shop displays additional unstructured policy fields.
    * @return hasUnstructuredPolicies
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "When true, the shop displays additional unstructured policy fields.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "When true, the shop displays additional unstructured policy fields.")
 
   public Boolean getHasUnstructuredPolicies() {
     return hasUnstructuredPolicies;
@@ -808,7 +865,7 @@ public class Shop {
    * @return policyPrivacy
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The shop's privacy policy string (may be blank).")
+  @ApiModelProperty(value = "The shop's privacy policy string (may be blank).")
 
   public String getPolicyPrivacy() {
     return policyPrivacy;
@@ -827,11 +884,11 @@ public class Shop {
   }
 
    /**
-   * The shop&#39;s automatic reply string displayed in new conversations when is_vacation is true.
+   * The shop&#39;s automatic reply string displayed in new conversations when &#x60;is_vacation&#x60; is true.
    * @return vacationAutoreply
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The shop's automatic reply string displayed in new conversations when is_vacation is true.")
+  @ApiModelProperty(value = "The shop's automatic reply string displayed in new conversations when `is_vacation` is true.")
 
   public String getVacationAutoreply() {
     return vacationAutoreply;
@@ -853,8 +910,8 @@ public class Shop {
    * The URL string for this shop.
    * @return url
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The URL string for this shop.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The URL string for this shop.")
 
   public String getUrl() {
     return url;
@@ -877,7 +934,7 @@ public class Shop {
    * @return imageUrl760x100
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The URL string for this shop's banner image.")
+  @ApiModelProperty(value = "The URL string for this shop's banner image.")
 
   public String getImageUrl760x100() {
     return imageUrl760x100;
@@ -900,8 +957,8 @@ public class Shop {
    * minimum: 0
    * @return numFavorers
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The number of users who marked this shop a favorite.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The number of users who marked this shop a favorite.")
 
   public Long getNumFavorers() {
     return numFavorers;
@@ -920,16 +977,19 @@ public class Shop {
   }
 
   public Shop addLanguagesItem(String languagesItem) {
+    if (this.languages == null) {
+      this.languages = new ArrayList<String>();
+    }
     this.languages.add(languagesItem);
     return this;
   }
 
    /**
-   * A list of language strings for the shop&#39;s enrolled languages.
+   * A list of language strings for the shop&#39;s enrolled languages where the default shop language is the first element in the array.
    * @return languages
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "A list of language strings for the shop's enrolled languages.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A list of language strings for the shop's enrolled languages where the default shop language is the first element in the array.")
 
   public List<String> getLanguages() {
     return languages;
@@ -952,7 +1012,7 @@ public class Shop {
    * @return iconUrlFullxfull
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The URL string for this shop's icon image.")
+  @ApiModelProperty(value = "The URL string for this shop's icon image.")
 
   public String getIconUrlFullxfull() {
     return iconUrlFullxfull;
@@ -974,8 +1034,8 @@ public class Shop {
    * When true, the shop accepted using structured policies.
    * @return isUsingStructuredPolicies
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "When true, the shop accepted using structured policies.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "When true, the shop accepted using structured policies.")
 
   public Boolean getIsUsingStructuredPolicies() {
     return isUsingStructuredPolicies;
@@ -997,8 +1057,8 @@ public class Shop {
    * When true, the shop accepted OR declined after viewing structured policies onboarding.
    * @return hasOnboardedStructuredPolicies
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "When true, the shop accepted OR declined after viewing structured policies onboarding.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "When true, the shop accepted OR declined after viewing structured policies onboarding.")
 
   public Boolean getHasOnboardedStructuredPolicies() {
     return hasOnboardedStructuredPolicies;
@@ -1020,8 +1080,8 @@ public class Shop {
    * When true, this shop\\&#39;s policies include a link to an EU online dispute form.
    * @return includeDisputeFormLink
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "When true, this shop\\'s policies include a link to an EU online dispute form.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "When true, this shop\\'s policies include a link to an EU online dispute form.")
 
   public Boolean getIncludeDisputeFormLink() {
     return includeDisputeFormLink;
@@ -1040,11 +1100,11 @@ public class Shop {
   }
 
    /**
-   * (**DEPRECATED: Replaced by _is_etsy_payments_onboarded._) When true, the shop has onboarded onto Etsy Payments.
+   * (**DEPRECATED: Replaced by _is_etsy_payments_onboarded_.) When true, the shop has onboarded onto Etsy Payments.
    * @return isDirectCheckoutOnboarded
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "(**DEPRECATED: Replaced by _is_etsy_payments_onboarded._) When true, the shop has onboarded onto Etsy Payments.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "(**DEPRECATED: Replaced by _is_etsy_payments_onboarded_.) When true, the shop has onboarded onto Etsy Payments.")
 
   public Boolean getIsDirectCheckoutOnboarded() {
     return isDirectCheckoutOnboarded;
@@ -1066,8 +1126,8 @@ public class Shop {
    * When true, the shop has onboarded onto Etsy Payments.
    * @return isEtsyPaymentsOnboarded
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "When true, the shop has onboarded onto Etsy Payments.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "When true, the shop has onboarded onto Etsy Payments.")
 
   public Boolean getIsEtsyPaymentsOnboarded() {
     return isEtsyPaymentsOnboarded;
@@ -1086,11 +1146,11 @@ public class Shop {
   }
 
    /**
-   * When true, the shop is elegible for calculated shipping profiles. (Only available in the US and Canada)
+   * When true, the shop is eligible for calculated shipping profiles. (Only available in the US and Canada)
    * @return isCalculatedEligible
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "When true, the shop is elegible for calculated shipping profiles. (Only available in the US and Canada)")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "When true, the shop is eligible for calculated shipping profiles. (Only available in the US and Canada)")
 
   public Boolean getIsCalculatedEligible() {
     return isCalculatedEligible;
@@ -1112,8 +1172,8 @@ public class Shop {
    * When true, the shop opted in to buyer promise.
    * @return isOptedInToBuyerPromise
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "When true, the shop opted in to buyer promise.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "When true, the shop opted in to buyer promise.")
 
   public Boolean getIsOptedInToBuyerPromise() {
     return isOptedInToBuyerPromise;
@@ -1135,8 +1195,8 @@ public class Shop {
    * When true, the shop is based in the US.
    * @return isShopUsBased
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "When true, the shop is based in the US.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "When true, the shop is based in the US.")
 
   public Boolean getIsShopUsBased() {
     return isShopUsBased;
@@ -1155,12 +1215,12 @@ public class Shop {
   }
 
    /**
-   * The total number of sales ([transactions](/documentation/reference#tag/Shop-Receipt-Transactions)) for this shop
+   * The total number of sales ([transactions](/documentation/reference#tag/Shop-Receipt-Transactions)) for this shop.
    * minimum: 0
    * @return transactionSoldCount
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The total number of sales ([transactions](/documentation/reference#tag/Shop-Receipt-Transactions)) for this shop")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The total number of sales ([transactions](/documentation/reference#tag/Shop-Receipt-Transactions)) for this shop.")
 
   public Long getTransactionSoldCount() {
     return transactionSoldCount;
@@ -1183,7 +1243,7 @@ public class Shop {
    * @return shippingFromCountryIso
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The country iso the shop is shipping from.")
+  @ApiModelProperty(value = "The country iso the shop is shipping from.")
 
   public String getShippingFromCountryIso() {
     return shippingFromCountryIso;
@@ -1206,7 +1266,7 @@ public class Shop {
    * @return shopLocationCountryIso
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The country iso where the shop is located.")
+  @ApiModelProperty(value = "The country iso where the shop is located.")
 
   public String getShopLocationCountryIso() {
     return shopLocationCountryIso;
@@ -1229,7 +1289,7 @@ public class Shop {
    * @return reviewCount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "Number of reviews of shop listings in the past year.")
+  @ApiModelProperty(value = "Number of reviews of shop listings in the past year.")
 
   public Long getReviewCount() {
     return reviewCount;
@@ -1252,7 +1312,7 @@ public class Shop {
    * @return reviewAverage
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "Average rating based on reviews of shop listings in the past year.")
+  @ApiModelProperty(value = "Average rating based on reviews of shop listings in the past year.")
 
   public Float getReviewAverage() {
     return reviewAverage;
@@ -1277,6 +1337,7 @@ public class Shop {
         Objects.equals(this.userId, shop.userId) &&
         Objects.equals(this.shopName, shop.shopName) &&
         Objects.equals(this.createDate, shop.createDate) &&
+        Objects.equals(this.createdTimestamp, shop.createdTimestamp) &&
         Objects.equals(this.title, shop.title) &&
         Objects.equals(this.announcement, shop.announcement) &&
         Objects.equals(this.currencyCode, shop.currencyCode) &&
@@ -1285,6 +1346,7 @@ public class Shop {
         Objects.equals(this.saleMessage, shop.saleMessage) &&
         Objects.equals(this.digitalSaleMessage, shop.digitalSaleMessage) &&
         Objects.equals(this.updateDate, shop.updateDate) &&
+        Objects.equals(this.updatedTimestamp, shop.updatedTimestamp) &&
         Objects.equals(this.listingActiveCount, shop.listingActiveCount) &&
         Objects.equals(this.digitalListingCount, shop.digitalListingCount) &&
         Objects.equals(this.loginName, shop.loginName) &&
@@ -1320,9 +1382,20 @@ public class Shop {
         Objects.equals(this.reviewAverage, shop.reviewAverage);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
-    return Objects.hash(shopId, userId, shopName, createDate, title, announcement, currencyCode, isVacation, vacationMessage, saleMessage, digitalSaleMessage, updateDate, listingActiveCount, digitalListingCount, loginName, acceptsCustomRequests, policyWelcome, policyPayment, policyShipping, policyRefunds, policyAdditional, policySellerInfo, policyUpdateDate, policyHasPrivateReceiptInfo, hasUnstructuredPolicies, policyPrivacy, vacationAutoreply, url, imageUrl760x100, numFavorers, languages, iconUrlFullxfull, isUsingStructuredPolicies, hasOnboardedStructuredPolicies, includeDisputeFormLink, isDirectCheckoutOnboarded, isEtsyPaymentsOnboarded, isCalculatedEligible, isOptedInToBuyerPromise, isShopUsBased, transactionSoldCount, shippingFromCountryIso, shopLocationCountryIso, reviewCount, reviewAverage);
+    return Objects.hash(shopId, userId, shopName, createDate, createdTimestamp, title, announcement, currencyCode, isVacation, vacationMessage, saleMessage, digitalSaleMessage, updateDate, updatedTimestamp, listingActiveCount, digitalListingCount, loginName, acceptsCustomRequests, policyWelcome, policyPayment, policyShipping, policyRefunds, policyAdditional, policySellerInfo, policyUpdateDate, policyHasPrivateReceiptInfo, hasUnstructuredPolicies, policyPrivacy, vacationAutoreply, url, imageUrl760x100, numFavorers, languages, iconUrlFullxfull, isUsingStructuredPolicies, hasOnboardedStructuredPolicies, includeDisputeFormLink, isDirectCheckoutOnboarded, isEtsyPaymentsOnboarded, isCalculatedEligible, isOptedInToBuyerPromise, isShopUsBased, transactionSoldCount, shippingFromCountryIso, shopLocationCountryIso, reviewCount, reviewAverage);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -1333,6 +1406,7 @@ public class Shop {
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("    shopName: ").append(toIndentedString(shopName)).append("\n");
     sb.append("    createDate: ").append(toIndentedString(createDate)).append("\n");
+    sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    announcement: ").append(toIndentedString(announcement)).append("\n");
     sb.append("    currencyCode: ").append(toIndentedString(currencyCode)).append("\n");
@@ -1341,6 +1415,7 @@ public class Shop {
     sb.append("    saleMessage: ").append(toIndentedString(saleMessage)).append("\n");
     sb.append("    digitalSaleMessage: ").append(toIndentedString(digitalSaleMessage)).append("\n");
     sb.append("    updateDate: ").append(toIndentedString(updateDate)).append("\n");
+    sb.append("    updatedTimestamp: ").append(toIndentedString(updatedTimestamp)).append("\n");
     sb.append("    listingActiveCount: ").append(toIndentedString(listingActiveCount)).append("\n");
     sb.append("    digitalListingCount: ").append(toIndentedString(digitalListingCount)).append("\n");
     sb.append("    loginName: ").append(toIndentedString(loginName)).append("\n");

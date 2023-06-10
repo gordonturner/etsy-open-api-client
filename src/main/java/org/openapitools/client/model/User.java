@@ -1,6 +1,6 @@
 /*
  * Etsy Open API v3
- * <div class=\"wt-text-body-01\"><p class=\"wt-pt-xs-2 wt-pb-xs-2\">Etsy's Open API provides a simple RESTful interface for various Etsy.com features. The API endpoints are meant to replace <a class=\"wt-text-link wt-p-xs-0\" href=\"https://www.etsy.com/developers/documentation\">Etsy's Open API v2</a>, which is scheduled to end service in 2022.</p><p class=\"wt-pb-xs-2\">All of the endpoints are callable and the majority of the API endpoints are now in a beta phase. This means we do not expect to make any breaking changes before our general release. A handful of endpoints are currently interface stubs (labeled “Feedback Only”) and returns a \"501 Not Implemented\" response code when called.</p><p class=\"wt-pb-xs-2\">If you'd like to report an issue or provide feedback on the API design, <a target=\"_blank\" class=\"wt-text-link wt-p-xs-0\" href=\"https://github.com/etsy/open-api/issues/new/choose\">please add an issue in Github</a>.</p></div>&copy; 2021-2022 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.
+ * <div class=\"wt-text-body-01\"><p class=\"wt-pt-xs-2 wt-pb-xs-2\">Etsy's Open API provides a simple RESTful interface for various Etsy.com features. The API endpoints are meant to replace Etsy's Open API v2, which is scheduled to end service in 2022.</p><p class=\"wt-pb-xs-2\">All of the endpoints are callable and the majority of the API endpoints are now in a beta phase. This means we do not expect to make any breaking changes before our general release. A handful of endpoints are currently interface stubs (labeled “Feedback Only”) and returns a \"501 Not Implemented\" response code when called.</p><p class=\"wt-pb-xs-2\">If you'd like to report an issue or provide feedback on the API design, <a target=\"_blank\" class=\"wt-text-link wt-p-xs-0\" href=\"https://github.com/etsy/open-api/discussions\">please add an issue in Github</a>.</p></div>&copy; 2021-2023 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: developers@etsy.com
@@ -23,20 +23,17 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
  * Represents a single user of the site
  */
 @ApiModel(description = "Represents a single user of the site")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-07T10:51:54.559-04:00[America/Toronto]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-08T08:37:51.285-04:00[America/Toronto]")
 public class User {
   public static final String SERIALIZED_NAME_USER_ID = "user_id";
   @SerializedName(SERIALIZED_NAME_USER_ID)
   private Long userId;
-
-  public static final String SERIALIZED_NAME_LOGIN_NAME = "login_name";
-  @SerializedName(SERIALIZED_NAME_LOGIN_NAME)
-  private String loginName;
 
   public static final String SERIALIZED_NAME_PRIMARY_EMAIL = "primary_email";
   @SerializedName(SERIALIZED_NAME_PRIMARY_EMAIL)
@@ -50,45 +47,9 @@ public class User {
   @SerializedName(SERIALIZED_NAME_LAST_NAME)
   private String lastName;
 
-  public static final String SERIALIZED_NAME_CREATE_TIMESTAMP = "create_timestamp";
-  @SerializedName(SERIALIZED_NAME_CREATE_TIMESTAMP)
-  private Long createTimestamp;
-
-  public static final String SERIALIZED_NAME_REFERRED_BY_USER_ID = "referred_by_user_id";
-  @SerializedName(SERIALIZED_NAME_REFERRED_BY_USER_ID)
-  private Long referredByUserId;
-
-  public static final String SERIALIZED_NAME_USE_NEW_INVENTORY_ENDPOINTS = "use_new_inventory_endpoints";
-  @SerializedName(SERIALIZED_NAME_USE_NEW_INVENTORY_ENDPOINTS)
-  private Boolean useNewInventoryEndpoints;
-
-  public static final String SERIALIZED_NAME_IS_SELLER = "is_seller";
-  @SerializedName(SERIALIZED_NAME_IS_SELLER)
-  private Boolean isSeller;
-
-  public static final String SERIALIZED_NAME_BIO = "bio";
-  @SerializedName(SERIALIZED_NAME_BIO)
-  private String bio;
-
-  public static final String SERIALIZED_NAME_GENDER = "gender";
-  @SerializedName(SERIALIZED_NAME_GENDER)
-  private String gender;
-
-  public static final String SERIALIZED_NAME_BIRTH_MONTH = "birth_month";
-  @SerializedName(SERIALIZED_NAME_BIRTH_MONTH)
-  private String birthMonth;
-
-  public static final String SERIALIZED_NAME_BIRTH_DAY = "birth_day";
-  @SerializedName(SERIALIZED_NAME_BIRTH_DAY)
-  private String birthDay;
-
-  public static final String SERIALIZED_NAME_TRANSACTION_BUY_COUNT = "transaction_buy_count";
-  @SerializedName(SERIALIZED_NAME_TRANSACTION_BUY_COUNT)
-  private Long transactionBuyCount;
-
-  public static final String SERIALIZED_NAME_TRANSACTION_SOLD_COUNT = "transaction_sold_count";
-  @SerializedName(SERIALIZED_NAME_TRANSACTION_SOLD_COUNT)
-  private Long transactionSoldCount;
+  public static final String SERIALIZED_NAME_IMAGE_URL75X75 = "image_url_75x75";
+  @SerializedName(SERIALIZED_NAME_IMAGE_URL75X75)
+  private String imageUrl75x75;
 
   public User() { 
   }
@@ -104,8 +65,8 @@ public class User {
    * minimum: 1
    * @return userId
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The numeric ID of a user. This number is also a valid shop ID for the user\\'s shop.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The numeric ID of a user. This number is also a valid shop ID for the user\\'s shop.")
 
   public Long getUserId() {
     return userId;
@@ -114,29 +75,6 @@ public class User {
 
   public void setUserId(Long userId) {
     this.userId = userId;
-  }
-
-
-  public User loginName(String loginName) {
-    
-    this.loginName = loginName;
-    return this;
-  }
-
-   /**
-   * The user\\&#39;s login name string.
-   * @return loginName
-  **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The user\\'s login name string.")
-
-  public String getLoginName() {
-    return loginName;
-  }
-
-
-  public void setLoginName(String loginName) {
-    this.loginName = loginName;
   }
 
 
@@ -151,7 +89,7 @@ public class User {
    * @return primaryEmail
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "An email address string for the user\\'s primary email address.")
+  @ApiModelProperty(value = "An email address string for the user\\'s primary email address.")
 
   public String getPrimaryEmail() {
     return primaryEmail;
@@ -174,7 +112,7 @@ public class User {
    * @return firstName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The user\\'s first name.")
+  @ApiModelProperty(value = "The user\\'s first name.")
 
   public String getFirstName() {
     return firstName;
@@ -197,7 +135,7 @@ public class User {
    * @return lastName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The user\\'s last name.")
+  @ApiModelProperty(value = "The user\\'s last name.")
 
   public String getLastName() {
     return lastName;
@@ -209,237 +147,26 @@ public class User {
   }
 
 
-  public User createTimestamp(Long createTimestamp) {
+  public User imageUrl75x75(String imageUrl75x75) {
     
-    this.createTimestamp = createTimestamp;
+    this.imageUrl75x75 = imageUrl75x75;
     return this;
   }
 
    /**
-   * The date and time the user created their account, in epoch seconds.
-   * minimum: 946684800
-   * @return createTimestamp
-  **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The date and time the user created their account, in epoch seconds.")
-
-  public Long getCreateTimestamp() {
-    return createTimestamp;
-  }
-
-
-  public void setCreateTimestamp(Long createTimestamp) {
-    this.createTimestamp = createTimestamp;
-  }
-
-
-  public User referredByUserId(Long referredByUserId) {
-    
-    this.referredByUserId = referredByUserId;
-    return this;
-  }
-
-   /**
-   * The numeric ID of the user who referred this user.
-   * minimum: 1
-   * @return referredByUserId
+   * The user\\&#39;s avatar URL.
+   * @return imageUrl75x75
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The numeric ID of the user who referred this user.")
+  @ApiModelProperty(value = "The user\\'s avatar URL.")
 
-  public Long getReferredByUserId() {
-    return referredByUserId;
+  public String getImageUrl75x75() {
+    return imageUrl75x75;
   }
 
 
-  public void setReferredByUserId(Long referredByUserId) {
-    this.referredByUserId = referredByUserId;
-  }
-
-
-  public User useNewInventoryEndpoints(Boolean useNewInventoryEndpoints) {
-    
-    this.useNewInventoryEndpoints = useNewInventoryEndpoints;
-    return this;
-  }
-
-   /**
-   * Deprecated. Always true.
-   * @return useNewInventoryEndpoints
-  **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Deprecated. Always true.")
-
-  public Boolean getUseNewInventoryEndpoints() {
-    return useNewInventoryEndpoints;
-  }
-
-
-  public void setUseNewInventoryEndpoints(Boolean useNewInventoryEndpoints) {
-    this.useNewInventoryEndpoints = useNewInventoryEndpoints;
-  }
-
-
-  public User isSeller(Boolean isSeller) {
-    
-    this.isSeller = isSeller;
-    return this;
-  }
-
-   /**
-   * True if the user is seller.
-   * @return isSeller
-  **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "True if the user is seller.")
-
-  public Boolean getIsSeller() {
-    return isSeller;
-  }
-
-
-  public void setIsSeller(Boolean isSeller) {
-    this.isSeller = isSeller;
-  }
-
-
-  public User bio(String bio) {
-    
-    this.bio = bio;
-    return this;
-  }
-
-   /**
-   * The user\\&#39;s biography.
-   * @return bio
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The user\\'s biography.")
-
-  public String getBio() {
-    return bio;
-  }
-
-
-  public void setBio(String bio) {
-    this.bio = bio;
-  }
-
-
-  public User gender(String gender) {
-    
-    this.gender = gender;
-    return this;
-  }
-
-   /**
-   * The user\\&#39;s gender.
-   * @return gender
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The user\\'s gender.")
-
-  public String getGender() {
-    return gender;
-  }
-
-
-  public void setGender(String gender) {
-    this.gender = gender;
-  }
-
-
-  public User birthMonth(String birthMonth) {
-    
-    this.birthMonth = birthMonth;
-    return this;
-  }
-
-   /**
-   * The user\\&#39;s month of birth.
-   * @return birthMonth
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The user\\'s month of birth.")
-
-  public String getBirthMonth() {
-    return birthMonth;
-  }
-
-
-  public void setBirthMonth(String birthMonth) {
-    this.birthMonth = birthMonth;
-  }
-
-
-  public User birthDay(String birthDay) {
-    
-    this.birthDay = birthDay;
-    return this;
-  }
-
-   /**
-   * The user\\&#39;s day of birth.
-   * @return birthDay
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The user\\'s day of birth.")
-
-  public String getBirthDay() {
-    return birthDay;
-  }
-
-
-  public void setBirthDay(String birthDay) {
-    this.birthDay = birthDay;
-  }
-
-
-  public User transactionBuyCount(Long transactionBuyCount) {
-    
-    this.transactionBuyCount = transactionBuyCount;
-    return this;
-  }
-
-   /**
-   * The number of transactions where the user has bought.
-   * minimum: 0
-   * @return transactionBuyCount
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The number of transactions where the user has bought.")
-
-  public Long getTransactionBuyCount() {
-    return transactionBuyCount;
-  }
-
-
-  public void setTransactionBuyCount(Long transactionBuyCount) {
-    this.transactionBuyCount = transactionBuyCount;
-  }
-
-
-  public User transactionSoldCount(Long transactionSoldCount) {
-    
-    this.transactionSoldCount = transactionSoldCount;
-    return this;
-  }
-
-   /**
-   * The number of transactions where the user has sold.
-   * minimum: 0
-   * @return transactionSoldCount
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The number of transactions where the user has sold.")
-
-  public Long getTransactionSoldCount() {
-    return transactionSoldCount;
-  }
-
-
-  public void setTransactionSoldCount(Long transactionSoldCount) {
-    this.transactionSoldCount = transactionSoldCount;
+  public void setImageUrl75x75(String imageUrl75x75) {
+    this.imageUrl75x75 = imageUrl75x75;
   }
 
 
@@ -453,25 +180,26 @@ public class User {
     }
     User user = (User) o;
     return Objects.equals(this.userId, user.userId) &&
-        Objects.equals(this.loginName, user.loginName) &&
         Objects.equals(this.primaryEmail, user.primaryEmail) &&
         Objects.equals(this.firstName, user.firstName) &&
         Objects.equals(this.lastName, user.lastName) &&
-        Objects.equals(this.createTimestamp, user.createTimestamp) &&
-        Objects.equals(this.referredByUserId, user.referredByUserId) &&
-        Objects.equals(this.useNewInventoryEndpoints, user.useNewInventoryEndpoints) &&
-        Objects.equals(this.isSeller, user.isSeller) &&
-        Objects.equals(this.bio, user.bio) &&
-        Objects.equals(this.gender, user.gender) &&
-        Objects.equals(this.birthMonth, user.birthMonth) &&
-        Objects.equals(this.birthDay, user.birthDay) &&
-        Objects.equals(this.transactionBuyCount, user.transactionBuyCount) &&
-        Objects.equals(this.transactionSoldCount, user.transactionSoldCount);
+        Objects.equals(this.imageUrl75x75, user.imageUrl75x75);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(userId, loginName, primaryEmail, firstName, lastName, createTimestamp, referredByUserId, useNewInventoryEndpoints, isSeller, bio, gender, birthMonth, birthDay, transactionBuyCount, transactionSoldCount);
+    return Objects.hash(userId, primaryEmail, firstName, lastName, imageUrl75x75);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -479,20 +207,10 @@ public class User {
     StringBuilder sb = new StringBuilder();
     sb.append("class User {\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
-    sb.append("    loginName: ").append(toIndentedString(loginName)).append("\n");
     sb.append("    primaryEmail: ").append(toIndentedString(primaryEmail)).append("\n");
     sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
     sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
-    sb.append("    createTimestamp: ").append(toIndentedString(createTimestamp)).append("\n");
-    sb.append("    referredByUserId: ").append(toIndentedString(referredByUserId)).append("\n");
-    sb.append("    useNewInventoryEndpoints: ").append(toIndentedString(useNewInventoryEndpoints)).append("\n");
-    sb.append("    isSeller: ").append(toIndentedString(isSeller)).append("\n");
-    sb.append("    bio: ").append(toIndentedString(bio)).append("\n");
-    sb.append("    gender: ").append(toIndentedString(gender)).append("\n");
-    sb.append("    birthMonth: ").append(toIndentedString(birthMonth)).append("\n");
-    sb.append("    birthDay: ").append(toIndentedString(birthDay)).append("\n");
-    sb.append("    transactionBuyCount: ").append(toIndentedString(transactionBuyCount)).append("\n");
-    sb.append("    transactionSoldCount: ").append(toIndentedString(transactionSoldCount)).append("\n");
+    sb.append("    imageUrl75x75: ").append(toIndentedString(imageUrl75x75)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -10,11 +10,11 @@ Method | HTTP request | Description
 
 <a name="getReviewsByListing"></a>
 # **getReviewsByListing**
-> ListingReviews getReviewsByListing(listingId, limit, offset)
+> ListingReviews getReviewsByListing(listingId, limit, offset, minCreated, maxCreated)
 
 
 
-&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Open API V3 to retrieve the reviews for a listing given its ID.
+&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/discussions\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Open API V3 to retrieve the reviews for a listing given its ID.
 
 ### Example
 ```java
@@ -41,8 +41,10 @@ public class Example {
     Long listingId = 56L; // Long | The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
     Long limit = 25L; // Long | The maximum number of results to return.
     Long offset = 0L; // Long | The number of records to skip before selecting the first result.
+    Long minCreated = 56L; // Long | The earliest unix timestamp for when a record was created.
+    Long maxCreated = 56L; // Long | The latest unix timestamp for when a record was created.
     try {
-      ListingReviews result = apiInstance.getReviewsByListing(listingId, limit, offset);
+      ListingReviews result = apiInstance.getReviewsByListing(listingId, limit, offset, minCreated, maxCreated);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ReviewApi#getReviewsByListing");
@@ -62,6 +64,8 @@ Name | Type | Description  | Notes
  **listingId** | **Long**| The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. |
  **limit** | **Long**| The maximum number of results to return. | [optional] [default to 25]
  **offset** | **Long**| The number of records to skip before selecting the first result. | [optional] [default to 0]
+ **minCreated** | **Long**| The earliest unix timestamp for when a record was created. | [optional]
+ **maxCreated** | **Long**| The latest unix timestamp for when a record was created. | [optional]
 
 ### Return type
 
@@ -86,11 +90,11 @@ Name | Type | Description  | Notes
 
 <a name="getReviewsByShop"></a>
 # **getReviewsByShop**
-> TransactionReviews getReviewsByShop(shopId, limit, offset)
+> TransactionReviews getReviewsByShop(shopId, limit, offset, minCreated, maxCreated)
 
 
 
-&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Open API V3 to retrieve the reviews from a shop given its ID.
+&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/discussions\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Open API V3 to retrieve the reviews from a shop given its ID.
 
 ### Example
 ```java
@@ -117,8 +121,10 @@ public class Example {
     Long shopId = 56L; // Long | The unique positive non-zero numeric ID for an Etsy Shop.
     Long limit = 25L; // Long | The maximum number of results to return.
     Long offset = 0L; // Long | The number of records to skip before selecting the first result.
+    Long minCreated = 56L; // Long | The earliest unix timestamp for when a record was created.
+    Long maxCreated = 56L; // Long | The latest unix timestamp for when a record was created.
     try {
-      TransactionReviews result = apiInstance.getReviewsByShop(shopId, limit, offset);
+      TransactionReviews result = apiInstance.getReviewsByShop(shopId, limit, offset, minCreated, maxCreated);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ReviewApi#getReviewsByShop");
@@ -138,6 +144,8 @@ Name | Type | Description  | Notes
  **shopId** | **Long**| The unique positive non-zero numeric ID for an Etsy Shop. |
  **limit** | **Long**| The maximum number of results to return. | [optional] [default to 25]
  **offset** | **Long**| The number of records to skip before selecting the first result. | [optional] [default to 0]
+ **minCreated** | **Long**| The earliest unix timestamp for when a record was created. | [optional]
+ **maxCreated** | **Long**| The latest unix timestamp for when a record was created. | [optional]
 
 ### Return type
 

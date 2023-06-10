@@ -8,8 +8,8 @@ Represents several ShopListingFiles.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**count** | **Long** | The number of ShopListingFiles being returned.. | 
-**results** | [**List&lt;ShopListingFile&gt;**](ShopListingFile.md) | An array of ShopListingFile resources. | 
+**count** | **Long** | The number of ShopListingFiles being returned.. |  [optional]
+**results** | [**List&lt;ShopListingFile&gt;**](ShopListingFile.md) | An array of ShopListingFile resources. |  [optional]
 
 
 

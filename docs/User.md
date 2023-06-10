@@ -8,21 +8,11 @@ Represents a single user of the site
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**userId** | **Long** | The numeric ID of a user. This number is also a valid shop ID for the user\\&#39;s shop. | 
-**loginName** | **String** | The user\\&#39;s login name string. | 
-**primaryEmail** | **String** | An email address string for the user\\&#39;s primary email address. | 
-**firstName** | **String** | The user\\&#39;s first name. | 
-**lastName** | **String** | The user\\&#39;s last name. | 
-**createTimestamp** | **Long** | The date and time the user created their account, in epoch seconds. | 
-**referredByUserId** | **Long** | The numeric ID of the user who referred this user. | 
-**useNewInventoryEndpoints** | **Boolean** | Deprecated. Always true. | 
-**isSeller** | **Boolean** | True if the user is seller. | 
-**bio** | **String** | The user\\&#39;s biography. | 
-**gender** | **String** | The user\\&#39;s gender. | 
-**birthMonth** | **String** | The user\\&#39;s month of birth. | 
-**birthDay** | **String** | The user\\&#39;s day of birth. | 
-**transactionBuyCount** | **Long** | The number of transactions where the user has bought. | 
-**transactionSoldCount** | **Long** | The number of transactions where the user has sold. | 
+**userId** | **Long** | The numeric ID of a user. This number is also a valid shop ID for the user\\&#39;s shop. |  [optional]
+**primaryEmail** | **String** | An email address string for the user\\&#39;s primary email address. |  [optional]
+**firstName** | **String** | The user\\&#39;s first name. |  [optional]
+**lastName** | **String** | The user\\&#39;s last name. |  [optional]
+**imageUrl75x75** | **String** | The user\\&#39;s avatar URL. |  [optional]
 
 
 

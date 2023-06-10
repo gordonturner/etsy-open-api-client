@@ -1,6 +1,6 @@
 /*
  * Etsy Open API v3
- * <div class=\"wt-text-body-01\"><p class=\"wt-pt-xs-2 wt-pb-xs-2\">Etsy's Open API provides a simple RESTful interface for various Etsy.com features. The API endpoints are meant to replace <a class=\"wt-text-link wt-p-xs-0\" href=\"https://www.etsy.com/developers/documentation\">Etsy's Open API v2</a>, which is scheduled to end service in 2022.</p><p class=\"wt-pb-xs-2\">All of the endpoints are callable and the majority of the API endpoints are now in a beta phase. This means we do not expect to make any breaking changes before our general release. A handful of endpoints are currently interface stubs (labeled “Feedback Only”) and returns a \"501 Not Implemented\" response code when called.</p><p class=\"wt-pb-xs-2\">If you'd like to report an issue or provide feedback on the API design, <a target=\"_blank\" class=\"wt-text-link wt-p-xs-0\" href=\"https://github.com/etsy/open-api/issues/new/choose\">please add an issue in Github</a>.</p></div>&copy; 2021-2022 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.
+ * <div class=\"wt-text-body-01\"><p class=\"wt-pt-xs-2 wt-pb-xs-2\">Etsy's Open API provides a simple RESTful interface for various Etsy.com features. The API endpoints are meant to replace Etsy's Open API v2, which is scheduled to end service in 2022.</p><p class=\"wt-pb-xs-2\">All of the endpoints are callable and the majority of the API endpoints are now in a beta phase. This means we do not expect to make any breaking changes before our general release. A handful of endpoints are currently interface stubs (labeled “Feedback Only”) and returns a \"501 Not Implemented\" response code when called.</p><p class=\"wt-pb-xs-2\">If you'd like to report an issue or provide feedback on the API design, <a target=\"_blank\" class=\"wt-text-link wt-p-xs-0\" href=\"https://github.com/etsy/open-api/discussions\">please add an issue in Github</a>.</p></div>&copy; 2021-2023 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: developers@etsy.com
@@ -82,19 +82,20 @@ public class ShopListingApi {
      * Build call for createDraftListing
      * @param shopId The unique positive non-zero numeric ID for an Etsy Shop. (required)
      * @param quantity The positive non-zero number of products available for purchase in the listing. Note: The listing quantity is the sum of available offering quantities. You can request the quantities for individual offerings from the ListingInventory resource using the [getListingInventory](/documentation/reference#operation/getListingInventory) endpoint. (required)
-     * @param title The listing&#39;s title string. Valid title strings contain only letters, numbers, punctuation marks, mathematical symbols, whitespace characters, ™, ©, and ®. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{P}\\\\p{Sm}\\\\p{Zs}™©®]/u) You can only use the %, :, &amp; and + characters once each. (required)
+     * @param title The listing&#39;s title string. When creating or updating a listing, valid title strings contain only letters, numbers, punctuation marks, mathematical symbols, whitespace characters, ™, ©, and ®. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{P}\\\\p{Sm}\\\\p{Zs}™©®]/u) You can only use the %, :, &amp; and + characters once each. (required)
      * @param description A description string of the product for sale in the listing. (required)
      * @param price The positive non-zero price of the product. (Sold product listings are private) Note: The price is the minimum possible price. The [&#x60;getListingInventory&#x60;](/documentation/reference/#operation/getListingInventory) method requests exact prices for available offerings. (required)
-     * @param whoMade An enumerated string inidcated who made the product. Helps buyers locate the listing under the Handmade heading. Requires &#39;is_supply&#39; and &#39;when_made&#39;. (required)
+     * @param whoMade An enumerated string indicating who made the product. Helps buyers locate the listing under the Handmade heading. Requires &#39;is_supply&#39; and &#39;when_made&#39;. (required)
      * @param whenMade An enumerated string for the era in which the maker made the product in this listing. Helps buyers locate the listing under the Vintage heading. Requires &#39;is_supply&#39; and &#39;who_made&#39;. (required)
-     * @param taxonomyId The numeric taxonomy ID of the listing. See [SellerTaxonomy](/documentation/reference#tag/SellerTaxonomy) and [BuyerTaxonomy](/documentation/reference#tag/BuyerTaxonomy) for more information. (required)
-     * @param shippingProfileId The numeric ID of the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing. Required when listing type&#x3D;physical. (optional)
+     * @param taxonomyId The numerical taxonomy ID of the listing. See [SellerTaxonomy](/documentation/reference#tag/SellerTaxonomy) and [BuyerTaxonomy](/documentation/reference#tag/BuyerTaxonomy) for more information. (required)
+     * @param shippingProfileId The numeric ID of the [shipping profile](/documentation/reference#operation/getShopShippingProfile) associated with the listing. Required when listing type is &#x60;physical&#x60;. (optional)
+     * @param returnPolicyId The numeric ID of the [Return Policy](/documentation/reference#operation/getShopReturnPolicies). (optional)
      * @param materials A list of material strings for materials used in the product. Valid materials strings contain only letters, numbers, and whitespace characters. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{Zs}]/u) Default value is null. (optional)
      * @param shopSectionId The numeric ID of the [shop section](/documentation/reference#tag/Shop-Section) for this listing. Default value is null. (optional)
      * @param processingMin The minimum number of days required to process this listing. Default value is null. (optional)
      * @param processingMax The maximum number of days required to process this listing. Default value is null. (optional)
-     * @param tags A comma-separated list of tag strings for the listing. Valid tag strings contain only letters, numbers, whitespace characters, -, &#39;, ™, ©, and ®. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{Zs}\\\\-&#39;™©®]/u) Default value is null. (optional)
-     * @param styles An array of style strings for this listing, each of which is free-form text string such as \\\&quot;Formal\\\&quot;, or \\\&quot;Steampunk\\\&quot;. A Listing may have up to two styles. Valid style strings contain only letters, numbers, and whitespace characters. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{Zs}]/u) Default value is null. (optional)
+     * @param tags A comma-separated list of tag strings for the listing. When creating or updating a listing, valid tag strings contain only letters, numbers, whitespace characters, -, &#39;, ™, ©, and ®. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{Zs}\\\\-&#39;™©®]/u) Default value is null. (optional)
+     * @param styles An array of style strings for this listing, each of which is free-form text string such as \\\&quot;Formal\\\&quot;, or \\\&quot;Steampunk\\\&quot;. When creating or updating a listing, the listing may have up to two styles. Valid style strings contain only letters, numbers, and whitespace characters. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{Zs}]/u) Default value is null. (optional)
      * @param itemWeight The numeric weight of the product measured in units set in &#39;item_weight_unit&#39;. Default value is null. If set, the value must be greater than 0. (optional)
      * @param itemLength The numeric length of the product measured in units set in &#39;item_dimensions_unit&#39;. Default value is null. If set, the value must be greater than 0. (optional)
      * @param itemWidth The numeric width of the product measured in units set in &#39;item_dimensions_unit&#39;. Default value is null. If set, the value must be greater than 0. (optional)
@@ -103,13 +104,13 @@ public class ShopListingApi {
      * @param itemDimensionsUnit A string defining the units used to measure the dimensions of the product. Default value is null. (optional)
      * @param isPersonalizable When true, this listing is personalizable. The default value is null. (optional)
      * @param personalizationIsRequired When true, this listing requires personalization. The default value is null. Will only change if is_personalizable is &#39;true&#39;. (optional)
-     * @param personalizationCharCountMax This an integer value representing the maximum length for the personalization message entered by the buyer. Will only change if is_personalizable is &#39;true&#39;. (optional)
+     * @param personalizationCharCountMax This is an integer value representing the maximum length for the personalization message entered by the buyer. Will only change if is_personalizable is &#39;true&#39;. (optional)
      * @param personalizationInstructions A string representing instructions for the buyer to enter the personalization. Will only change if is_personalizable is &#39;true&#39;. (optional)
      * @param productionPartnerIds An array of unique IDs of production partner ids. (optional)
      * @param imageIds An array of numeric image IDs of the images in a listing, which can include up to 10 images. (optional)
      * @param isSupply When true, tags the listing as a supply product, else indicates that it&#39;s a finished product. Helps buyers locate the listing under the Supplies heading. Requires &#39;who_made&#39; and &#39;when_made&#39;. (optional)
      * @param isCustomizable When true, a buyer may contact the seller for a customized order. The default value is true when a shop accepts custom orders. Does not apply to shops that do not accept custom orders. (optional)
-     * @param shouldAutoRenew When true, renews a listing for four months upon expriation. If set to true when previously false, etsy.com renews the listing before it expires, but the renewal period starts immidiately rather than extending the listing&#39;s expiration date. Any unused time remaining on the listing is lost. Renewals result in charges to a user&#39;s bill. (optional)
+     * @param shouldAutoRenew When true, renews a listing for four months upon expiration. (optional)
      * @param isTaxable When true, applicable [shop](/documentation/reference#tag/Shop) tax rates apply to this listing at checkout. (optional)
      * @param type An enumerated type string that indicates whether the listing is physical or a digital download. (optional)
      * @param _callback Callback for upload/download progress
@@ -126,7 +127,7 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createDraftListingCall(Long shopId, Long quantity, String title, String description, Float price, String whoMade, String whenMade, Long taxonomyId, Long shippingProfileId, List<String> materials, Long shopSectionId, Long processingMin, Long processingMax, List<String> tags, List<String> styles, Float itemWeight, Float itemLength, Float itemWidth, Float itemHeight, String itemWeightUnit, String itemDimensionsUnit, Boolean isPersonalizable, Boolean personalizationIsRequired, Long personalizationCharCountMax, String personalizationInstructions, List<Long> productionPartnerIds, List<Long> imageIds, Boolean isSupply, Boolean isCustomizable, Boolean shouldAutoRenew, Boolean isTaxable, String type, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createDraftListingCall(Long shopId, Long quantity, String title, String description, Float price, String whoMade, String whenMade, Long taxonomyId, Long shippingProfileId, Long returnPolicyId, List<String> materials, Long shopSectionId, Long processingMin, Long processingMax, List<String> tags, List<String> styles, Float itemWeight, Float itemLength, Float itemWidth, Float itemHeight, String itemWeightUnit, String itemDimensionsUnit, Boolean isPersonalizable, Boolean personalizationIsRequired, Long personalizationCharCountMax, String personalizationInstructions, List<Long> productionPartnerIds, List<Long> imageIds, Boolean isSupply, Boolean isCustomizable, Boolean shouldAutoRenew, Boolean isTaxable, String type, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -183,6 +184,10 @@ public class ShopListingApi {
 
         if (shippingProfileId != null) {
             localVarFormParams.put("shipping_profile_id", shippingProfileId);
+        }
+
+        if (returnPolicyId != null) {
+            localVarFormParams.put("return_policy_id", returnPolicyId);
         }
 
         if (materials != null) {
@@ -298,7 +303,7 @@ public class ShopListingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createDraftListingValidateBeforeCall(Long shopId, Long quantity, String title, String description, Float price, String whoMade, String whenMade, Long taxonomyId, Long shippingProfileId, List<String> materials, Long shopSectionId, Long processingMin, Long processingMax, List<String> tags, List<String> styles, Float itemWeight, Float itemLength, Float itemWidth, Float itemHeight, String itemWeightUnit, String itemDimensionsUnit, Boolean isPersonalizable, Boolean personalizationIsRequired, Long personalizationCharCountMax, String personalizationInstructions, List<Long> productionPartnerIds, List<Long> imageIds, Boolean isSupply, Boolean isCustomizable, Boolean shouldAutoRenew, Boolean isTaxable, String type, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createDraftListingValidateBeforeCall(Long shopId, Long quantity, String title, String description, Float price, String whoMade, String whenMade, Long taxonomyId, Long shippingProfileId, Long returnPolicyId, List<String> materials, Long shopSectionId, Long processingMin, Long processingMax, List<String> tags, List<String> styles, Float itemWeight, Float itemLength, Float itemWidth, Float itemHeight, String itemWeightUnit, String itemDimensionsUnit, Boolean isPersonalizable, Boolean personalizationIsRequired, Long personalizationCharCountMax, String personalizationInstructions, List<Long> productionPartnerIds, List<Long> imageIds, Boolean isSupply, Boolean isCustomizable, Boolean shouldAutoRenew, Boolean isTaxable, String type, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'shopId' is set
         if (shopId == null) {
@@ -341,29 +346,30 @@ public class ShopListingApi {
         }
         
 
-        okhttp3.Call localVarCall = createDraftListingCall(shopId, quantity, title, description, price, whoMade, whenMade, taxonomyId, shippingProfileId, materials, shopSectionId, processingMin, processingMax, tags, styles, itemWeight, itemLength, itemWidth, itemHeight, itemWeightUnit, itemDimensionsUnit, isPersonalizable, personalizationIsRequired, personalizationCharCountMax, personalizationInstructions, productionPartnerIds, imageIds, isSupply, isCustomizable, shouldAutoRenew, isTaxable, type, _callback);
+        okhttp3.Call localVarCall = createDraftListingCall(shopId, quantity, title, description, price, whoMade, whenMade, taxonomyId, shippingProfileId, returnPolicyId, materials, shopSectionId, processingMin, processingMax, tags, styles, itemWeight, itemLength, itemWidth, itemHeight, itemWeightUnit, itemDimensionsUnit, isPersonalizable, personalizationIsRequired, personalizationCharCountMax, personalizationInstructions, productionPartnerIds, imageIds, isSupply, isCustomizable, shouldAutoRenew, isTaxable, type, _callback);
         return localVarCall;
 
     }
 
     /**
      * 
-     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Creates a physical draft [listing](/documentation/reference#tag/ShopListing) product in a shop on the Etsy channel.
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/discussions\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Creates a physical draft [listing](/documentation/reference#tag/ShopListing) product in a shop on the Etsy channel.
      * @param shopId The unique positive non-zero numeric ID for an Etsy Shop. (required)
      * @param quantity The positive non-zero number of products available for purchase in the listing. Note: The listing quantity is the sum of available offering quantities. You can request the quantities for individual offerings from the ListingInventory resource using the [getListingInventory](/documentation/reference#operation/getListingInventory) endpoint. (required)
-     * @param title The listing&#39;s title string. Valid title strings contain only letters, numbers, punctuation marks, mathematical symbols, whitespace characters, ™, ©, and ®. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{P}\\\\p{Sm}\\\\p{Zs}™©®]/u) You can only use the %, :, &amp; and + characters once each. (required)
+     * @param title The listing&#39;s title string. When creating or updating a listing, valid title strings contain only letters, numbers, punctuation marks, mathematical symbols, whitespace characters, ™, ©, and ®. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{P}\\\\p{Sm}\\\\p{Zs}™©®]/u) You can only use the %, :, &amp; and + characters once each. (required)
      * @param description A description string of the product for sale in the listing. (required)
      * @param price The positive non-zero price of the product. (Sold product listings are private) Note: The price is the minimum possible price. The [&#x60;getListingInventory&#x60;](/documentation/reference/#operation/getListingInventory) method requests exact prices for available offerings. (required)
-     * @param whoMade An enumerated string inidcated who made the product. Helps buyers locate the listing under the Handmade heading. Requires &#39;is_supply&#39; and &#39;when_made&#39;. (required)
+     * @param whoMade An enumerated string indicating who made the product. Helps buyers locate the listing under the Handmade heading. Requires &#39;is_supply&#39; and &#39;when_made&#39;. (required)
      * @param whenMade An enumerated string for the era in which the maker made the product in this listing. Helps buyers locate the listing under the Vintage heading. Requires &#39;is_supply&#39; and &#39;who_made&#39;. (required)
-     * @param taxonomyId The numeric taxonomy ID of the listing. See [SellerTaxonomy](/documentation/reference#tag/SellerTaxonomy) and [BuyerTaxonomy](/documentation/reference#tag/BuyerTaxonomy) for more information. (required)
-     * @param shippingProfileId The numeric ID of the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing. Required when listing type&#x3D;physical. (optional)
+     * @param taxonomyId The numerical taxonomy ID of the listing. See [SellerTaxonomy](/documentation/reference#tag/SellerTaxonomy) and [BuyerTaxonomy](/documentation/reference#tag/BuyerTaxonomy) for more information. (required)
+     * @param shippingProfileId The numeric ID of the [shipping profile](/documentation/reference#operation/getShopShippingProfile) associated with the listing. Required when listing type is &#x60;physical&#x60;. (optional)
+     * @param returnPolicyId The numeric ID of the [Return Policy](/documentation/reference#operation/getShopReturnPolicies). (optional)
      * @param materials A list of material strings for materials used in the product. Valid materials strings contain only letters, numbers, and whitespace characters. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{Zs}]/u) Default value is null. (optional)
      * @param shopSectionId The numeric ID of the [shop section](/documentation/reference#tag/Shop-Section) for this listing. Default value is null. (optional)
      * @param processingMin The minimum number of days required to process this listing. Default value is null. (optional)
      * @param processingMax The maximum number of days required to process this listing. Default value is null. (optional)
-     * @param tags A comma-separated list of tag strings for the listing. Valid tag strings contain only letters, numbers, whitespace characters, -, &#39;, ™, ©, and ®. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{Zs}\\\\-&#39;™©®]/u) Default value is null. (optional)
-     * @param styles An array of style strings for this listing, each of which is free-form text string such as \\\&quot;Formal\\\&quot;, or \\\&quot;Steampunk\\\&quot;. A Listing may have up to two styles. Valid style strings contain only letters, numbers, and whitespace characters. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{Zs}]/u) Default value is null. (optional)
+     * @param tags A comma-separated list of tag strings for the listing. When creating or updating a listing, valid tag strings contain only letters, numbers, whitespace characters, -, &#39;, ™, ©, and ®. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{Zs}\\\\-&#39;™©®]/u) Default value is null. (optional)
+     * @param styles An array of style strings for this listing, each of which is free-form text string such as \\\&quot;Formal\\\&quot;, or \\\&quot;Steampunk\\\&quot;. When creating or updating a listing, the listing may have up to two styles. Valid style strings contain only letters, numbers, and whitespace characters. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{Zs}]/u) Default value is null. (optional)
      * @param itemWeight The numeric weight of the product measured in units set in &#39;item_weight_unit&#39;. Default value is null. If set, the value must be greater than 0. (optional)
      * @param itemLength The numeric length of the product measured in units set in &#39;item_dimensions_unit&#39;. Default value is null. If set, the value must be greater than 0. (optional)
      * @param itemWidth The numeric width of the product measured in units set in &#39;item_dimensions_unit&#39;. Default value is null. If set, the value must be greater than 0. (optional)
@@ -372,13 +378,13 @@ public class ShopListingApi {
      * @param itemDimensionsUnit A string defining the units used to measure the dimensions of the product. Default value is null. (optional)
      * @param isPersonalizable When true, this listing is personalizable. The default value is null. (optional)
      * @param personalizationIsRequired When true, this listing requires personalization. The default value is null. Will only change if is_personalizable is &#39;true&#39;. (optional)
-     * @param personalizationCharCountMax This an integer value representing the maximum length for the personalization message entered by the buyer. Will only change if is_personalizable is &#39;true&#39;. (optional)
+     * @param personalizationCharCountMax This is an integer value representing the maximum length for the personalization message entered by the buyer. Will only change if is_personalizable is &#39;true&#39;. (optional)
      * @param personalizationInstructions A string representing instructions for the buyer to enter the personalization. Will only change if is_personalizable is &#39;true&#39;. (optional)
      * @param productionPartnerIds An array of unique IDs of production partner ids. (optional)
      * @param imageIds An array of numeric image IDs of the images in a listing, which can include up to 10 images. (optional)
      * @param isSupply When true, tags the listing as a supply product, else indicates that it&#39;s a finished product. Helps buyers locate the listing under the Supplies heading. Requires &#39;who_made&#39; and &#39;when_made&#39;. (optional)
      * @param isCustomizable When true, a buyer may contact the seller for a customized order. The default value is true when a shop accepts custom orders. Does not apply to shops that do not accept custom orders. (optional)
-     * @param shouldAutoRenew When true, renews a listing for four months upon expriation. If set to true when previously false, etsy.com renews the listing before it expires, but the renewal period starts immidiately rather than extending the listing&#39;s expiration date. Any unused time remaining on the listing is lost. Renewals result in charges to a user&#39;s bill. (optional)
+     * @param shouldAutoRenew When true, renews a listing for four months upon expiration. (optional)
      * @param isTaxable When true, applicable [shop](/documentation/reference#tag/Shop) tax rates apply to this listing at checkout. (optional)
      * @param type An enumerated type string that indicates whether the listing is physical or a digital download. (optional)
      * @return ShopListing
@@ -394,29 +400,30 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ShopListing createDraftListing(Long shopId, Long quantity, String title, String description, Float price, String whoMade, String whenMade, Long taxonomyId, Long shippingProfileId, List<String> materials, Long shopSectionId, Long processingMin, Long processingMax, List<String> tags, List<String> styles, Float itemWeight, Float itemLength, Float itemWidth, Float itemHeight, String itemWeightUnit, String itemDimensionsUnit, Boolean isPersonalizable, Boolean personalizationIsRequired, Long personalizationCharCountMax, String personalizationInstructions, List<Long> productionPartnerIds, List<Long> imageIds, Boolean isSupply, Boolean isCustomizable, Boolean shouldAutoRenew, Boolean isTaxable, String type) throws ApiException {
-        ApiResponse<ShopListing> localVarResp = createDraftListingWithHttpInfo(shopId, quantity, title, description, price, whoMade, whenMade, taxonomyId, shippingProfileId, materials, shopSectionId, processingMin, processingMax, tags, styles, itemWeight, itemLength, itemWidth, itemHeight, itemWeightUnit, itemDimensionsUnit, isPersonalizable, personalizationIsRequired, personalizationCharCountMax, personalizationInstructions, productionPartnerIds, imageIds, isSupply, isCustomizable, shouldAutoRenew, isTaxable, type);
+    public ShopListing createDraftListing(Long shopId, Long quantity, String title, String description, Float price, String whoMade, String whenMade, Long taxonomyId, Long shippingProfileId, Long returnPolicyId, List<String> materials, Long shopSectionId, Long processingMin, Long processingMax, List<String> tags, List<String> styles, Float itemWeight, Float itemLength, Float itemWidth, Float itemHeight, String itemWeightUnit, String itemDimensionsUnit, Boolean isPersonalizable, Boolean personalizationIsRequired, Long personalizationCharCountMax, String personalizationInstructions, List<Long> productionPartnerIds, List<Long> imageIds, Boolean isSupply, Boolean isCustomizable, Boolean shouldAutoRenew, Boolean isTaxable, String type) throws ApiException {
+        ApiResponse<ShopListing> localVarResp = createDraftListingWithHttpInfo(shopId, quantity, title, description, price, whoMade, whenMade, taxonomyId, shippingProfileId, returnPolicyId, materials, shopSectionId, processingMin, processingMax, tags, styles, itemWeight, itemLength, itemWidth, itemHeight, itemWeightUnit, itemDimensionsUnit, isPersonalizable, personalizationIsRequired, personalizationCharCountMax, personalizationInstructions, productionPartnerIds, imageIds, isSupply, isCustomizable, shouldAutoRenew, isTaxable, type);
         return localVarResp.getData();
     }
 
     /**
      * 
-     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Creates a physical draft [listing](/documentation/reference#tag/ShopListing) product in a shop on the Etsy channel.
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/discussions\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Creates a physical draft [listing](/documentation/reference#tag/ShopListing) product in a shop on the Etsy channel.
      * @param shopId The unique positive non-zero numeric ID for an Etsy Shop. (required)
      * @param quantity The positive non-zero number of products available for purchase in the listing. Note: The listing quantity is the sum of available offering quantities. You can request the quantities for individual offerings from the ListingInventory resource using the [getListingInventory](/documentation/reference#operation/getListingInventory) endpoint. (required)
-     * @param title The listing&#39;s title string. Valid title strings contain only letters, numbers, punctuation marks, mathematical symbols, whitespace characters, ™, ©, and ®. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{P}\\\\p{Sm}\\\\p{Zs}™©®]/u) You can only use the %, :, &amp; and + characters once each. (required)
+     * @param title The listing&#39;s title string. When creating or updating a listing, valid title strings contain only letters, numbers, punctuation marks, mathematical symbols, whitespace characters, ™, ©, and ®. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{P}\\\\p{Sm}\\\\p{Zs}™©®]/u) You can only use the %, :, &amp; and + characters once each. (required)
      * @param description A description string of the product for sale in the listing. (required)
      * @param price The positive non-zero price of the product. (Sold product listings are private) Note: The price is the minimum possible price. The [&#x60;getListingInventory&#x60;](/documentation/reference/#operation/getListingInventory) method requests exact prices for available offerings. (required)
-     * @param whoMade An enumerated string inidcated who made the product. Helps buyers locate the listing under the Handmade heading. Requires &#39;is_supply&#39; and &#39;when_made&#39;. (required)
+     * @param whoMade An enumerated string indicating who made the product. Helps buyers locate the listing under the Handmade heading. Requires &#39;is_supply&#39; and &#39;when_made&#39;. (required)
      * @param whenMade An enumerated string for the era in which the maker made the product in this listing. Helps buyers locate the listing under the Vintage heading. Requires &#39;is_supply&#39; and &#39;who_made&#39;. (required)
-     * @param taxonomyId The numeric taxonomy ID of the listing. See [SellerTaxonomy](/documentation/reference#tag/SellerTaxonomy) and [BuyerTaxonomy](/documentation/reference#tag/BuyerTaxonomy) for more information. (required)
-     * @param shippingProfileId The numeric ID of the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing. Required when listing type&#x3D;physical. (optional)
+     * @param taxonomyId The numerical taxonomy ID of the listing. See [SellerTaxonomy](/documentation/reference#tag/SellerTaxonomy) and [BuyerTaxonomy](/documentation/reference#tag/BuyerTaxonomy) for more information. (required)
+     * @param shippingProfileId The numeric ID of the [shipping profile](/documentation/reference#operation/getShopShippingProfile) associated with the listing. Required when listing type is &#x60;physical&#x60;. (optional)
+     * @param returnPolicyId The numeric ID of the [Return Policy](/documentation/reference#operation/getShopReturnPolicies). (optional)
      * @param materials A list of material strings for materials used in the product. Valid materials strings contain only letters, numbers, and whitespace characters. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{Zs}]/u) Default value is null. (optional)
      * @param shopSectionId The numeric ID of the [shop section](/documentation/reference#tag/Shop-Section) for this listing. Default value is null. (optional)
      * @param processingMin The minimum number of days required to process this listing. Default value is null. (optional)
      * @param processingMax The maximum number of days required to process this listing. Default value is null. (optional)
-     * @param tags A comma-separated list of tag strings for the listing. Valid tag strings contain only letters, numbers, whitespace characters, -, &#39;, ™, ©, and ®. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{Zs}\\\\-&#39;™©®]/u) Default value is null. (optional)
-     * @param styles An array of style strings for this listing, each of which is free-form text string such as \\\&quot;Formal\\\&quot;, or \\\&quot;Steampunk\\\&quot;. A Listing may have up to two styles. Valid style strings contain only letters, numbers, and whitespace characters. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{Zs}]/u) Default value is null. (optional)
+     * @param tags A comma-separated list of tag strings for the listing. When creating or updating a listing, valid tag strings contain only letters, numbers, whitespace characters, -, &#39;, ™, ©, and ®. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{Zs}\\\\-&#39;™©®]/u) Default value is null. (optional)
+     * @param styles An array of style strings for this listing, each of which is free-form text string such as \\\&quot;Formal\\\&quot;, or \\\&quot;Steampunk\\\&quot;. When creating or updating a listing, the listing may have up to two styles. Valid style strings contain only letters, numbers, and whitespace characters. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{Zs}]/u) Default value is null. (optional)
      * @param itemWeight The numeric weight of the product measured in units set in &#39;item_weight_unit&#39;. Default value is null. If set, the value must be greater than 0. (optional)
      * @param itemLength The numeric length of the product measured in units set in &#39;item_dimensions_unit&#39;. Default value is null. If set, the value must be greater than 0. (optional)
      * @param itemWidth The numeric width of the product measured in units set in &#39;item_dimensions_unit&#39;. Default value is null. If set, the value must be greater than 0. (optional)
@@ -425,13 +432,13 @@ public class ShopListingApi {
      * @param itemDimensionsUnit A string defining the units used to measure the dimensions of the product. Default value is null. (optional)
      * @param isPersonalizable When true, this listing is personalizable. The default value is null. (optional)
      * @param personalizationIsRequired When true, this listing requires personalization. The default value is null. Will only change if is_personalizable is &#39;true&#39;. (optional)
-     * @param personalizationCharCountMax This an integer value representing the maximum length for the personalization message entered by the buyer. Will only change if is_personalizable is &#39;true&#39;. (optional)
+     * @param personalizationCharCountMax This is an integer value representing the maximum length for the personalization message entered by the buyer. Will only change if is_personalizable is &#39;true&#39;. (optional)
      * @param personalizationInstructions A string representing instructions for the buyer to enter the personalization. Will only change if is_personalizable is &#39;true&#39;. (optional)
      * @param productionPartnerIds An array of unique IDs of production partner ids. (optional)
      * @param imageIds An array of numeric image IDs of the images in a listing, which can include up to 10 images. (optional)
      * @param isSupply When true, tags the listing as a supply product, else indicates that it&#39;s a finished product. Helps buyers locate the listing under the Supplies heading. Requires &#39;who_made&#39; and &#39;when_made&#39;. (optional)
      * @param isCustomizable When true, a buyer may contact the seller for a customized order. The default value is true when a shop accepts custom orders. Does not apply to shops that do not accept custom orders. (optional)
-     * @param shouldAutoRenew When true, renews a listing for four months upon expriation. If set to true when previously false, etsy.com renews the listing before it expires, but the renewal period starts immidiately rather than extending the listing&#39;s expiration date. Any unused time remaining on the listing is lost. Renewals result in charges to a user&#39;s bill. (optional)
+     * @param shouldAutoRenew When true, renews a listing for four months upon expiration. (optional)
      * @param isTaxable When true, applicable [shop](/documentation/reference#tag/Shop) tax rates apply to this listing at checkout. (optional)
      * @param type An enumerated type string that indicates whether the listing is physical or a digital download. (optional)
      * @return ApiResponse&lt;ShopListing&gt;
@@ -447,30 +454,31 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ShopListing> createDraftListingWithHttpInfo(Long shopId, Long quantity, String title, String description, Float price, String whoMade, String whenMade, Long taxonomyId, Long shippingProfileId, List<String> materials, Long shopSectionId, Long processingMin, Long processingMax, List<String> tags, List<String> styles, Float itemWeight, Float itemLength, Float itemWidth, Float itemHeight, String itemWeightUnit, String itemDimensionsUnit, Boolean isPersonalizable, Boolean personalizationIsRequired, Long personalizationCharCountMax, String personalizationInstructions, List<Long> productionPartnerIds, List<Long> imageIds, Boolean isSupply, Boolean isCustomizable, Boolean shouldAutoRenew, Boolean isTaxable, String type) throws ApiException {
-        okhttp3.Call localVarCall = createDraftListingValidateBeforeCall(shopId, quantity, title, description, price, whoMade, whenMade, taxonomyId, shippingProfileId, materials, shopSectionId, processingMin, processingMax, tags, styles, itemWeight, itemLength, itemWidth, itemHeight, itemWeightUnit, itemDimensionsUnit, isPersonalizable, personalizationIsRequired, personalizationCharCountMax, personalizationInstructions, productionPartnerIds, imageIds, isSupply, isCustomizable, shouldAutoRenew, isTaxable, type, null);
+    public ApiResponse<ShopListing> createDraftListingWithHttpInfo(Long shopId, Long quantity, String title, String description, Float price, String whoMade, String whenMade, Long taxonomyId, Long shippingProfileId, Long returnPolicyId, List<String> materials, Long shopSectionId, Long processingMin, Long processingMax, List<String> tags, List<String> styles, Float itemWeight, Float itemLength, Float itemWidth, Float itemHeight, String itemWeightUnit, String itemDimensionsUnit, Boolean isPersonalizable, Boolean personalizationIsRequired, Long personalizationCharCountMax, String personalizationInstructions, List<Long> productionPartnerIds, List<Long> imageIds, Boolean isSupply, Boolean isCustomizable, Boolean shouldAutoRenew, Boolean isTaxable, String type) throws ApiException {
+        okhttp3.Call localVarCall = createDraftListingValidateBeforeCall(shopId, quantity, title, description, price, whoMade, whenMade, taxonomyId, shippingProfileId, returnPolicyId, materials, shopSectionId, processingMin, processingMax, tags, styles, itemWeight, itemLength, itemWidth, itemHeight, itemWeightUnit, itemDimensionsUnit, isPersonalizable, personalizationIsRequired, personalizationCharCountMax, personalizationInstructions, productionPartnerIds, imageIds, isSupply, isCustomizable, shouldAutoRenew, isTaxable, type, null);
         Type localVarReturnType = new TypeToken<ShopListing>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      *  (asynchronously)
-     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Creates a physical draft [listing](/documentation/reference#tag/ShopListing) product in a shop on the Etsy channel.
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/discussions\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Creates a physical draft [listing](/documentation/reference#tag/ShopListing) product in a shop on the Etsy channel.
      * @param shopId The unique positive non-zero numeric ID for an Etsy Shop. (required)
      * @param quantity The positive non-zero number of products available for purchase in the listing. Note: The listing quantity is the sum of available offering quantities. You can request the quantities for individual offerings from the ListingInventory resource using the [getListingInventory](/documentation/reference#operation/getListingInventory) endpoint. (required)
-     * @param title The listing&#39;s title string. Valid title strings contain only letters, numbers, punctuation marks, mathematical symbols, whitespace characters, ™, ©, and ®. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{P}\\\\p{Sm}\\\\p{Zs}™©®]/u) You can only use the %, :, &amp; and + characters once each. (required)
+     * @param title The listing&#39;s title string. When creating or updating a listing, valid title strings contain only letters, numbers, punctuation marks, mathematical symbols, whitespace characters, ™, ©, and ®. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{P}\\\\p{Sm}\\\\p{Zs}™©®]/u) You can only use the %, :, &amp; and + characters once each. (required)
      * @param description A description string of the product for sale in the listing. (required)
      * @param price The positive non-zero price of the product. (Sold product listings are private) Note: The price is the minimum possible price. The [&#x60;getListingInventory&#x60;](/documentation/reference/#operation/getListingInventory) method requests exact prices for available offerings. (required)
-     * @param whoMade An enumerated string inidcated who made the product. Helps buyers locate the listing under the Handmade heading. Requires &#39;is_supply&#39; and &#39;when_made&#39;. (required)
+     * @param whoMade An enumerated string indicating who made the product. Helps buyers locate the listing under the Handmade heading. Requires &#39;is_supply&#39; and &#39;when_made&#39;. (required)
      * @param whenMade An enumerated string for the era in which the maker made the product in this listing. Helps buyers locate the listing under the Vintage heading. Requires &#39;is_supply&#39; and &#39;who_made&#39;. (required)
-     * @param taxonomyId The numeric taxonomy ID of the listing. See [SellerTaxonomy](/documentation/reference#tag/SellerTaxonomy) and [BuyerTaxonomy](/documentation/reference#tag/BuyerTaxonomy) for more information. (required)
-     * @param shippingProfileId The numeric ID of the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing. Required when listing type&#x3D;physical. (optional)
+     * @param taxonomyId The numerical taxonomy ID of the listing. See [SellerTaxonomy](/documentation/reference#tag/SellerTaxonomy) and [BuyerTaxonomy](/documentation/reference#tag/BuyerTaxonomy) for more information. (required)
+     * @param shippingProfileId The numeric ID of the [shipping profile](/documentation/reference#operation/getShopShippingProfile) associated with the listing. Required when listing type is &#x60;physical&#x60;. (optional)
+     * @param returnPolicyId The numeric ID of the [Return Policy](/documentation/reference#operation/getShopReturnPolicies). (optional)
      * @param materials A list of material strings for materials used in the product. Valid materials strings contain only letters, numbers, and whitespace characters. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{Zs}]/u) Default value is null. (optional)
      * @param shopSectionId The numeric ID of the [shop section](/documentation/reference#tag/Shop-Section) for this listing. Default value is null. (optional)
      * @param processingMin The minimum number of days required to process this listing. Default value is null. (optional)
      * @param processingMax The maximum number of days required to process this listing. Default value is null. (optional)
-     * @param tags A comma-separated list of tag strings for the listing. Valid tag strings contain only letters, numbers, whitespace characters, -, &#39;, ™, ©, and ®. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{Zs}\\\\-&#39;™©®]/u) Default value is null. (optional)
-     * @param styles An array of style strings for this listing, each of which is free-form text string such as \\\&quot;Formal\\\&quot;, or \\\&quot;Steampunk\\\&quot;. A Listing may have up to two styles. Valid style strings contain only letters, numbers, and whitespace characters. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{Zs}]/u) Default value is null. (optional)
+     * @param tags A comma-separated list of tag strings for the listing. When creating or updating a listing, valid tag strings contain only letters, numbers, whitespace characters, -, &#39;, ™, ©, and ®. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{Zs}\\\\-&#39;™©®]/u) Default value is null. (optional)
+     * @param styles An array of style strings for this listing, each of which is free-form text string such as \\\&quot;Formal\\\&quot;, or \\\&quot;Steampunk\\\&quot;. When creating or updating a listing, the listing may have up to two styles. Valid style strings contain only letters, numbers, and whitespace characters. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{Zs}]/u) Default value is null. (optional)
      * @param itemWeight The numeric weight of the product measured in units set in &#39;item_weight_unit&#39;. Default value is null. If set, the value must be greater than 0. (optional)
      * @param itemLength The numeric length of the product measured in units set in &#39;item_dimensions_unit&#39;. Default value is null. If set, the value must be greater than 0. (optional)
      * @param itemWidth The numeric width of the product measured in units set in &#39;item_dimensions_unit&#39;. Default value is null. If set, the value must be greater than 0. (optional)
@@ -479,13 +487,13 @@ public class ShopListingApi {
      * @param itemDimensionsUnit A string defining the units used to measure the dimensions of the product. Default value is null. (optional)
      * @param isPersonalizable When true, this listing is personalizable. The default value is null. (optional)
      * @param personalizationIsRequired When true, this listing requires personalization. The default value is null. Will only change if is_personalizable is &#39;true&#39;. (optional)
-     * @param personalizationCharCountMax This an integer value representing the maximum length for the personalization message entered by the buyer. Will only change if is_personalizable is &#39;true&#39;. (optional)
+     * @param personalizationCharCountMax This is an integer value representing the maximum length for the personalization message entered by the buyer. Will only change if is_personalizable is &#39;true&#39;. (optional)
      * @param personalizationInstructions A string representing instructions for the buyer to enter the personalization. Will only change if is_personalizable is &#39;true&#39;. (optional)
      * @param productionPartnerIds An array of unique IDs of production partner ids. (optional)
      * @param imageIds An array of numeric image IDs of the images in a listing, which can include up to 10 images. (optional)
      * @param isSupply When true, tags the listing as a supply product, else indicates that it&#39;s a finished product. Helps buyers locate the listing under the Supplies heading. Requires &#39;who_made&#39; and &#39;when_made&#39;. (optional)
      * @param isCustomizable When true, a buyer may contact the seller for a customized order. The default value is true when a shop accepts custom orders. Does not apply to shops that do not accept custom orders. (optional)
-     * @param shouldAutoRenew When true, renews a listing for four months upon expriation. If set to true when previously false, etsy.com renews the listing before it expires, but the renewal period starts immidiately rather than extending the listing&#39;s expiration date. Any unused time remaining on the listing is lost. Renewals result in charges to a user&#39;s bill. (optional)
+     * @param shouldAutoRenew When true, renews a listing for four months upon expiration. (optional)
      * @param isTaxable When true, applicable [shop](/documentation/reference#tag/Shop) tax rates apply to this listing at checkout. (optional)
      * @param type An enumerated type string that indicates whether the listing is physical or a digital download. (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -502,9 +510,9 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createDraftListingAsync(Long shopId, Long quantity, String title, String description, Float price, String whoMade, String whenMade, Long taxonomyId, Long shippingProfileId, List<String> materials, Long shopSectionId, Long processingMin, Long processingMax, List<String> tags, List<String> styles, Float itemWeight, Float itemLength, Float itemWidth, Float itemHeight, String itemWeightUnit, String itemDimensionsUnit, Boolean isPersonalizable, Boolean personalizationIsRequired, Long personalizationCharCountMax, String personalizationInstructions, List<Long> productionPartnerIds, List<Long> imageIds, Boolean isSupply, Boolean isCustomizable, Boolean shouldAutoRenew, Boolean isTaxable, String type, final ApiCallback<ShopListing> _callback) throws ApiException {
+    public okhttp3.Call createDraftListingAsync(Long shopId, Long quantity, String title, String description, Float price, String whoMade, String whenMade, Long taxonomyId, Long shippingProfileId, Long returnPolicyId, List<String> materials, Long shopSectionId, Long processingMin, Long processingMax, List<String> tags, List<String> styles, Float itemWeight, Float itemLength, Float itemWidth, Float itemHeight, String itemWeightUnit, String itemDimensionsUnit, Boolean isPersonalizable, Boolean personalizationIsRequired, Long personalizationCharCountMax, String personalizationInstructions, List<Long> productionPartnerIds, List<Long> imageIds, Boolean isSupply, Boolean isCustomizable, Boolean shouldAutoRenew, Boolean isTaxable, String type, final ApiCallback<ShopListing> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createDraftListingValidateBeforeCall(shopId, quantity, title, description, price, whoMade, whenMade, taxonomyId, shippingProfileId, materials, shopSectionId, processingMin, processingMax, tags, styles, itemWeight, itemLength, itemWidth, itemHeight, itemWeightUnit, itemDimensionsUnit, isPersonalizable, personalizationIsRequired, personalizationCharCountMax, personalizationInstructions, productionPartnerIds, imageIds, isSupply, isCustomizable, shouldAutoRenew, isTaxable, type, _callback);
+        okhttp3.Call localVarCall = createDraftListingValidateBeforeCall(shopId, quantity, title, description, price, whoMade, whenMade, taxonomyId, shippingProfileId, returnPolicyId, materials, shopSectionId, processingMin, processingMax, tags, styles, itemWeight, itemLength, itemWidth, itemHeight, itemWeightUnit, itemDimensionsUnit, isPersonalizable, personalizationIsRequired, personalizationCharCountMax, personalizationInstructions, productionPartnerIds, imageIds, isSupply, isCustomizable, shouldAutoRenew, isTaxable, type, _callback);
         Type localVarReturnType = new TypeToken<ShopListing>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -519,7 +527,7 @@ public class ShopListingApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 403 </td><td> The request attempted to perform an operation it is not allowed to. See the error message for details. </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> There was a request conflict with current state of the target resource. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> There was a request conflict with the current state of the target resource. See the error message for details. </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> The Listing resource was correctly deleted </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> A resource could not be found. See the error message for details. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> There was a problem with the request data. See the error message for details. </td><td>  -  </td></tr>
@@ -590,14 +598,14 @@ public class ShopListingApi {
 
     /**
      * 
-     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Open API V3 endpoint to delete a ShopListing. A ShopListing can be deleted only if the state is one of the following:  SOLD_OUT, DRAFT, EXPIRED, INACTIVE, ACTIVE and is_available or ACTIVE and has seller flags:  SUPRESSED (frozen), VACATION, CUSTOM_SHOPS (pattern), SELL_ON_FACEBOOK
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/discussions\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Open API V3 endpoint to delete a ShopListing. A ShopListing can be deleted only if the state is one of the following:  SOLD_OUT, DRAFT, EXPIRED, INACTIVE, ACTIVE and is_available or ACTIVE and has seller flags:  SUPRESSED (frozen), VACATION, CUSTOM_SHOPS (pattern), SELL_ON_FACEBOOK
      * @param listingId The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 403 </td><td> The request attempted to perform an operation it is not allowed to. See the error message for details. </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> There was a request conflict with current state of the target resource. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> There was a request conflict with the current state of the target resource. See the error message for details. </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> The Listing resource was correctly deleted </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> A resource could not be found. See the error message for details. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> There was a problem with the request data. See the error message for details. </td><td>  -  </td></tr>
@@ -611,7 +619,7 @@ public class ShopListingApi {
 
     /**
      * 
-     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Open API V3 endpoint to delete a ShopListing. A ShopListing can be deleted only if the state is one of the following:  SOLD_OUT, DRAFT, EXPIRED, INACTIVE, ACTIVE and is_available or ACTIVE and has seller flags:  SUPRESSED (frozen), VACATION, CUSTOM_SHOPS (pattern), SELL_ON_FACEBOOK
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/discussions\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Open API V3 endpoint to delete a ShopListing. A ShopListing can be deleted only if the state is one of the following:  SOLD_OUT, DRAFT, EXPIRED, INACTIVE, ACTIVE and is_available or ACTIVE and has seller flags:  SUPRESSED (frozen), VACATION, CUSTOM_SHOPS (pattern), SELL_ON_FACEBOOK
      * @param listingId The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -619,7 +627,7 @@ public class ShopListingApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 403 </td><td> The request attempted to perform an operation it is not allowed to. See the error message for details. </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> There was a request conflict with current state of the target resource. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> There was a request conflict with the current state of the target resource. See the error message for details. </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> The Listing resource was correctly deleted </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> A resource could not be found. See the error message for details. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> There was a problem with the request data. See the error message for details. </td><td>  -  </td></tr>
@@ -634,7 +642,7 @@ public class ShopListingApi {
 
     /**
      *  (asynchronously)
-     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Open API V3 endpoint to delete a ShopListing. A ShopListing can be deleted only if the state is one of the following:  SOLD_OUT, DRAFT, EXPIRED, INACTIVE, ACTIVE and is_available or ACTIVE and has seller flags:  SUPRESSED (frozen), VACATION, CUSTOM_SHOPS (pattern), SELL_ON_FACEBOOK
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/discussions\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Open API V3 endpoint to delete a ShopListing. A ShopListing can be deleted only if the state is one of the following:  SOLD_OUT, DRAFT, EXPIRED, INACTIVE, ACTIVE and is_available or ACTIVE and has seller flags:  SUPRESSED (frozen), VACATION, CUSTOM_SHOPS (pattern), SELL_ON_FACEBOOK
      * @param listingId The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -643,7 +651,7 @@ public class ShopListingApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 403 </td><td> The request attempted to perform an operation it is not allowed to. See the error message for details. </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> There was a request conflict with current state of the target resource. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> There was a request conflict with the current state of the target resource. See the error message for details. </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> The Listing resource was correctly deleted </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> A resource could not be found. See the error message for details. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> There was a problem with the request data. See the error message for details. </td><td>  -  </td></tr>
@@ -751,7 +759,7 @@ public class ShopListingApi {
 
     /**
      * 
-     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Deletes a property for a Listing.
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/discussions\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Deletes a property for a Listing.
      * @param shopId The unique positive non-zero numeric ID for an Etsy Shop. (required)
      * @param listingId The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. (required)
      * @param propertyId The unique ID of an Etsy [listing property](/documentation/reference#operation/getListingProperties). (required)
@@ -773,7 +781,7 @@ public class ShopListingApi {
 
     /**
      * 
-     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Deletes a property for a Listing.
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/discussions\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Deletes a property for a Listing.
      * @param shopId The unique positive non-zero numeric ID for an Etsy Shop. (required)
      * @param listingId The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. (required)
      * @param propertyId The unique ID of an Etsy [listing property](/documentation/reference#operation/getListingProperties). (required)
@@ -797,7 +805,7 @@ public class ShopListingApi {
 
     /**
      *  (asynchronously)
-     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Deletes a property for a Listing.
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/discussions\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Deletes a property for a Listing.
      * @param shopId The unique positive non-zero numeric ID for an Etsy Shop. (required)
      * @param listingId The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. (required)
      * @param propertyId The unique ID of an Etsy [listing property](/documentation/reference#operation/getListingProperties). (required)
@@ -825,7 +833,7 @@ public class ShopListingApi {
      * Build call for findAllActiveListingsByShop
      * @param shopId The unique positive non-zero numeric ID for an Etsy Shop. (required)
      * @param limit The maximum number of results to return. (optional, default to 25)
-     * @param sortOn The value to sort a search result of listings on. NOTE: sort_on only works when combined with one of the search options (keywords, region, etc.).  (optional, default to created)
+     * @param sortOn The value to sort a search result of listings on. NOTES: a) &#x60;sort_on&#x60; only works when combined with one of the search options (keywords, region, etc.). b) when using &#x60;score&#x60; the returned results will always be in _descending_ order, regardless of the &#x60;sort_order&#x60; parameter. (optional, default to created)
      * @param sortOrder The ascending(up) or descending(down) order to sort listings by. NOTE: sort_order only works when combined with one of the search options (keywords, region, etc.). (optional, default to desc)
      * @param offset The number of records to skip before selecting the first result. (optional, default to 0)
      * @param keywords Search term or phrase that must appear in all results. (optional, default to null)
@@ -924,10 +932,10 @@ public class ShopListingApi {
 
     /**
      * 
-     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Retrieves a list of all active listings on Etsy in a specific shop, paginated by listing creation date.
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/discussions\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Retrieves a list of all active listings on Etsy in a specific shop, paginated by listing creation date.
      * @param shopId The unique positive non-zero numeric ID for an Etsy Shop. (required)
      * @param limit The maximum number of results to return. (optional, default to 25)
-     * @param sortOn The value to sort a search result of listings on. NOTE: sort_on only works when combined with one of the search options (keywords, region, etc.).  (optional, default to created)
+     * @param sortOn The value to sort a search result of listings on. NOTES: a) &#x60;sort_on&#x60; only works when combined with one of the search options (keywords, region, etc.). b) when using &#x60;score&#x60; the returned results will always be in _descending_ order, regardless of the &#x60;sort_order&#x60; parameter. (optional, default to created)
      * @param sortOrder The ascending(up) or descending(down) order to sort listings by. NOTE: sort_order only works when combined with one of the search options (keywords, region, etc.). (optional, default to desc)
      * @param offset The number of records to skip before selecting the first result. (optional, default to 0)
      * @param keywords Search term or phrase that must appear in all results. (optional, default to null)
@@ -949,10 +957,10 @@ public class ShopListingApi {
 
     /**
      * 
-     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Retrieves a list of all active listings on Etsy in a specific shop, paginated by listing creation date.
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/discussions\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Retrieves a list of all active listings on Etsy in a specific shop, paginated by listing creation date.
      * @param shopId The unique positive non-zero numeric ID for an Etsy Shop. (required)
      * @param limit The maximum number of results to return. (optional, default to 25)
-     * @param sortOn The value to sort a search result of listings on. NOTE: sort_on only works when combined with one of the search options (keywords, region, etc.).  (optional, default to created)
+     * @param sortOn The value to sort a search result of listings on. NOTES: a) &#x60;sort_on&#x60; only works when combined with one of the search options (keywords, region, etc.). b) when using &#x60;score&#x60; the returned results will always be in _descending_ order, regardless of the &#x60;sort_order&#x60; parameter. (optional, default to created)
      * @param sortOrder The ascending(up) or descending(down) order to sort listings by. NOTE: sort_order only works when combined with one of the search options (keywords, region, etc.). (optional, default to desc)
      * @param offset The number of records to skip before selecting the first result. (optional, default to 0)
      * @param keywords Search term or phrase that must appear in all results. (optional, default to null)
@@ -975,10 +983,10 @@ public class ShopListingApi {
 
     /**
      *  (asynchronously)
-     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Retrieves a list of all active listings on Etsy in a specific shop, paginated by listing creation date.
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/discussions\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Retrieves a list of all active listings on Etsy in a specific shop, paginated by listing creation date.
      * @param shopId The unique positive non-zero numeric ID for an Etsy Shop. (required)
      * @param limit The maximum number of results to return. (optional, default to 25)
-     * @param sortOn The value to sort a search result of listings on. NOTE: sort_on only works when combined with one of the search options (keywords, region, etc.).  (optional, default to created)
+     * @param sortOn The value to sort a search result of listings on. NOTES: a) &#x60;sort_on&#x60; only works when combined with one of the search options (keywords, region, etc.). b) when using &#x60;score&#x60; the returned results will always be in _descending_ order, regardless of the &#x60;sort_order&#x60; parameter. (optional, default to created)
      * @param sortOrder The ascending(up) or descending(down) order to sort listings by. NOTE: sort_order only works when combined with one of the search options (keywords, region, etc.). (optional, default to desc)
      * @param offset The number of records to skip before selecting the first result. (optional, default to 0)
      * @param keywords Search term or phrase that must appear in all results. (optional, default to null)
@@ -1006,11 +1014,11 @@ public class ShopListingApi {
      * @param limit The maximum number of results to return. (optional, default to 25)
      * @param offset The number of records to skip before selecting the first result. (optional, default to 0)
      * @param keywords Search term or phrase that must appear in all results. (optional, default to null)
-     * @param sortOn The value to sort a search result of listings on. NOTE: sort_on only works when combined with one of the search options (keywords, region, etc.).  (optional, default to created)
+     * @param sortOn The value to sort a search result of listings on. NOTES: a) &#x60;sort_on&#x60; only works when combined with one of the search options (keywords, region, etc.). b) when using &#x60;score&#x60; the returned results will always be in _descending_ order, regardless of the &#x60;sort_order&#x60; parameter. (optional, default to created)
      * @param sortOrder The ascending(up) or descending(down) order to sort listings by. NOTE: sort_order only works when combined with one of the search options (keywords, region, etc.). (optional, default to desc)
      * @param minPrice The minimum price of listings to be returned by a search result. (optional)
      * @param maxPrice The maximum price of listings to be returned by a search result. (optional)
-     * @param taxonomyId The numeric taxonomy ID of the listing. See [SellerTaxonomy](/documentation/reference#tag/SellerTaxonomy) and [BuyerTaxonomy](/documentation/reference#tag/BuyerTaxonomy) for more information. (optional)
+     * @param taxonomyId The numerical taxonomy ID of the listing. See [SellerTaxonomy](/documentation/reference#tag/SellerTaxonomy) and [BuyerTaxonomy](/documentation/reference#tag/BuyerTaxonomy) for more information. (optional)
      * @param shopLocation Filters by shop location. If location cannot be parsed, Etsy responds with an error. (optional, default to null)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -1116,15 +1124,15 @@ public class ShopListingApi {
 
     /**
      * 
-     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  A list of all active listings on Etsy paginated by their creation date. Without sort_order listings will be returned newest-first by default.
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/discussions\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  A list of all active listings on Etsy paginated by their creation date. Without sort_order listings will be returned newest-first by default.
      * @param limit The maximum number of results to return. (optional, default to 25)
      * @param offset The number of records to skip before selecting the first result. (optional, default to 0)
      * @param keywords Search term or phrase that must appear in all results. (optional, default to null)
-     * @param sortOn The value to sort a search result of listings on. NOTE: sort_on only works when combined with one of the search options (keywords, region, etc.).  (optional, default to created)
+     * @param sortOn The value to sort a search result of listings on. NOTES: a) &#x60;sort_on&#x60; only works when combined with one of the search options (keywords, region, etc.). b) when using &#x60;score&#x60; the returned results will always be in _descending_ order, regardless of the &#x60;sort_order&#x60; parameter. (optional, default to created)
      * @param sortOrder The ascending(up) or descending(down) order to sort listings by. NOTE: sort_order only works when combined with one of the search options (keywords, region, etc.). (optional, default to desc)
      * @param minPrice The minimum price of listings to be returned by a search result. (optional)
      * @param maxPrice The maximum price of listings to be returned by a search result. (optional)
-     * @param taxonomyId The numeric taxonomy ID of the listing. See [SellerTaxonomy](/documentation/reference#tag/SellerTaxonomy) and [BuyerTaxonomy](/documentation/reference#tag/BuyerTaxonomy) for more information. (optional)
+     * @param taxonomyId The numerical taxonomy ID of the listing. See [SellerTaxonomy](/documentation/reference#tag/SellerTaxonomy) and [BuyerTaxonomy](/documentation/reference#tag/BuyerTaxonomy) for more information. (optional)
      * @param shopLocation Filters by shop location. If location cannot be parsed, Etsy responds with an error. (optional, default to null)
      * @return ShopListings
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1143,15 +1151,15 @@ public class ShopListingApi {
 
     /**
      * 
-     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  A list of all active listings on Etsy paginated by their creation date. Without sort_order listings will be returned newest-first by default.
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/discussions\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  A list of all active listings on Etsy paginated by their creation date. Without sort_order listings will be returned newest-first by default.
      * @param limit The maximum number of results to return. (optional, default to 25)
      * @param offset The number of records to skip before selecting the first result. (optional, default to 0)
      * @param keywords Search term or phrase that must appear in all results. (optional, default to null)
-     * @param sortOn The value to sort a search result of listings on. NOTE: sort_on only works when combined with one of the search options (keywords, region, etc.).  (optional, default to created)
+     * @param sortOn The value to sort a search result of listings on. NOTES: a) &#x60;sort_on&#x60; only works when combined with one of the search options (keywords, region, etc.). b) when using &#x60;score&#x60; the returned results will always be in _descending_ order, regardless of the &#x60;sort_order&#x60; parameter. (optional, default to created)
      * @param sortOrder The ascending(up) or descending(down) order to sort listings by. NOTE: sort_order only works when combined with one of the search options (keywords, region, etc.). (optional, default to desc)
      * @param minPrice The minimum price of listings to be returned by a search result. (optional)
      * @param maxPrice The maximum price of listings to be returned by a search result. (optional)
-     * @param taxonomyId The numeric taxonomy ID of the listing. See [SellerTaxonomy](/documentation/reference#tag/SellerTaxonomy) and [BuyerTaxonomy](/documentation/reference#tag/BuyerTaxonomy) for more information. (optional)
+     * @param taxonomyId The numerical taxonomy ID of the listing. See [SellerTaxonomy](/documentation/reference#tag/SellerTaxonomy) and [BuyerTaxonomy](/documentation/reference#tag/BuyerTaxonomy) for more information. (optional)
      * @param shopLocation Filters by shop location. If location cannot be parsed, Etsy responds with an error. (optional, default to null)
      * @return ApiResponse&lt;ShopListings&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1171,15 +1179,15 @@ public class ShopListingApi {
 
     /**
      *  (asynchronously)
-     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  A list of all active listings on Etsy paginated by their creation date. Without sort_order listings will be returned newest-first by default.
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/discussions\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  A list of all active listings on Etsy paginated by their creation date. Without sort_order listings will be returned newest-first by default.
      * @param limit The maximum number of results to return. (optional, default to 25)
      * @param offset The number of records to skip before selecting the first result. (optional, default to 0)
      * @param keywords Search term or phrase that must appear in all results. (optional, default to null)
-     * @param sortOn The value to sort a search result of listings on. NOTE: sort_on only works when combined with one of the search options (keywords, region, etc.).  (optional, default to created)
+     * @param sortOn The value to sort a search result of listings on. NOTES: a) &#x60;sort_on&#x60; only works when combined with one of the search options (keywords, region, etc.). b) when using &#x60;score&#x60; the returned results will always be in _descending_ order, regardless of the &#x60;sort_order&#x60; parameter. (optional, default to created)
      * @param sortOrder The ascending(up) or descending(down) order to sort listings by. NOTE: sort_order only works when combined with one of the search options (keywords, region, etc.). (optional, default to desc)
      * @param minPrice The minimum price of listings to be returned by a search result. (optional)
      * @param maxPrice The maximum price of listings to be returned by a search result. (optional)
-     * @param taxonomyId The numeric taxonomy ID of the listing. See [SellerTaxonomy](/documentation/reference#tag/SellerTaxonomy) and [BuyerTaxonomy](/documentation/reference#tag/BuyerTaxonomy) for more information. (optional)
+     * @param taxonomyId The numerical taxonomy ID of the listing. See [SellerTaxonomy](/documentation/reference#tag/SellerTaxonomy) and [BuyerTaxonomy](/documentation/reference#tag/BuyerTaxonomy) for more information. (optional)
      * @param shopLocation Filters by shop location. If location cannot be parsed, Etsy responds with an error. (optional, default to null)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1287,7 +1295,7 @@ public class ShopListingApi {
 
     /**
      * 
-     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Retrieves Listings associated to a Shop that are featured.
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/discussions\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Retrieves Listings associated to a Shop that are featured.
      * @param shopId The unique positive non-zero numeric ID for an Etsy Shop. (required)
      * @param limit The maximum number of results to return. (optional, default to 25)
      * @param offset The number of records to skip before selecting the first result. (optional, default to 0)
@@ -1309,7 +1317,7 @@ public class ShopListingApi {
 
     /**
      * 
-     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Retrieves Listings associated to a Shop that are featured.
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/discussions\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Retrieves Listings associated to a Shop that are featured.
      * @param shopId The unique positive non-zero numeric ID for an Etsy Shop. (required)
      * @param limit The maximum number of results to return. (optional, default to 25)
      * @param offset The number of records to skip before selecting the first result. (optional, default to 0)
@@ -1332,7 +1340,7 @@ public class ShopListingApi {
 
     /**
      *  (asynchronously)
-     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Retrieves Listings associated to a Shop that are featured.
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/discussions\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Retrieves Listings associated to a Shop that are featured.
      * @param shopId The unique positive non-zero numeric ID for an Etsy Shop. (required)
      * @param limit The maximum number of results to return. (optional, default to 25)
      * @param offset The number of records to skip before selecting the first result. (optional, default to 0)
@@ -1358,7 +1366,8 @@ public class ShopListingApi {
     /**
      * Build call for getListing
      * @param listingId The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. (required)
-     * @param includes An enumerated string that attaches a valid association. Acceptable inputs are &#39;Shipping&#39;, &#39;Shop&#39;, &#39;Images&#39;, &#39;User&#39;, &#39;Translations&#39; and &#39;Inventory&#39;. Default value is an empty array. (optional)
+     * @param includes An enumerated string that attaches a valid association. Acceptable inputs are &#39;Shipping&#39;, &#39;Shop&#39;, &#39;Images&#39;, &#39;User&#39;, &#39;Translations&#39; and &#39;Inventory&#39;. (optional)
+     * @param language The IETF language tag for the language of this translation. Ex: &#x60;de&#x60;, &#x60;en&#x60;, &#x60;es&#x60;, &#x60;fr&#x60;, &#x60;it&#x60;, &#x60;ja&#x60;, &#x60;nl&#x60;, &#x60;pl&#x60;, &#x60;pt&#x60;. (optional, default to null)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1371,7 +1380,7 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getListingCall(Long listingId, List<String> includes, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getListingCall(Long listingId, List<String> includes, String language, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -1402,6 +1411,10 @@ public class ShopListingApi {
             localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "includes", includes));
         }
 
+        if (language != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("language", language));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -1423,7 +1436,7 @@ public class ShopListingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getListingValidateBeforeCall(Long listingId, List<String> includes, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getListingValidateBeforeCall(Long listingId, List<String> includes, String language, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'listingId' is set
         if (listingId == null) {
@@ -1431,16 +1444,17 @@ public class ShopListingApi {
         }
         
 
-        okhttp3.Call localVarCall = getListingCall(listingId, includes, _callback);
+        okhttp3.Call localVarCall = getListingCall(listingId, includes, language, _callback);
         return localVarCall;
 
     }
 
     /**
      * 
-     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Retrieves a listing record by listing ID.
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/discussions\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Retrieves a listing record by listing ID.
      * @param listingId The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. (required)
-     * @param includes An enumerated string that attaches a valid association. Acceptable inputs are &#39;Shipping&#39;, &#39;Shop&#39;, &#39;Images&#39;, &#39;User&#39;, &#39;Translations&#39; and &#39;Inventory&#39;. Default value is an empty array. (optional)
+     * @param includes An enumerated string that attaches a valid association. Acceptable inputs are &#39;Shipping&#39;, &#39;Shop&#39;, &#39;Images&#39;, &#39;User&#39;, &#39;Translations&#39; and &#39;Inventory&#39;. (optional)
+     * @param language The IETF language tag for the language of this translation. Ex: &#x60;de&#x60;, &#x60;en&#x60;, &#x60;es&#x60;, &#x60;fr&#x60;, &#x60;it&#x60;, &#x60;ja&#x60;, &#x60;nl&#x60;, &#x60;pl&#x60;, &#x60;pt&#x60;. (optional, default to null)
      * @return ShopListingWithAssociations
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1452,16 +1466,17 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ShopListingWithAssociations getListing(Long listingId, List<String> includes) throws ApiException {
-        ApiResponse<ShopListingWithAssociations> localVarResp = getListingWithHttpInfo(listingId, includes);
+    public ShopListingWithAssociations getListing(Long listingId, List<String> includes, String language) throws ApiException {
+        ApiResponse<ShopListingWithAssociations> localVarResp = getListingWithHttpInfo(listingId, includes, language);
         return localVarResp.getData();
     }
 
     /**
      * 
-     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Retrieves a listing record by listing ID.
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/discussions\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Retrieves a listing record by listing ID.
      * @param listingId The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. (required)
-     * @param includes An enumerated string that attaches a valid association. Acceptable inputs are &#39;Shipping&#39;, &#39;Shop&#39;, &#39;Images&#39;, &#39;User&#39;, &#39;Translations&#39; and &#39;Inventory&#39;. Default value is an empty array. (optional)
+     * @param includes An enumerated string that attaches a valid association. Acceptable inputs are &#39;Shipping&#39;, &#39;Shop&#39;, &#39;Images&#39;, &#39;User&#39;, &#39;Translations&#39; and &#39;Inventory&#39;. (optional)
+     * @param language The IETF language tag for the language of this translation. Ex: &#x60;de&#x60;, &#x60;en&#x60;, &#x60;es&#x60;, &#x60;fr&#x60;, &#x60;it&#x60;, &#x60;ja&#x60;, &#x60;nl&#x60;, &#x60;pl&#x60;, &#x60;pt&#x60;. (optional, default to null)
      * @return ApiResponse&lt;ShopListingWithAssociations&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1473,17 +1488,18 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ShopListingWithAssociations> getListingWithHttpInfo(Long listingId, List<String> includes) throws ApiException {
-        okhttp3.Call localVarCall = getListingValidateBeforeCall(listingId, includes, null);
+    public ApiResponse<ShopListingWithAssociations> getListingWithHttpInfo(Long listingId, List<String> includes, String language) throws ApiException {
+        okhttp3.Call localVarCall = getListingValidateBeforeCall(listingId, includes, language, null);
         Type localVarReturnType = new TypeToken<ShopListingWithAssociations>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      *  (asynchronously)
-     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Retrieves a listing record by listing ID.
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/discussions\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Retrieves a listing record by listing ID.
      * @param listingId The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. (required)
-     * @param includes An enumerated string that attaches a valid association. Acceptable inputs are &#39;Shipping&#39;, &#39;Shop&#39;, &#39;Images&#39;, &#39;User&#39;, &#39;Translations&#39; and &#39;Inventory&#39;. Default value is an empty array. (optional)
+     * @param includes An enumerated string that attaches a valid association. Acceptable inputs are &#39;Shipping&#39;, &#39;Shop&#39;, &#39;Images&#39;, &#39;User&#39;, &#39;Translations&#39; and &#39;Inventory&#39;. (optional)
+     * @param language The IETF language tag for the language of this translation. Ex: &#x60;de&#x60;, &#x60;en&#x60;, &#x60;es&#x60;, &#x60;fr&#x60;, &#x60;it&#x60;, &#x60;ja&#x60;, &#x60;nl&#x60;, &#x60;pl&#x60;, &#x60;pt&#x60;. (optional, default to null)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1496,9 +1512,9 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getListingAsync(Long listingId, List<String> includes, final ApiCallback<ShopListingWithAssociations> _callback) throws ApiException {
+    public okhttp3.Call getListingAsync(Long listingId, List<String> includes, String language, final ApiCallback<ShopListingWithAssociations> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getListingValidateBeforeCall(listingId, includes, _callback);
+        okhttp3.Call localVarCall = getListingValidateBeforeCall(listingId, includes, language, _callback);
         Type localVarReturnType = new TypeToken<ShopListingWithAssociations>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1588,7 +1604,7 @@ public class ShopListingApi {
 
     /**
      * 
-     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Get a listing&#39;s properties
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/discussions\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Get a listing&#39;s properties
      * @param shopId The unique positive non-zero numeric ID for an Etsy Shop. (required)
      * @param listingId The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. (required)
      * @return ListingPropertyValues
@@ -1609,7 +1625,7 @@ public class ShopListingApi {
 
     /**
      * 
-     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Get a listing&#39;s properties
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/discussions\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Get a listing&#39;s properties
      * @param shopId The unique positive non-zero numeric ID for an Etsy Shop. (required)
      * @param listingId The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. (required)
      * @return ApiResponse&lt;ListingPropertyValues&gt;
@@ -1631,7 +1647,7 @@ public class ShopListingApi {
 
     /**
      *  (asynchronously)
-     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Get a listing&#39;s properties
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/discussions\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Get a listing&#39;s properties
      * @param shopId The unique positive non-zero numeric ID for an Etsy Shop. (required)
      * @param listingId The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -1739,7 +1755,7 @@ public class ShopListingApi {
 
     /**
      * 
-     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-01 wt-mr-xs-2\&quot;&gt; Feedback only &lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Give feedback&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;Development for this endpoint is in progress. It will only return a 501 response.&lt;/p&gt;&lt;/div&gt;  Retrieves a listing&#39;s property
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-01 wt-mr-xs-2\&quot;&gt; Feedback only &lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/discussions\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Give feedback&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;Development for this endpoint is in progress. It will only return a 501 response.&lt;/p&gt;&lt;/div&gt;  Retrieves a listing&#39;s property
      * @param listingId The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. (required)
      * @param propertyId The unique ID of an Etsy [listing property](/documentation/reference#operation/getListingProperties). (required)
      * @return ListingPropertyValue
@@ -1761,7 +1777,7 @@ public class ShopListingApi {
 
     /**
      * 
-     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-01 wt-mr-xs-2\&quot;&gt; Feedback only &lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Give feedback&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;Development for this endpoint is in progress. It will only return a 501 response.&lt;/p&gt;&lt;/div&gt;  Retrieves a listing&#39;s property
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-01 wt-mr-xs-2\&quot;&gt; Feedback only &lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/discussions\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Give feedback&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;Development for this endpoint is in progress. It will only return a 501 response.&lt;/p&gt;&lt;/div&gt;  Retrieves a listing&#39;s property
      * @param listingId The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. (required)
      * @param propertyId The unique ID of an Etsy [listing property](/documentation/reference#operation/getListingProperties). (required)
      * @return ApiResponse&lt;ListingPropertyValue&gt;
@@ -1784,7 +1800,7 @@ public class ShopListingApi {
 
     /**
      *  (asynchronously)
-     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-01 wt-mr-xs-2\&quot;&gt; Feedback only &lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Give feedback&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;Development for this endpoint is in progress. It will only return a 501 response.&lt;/p&gt;&lt;/div&gt;  Retrieves a listing&#39;s property
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-01 wt-mr-xs-2\&quot;&gt; Feedback only &lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/discussions\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Give feedback&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;Development for this endpoint is in progress. It will only return a 501 response.&lt;/p&gt;&lt;/div&gt;  Retrieves a listing&#39;s property
      * @param listingId The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. (required)
      * @param propertyId The unique ID of an Etsy [listing property](/documentation/reference#operation/getListingProperties). (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -1810,7 +1826,7 @@ public class ShopListingApi {
     /**
      * Build call for getListingsByListingIds
      * @param listingIds The list of numeric IDS for the listings in a specific Etsy shop. (required)
-     * @param includes An enumerated string that attaches a valid association. Acceptable inputs are &#39;Shipping&#39;, &#39;Shop&#39;, &#39;Images&#39;, &#39;User&#39;, &#39;Translations&#39; and &#39;Inventory&#39;. Default value is an empty array. (optional)
+     * @param includes An enumerated string that attaches a valid association. Acceptable inputs are &#39;Shipping&#39;, &#39;Shop&#39;, &#39;Images&#39;, &#39;User&#39;, &#39;Translations&#39; and &#39;Inventory&#39;. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1893,9 +1909,9 @@ public class ShopListingApi {
 
     /**
      * 
-     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Allows to query multiple listing ids at once. Limit 100 ids maximum per query.
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/discussions\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Allows to query multiple listing ids at once. Limit 100 ids maximum per query.
      * @param listingIds The list of numeric IDS for the listings in a specific Etsy shop. (required)
-     * @param includes An enumerated string that attaches a valid association. Acceptable inputs are &#39;Shipping&#39;, &#39;Shop&#39;, &#39;Images&#39;, &#39;User&#39;, &#39;Translations&#39; and &#39;Inventory&#39;. Default value is an empty array. (optional)
+     * @param includes An enumerated string that attaches a valid association. Acceptable inputs are &#39;Shipping&#39;, &#39;Shop&#39;, &#39;Images&#39;, &#39;User&#39;, &#39;Translations&#39; and &#39;Inventory&#39;. (optional)
      * @return ShopListingsWithAssociations
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1914,9 +1930,9 @@ public class ShopListingApi {
 
     /**
      * 
-     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Allows to query multiple listing ids at once. Limit 100 ids maximum per query.
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/discussions\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Allows to query multiple listing ids at once. Limit 100 ids maximum per query.
      * @param listingIds The list of numeric IDS for the listings in a specific Etsy shop. (required)
-     * @param includes An enumerated string that attaches a valid association. Acceptable inputs are &#39;Shipping&#39;, &#39;Shop&#39;, &#39;Images&#39;, &#39;User&#39;, &#39;Translations&#39; and &#39;Inventory&#39;. Default value is an empty array. (optional)
+     * @param includes An enumerated string that attaches a valid association. Acceptable inputs are &#39;Shipping&#39;, &#39;Shop&#39;, &#39;Images&#39;, &#39;User&#39;, &#39;Translations&#39; and &#39;Inventory&#39;. (optional)
      * @return ApiResponse&lt;ShopListingsWithAssociations&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1936,9 +1952,9 @@ public class ShopListingApi {
 
     /**
      *  (asynchronously)
-     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Allows to query multiple listing ids at once. Limit 100 ids maximum per query.
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/discussions\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Allows to query multiple listing ids at once. Limit 100 ids maximum per query.
      * @param listingIds The list of numeric IDS for the listings in a specific Etsy shop. (required)
-     * @param includes An enumerated string that attaches a valid association. Acceptable inputs are &#39;Shipping&#39;, &#39;Shop&#39;, &#39;Images&#39;, &#39;User&#39;, &#39;Translations&#39; and &#39;Inventory&#39;. Default value is an empty array. (optional)
+     * @param includes An enumerated string that attaches a valid association. Acceptable inputs are &#39;Shipping&#39;, &#39;Shop&#39;, &#39;Images&#39;, &#39;User&#39;, &#39;Translations&#39; and &#39;Inventory&#39;. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1961,11 +1977,12 @@ public class ShopListingApi {
     /**
      * Build call for getListingsByShop
      * @param shopId The unique positive non-zero numeric ID for an Etsy Shop. (required)
-     * @param state An enumerated string from any of: active or inactive. Note: Setting a draft listing to active will also publish the listing on etsy.com. Setting a sold out listing to active will update the quantity to 1 and renew the listing on etsy.com. (optional, default to active)
+     * @param state When _updating_ a listing, this value can be either &#x60;active&#x60; or &#x60;inactive&#x60;. Note: Setting a &#x60;draft&#x60; listing to &#x60;active&#x60; will also publish the listing on etsy.com and requires that the listing have an image set. Setting a &#x60;sold_out&#x60; listing to active will update the quantity to 1 and renew the listing on etsy.com. (optional, default to active)
      * @param limit The maximum number of results to return. (optional, default to 25)
      * @param offset The number of records to skip before selecting the first result. (optional, default to 0)
-     * @param sortOn The value to sort a search result of listings on. NOTE: sort_on only works when combined with one of the search options (keywords, region, etc.).  (optional, default to created)
+     * @param sortOn The value to sort a search result of listings on. NOTES: a) &#x60;sort_on&#x60; only works when combined with one of the search options (keywords, region, etc.). b) when using &#x60;score&#x60; the returned results will always be in _descending_ order, regardless of the &#x60;sort_order&#x60; parameter. (optional, default to created)
      * @param sortOrder The ascending(up) or descending(down) order to sort listings by. NOTE: sort_order only works when combined with one of the search options (keywords, region, etc.). (optional, default to desc)
+     * @param includes An enumerated string that attaches a valid association. Acceptable inputs are &#39;Shipping&#39;, &#39;Shop&#39;, &#39;Images&#39;, &#39;User&#39;, &#39;Translations&#39; and &#39;Inventory&#39;. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1979,7 +1996,7 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getListingsByShopCall(Long shopId, String state, Long limit, Long offset, String sortOn, String sortOrder, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getListingsByShopCall(Long shopId, String state, Long limit, Long offset, String sortOn, String sortOrder, List<String> includes, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -2026,6 +2043,10 @@ public class ShopListingApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("sort_order", sortOrder));
         }
 
+        if (includes != null) {
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "includes", includes));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -2047,7 +2068,7 @@ public class ShopListingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getListingsByShopValidateBeforeCall(Long shopId, String state, Long limit, Long offset, String sortOn, String sortOrder, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getListingsByShopValidateBeforeCall(Long shopId, String state, Long limit, Long offset, String sortOn, String sortOrder, List<String> includes, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'shopId' is set
         if (shopId == null) {
@@ -2055,21 +2076,22 @@ public class ShopListingApi {
         }
         
 
-        okhttp3.Call localVarCall = getListingsByShopCall(shopId, state, limit, offset, sortOn, sortOrder, _callback);
+        okhttp3.Call localVarCall = getListingsByShopCall(shopId, state, limit, offset, sortOn, sortOrder, includes, _callback);
         return localVarCall;
 
     }
 
     /**
      * 
-     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Endpoint to list Listings that belong to a Shop. Listings can be filtered using the &#39;state&#39; param.
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/discussions\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Endpoint to list Listings that belong to a Shop. Listings can be filtered using the &#39;state&#39; param.
      * @param shopId The unique positive non-zero numeric ID for an Etsy Shop. (required)
-     * @param state An enumerated string from any of: active or inactive. Note: Setting a draft listing to active will also publish the listing on etsy.com. Setting a sold out listing to active will update the quantity to 1 and renew the listing on etsy.com. (optional, default to active)
+     * @param state When _updating_ a listing, this value can be either &#x60;active&#x60; or &#x60;inactive&#x60;. Note: Setting a &#x60;draft&#x60; listing to &#x60;active&#x60; will also publish the listing on etsy.com and requires that the listing have an image set. Setting a &#x60;sold_out&#x60; listing to active will update the quantity to 1 and renew the listing on etsy.com. (optional, default to active)
      * @param limit The maximum number of results to return. (optional, default to 25)
      * @param offset The number of records to skip before selecting the first result. (optional, default to 0)
-     * @param sortOn The value to sort a search result of listings on. NOTE: sort_on only works when combined with one of the search options (keywords, region, etc.).  (optional, default to created)
+     * @param sortOn The value to sort a search result of listings on. NOTES: a) &#x60;sort_on&#x60; only works when combined with one of the search options (keywords, region, etc.). b) when using &#x60;score&#x60; the returned results will always be in _descending_ order, regardless of the &#x60;sort_order&#x60; parameter. (optional, default to created)
      * @param sortOrder The ascending(up) or descending(down) order to sort listings by. NOTE: sort_order only works when combined with one of the search options (keywords, region, etc.). (optional, default to desc)
-     * @return ShopListings
+     * @param includes An enumerated string that attaches a valid association. Acceptable inputs are &#39;Shipping&#39;, &#39;Shop&#39;, &#39;Images&#39;, &#39;User&#39;, &#39;Translations&#39; and &#39;Inventory&#39;. (optional)
+     * @return ShopListingsWithAssociations
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2081,21 +2103,22 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ShopListings getListingsByShop(Long shopId, String state, Long limit, Long offset, String sortOn, String sortOrder) throws ApiException {
-        ApiResponse<ShopListings> localVarResp = getListingsByShopWithHttpInfo(shopId, state, limit, offset, sortOn, sortOrder);
+    public ShopListingsWithAssociations getListingsByShop(Long shopId, String state, Long limit, Long offset, String sortOn, String sortOrder, List<String> includes) throws ApiException {
+        ApiResponse<ShopListingsWithAssociations> localVarResp = getListingsByShopWithHttpInfo(shopId, state, limit, offset, sortOn, sortOrder, includes);
         return localVarResp.getData();
     }
 
     /**
      * 
-     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Endpoint to list Listings that belong to a Shop. Listings can be filtered using the &#39;state&#39; param.
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/discussions\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Endpoint to list Listings that belong to a Shop. Listings can be filtered using the &#39;state&#39; param.
      * @param shopId The unique positive non-zero numeric ID for an Etsy Shop. (required)
-     * @param state An enumerated string from any of: active or inactive. Note: Setting a draft listing to active will also publish the listing on etsy.com. Setting a sold out listing to active will update the quantity to 1 and renew the listing on etsy.com. (optional, default to active)
+     * @param state When _updating_ a listing, this value can be either &#x60;active&#x60; or &#x60;inactive&#x60;. Note: Setting a &#x60;draft&#x60; listing to &#x60;active&#x60; will also publish the listing on etsy.com and requires that the listing have an image set. Setting a &#x60;sold_out&#x60; listing to active will update the quantity to 1 and renew the listing on etsy.com. (optional, default to active)
      * @param limit The maximum number of results to return. (optional, default to 25)
      * @param offset The number of records to skip before selecting the first result. (optional, default to 0)
-     * @param sortOn The value to sort a search result of listings on. NOTE: sort_on only works when combined with one of the search options (keywords, region, etc.).  (optional, default to created)
+     * @param sortOn The value to sort a search result of listings on. NOTES: a) &#x60;sort_on&#x60; only works when combined with one of the search options (keywords, region, etc.). b) when using &#x60;score&#x60; the returned results will always be in _descending_ order, regardless of the &#x60;sort_order&#x60; parameter. (optional, default to created)
      * @param sortOrder The ascending(up) or descending(down) order to sort listings by. NOTE: sort_order only works when combined with one of the search options (keywords, region, etc.). (optional, default to desc)
-     * @return ApiResponse&lt;ShopListings&gt;
+     * @param includes An enumerated string that attaches a valid association. Acceptable inputs are &#39;Shipping&#39;, &#39;Shop&#39;, &#39;Images&#39;, &#39;User&#39;, &#39;Translations&#39; and &#39;Inventory&#39;. (optional)
+     * @return ApiResponse&lt;ShopListingsWithAssociations&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2107,21 +2130,22 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ShopListings> getListingsByShopWithHttpInfo(Long shopId, String state, Long limit, Long offset, String sortOn, String sortOrder) throws ApiException {
-        okhttp3.Call localVarCall = getListingsByShopValidateBeforeCall(shopId, state, limit, offset, sortOn, sortOrder, null);
-        Type localVarReturnType = new TypeToken<ShopListings>(){}.getType();
+    public ApiResponse<ShopListingsWithAssociations> getListingsByShopWithHttpInfo(Long shopId, String state, Long limit, Long offset, String sortOn, String sortOrder, List<String> includes) throws ApiException {
+        okhttp3.Call localVarCall = getListingsByShopValidateBeforeCall(shopId, state, limit, offset, sortOn, sortOrder, includes, null);
+        Type localVarReturnType = new TypeToken<ShopListingsWithAssociations>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      *  (asynchronously)
-     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Endpoint to list Listings that belong to a Shop. Listings can be filtered using the &#39;state&#39; param.
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/discussions\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Endpoint to list Listings that belong to a Shop. Listings can be filtered using the &#39;state&#39; param.
      * @param shopId The unique positive non-zero numeric ID for an Etsy Shop. (required)
-     * @param state An enumerated string from any of: active or inactive. Note: Setting a draft listing to active will also publish the listing on etsy.com. Setting a sold out listing to active will update the quantity to 1 and renew the listing on etsy.com. (optional, default to active)
+     * @param state When _updating_ a listing, this value can be either &#x60;active&#x60; or &#x60;inactive&#x60;. Note: Setting a &#x60;draft&#x60; listing to &#x60;active&#x60; will also publish the listing on etsy.com and requires that the listing have an image set. Setting a &#x60;sold_out&#x60; listing to active will update the quantity to 1 and renew the listing on etsy.com. (optional, default to active)
      * @param limit The maximum number of results to return. (optional, default to 25)
      * @param offset The number of records to skip before selecting the first result. (optional, default to 0)
-     * @param sortOn The value to sort a search result of listings on. NOTE: sort_on only works when combined with one of the search options (keywords, region, etc.).  (optional, default to created)
+     * @param sortOn The value to sort a search result of listings on. NOTES: a) &#x60;sort_on&#x60; only works when combined with one of the search options (keywords, region, etc.). b) when using &#x60;score&#x60; the returned results will always be in _descending_ order, regardless of the &#x60;sort_order&#x60; parameter. (optional, default to created)
      * @param sortOrder The ascending(up) or descending(down) order to sort listings by. NOTE: sort_order only works when combined with one of the search options (keywords, region, etc.). (optional, default to desc)
+     * @param includes An enumerated string that attaches a valid association. Acceptable inputs are &#39;Shipping&#39;, &#39;Shop&#39;, &#39;Images&#39;, &#39;User&#39;, &#39;Translations&#39; and &#39;Inventory&#39;. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2135,10 +2159,10 @@ public class ShopListingApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getListingsByShopAsync(Long shopId, String state, Long limit, Long offset, String sortOn, String sortOrder, final ApiCallback<ShopListings> _callback) throws ApiException {
+    public okhttp3.Call getListingsByShopAsync(Long shopId, String state, Long limit, Long offset, String sortOn, String sortOrder, List<String> includes, final ApiCallback<ShopListingsWithAssociations> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getListingsByShopValidateBeforeCall(shopId, state, limit, offset, sortOn, sortOrder, _callback);
-        Type localVarReturnType = new TypeToken<ShopListings>(){}.getType();
+        okhttp3.Call localVarCall = getListingsByShopValidateBeforeCall(shopId, state, limit, offset, sortOn, sortOrder, includes, _callback);
+        Type localVarReturnType = new TypeToken<ShopListingsWithAssociations>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -2239,7 +2263,7 @@ public class ShopListingApi {
 
     /**
      * 
-     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Gets all listings associated with a receipt.
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/discussions\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Gets all listings associated with a receipt.
      * @param receiptId The numeric ID for the [receipt](/documentation/reference#tag/Shop-Receipt) associated to this transaction. (required)
      * @param shopId The unique positive non-zero numeric ID for an Etsy Shop. (required)
      * @param limit The maximum number of results to return. (optional, default to 25)
@@ -2264,7 +2288,7 @@ public class ShopListingApi {
 
     /**
      * 
-     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Gets all listings associated with a receipt.
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/discussions\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Gets all listings associated with a receipt.
      * @param receiptId The numeric ID for the [receipt](/documentation/reference#tag/Shop-Receipt) associated to this transaction. (required)
      * @param shopId The unique positive non-zero numeric ID for an Etsy Shop. (required)
      * @param limit The maximum number of results to return. (optional, default to 25)
@@ -2290,7 +2314,7 @@ public class ShopListingApi {
 
     /**
      *  (asynchronously)
-     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Gets all listings associated with a receipt.
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/discussions\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Gets all listings associated with a receipt.
      * @param receiptId The numeric ID for the [receipt](/documentation/reference#tag/Shop-Receipt) associated to this transaction. (required)
      * @param shopId The unique positive non-zero numeric ID for an Etsy Shop. (required)
      * @param limit The maximum number of results to return. (optional, default to 25)
@@ -2317,12 +2341,170 @@ public class ShopListingApi {
         return localVarCall;
     }
     /**
+     * Build call for getListingsByShopReturnPolicy
+     * @param returnPolicyId The numeric ID of the [Return Policy](/documentation/reference#operation/getShopReturnPolicies). (required)
+     * @param shopId The unique positive non-zero numeric ID for an Etsy Shop. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A set of ShopListing resources. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> There was a problem with the request data. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> The request attempted to perform an operation it is not allowed to. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> A resource could not be found. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> The request lacks valid authentication credentials. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getListingsByShopReturnPolicyCall(Long returnPolicyId, Long shopId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v3/application/shops/{shop_id}/policies/return/{return_policy_id}/listings"
+            .replaceAll("\\{" + "return_policy_id" + "\\}", localVarApiClient.escapeString(returnPolicyId.toString()))
+            .replaceAll("\\{" + "shop_id" + "\\}", localVarApiClient.escapeString(shopId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key", "oauth2" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getListingsByShopReturnPolicyValidateBeforeCall(Long returnPolicyId, Long shopId, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'returnPolicyId' is set
+        if (returnPolicyId == null) {
+            throw new ApiException("Missing the required parameter 'returnPolicyId' when calling getListingsByShopReturnPolicy(Async)");
+        }
+        
+        // verify the required parameter 'shopId' is set
+        if (shopId == null) {
+            throw new ApiException("Missing the required parameter 'shopId' when calling getListingsByShopReturnPolicy(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = getListingsByShopReturnPolicyCall(returnPolicyId, shopId, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * 
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/discussions\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Gets all listings associated with a Return Policy.
+     * @param returnPolicyId The numeric ID of the [Return Policy](/documentation/reference#operation/getShopReturnPolicies). (required)
+     * @param shopId The unique positive non-zero numeric ID for an Etsy Shop. (required)
+     * @return ShopListings
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A set of ShopListing resources. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> There was a problem with the request data. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> The request attempted to perform an operation it is not allowed to. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> A resource could not be found. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> The request lacks valid authentication credentials. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ShopListings getListingsByShopReturnPolicy(Long returnPolicyId, Long shopId) throws ApiException {
+        ApiResponse<ShopListings> localVarResp = getListingsByShopReturnPolicyWithHttpInfo(returnPolicyId, shopId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/discussions\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Gets all listings associated with a Return Policy.
+     * @param returnPolicyId The numeric ID of the [Return Policy](/documentation/reference#operation/getShopReturnPolicies). (required)
+     * @param shopId The unique positive non-zero numeric ID for an Etsy Shop. (required)
+     * @return ApiResponse&lt;ShopListings&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A set of ShopListing resources. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> There was a problem with the request data. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> The request attempted to perform an operation it is not allowed to. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> A resource could not be found. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> The request lacks valid authentication credentials. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ShopListings> getListingsByShopReturnPolicyWithHttpInfo(Long returnPolicyId, Long shopId) throws ApiException {
+        okhttp3.Call localVarCall = getListingsByShopReturnPolicyValidateBeforeCall(returnPolicyId, shopId, null);
+        Type localVarReturnType = new TypeToken<ShopListings>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/discussions\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Gets all listings associated with a Return Policy.
+     * @param returnPolicyId The numeric ID of the [Return Policy](/documentation/reference#operation/getShopReturnPolicies). (required)
+     * @param shopId The unique positive non-zero numeric ID for an Etsy Shop. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A set of ShopListing resources. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> There was a problem with the request data. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> The request attempted to perform an operation it is not allowed to. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> A resource could not be found. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> The request lacks valid authentication credentials. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getListingsByShopReturnPolicyAsync(Long returnPolicyId, Long shopId, final ApiCallback<ShopListings> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getListingsByShopReturnPolicyValidateBeforeCall(returnPolicyId, shopId, _callback);
+        Type localVarReturnType = new TypeToken<ShopListings>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for getListingsByShopSectionId
      * @param shopId The unique positive non-zero numeric ID for an Etsy Shop. (required)
      * @param shopSectionIds A list of numeric IDS for all sections in a specific Etsy shop. (required)
      * @param limit The maximum number of results to return. (optional, default to 25)
      * @param offset The number of records to skip before selecting the first result. (optional, default to 0)
-     * @param sortOn The value to sort a search result of listings on. NOTE: sort_on only works when combined with one of the search options (keywords, region, etc.).  (optional, default to created)
+     * @param sortOn The value to sort a search result of listings on. NOTES: a) &#x60;sort_on&#x60; only works when combined with one of the search options (keywords, region, etc.). b) when using &#x60;score&#x60; the returned results will always be in _descending_ order, regardless of the &#x60;sort_order&#x60; parameter. (optional, default to created)
      * @param sortOrder The ascending(up) or descending(down) order to sort listings by. NOTE: sort_order only works when combined with one of the search options (keywords, region, etc.). (optional, default to desc)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -2423,12 +2605,12 @@ public class ShopListingApi {
 
     /**
      * 
-     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Retrieves all the listings from the section of a specific shop.
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/discussions\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Retrieves all the listings from the section of a specific shop.
      * @param shopId The unique positive non-zero numeric ID for an Etsy Shop. (required)
      * @param shopSectionIds A list of numeric IDS for all sections in a specific Etsy shop. (required)
      * @param limit The maximum number of results to return. (optional, default to 25)
      * @param offset The number of records to skip before selecting the first result. (optional, default to 0)
-     * @param sortOn The value to sort a search result of listings on. NOTE: sort_on only works when combined with one of the search options (keywords, region, etc.).  (optional, default to created)
+     * @param sortOn The value to sort a search result of listings on. NOTES: a) &#x60;sort_on&#x60; only works when combined with one of the search options (keywords, region, etc.). b) when using &#x60;score&#x60; the returned results will always be in _descending_ order, regardless of the &#x60;sort_order&#x60; parameter. (optional, default to created)
      * @param sortOrder The ascending(up) or descending(down) order to sort listings by. NOTE: sort_order only works when combined with one of the search options (keywords, region, etc.). (optional, default to desc)
      * @return ShopListings
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2447,12 +2629,12 @@ public class ShopListingApi {
 
     /**
      * 
-     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Retrieves all the listings from the section of a specific shop.
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/discussions\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Retrieves all the listings from the section of a specific shop.
      * @param shopId The unique positive non-zero numeric ID for an Etsy Shop. (required)
      * @param shopSectionIds A list of numeric IDS for all sections in a specific Etsy shop. (required)
      * @param limit The maximum number of results to return. (optional, default to 25)
      * @param offset The number of records to skip before selecting the first result. (optional, default to 0)
-     * @param sortOn The value to sort a search result of listings on. NOTE: sort_on only works when combined with one of the search options (keywords, region, etc.).  (optional, default to created)
+     * @param sortOn The value to sort a search result of listings on. NOTES: a) &#x60;sort_on&#x60; only works when combined with one of the search options (keywords, region, etc.). b) when using &#x60;score&#x60; the returned results will always be in _descending_ order, regardless of the &#x60;sort_order&#x60; parameter. (optional, default to created)
      * @param sortOrder The ascending(up) or descending(down) order to sort listings by. NOTE: sort_order only works when combined with one of the search options (keywords, region, etc.). (optional, default to desc)
      * @return ApiResponse&lt;ShopListings&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2472,12 +2654,12 @@ public class ShopListingApi {
 
     /**
      *  (asynchronously)
-     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Retrieves all the listings from the section of a specific shop.
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/discussions\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Retrieves all the listings from the section of a specific shop.
      * @param shopId The unique positive non-zero numeric ID for an Etsy Shop. (required)
      * @param shopSectionIds A list of numeric IDS for all sections in a specific Etsy shop. (required)
      * @param limit The maximum number of results to return. (optional, default to 25)
      * @param offset The number of records to skip before selecting the first result. (optional, default to 0)
-     * @param sortOn The value to sort a search result of listings on. NOTE: sort_on only works when combined with one of the search options (keywords, region, etc.).  (optional, default to created)
+     * @param sortOn The value to sort a search result of listings on. NOTES: a) &#x60;sort_on&#x60; only works when combined with one of the search options (keywords, region, etc.). b) when using &#x60;score&#x60; the returned results will always be in _descending_ order, regardless of the &#x60;sort_order&#x60; parameter. (optional, default to created)
      * @param sortOrder The ascending(up) or descending(down) order to sort listings by. NOTE: sort_order only works when combined with one of the search options (keywords, region, etc.). (optional, default to desc)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2502,13 +2684,12 @@ public class ShopListingApi {
      * @param shopId The unique positive non-zero numeric ID for an Etsy Shop. (required)
      * @param listingId The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. (required)
      * @param imageIds An array of numeric image IDs of the images in a listing, which can include up to 10 images. (optional)
-     * @param quantity The positive non-zero number of products available for purchase in the listing. Note: The listing quantity is the sum of available offering quantities. You can request the quantities for individual offerings from the ListingInventory resource using the [getListingInventory](/documentation/reference#operation/getListingInventory) endpoint. (optional)
-     * @param price The positive non-zero price of the product. (Sold product listings are private) Note: The price is the minimum possible price. The [&#x60;getListingInventory&#x60;](/documentation/reference/#operation/getListingInventory) method requests exact prices for available offerings. (optional)
-     * @param title The listing&#39;s title string. Valid title strings contain only letters, numbers, punctuation marks, mathematical symbols, whitespace characters, ™, ©, and ®. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{P}\\\\p{Sm}\\\\p{Zs}™©®]/u) You can only use the %, :, &amp; and + characters once each. (optional)
+     * @param title The listing&#39;s title string. When creating or updating a listing, valid title strings contain only letters, numbers, punctuation marks, mathematical symbols, whitespace characters, ™, ©, and ®. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{P}\\\\p{Sm}\\\\p{Zs}™©®]/u) You can only use the %, :, &amp; and + characters once each. (optional)
      * @param description A description string of the product for sale in the listing. (optional)
      * @param materials A list of material strings for materials used in the product. Valid materials strings contain only letters, numbers, and whitespace characters. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{Zs}]/u) Default value is null. (optional)
-     * @param shouldAutoRenew When true, renews a listing for four months upon expriation. If set to true when previously false, etsy.com renews the listing before it expires, but the renewal period starts immidiately rather than extending the listing&#39;s expiration date. Any unused time remaining on the listing is lost. Renewals result in charges to a user&#39;s bill. (optional)
-     * @param shippingProfileId The numeric ID of the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing. Required when listing type&#x3D;physical. (optional)
+     * @param shouldAutoRenew When true, renews a listing for four months upon expiration. (optional)
+     * @param shippingProfileId The numeric ID of the [shipping profile](/documentation/reference#operation/getShopShippingProfile) associated with the listing. Required when listing type is &#x60;physical&#x60;. (optional)
+     * @param returnPolicyId The numeric ID of the [Return Policy](/documentation/reference#operation/getShopReturnPolicies). Required for active physical listings. This requirement does not apply to listings of EU-based shops. (optional)
      * @param shopSectionId The numeric ID of the [shop section](/documentation/reference#tag/Shop-Section) for this listing. Default value is null. (optional)
      * @param itemWeight The numeric weight of the product measured in units set in &#39;item_weight_unit&#39;. Default value is null. If set, the value must be greater than 0. (optional)
      * @param itemLength The numeric length of the product measured in units set in &#39;item_dimensions_unit&#39;. Default value is null. If set, the value must be greater than 0. (optional)
@@ -2517,16 +2698,16 @@ public class ShopListingApi {
      * @param itemWeightUnit A string defining the units used to measure the weight of the product. Default value is null. (optional)
      * @param itemDimensionsUnit A string defining the units used to measure the dimensions of the product. Default value is null. (optional)
      * @param isTaxable When true, applicable [shop](/documentation/reference#tag/Shop) tax rates apply to this listing at checkout. (optional)
-     * @param taxonomyId The numeric taxonomy ID of the listing. See [SellerTaxonomy](/documentation/reference#tag/SellerTaxonomy) and [BuyerTaxonomy](/documentation/reference#tag/BuyerTaxonomy) for more information. (optional)
-     * @param tags A comma-separated list of tag strings for the listing. Valid tag strings contain only letters, numbers, whitespace characters, -, &#39;, ™, ©, and ®. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{Zs}\\\\-&#39;™©®]/u) Default value is null. (optional)
-     * @param whoMade An enumerated string inidcated who made the product. Helps buyers locate the listing under the Handmade heading. Requires &#39;is_supply&#39; and &#39;when_made&#39;. (optional)
+     * @param taxonomyId The numerical taxonomy ID of the listing. See [SellerTaxonomy](/documentation/reference#tag/SellerTaxonomy) and [BuyerTaxonomy](/documentation/reference#tag/BuyerTaxonomy) for more information. (optional)
+     * @param tags A comma-separated list of tag strings for the listing. When creating or updating a listing, valid tag strings contain only letters, numbers, whitespace characters, -, &#39;, ™, ©, and ®. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{Zs}\\\\-&#39;™©®]/u) Default value is null. (optional)
+     * @param whoMade An enumerated string indicating who made the product. Helps buyers locate the listing under the Handmade heading. Requires &#39;is_supply&#39; and &#39;when_made&#39;. (optional)
      * @param whenMade An enumerated string for the era in which the maker made the product in this listing. Helps buyers locate the listing under the Vintage heading. Requires &#39;is_supply&#39; and &#39;who_made&#39;. (optional)
      * @param featuredRank The positive non-zero numeric position in the featured listings of the shop, with rank 1 listings appearing in the left-most position in featured listing on a shop’s home page. (optional)
      * @param isPersonalizable When true, this listing is personalizable. The default value is null. (optional)
      * @param personalizationIsRequired When true, this listing requires personalization. The default value is null. Will only change if is_personalizable is &#39;true&#39;. (optional)
-     * @param personalizationCharCountMax This an integer value representing the maximum length for the personalization message entered by the buyer. Will only change if is_personalizable is &#39;true&#39;. (optional)
+     * @param personalizationCharCountMax This is an integer value representing the maximum length for the personalization message entered by the buyer. Will only change if is_personalizable is &#39;true&#39;. (optional)
      * @param personalizationInstructions A string representing instructions for the buyer to enter the personalization. Will only change if is_personalizable is &#39;true&#39;. (optional)
-     * @param state An enumerated string from any of: active or inactive. Note: Setting a draft listing to active will also publish the listing on etsy.com. Setting a sold out listing to active will update the quantity to 1 and renew the listing on etsy.com. (optional)
+     * @param state When _updating_ a listing, this value can be either &#x60;active&#x60; or &#x60;inactive&#x60;. Note: Setting a &#x60;draft&#x60; listing to &#x60;active&#x60; will also publish the listing on etsy.com and requires that the listing have an image set. Setting a &#x60;sold_out&#x60; listing to active will update the quantity to 1 and renew the listing on etsy.com. (optional)
      * @param isSupply When true, tags the listing as a supply product, else indicates that it&#39;s a finished product. Helps buyers locate the listing under the Supplies heading. Requires &#39;who_made&#39; and &#39;when_made&#39;. (optional)
      * @param productionPartnerIds An array of unique IDs of production partner ids. (optional)
      * @param type An enumerated type string that indicates whether the listing is physical or a digital download. (optional)
@@ -2540,12 +2721,12 @@ public class ShopListingApi {
         <tr><td> 400 </td><td> There was a problem with the request data. See the error message for details. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> The request lacks valid authentication credentials. See the error message for details. </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> The request attempted to perform an operation it is not allowed to. See the error message for details. </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> There was a request conflict with current state of the target resource. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> There was a request conflict with the current state of the target resource. See the error message for details. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> A resource could not be found. See the error message for details. </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateListingCall(Long shopId, Long listingId, List<Long> imageIds, Long quantity, Float price, String title, String description, List<String> materials, Boolean shouldAutoRenew, Long shippingProfileId, Long shopSectionId, Float itemWeight, Float itemLength, Float itemWidth, Float itemHeight, String itemWeightUnit, String itemDimensionsUnit, Boolean isTaxable, Long taxonomyId, List<String> tags, String whoMade, String whenMade, Long featuredRank, Boolean isPersonalizable, Boolean personalizationIsRequired, Long personalizationCharCountMax, String personalizationInstructions, String state, Boolean isSupply, List<Long> productionPartnerIds, String type, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateListingCall(Long shopId, Long listingId, List<Long> imageIds, String title, String description, List<String> materials, Boolean shouldAutoRenew, Long shippingProfileId, Long returnPolicyId, Long shopSectionId, Float itemWeight, Float itemLength, Float itemWidth, Float itemHeight, String itemWeightUnit, String itemDimensionsUnit, Boolean isTaxable, Long taxonomyId, List<String> tags, String whoMade, String whenMade, Long featuredRank, Boolean isPersonalizable, Boolean personalizationIsRequired, Long personalizationCharCountMax, String personalizationInstructions, String state, Boolean isSupply, List<Long> productionPartnerIds, String type, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -2577,12 +2758,389 @@ public class ShopListingApi {
             localVarFormParams.put("image_ids", imageIds);
         }
 
-        if (quantity != null) {
-            localVarFormParams.put("quantity", quantity);
+        if (title != null) {
+            localVarFormParams.put("title", title);
         }
 
-        if (price != null) {
-            localVarFormParams.put("price", price);
+        if (description != null) {
+            localVarFormParams.put("description", description);
+        }
+
+        if (materials != null) {
+            localVarFormParams.put("materials", materials);
+        }
+
+        if (shouldAutoRenew != null) {
+            localVarFormParams.put("should_auto_renew", shouldAutoRenew);
+        }
+
+        if (shippingProfileId != null) {
+            localVarFormParams.put("shipping_profile_id", shippingProfileId);
+        }
+
+        if (returnPolicyId != null) {
+            localVarFormParams.put("return_policy_id", returnPolicyId);
+        }
+
+        if (shopSectionId != null) {
+            localVarFormParams.put("shop_section_id", shopSectionId);
+        }
+
+        if (itemWeight != null) {
+            localVarFormParams.put("item_weight", itemWeight);
+        }
+
+        if (itemLength != null) {
+            localVarFormParams.put("item_length", itemLength);
+        }
+
+        if (itemWidth != null) {
+            localVarFormParams.put("item_width", itemWidth);
+        }
+
+        if (itemHeight != null) {
+            localVarFormParams.put("item_height", itemHeight);
+        }
+
+        if (itemWeightUnit != null) {
+            localVarFormParams.put("item_weight_unit", itemWeightUnit);
+        }
+
+        if (itemDimensionsUnit != null) {
+            localVarFormParams.put("item_dimensions_unit", itemDimensionsUnit);
+        }
+
+        if (isTaxable != null) {
+            localVarFormParams.put("is_taxable", isTaxable);
+        }
+
+        if (taxonomyId != null) {
+            localVarFormParams.put("taxonomy_id", taxonomyId);
+        }
+
+        if (tags != null) {
+            localVarFormParams.put("tags", tags);
+        }
+
+        if (whoMade != null) {
+            localVarFormParams.put("who_made", whoMade);
+        }
+
+        if (whenMade != null) {
+            localVarFormParams.put("when_made", whenMade);
+        }
+
+        if (featuredRank != null) {
+            localVarFormParams.put("featured_rank", featuredRank);
+        }
+
+        if (isPersonalizable != null) {
+            localVarFormParams.put("is_personalizable", isPersonalizable);
+        }
+
+        if (personalizationIsRequired != null) {
+            localVarFormParams.put("personalization_is_required", personalizationIsRequired);
+        }
+
+        if (personalizationCharCountMax != null) {
+            localVarFormParams.put("personalization_char_count_max", personalizationCharCountMax);
+        }
+
+        if (personalizationInstructions != null) {
+            localVarFormParams.put("personalization_instructions", personalizationInstructions);
+        }
+
+        if (state != null) {
+            localVarFormParams.put("state", state);
+        }
+
+        if (isSupply != null) {
+            localVarFormParams.put("is_supply", isSupply);
+        }
+
+        if (productionPartnerIds != null) {
+            localVarFormParams.put("production_partner_ids", productionPartnerIds);
+        }
+
+        if (type != null) {
+            localVarFormParams.put("type", type);
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/x-www-form-urlencoded"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key", "oauth2" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateListingValidateBeforeCall(Long shopId, Long listingId, List<Long> imageIds, String title, String description, List<String> materials, Boolean shouldAutoRenew, Long shippingProfileId, Long returnPolicyId, Long shopSectionId, Float itemWeight, Float itemLength, Float itemWidth, Float itemHeight, String itemWeightUnit, String itemDimensionsUnit, Boolean isTaxable, Long taxonomyId, List<String> tags, String whoMade, String whenMade, Long featuredRank, Boolean isPersonalizable, Boolean personalizationIsRequired, Long personalizationCharCountMax, String personalizationInstructions, String state, Boolean isSupply, List<Long> productionPartnerIds, String type, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'shopId' is set
+        if (shopId == null) {
+            throw new ApiException("Missing the required parameter 'shopId' when calling updateListing(Async)");
+        }
+        
+        // verify the required parameter 'listingId' is set
+        if (listingId == null) {
+            throw new ApiException("Missing the required parameter 'listingId' when calling updateListing(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = updateListingCall(shopId, listingId, imageIds, title, description, materials, shouldAutoRenew, shippingProfileId, returnPolicyId, shopSectionId, itemWeight, itemLength, itemWidth, itemHeight, itemWeightUnit, itemDimensionsUnit, isTaxable, taxonomyId, tags, whoMade, whenMade, featuredRank, isPersonalizable, personalizationIsRequired, personalizationCharCountMax, personalizationInstructions, state, isSupply, productionPartnerIds, type, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * 
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/discussions\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Updates a listing, identified by a listing ID, for a specific shop identified by a shop ID. Note that this is a PATCH method type.
+     * @param shopId The unique positive non-zero numeric ID for an Etsy Shop. (required)
+     * @param listingId The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. (required)
+     * @param imageIds An array of numeric image IDs of the images in a listing, which can include up to 10 images. (optional)
+     * @param title The listing&#39;s title string. When creating or updating a listing, valid title strings contain only letters, numbers, punctuation marks, mathematical symbols, whitespace characters, ™, ©, and ®. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{P}\\\\p{Sm}\\\\p{Zs}™©®]/u) You can only use the %, :, &amp; and + characters once each. (optional)
+     * @param description A description string of the product for sale in the listing. (optional)
+     * @param materials A list of material strings for materials used in the product. Valid materials strings contain only letters, numbers, and whitespace characters. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{Zs}]/u) Default value is null. (optional)
+     * @param shouldAutoRenew When true, renews a listing for four months upon expiration. (optional)
+     * @param shippingProfileId The numeric ID of the [shipping profile](/documentation/reference#operation/getShopShippingProfile) associated with the listing. Required when listing type is &#x60;physical&#x60;. (optional)
+     * @param returnPolicyId The numeric ID of the [Return Policy](/documentation/reference#operation/getShopReturnPolicies). Required for active physical listings. This requirement does not apply to listings of EU-based shops. (optional)
+     * @param shopSectionId The numeric ID of the [shop section](/documentation/reference#tag/Shop-Section) for this listing. Default value is null. (optional)
+     * @param itemWeight The numeric weight of the product measured in units set in &#39;item_weight_unit&#39;. Default value is null. If set, the value must be greater than 0. (optional)
+     * @param itemLength The numeric length of the product measured in units set in &#39;item_dimensions_unit&#39;. Default value is null. If set, the value must be greater than 0. (optional)
+     * @param itemWidth The numeric width of the product measured in units set in &#39;item_dimensions_unit&#39;. Default value is null. If set, the value must be greater than 0. (optional)
+     * @param itemHeight The numeric height of the product measured in units set in &#39;item_dimensions_unit&#39;. Default value is null. If set, the value must be greater than 0. (optional)
+     * @param itemWeightUnit A string defining the units used to measure the weight of the product. Default value is null. (optional)
+     * @param itemDimensionsUnit A string defining the units used to measure the dimensions of the product. Default value is null. (optional)
+     * @param isTaxable When true, applicable [shop](/documentation/reference#tag/Shop) tax rates apply to this listing at checkout. (optional)
+     * @param taxonomyId The numerical taxonomy ID of the listing. See [SellerTaxonomy](/documentation/reference#tag/SellerTaxonomy) and [BuyerTaxonomy](/documentation/reference#tag/BuyerTaxonomy) for more information. (optional)
+     * @param tags A comma-separated list of tag strings for the listing. When creating or updating a listing, valid tag strings contain only letters, numbers, whitespace characters, -, &#39;, ™, ©, and ®. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{Zs}\\\\-&#39;™©®]/u) Default value is null. (optional)
+     * @param whoMade An enumerated string indicating who made the product. Helps buyers locate the listing under the Handmade heading. Requires &#39;is_supply&#39; and &#39;when_made&#39;. (optional)
+     * @param whenMade An enumerated string for the era in which the maker made the product in this listing. Helps buyers locate the listing under the Vintage heading. Requires &#39;is_supply&#39; and &#39;who_made&#39;. (optional)
+     * @param featuredRank The positive non-zero numeric position in the featured listings of the shop, with rank 1 listings appearing in the left-most position in featured listing on a shop’s home page. (optional)
+     * @param isPersonalizable When true, this listing is personalizable. The default value is null. (optional)
+     * @param personalizationIsRequired When true, this listing requires personalization. The default value is null. Will only change if is_personalizable is &#39;true&#39;. (optional)
+     * @param personalizationCharCountMax This is an integer value representing the maximum length for the personalization message entered by the buyer. Will only change if is_personalizable is &#39;true&#39;. (optional)
+     * @param personalizationInstructions A string representing instructions for the buyer to enter the personalization. Will only change if is_personalizable is &#39;true&#39;. (optional)
+     * @param state When _updating_ a listing, this value can be either &#x60;active&#x60; or &#x60;inactive&#x60;. Note: Setting a &#x60;draft&#x60; listing to &#x60;active&#x60; will also publish the listing on etsy.com and requires that the listing have an image set. Setting a &#x60;sold_out&#x60; listing to active will update the quantity to 1 and renew the listing on etsy.com. (optional)
+     * @param isSupply When true, tags the listing as a supply product, else indicates that it&#39;s a finished product. Helps buyers locate the listing under the Supplies heading. Requires &#39;who_made&#39; and &#39;when_made&#39;. (optional)
+     * @param productionPartnerIds An array of unique IDs of production partner ids. (optional)
+     * @param type An enumerated type string that indicates whether the listing is physical or a digital download. (optional)
+     * @return ShopListing
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A single ShopListing </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> There was a problem with the request data. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> The request lacks valid authentication credentials. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> The request attempted to perform an operation it is not allowed to. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> There was a request conflict with the current state of the target resource. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> A resource could not be found. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ShopListing updateListing(Long shopId, Long listingId, List<Long> imageIds, String title, String description, List<String> materials, Boolean shouldAutoRenew, Long shippingProfileId, Long returnPolicyId, Long shopSectionId, Float itemWeight, Float itemLength, Float itemWidth, Float itemHeight, String itemWeightUnit, String itemDimensionsUnit, Boolean isTaxable, Long taxonomyId, List<String> tags, String whoMade, String whenMade, Long featuredRank, Boolean isPersonalizable, Boolean personalizationIsRequired, Long personalizationCharCountMax, String personalizationInstructions, String state, Boolean isSupply, List<Long> productionPartnerIds, String type) throws ApiException {
+        ApiResponse<ShopListing> localVarResp = updateListingWithHttpInfo(shopId, listingId, imageIds, title, description, materials, shouldAutoRenew, shippingProfileId, returnPolicyId, shopSectionId, itemWeight, itemLength, itemWidth, itemHeight, itemWeightUnit, itemDimensionsUnit, isTaxable, taxonomyId, tags, whoMade, whenMade, featuredRank, isPersonalizable, personalizationIsRequired, personalizationCharCountMax, personalizationInstructions, state, isSupply, productionPartnerIds, type);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/discussions\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Updates a listing, identified by a listing ID, for a specific shop identified by a shop ID. Note that this is a PATCH method type.
+     * @param shopId The unique positive non-zero numeric ID for an Etsy Shop. (required)
+     * @param listingId The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. (required)
+     * @param imageIds An array of numeric image IDs of the images in a listing, which can include up to 10 images. (optional)
+     * @param title The listing&#39;s title string. When creating or updating a listing, valid title strings contain only letters, numbers, punctuation marks, mathematical symbols, whitespace characters, ™, ©, and ®. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{P}\\\\p{Sm}\\\\p{Zs}™©®]/u) You can only use the %, :, &amp; and + characters once each. (optional)
+     * @param description A description string of the product for sale in the listing. (optional)
+     * @param materials A list of material strings for materials used in the product. Valid materials strings contain only letters, numbers, and whitespace characters. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{Zs}]/u) Default value is null. (optional)
+     * @param shouldAutoRenew When true, renews a listing for four months upon expiration. (optional)
+     * @param shippingProfileId The numeric ID of the [shipping profile](/documentation/reference#operation/getShopShippingProfile) associated with the listing. Required when listing type is &#x60;physical&#x60;. (optional)
+     * @param returnPolicyId The numeric ID of the [Return Policy](/documentation/reference#operation/getShopReturnPolicies). Required for active physical listings. This requirement does not apply to listings of EU-based shops. (optional)
+     * @param shopSectionId The numeric ID of the [shop section](/documentation/reference#tag/Shop-Section) for this listing. Default value is null. (optional)
+     * @param itemWeight The numeric weight of the product measured in units set in &#39;item_weight_unit&#39;. Default value is null. If set, the value must be greater than 0. (optional)
+     * @param itemLength The numeric length of the product measured in units set in &#39;item_dimensions_unit&#39;. Default value is null. If set, the value must be greater than 0. (optional)
+     * @param itemWidth The numeric width of the product measured in units set in &#39;item_dimensions_unit&#39;. Default value is null. If set, the value must be greater than 0. (optional)
+     * @param itemHeight The numeric height of the product measured in units set in &#39;item_dimensions_unit&#39;. Default value is null. If set, the value must be greater than 0. (optional)
+     * @param itemWeightUnit A string defining the units used to measure the weight of the product. Default value is null. (optional)
+     * @param itemDimensionsUnit A string defining the units used to measure the dimensions of the product. Default value is null. (optional)
+     * @param isTaxable When true, applicable [shop](/documentation/reference#tag/Shop) tax rates apply to this listing at checkout. (optional)
+     * @param taxonomyId The numerical taxonomy ID of the listing. See [SellerTaxonomy](/documentation/reference#tag/SellerTaxonomy) and [BuyerTaxonomy](/documentation/reference#tag/BuyerTaxonomy) for more information. (optional)
+     * @param tags A comma-separated list of tag strings for the listing. When creating or updating a listing, valid tag strings contain only letters, numbers, whitespace characters, -, &#39;, ™, ©, and ®. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{Zs}\\\\-&#39;™©®]/u) Default value is null. (optional)
+     * @param whoMade An enumerated string indicating who made the product. Helps buyers locate the listing under the Handmade heading. Requires &#39;is_supply&#39; and &#39;when_made&#39;. (optional)
+     * @param whenMade An enumerated string for the era in which the maker made the product in this listing. Helps buyers locate the listing under the Vintage heading. Requires &#39;is_supply&#39; and &#39;who_made&#39;. (optional)
+     * @param featuredRank The positive non-zero numeric position in the featured listings of the shop, with rank 1 listings appearing in the left-most position in featured listing on a shop’s home page. (optional)
+     * @param isPersonalizable When true, this listing is personalizable. The default value is null. (optional)
+     * @param personalizationIsRequired When true, this listing requires personalization. The default value is null. Will only change if is_personalizable is &#39;true&#39;. (optional)
+     * @param personalizationCharCountMax This is an integer value representing the maximum length for the personalization message entered by the buyer. Will only change if is_personalizable is &#39;true&#39;. (optional)
+     * @param personalizationInstructions A string representing instructions for the buyer to enter the personalization. Will only change if is_personalizable is &#39;true&#39;. (optional)
+     * @param state When _updating_ a listing, this value can be either &#x60;active&#x60; or &#x60;inactive&#x60;. Note: Setting a &#x60;draft&#x60; listing to &#x60;active&#x60; will also publish the listing on etsy.com and requires that the listing have an image set. Setting a &#x60;sold_out&#x60; listing to active will update the quantity to 1 and renew the listing on etsy.com. (optional)
+     * @param isSupply When true, tags the listing as a supply product, else indicates that it&#39;s a finished product. Helps buyers locate the listing under the Supplies heading. Requires &#39;who_made&#39; and &#39;when_made&#39;. (optional)
+     * @param productionPartnerIds An array of unique IDs of production partner ids. (optional)
+     * @param type An enumerated type string that indicates whether the listing is physical or a digital download. (optional)
+     * @return ApiResponse&lt;ShopListing&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A single ShopListing </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> There was a problem with the request data. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> The request lacks valid authentication credentials. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> The request attempted to perform an operation it is not allowed to. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> There was a request conflict with the current state of the target resource. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> A resource could not be found. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ShopListing> updateListingWithHttpInfo(Long shopId, Long listingId, List<Long> imageIds, String title, String description, List<String> materials, Boolean shouldAutoRenew, Long shippingProfileId, Long returnPolicyId, Long shopSectionId, Float itemWeight, Float itemLength, Float itemWidth, Float itemHeight, String itemWeightUnit, String itemDimensionsUnit, Boolean isTaxable, Long taxonomyId, List<String> tags, String whoMade, String whenMade, Long featuredRank, Boolean isPersonalizable, Boolean personalizationIsRequired, Long personalizationCharCountMax, String personalizationInstructions, String state, Boolean isSupply, List<Long> productionPartnerIds, String type) throws ApiException {
+        okhttp3.Call localVarCall = updateListingValidateBeforeCall(shopId, listingId, imageIds, title, description, materials, shouldAutoRenew, shippingProfileId, returnPolicyId, shopSectionId, itemWeight, itemLength, itemWidth, itemHeight, itemWeightUnit, itemDimensionsUnit, isTaxable, taxonomyId, tags, whoMade, whenMade, featuredRank, isPersonalizable, personalizationIsRequired, personalizationCharCountMax, personalizationInstructions, state, isSupply, productionPartnerIds, type, null);
+        Type localVarReturnType = new TypeToken<ShopListing>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/discussions\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Updates a listing, identified by a listing ID, for a specific shop identified by a shop ID. Note that this is a PATCH method type.
+     * @param shopId The unique positive non-zero numeric ID for an Etsy Shop. (required)
+     * @param listingId The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. (required)
+     * @param imageIds An array of numeric image IDs of the images in a listing, which can include up to 10 images. (optional)
+     * @param title The listing&#39;s title string. When creating or updating a listing, valid title strings contain only letters, numbers, punctuation marks, mathematical symbols, whitespace characters, ™, ©, and ®. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{P}\\\\p{Sm}\\\\p{Zs}™©®]/u) You can only use the %, :, &amp; and + characters once each. (optional)
+     * @param description A description string of the product for sale in the listing. (optional)
+     * @param materials A list of material strings for materials used in the product. Valid materials strings contain only letters, numbers, and whitespace characters. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{Zs}]/u) Default value is null. (optional)
+     * @param shouldAutoRenew When true, renews a listing for four months upon expiration. (optional)
+     * @param shippingProfileId The numeric ID of the [shipping profile](/documentation/reference#operation/getShopShippingProfile) associated with the listing. Required when listing type is &#x60;physical&#x60;. (optional)
+     * @param returnPolicyId The numeric ID of the [Return Policy](/documentation/reference#operation/getShopReturnPolicies). Required for active physical listings. This requirement does not apply to listings of EU-based shops. (optional)
+     * @param shopSectionId The numeric ID of the [shop section](/documentation/reference#tag/Shop-Section) for this listing. Default value is null. (optional)
+     * @param itemWeight The numeric weight of the product measured in units set in &#39;item_weight_unit&#39;. Default value is null. If set, the value must be greater than 0. (optional)
+     * @param itemLength The numeric length of the product measured in units set in &#39;item_dimensions_unit&#39;. Default value is null. If set, the value must be greater than 0. (optional)
+     * @param itemWidth The numeric width of the product measured in units set in &#39;item_dimensions_unit&#39;. Default value is null. If set, the value must be greater than 0. (optional)
+     * @param itemHeight The numeric height of the product measured in units set in &#39;item_dimensions_unit&#39;. Default value is null. If set, the value must be greater than 0. (optional)
+     * @param itemWeightUnit A string defining the units used to measure the weight of the product. Default value is null. (optional)
+     * @param itemDimensionsUnit A string defining the units used to measure the dimensions of the product. Default value is null. (optional)
+     * @param isTaxable When true, applicable [shop](/documentation/reference#tag/Shop) tax rates apply to this listing at checkout. (optional)
+     * @param taxonomyId The numerical taxonomy ID of the listing. See [SellerTaxonomy](/documentation/reference#tag/SellerTaxonomy) and [BuyerTaxonomy](/documentation/reference#tag/BuyerTaxonomy) for more information. (optional)
+     * @param tags A comma-separated list of tag strings for the listing. When creating or updating a listing, valid tag strings contain only letters, numbers, whitespace characters, -, &#39;, ™, ©, and ®. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{Zs}\\\\-&#39;™©®]/u) Default value is null. (optional)
+     * @param whoMade An enumerated string indicating who made the product. Helps buyers locate the listing under the Handmade heading. Requires &#39;is_supply&#39; and &#39;when_made&#39;. (optional)
+     * @param whenMade An enumerated string for the era in which the maker made the product in this listing. Helps buyers locate the listing under the Vintage heading. Requires &#39;is_supply&#39; and &#39;who_made&#39;. (optional)
+     * @param featuredRank The positive non-zero numeric position in the featured listings of the shop, with rank 1 listings appearing in the left-most position in featured listing on a shop’s home page. (optional)
+     * @param isPersonalizable When true, this listing is personalizable. The default value is null. (optional)
+     * @param personalizationIsRequired When true, this listing requires personalization. The default value is null. Will only change if is_personalizable is &#39;true&#39;. (optional)
+     * @param personalizationCharCountMax This is an integer value representing the maximum length for the personalization message entered by the buyer. Will only change if is_personalizable is &#39;true&#39;. (optional)
+     * @param personalizationInstructions A string representing instructions for the buyer to enter the personalization. Will only change if is_personalizable is &#39;true&#39;. (optional)
+     * @param state When _updating_ a listing, this value can be either &#x60;active&#x60; or &#x60;inactive&#x60;. Note: Setting a &#x60;draft&#x60; listing to &#x60;active&#x60; will also publish the listing on etsy.com and requires that the listing have an image set. Setting a &#x60;sold_out&#x60; listing to active will update the quantity to 1 and renew the listing on etsy.com. (optional)
+     * @param isSupply When true, tags the listing as a supply product, else indicates that it&#39;s a finished product. Helps buyers locate the listing under the Supplies heading. Requires &#39;who_made&#39; and &#39;when_made&#39;. (optional)
+     * @param productionPartnerIds An array of unique IDs of production partner ids. (optional)
+     * @param type An enumerated type string that indicates whether the listing is physical or a digital download. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A single ShopListing </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> There was a problem with the request data. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> The request lacks valid authentication credentials. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> The request attempted to perform an operation it is not allowed to. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> There was a request conflict with the current state of the target resource. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> A resource could not be found. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateListingAsync(Long shopId, Long listingId, List<Long> imageIds, String title, String description, List<String> materials, Boolean shouldAutoRenew, Long shippingProfileId, Long returnPolicyId, Long shopSectionId, Float itemWeight, Float itemLength, Float itemWidth, Float itemHeight, String itemWeightUnit, String itemDimensionsUnit, Boolean isTaxable, Long taxonomyId, List<String> tags, String whoMade, String whenMade, Long featuredRank, Boolean isPersonalizable, Boolean personalizationIsRequired, Long personalizationCharCountMax, String personalizationInstructions, String state, Boolean isSupply, List<Long> productionPartnerIds, String type, final ApiCallback<ShopListing> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = updateListingValidateBeforeCall(shopId, listingId, imageIds, title, description, materials, shouldAutoRenew, shippingProfileId, returnPolicyId, shopSectionId, itemWeight, itemLength, itemWidth, itemHeight, itemWeightUnit, itemDimensionsUnit, isTaxable, taxonomyId, tags, whoMade, whenMade, featuredRank, isPersonalizable, personalizationIsRequired, personalizationCharCountMax, personalizationInstructions, state, isSupply, productionPartnerIds, type, _callback);
+        Type localVarReturnType = new TypeToken<ShopListing>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for updateListingDeprecated
+     * @param shopId The unique positive non-zero numeric ID for an Etsy Shop. (required)
+     * @param listingId The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. (required)
+     * @param imageIds An array of numeric image IDs of the images in a listing, which can include up to 10 images. (optional)
+     * @param title The listing&#39;s title string. When creating or updating a listing, valid title strings contain only letters, numbers, punctuation marks, mathematical symbols, whitespace characters, ™, ©, and ®. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{P}\\\\p{Sm}\\\\p{Zs}™©®]/u) You can only use the %, :, &amp; and + characters once each. (optional)
+     * @param description A description string of the product for sale in the listing. (optional)
+     * @param materials A list of material strings for materials used in the product. Valid materials strings contain only letters, numbers, and whitespace characters. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{Zs}]/u) Default value is null. (optional)
+     * @param shouldAutoRenew When true, renews a listing for four months upon expiration. (optional)
+     * @param shippingProfileId The numeric ID of the [shipping profile](/documentation/reference#operation/getShopShippingProfile) associated with the listing. Required when listing type is &#x60;physical&#x60;. (optional)
+     * @param shopSectionId The numeric ID of the [shop section](/documentation/reference#tag/Shop-Section) for this listing. Default value is null. (optional)
+     * @param itemWeight The numeric weight of the product measured in units set in &#39;item_weight_unit&#39;. Default value is null. If set, the value must be greater than 0. (optional)
+     * @param itemLength The numeric length of the product measured in units set in &#39;item_dimensions_unit&#39;. Default value is null. If set, the value must be greater than 0. (optional)
+     * @param itemWidth The numeric width of the product measured in units set in &#39;item_dimensions_unit&#39;. Default value is null. If set, the value must be greater than 0. (optional)
+     * @param itemHeight The numeric height of the product measured in units set in &#39;item_dimensions_unit&#39;. Default value is null. If set, the value must be greater than 0. (optional)
+     * @param itemWeightUnit A string defining the units used to measure the weight of the product. Default value is null. (optional)
+     * @param itemDimensionsUnit A string defining the units used to measure the dimensions of the product. Default value is null. (optional)
+     * @param isTaxable When true, applicable [shop](/documentation/reference#tag/Shop) tax rates apply to this listing at checkout. (optional)
+     * @param taxonomyId The numerical taxonomy ID of the listing. See [SellerTaxonomy](/documentation/reference#tag/SellerTaxonomy) and [BuyerTaxonomy](/documentation/reference#tag/BuyerTaxonomy) for more information. (optional)
+     * @param tags A comma-separated list of tag strings for the listing. When creating or updating a listing, valid tag strings contain only letters, numbers, whitespace characters, -, &#39;, ™, ©, and ®. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{Zs}\\\\-&#39;™©®]/u) Default value is null. (optional)
+     * @param whoMade An enumerated string indicating who made the product. Helps buyers locate the listing under the Handmade heading. Requires &#39;is_supply&#39; and &#39;when_made&#39;. (optional)
+     * @param whenMade An enumerated string for the era in which the maker made the product in this listing. Helps buyers locate the listing under the Vintage heading. Requires &#39;is_supply&#39; and &#39;who_made&#39;. (optional)
+     * @param featuredRank The positive non-zero numeric position in the featured listings of the shop, with rank 1 listings appearing in the left-most position in featured listing on a shop’s home page. (optional)
+     * @param isPersonalizable When true, this listing is personalizable. The default value is null. (optional)
+     * @param personalizationIsRequired When true, this listing requires personalization. The default value is null. Will only change if is_personalizable is &#39;true&#39;. (optional)
+     * @param personalizationCharCountMax This is an integer value representing the maximum length for the personalization message entered by the buyer. Will only change if is_personalizable is &#39;true&#39;. (optional)
+     * @param personalizationInstructions A string representing instructions for the buyer to enter the personalization. Will only change if is_personalizable is &#39;true&#39;. (optional)
+     * @param state When _updating_ a listing, this value can be either &#x60;active&#x60; or &#x60;inactive&#x60;. Note: Setting a &#x60;draft&#x60; listing to &#x60;active&#x60; will also publish the listing on etsy.com and requires that the listing have an image set. Setting a &#x60;sold_out&#x60; listing to active will update the quantity to 1 and renew the listing on etsy.com. (optional)
+     * @param isSupply When true, tags the listing as a supply product, else indicates that it&#39;s a finished product. Helps buyers locate the listing under the Supplies heading. Requires &#39;who_made&#39; and &#39;when_made&#39;. (optional)
+     * @param productionPartnerIds An array of unique IDs of production partner ids. (optional)
+     * @param type An enumerated type string that indicates whether the listing is physical or a digital download. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A single ShopListing </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> There was a problem with the request data. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> The request lacks valid authentication credentials. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> The request attempted to perform an operation it is not allowed to. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> There was a request conflict with the current state of the target resource. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> A resource could not be found. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateListingDeprecatedCall(Long shopId, Long listingId, List<Long> imageIds, String title, String description, List<String> materials, Boolean shouldAutoRenew, Long shippingProfileId, Long shopSectionId, Float itemWeight, Float itemLength, Float itemWidth, Float itemHeight, String itemWeightUnit, String itemDimensionsUnit, Boolean isTaxable, Long taxonomyId, List<String> tags, String whoMade, String whenMade, Long featuredRank, Boolean isPersonalizable, Boolean personalizationIsRequired, Long personalizationCharCountMax, String personalizationInstructions, String state, Boolean isSupply, List<Long> productionPartnerIds, String type, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v3/application/shops/{shop_id}/listings/{listing_id}"
+            .replaceAll("\\{" + "shop_id" + "\\}", localVarApiClient.escapeString(shopId.toString()))
+            .replaceAll("\\{" + "listing_id" + "\\}", localVarApiClient.escapeString(listingId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (imageIds != null) {
+            localVarFormParams.put("image_ids", imageIds);
         }
 
         if (title != null) {
@@ -2710,37 +3268,35 @@ public class ShopListingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateListingValidateBeforeCall(Long shopId, Long listingId, List<Long> imageIds, Long quantity, Float price, String title, String description, List<String> materials, Boolean shouldAutoRenew, Long shippingProfileId, Long shopSectionId, Float itemWeight, Float itemLength, Float itemWidth, Float itemHeight, String itemWeightUnit, String itemDimensionsUnit, Boolean isTaxable, Long taxonomyId, List<String> tags, String whoMade, String whenMade, Long featuredRank, Boolean isPersonalizable, Boolean personalizationIsRequired, Long personalizationCharCountMax, String personalizationInstructions, String state, Boolean isSupply, List<Long> productionPartnerIds, String type, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateListingDeprecatedValidateBeforeCall(Long shopId, Long listingId, List<Long> imageIds, String title, String description, List<String> materials, Boolean shouldAutoRenew, Long shippingProfileId, Long shopSectionId, Float itemWeight, Float itemLength, Float itemWidth, Float itemHeight, String itemWeightUnit, String itemDimensionsUnit, Boolean isTaxable, Long taxonomyId, List<String> tags, String whoMade, String whenMade, Long featuredRank, Boolean isPersonalizable, Boolean personalizationIsRequired, Long personalizationCharCountMax, String personalizationInstructions, String state, Boolean isSupply, List<Long> productionPartnerIds, String type, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'shopId' is set
         if (shopId == null) {
-            throw new ApiException("Missing the required parameter 'shopId' when calling updateListing(Async)");
+            throw new ApiException("Missing the required parameter 'shopId' when calling updateListingDeprecated(Async)");
         }
         
         // verify the required parameter 'listingId' is set
         if (listingId == null) {
-            throw new ApiException("Missing the required parameter 'listingId' when calling updateListing(Async)");
+            throw new ApiException("Missing the required parameter 'listingId' when calling updateListingDeprecated(Async)");
         }
         
 
-        okhttp3.Call localVarCall = updateListingCall(shopId, listingId, imageIds, quantity, price, title, description, materials, shouldAutoRenew, shippingProfileId, shopSectionId, itemWeight, itemLength, itemWidth, itemHeight, itemWeightUnit, itemDimensionsUnit, isTaxable, taxonomyId, tags, whoMade, whenMade, featuredRank, isPersonalizable, personalizationIsRequired, personalizationCharCountMax, personalizationInstructions, state, isSupply, productionPartnerIds, type, _callback);
+        okhttp3.Call localVarCall = updateListingDeprecatedCall(shopId, listingId, imageIds, title, description, materials, shouldAutoRenew, shippingProfileId, shopSectionId, itemWeight, itemLength, itemWidth, itemHeight, itemWeightUnit, itemDimensionsUnit, isTaxable, taxonomyId, tags, whoMade, whenMade, featuredRank, isPersonalizable, personalizationIsRequired, personalizationCharCountMax, personalizationInstructions, state, isSupply, productionPartnerIds, type, _callback);
         return localVarCall;
 
     }
 
     /**
      * 
-     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Updates a listing, identified by a listing ID, for a specific shop identified by a shop ID.
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/discussions\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Updates a listing, identified by a listing ID, for a specific shop identified by a shop ID. This endpoint will be removed in the near future in favor of &#x60;updateListing&#x60; PATCH version.
      * @param shopId The unique positive non-zero numeric ID for an Etsy Shop. (required)
      * @param listingId The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. (required)
      * @param imageIds An array of numeric image IDs of the images in a listing, which can include up to 10 images. (optional)
-     * @param quantity The positive non-zero number of products available for purchase in the listing. Note: The listing quantity is the sum of available offering quantities. You can request the quantities for individual offerings from the ListingInventory resource using the [getListingInventory](/documentation/reference#operation/getListingInventory) endpoint. (optional)
-     * @param price The positive non-zero price of the product. (Sold product listings are private) Note: The price is the minimum possible price. The [&#x60;getListingInventory&#x60;](/documentation/reference/#operation/getListingInventory) method requests exact prices for available offerings. (optional)
-     * @param title The listing&#39;s title string. Valid title strings contain only letters, numbers, punctuation marks, mathematical symbols, whitespace characters, ™, ©, and ®. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{P}\\\\p{Sm}\\\\p{Zs}™©®]/u) You can only use the %, :, &amp; and + characters once each. (optional)
+     * @param title The listing&#39;s title string. When creating or updating a listing, valid title strings contain only letters, numbers, punctuation marks, mathematical symbols, whitespace characters, ™, ©, and ®. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{P}\\\\p{Sm}\\\\p{Zs}™©®]/u) You can only use the %, :, &amp; and + characters once each. (optional)
      * @param description A description string of the product for sale in the listing. (optional)
      * @param materials A list of material strings for materials used in the product. Valid materials strings contain only letters, numbers, and whitespace characters. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{Zs}]/u) Default value is null. (optional)
-     * @param shouldAutoRenew When true, renews a listing for four months upon expriation. If set to true when previously false, etsy.com renews the listing before it expires, but the renewal period starts immidiately rather than extending the listing&#39;s expiration date. Any unused time remaining on the listing is lost. Renewals result in charges to a user&#39;s bill. (optional)
-     * @param shippingProfileId The numeric ID of the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing. Required when listing type&#x3D;physical. (optional)
+     * @param shouldAutoRenew When true, renews a listing for four months upon expiration. (optional)
+     * @param shippingProfileId The numeric ID of the [shipping profile](/documentation/reference#operation/getShopShippingProfile) associated with the listing. Required when listing type is &#x60;physical&#x60;. (optional)
      * @param shopSectionId The numeric ID of the [shop section](/documentation/reference#tag/Shop-Section) for this listing. Default value is null. (optional)
      * @param itemWeight The numeric weight of the product measured in units set in &#39;item_weight_unit&#39;. Default value is null. If set, the value must be greater than 0. (optional)
      * @param itemLength The numeric length of the product measured in units set in &#39;item_dimensions_unit&#39;. Default value is null. If set, the value must be greater than 0. (optional)
@@ -2749,16 +3305,16 @@ public class ShopListingApi {
      * @param itemWeightUnit A string defining the units used to measure the weight of the product. Default value is null. (optional)
      * @param itemDimensionsUnit A string defining the units used to measure the dimensions of the product. Default value is null. (optional)
      * @param isTaxable When true, applicable [shop](/documentation/reference#tag/Shop) tax rates apply to this listing at checkout. (optional)
-     * @param taxonomyId The numeric taxonomy ID of the listing. See [SellerTaxonomy](/documentation/reference#tag/SellerTaxonomy) and [BuyerTaxonomy](/documentation/reference#tag/BuyerTaxonomy) for more information. (optional)
-     * @param tags A comma-separated list of tag strings for the listing. Valid tag strings contain only letters, numbers, whitespace characters, -, &#39;, ™, ©, and ®. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{Zs}\\\\-&#39;™©®]/u) Default value is null. (optional)
-     * @param whoMade An enumerated string inidcated who made the product. Helps buyers locate the listing under the Handmade heading. Requires &#39;is_supply&#39; and &#39;when_made&#39;. (optional)
+     * @param taxonomyId The numerical taxonomy ID of the listing. See [SellerTaxonomy](/documentation/reference#tag/SellerTaxonomy) and [BuyerTaxonomy](/documentation/reference#tag/BuyerTaxonomy) for more information. (optional)
+     * @param tags A comma-separated list of tag strings for the listing. When creating or updating a listing, valid tag strings contain only letters, numbers, whitespace characters, -, &#39;, ™, ©, and ®. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{Zs}\\\\-&#39;™©®]/u) Default value is null. (optional)
+     * @param whoMade An enumerated string indicating who made the product. Helps buyers locate the listing under the Handmade heading. Requires &#39;is_supply&#39; and &#39;when_made&#39;. (optional)
      * @param whenMade An enumerated string for the era in which the maker made the product in this listing. Helps buyers locate the listing under the Vintage heading. Requires &#39;is_supply&#39; and &#39;who_made&#39;. (optional)
      * @param featuredRank The positive non-zero numeric position in the featured listings of the shop, with rank 1 listings appearing in the left-most position in featured listing on a shop’s home page. (optional)
      * @param isPersonalizable When true, this listing is personalizable. The default value is null. (optional)
      * @param personalizationIsRequired When true, this listing requires personalization. The default value is null. Will only change if is_personalizable is &#39;true&#39;. (optional)
-     * @param personalizationCharCountMax This an integer value representing the maximum length for the personalization message entered by the buyer. Will only change if is_personalizable is &#39;true&#39;. (optional)
+     * @param personalizationCharCountMax This is an integer value representing the maximum length for the personalization message entered by the buyer. Will only change if is_personalizable is &#39;true&#39;. (optional)
      * @param personalizationInstructions A string representing instructions for the buyer to enter the personalization. Will only change if is_personalizable is &#39;true&#39;. (optional)
-     * @param state An enumerated string from any of: active or inactive. Note: Setting a draft listing to active will also publish the listing on etsy.com. Setting a sold out listing to active will update the quantity to 1 and renew the listing on etsy.com. (optional)
+     * @param state When _updating_ a listing, this value can be either &#x60;active&#x60; or &#x60;inactive&#x60;. Note: Setting a &#x60;draft&#x60; listing to &#x60;active&#x60; will also publish the listing on etsy.com and requires that the listing have an image set. Setting a &#x60;sold_out&#x60; listing to active will update the quantity to 1 and renew the listing on etsy.com. (optional)
      * @param isSupply When true, tags the listing as a supply product, else indicates that it&#39;s a finished product. Helps buyers locate the listing under the Supplies heading. Requires &#39;who_made&#39; and &#39;when_made&#39;. (optional)
      * @param productionPartnerIds An array of unique IDs of production partner ids. (optional)
      * @param type An enumerated type string that indicates whether the listing is physical or a digital download. (optional)
@@ -2771,29 +3327,27 @@ public class ShopListingApi {
         <tr><td> 400 </td><td> There was a problem with the request data. See the error message for details. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> The request lacks valid authentication credentials. See the error message for details. </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> The request attempted to perform an operation it is not allowed to. See the error message for details. </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> There was a request conflict with current state of the target resource. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> There was a request conflict with the current state of the target resource. See the error message for details. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> A resource could not be found. See the error message for details. </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ShopListing updateListing(Long shopId, Long listingId, List<Long> imageIds, Long quantity, Float price, String title, String description, List<String> materials, Boolean shouldAutoRenew, Long shippingProfileId, Long shopSectionId, Float itemWeight, Float itemLength, Float itemWidth, Float itemHeight, String itemWeightUnit, String itemDimensionsUnit, Boolean isTaxable, Long taxonomyId, List<String> tags, String whoMade, String whenMade, Long featuredRank, Boolean isPersonalizable, Boolean personalizationIsRequired, Long personalizationCharCountMax, String personalizationInstructions, String state, Boolean isSupply, List<Long> productionPartnerIds, String type) throws ApiException {
-        ApiResponse<ShopListing> localVarResp = updateListingWithHttpInfo(shopId, listingId, imageIds, quantity, price, title, description, materials, shouldAutoRenew, shippingProfileId, shopSectionId, itemWeight, itemLength, itemWidth, itemHeight, itemWeightUnit, itemDimensionsUnit, isTaxable, taxonomyId, tags, whoMade, whenMade, featuredRank, isPersonalizable, personalizationIsRequired, personalizationCharCountMax, personalizationInstructions, state, isSupply, productionPartnerIds, type);
+    public ShopListing updateListingDeprecated(Long shopId, Long listingId, List<Long> imageIds, String title, String description, List<String> materials, Boolean shouldAutoRenew, Long shippingProfileId, Long shopSectionId, Float itemWeight, Float itemLength, Float itemWidth, Float itemHeight, String itemWeightUnit, String itemDimensionsUnit, Boolean isTaxable, Long taxonomyId, List<String> tags, String whoMade, String whenMade, Long featuredRank, Boolean isPersonalizable, Boolean personalizationIsRequired, Long personalizationCharCountMax, String personalizationInstructions, String state, Boolean isSupply, List<Long> productionPartnerIds, String type) throws ApiException {
+        ApiResponse<ShopListing> localVarResp = updateListingDeprecatedWithHttpInfo(shopId, listingId, imageIds, title, description, materials, shouldAutoRenew, shippingProfileId, shopSectionId, itemWeight, itemLength, itemWidth, itemHeight, itemWeightUnit, itemDimensionsUnit, isTaxable, taxonomyId, tags, whoMade, whenMade, featuredRank, isPersonalizable, personalizationIsRequired, personalizationCharCountMax, personalizationInstructions, state, isSupply, productionPartnerIds, type);
         return localVarResp.getData();
     }
 
     /**
      * 
-     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Updates a listing, identified by a listing ID, for a specific shop identified by a shop ID.
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/discussions\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Updates a listing, identified by a listing ID, for a specific shop identified by a shop ID. This endpoint will be removed in the near future in favor of &#x60;updateListing&#x60; PATCH version.
      * @param shopId The unique positive non-zero numeric ID for an Etsy Shop. (required)
      * @param listingId The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. (required)
      * @param imageIds An array of numeric image IDs of the images in a listing, which can include up to 10 images. (optional)
-     * @param quantity The positive non-zero number of products available for purchase in the listing. Note: The listing quantity is the sum of available offering quantities. You can request the quantities for individual offerings from the ListingInventory resource using the [getListingInventory](/documentation/reference#operation/getListingInventory) endpoint. (optional)
-     * @param price The positive non-zero price of the product. (Sold product listings are private) Note: The price is the minimum possible price. The [&#x60;getListingInventory&#x60;](/documentation/reference/#operation/getListingInventory) method requests exact prices for available offerings. (optional)
-     * @param title The listing&#39;s title string. Valid title strings contain only letters, numbers, punctuation marks, mathematical symbols, whitespace characters, ™, ©, and ®. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{P}\\\\p{Sm}\\\\p{Zs}™©®]/u) You can only use the %, :, &amp; and + characters once each. (optional)
+     * @param title The listing&#39;s title string. When creating or updating a listing, valid title strings contain only letters, numbers, punctuation marks, mathematical symbols, whitespace characters, ™, ©, and ®. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{P}\\\\p{Sm}\\\\p{Zs}™©®]/u) You can only use the %, :, &amp; and + characters once each. (optional)
      * @param description A description string of the product for sale in the listing. (optional)
      * @param materials A list of material strings for materials used in the product. Valid materials strings contain only letters, numbers, and whitespace characters. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{Zs}]/u) Default value is null. (optional)
-     * @param shouldAutoRenew When true, renews a listing for four months upon expriation. If set to true when previously false, etsy.com renews the listing before it expires, but the renewal period starts immidiately rather than extending the listing&#39;s expiration date. Any unused time remaining on the listing is lost. Renewals result in charges to a user&#39;s bill. (optional)
-     * @param shippingProfileId The numeric ID of the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing. Required when listing type&#x3D;physical. (optional)
+     * @param shouldAutoRenew When true, renews a listing for four months upon expiration. (optional)
+     * @param shippingProfileId The numeric ID of the [shipping profile](/documentation/reference#operation/getShopShippingProfile) associated with the listing. Required when listing type is &#x60;physical&#x60;. (optional)
      * @param shopSectionId The numeric ID of the [shop section](/documentation/reference#tag/Shop-Section) for this listing. Default value is null. (optional)
      * @param itemWeight The numeric weight of the product measured in units set in &#39;item_weight_unit&#39;. Default value is null. If set, the value must be greater than 0. (optional)
      * @param itemLength The numeric length of the product measured in units set in &#39;item_dimensions_unit&#39;. Default value is null. If set, the value must be greater than 0. (optional)
@@ -2802,16 +3356,16 @@ public class ShopListingApi {
      * @param itemWeightUnit A string defining the units used to measure the weight of the product. Default value is null. (optional)
      * @param itemDimensionsUnit A string defining the units used to measure the dimensions of the product. Default value is null. (optional)
      * @param isTaxable When true, applicable [shop](/documentation/reference#tag/Shop) tax rates apply to this listing at checkout. (optional)
-     * @param taxonomyId The numeric taxonomy ID of the listing. See [SellerTaxonomy](/documentation/reference#tag/SellerTaxonomy) and [BuyerTaxonomy](/documentation/reference#tag/BuyerTaxonomy) for more information. (optional)
-     * @param tags A comma-separated list of tag strings for the listing. Valid tag strings contain only letters, numbers, whitespace characters, -, &#39;, ™, ©, and ®. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{Zs}\\\\-&#39;™©®]/u) Default value is null. (optional)
-     * @param whoMade An enumerated string inidcated who made the product. Helps buyers locate the listing under the Handmade heading. Requires &#39;is_supply&#39; and &#39;when_made&#39;. (optional)
+     * @param taxonomyId The numerical taxonomy ID of the listing. See [SellerTaxonomy](/documentation/reference#tag/SellerTaxonomy) and [BuyerTaxonomy](/documentation/reference#tag/BuyerTaxonomy) for more information. (optional)
+     * @param tags A comma-separated list of tag strings for the listing. When creating or updating a listing, valid tag strings contain only letters, numbers, whitespace characters, -, &#39;, ™, ©, and ®. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{Zs}\\\\-&#39;™©®]/u) Default value is null. (optional)
+     * @param whoMade An enumerated string indicating who made the product. Helps buyers locate the listing under the Handmade heading. Requires &#39;is_supply&#39; and &#39;when_made&#39;. (optional)
      * @param whenMade An enumerated string for the era in which the maker made the product in this listing. Helps buyers locate the listing under the Vintage heading. Requires &#39;is_supply&#39; and &#39;who_made&#39;. (optional)
      * @param featuredRank The positive non-zero numeric position in the featured listings of the shop, with rank 1 listings appearing in the left-most position in featured listing on a shop’s home page. (optional)
      * @param isPersonalizable When true, this listing is personalizable. The default value is null. (optional)
      * @param personalizationIsRequired When true, this listing requires personalization. The default value is null. Will only change if is_personalizable is &#39;true&#39;. (optional)
-     * @param personalizationCharCountMax This an integer value representing the maximum length for the personalization message entered by the buyer. Will only change if is_personalizable is &#39;true&#39;. (optional)
+     * @param personalizationCharCountMax This is an integer value representing the maximum length for the personalization message entered by the buyer. Will only change if is_personalizable is &#39;true&#39;. (optional)
      * @param personalizationInstructions A string representing instructions for the buyer to enter the personalization. Will only change if is_personalizable is &#39;true&#39;. (optional)
-     * @param state An enumerated string from any of: active or inactive. Note: Setting a draft listing to active will also publish the listing on etsy.com. Setting a sold out listing to active will update the quantity to 1 and renew the listing on etsy.com. (optional)
+     * @param state When _updating_ a listing, this value can be either &#x60;active&#x60; or &#x60;inactive&#x60;. Note: Setting a &#x60;draft&#x60; listing to &#x60;active&#x60; will also publish the listing on etsy.com and requires that the listing have an image set. Setting a &#x60;sold_out&#x60; listing to active will update the quantity to 1 and renew the listing on etsy.com. (optional)
      * @param isSupply When true, tags the listing as a supply product, else indicates that it&#39;s a finished product. Helps buyers locate the listing under the Supplies heading. Requires &#39;who_made&#39; and &#39;when_made&#39;. (optional)
      * @param productionPartnerIds An array of unique IDs of production partner ids. (optional)
      * @param type An enumerated type string that indicates whether the listing is physical or a digital download. (optional)
@@ -2824,30 +3378,28 @@ public class ShopListingApi {
         <tr><td> 400 </td><td> There was a problem with the request data. See the error message for details. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> The request lacks valid authentication credentials. See the error message for details. </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> The request attempted to perform an operation it is not allowed to. See the error message for details. </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> There was a request conflict with current state of the target resource. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> There was a request conflict with the current state of the target resource. See the error message for details. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> A resource could not be found. See the error message for details. </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ShopListing> updateListingWithHttpInfo(Long shopId, Long listingId, List<Long> imageIds, Long quantity, Float price, String title, String description, List<String> materials, Boolean shouldAutoRenew, Long shippingProfileId, Long shopSectionId, Float itemWeight, Float itemLength, Float itemWidth, Float itemHeight, String itemWeightUnit, String itemDimensionsUnit, Boolean isTaxable, Long taxonomyId, List<String> tags, String whoMade, String whenMade, Long featuredRank, Boolean isPersonalizable, Boolean personalizationIsRequired, Long personalizationCharCountMax, String personalizationInstructions, String state, Boolean isSupply, List<Long> productionPartnerIds, String type) throws ApiException {
-        okhttp3.Call localVarCall = updateListingValidateBeforeCall(shopId, listingId, imageIds, quantity, price, title, description, materials, shouldAutoRenew, shippingProfileId, shopSectionId, itemWeight, itemLength, itemWidth, itemHeight, itemWeightUnit, itemDimensionsUnit, isTaxable, taxonomyId, tags, whoMade, whenMade, featuredRank, isPersonalizable, personalizationIsRequired, personalizationCharCountMax, personalizationInstructions, state, isSupply, productionPartnerIds, type, null);
+    public ApiResponse<ShopListing> updateListingDeprecatedWithHttpInfo(Long shopId, Long listingId, List<Long> imageIds, String title, String description, List<String> materials, Boolean shouldAutoRenew, Long shippingProfileId, Long shopSectionId, Float itemWeight, Float itemLength, Float itemWidth, Float itemHeight, String itemWeightUnit, String itemDimensionsUnit, Boolean isTaxable, Long taxonomyId, List<String> tags, String whoMade, String whenMade, Long featuredRank, Boolean isPersonalizable, Boolean personalizationIsRequired, Long personalizationCharCountMax, String personalizationInstructions, String state, Boolean isSupply, List<Long> productionPartnerIds, String type) throws ApiException {
+        okhttp3.Call localVarCall = updateListingDeprecatedValidateBeforeCall(shopId, listingId, imageIds, title, description, materials, shouldAutoRenew, shippingProfileId, shopSectionId, itemWeight, itemLength, itemWidth, itemHeight, itemWeightUnit, itemDimensionsUnit, isTaxable, taxonomyId, tags, whoMade, whenMade, featuredRank, isPersonalizable, personalizationIsRequired, personalizationCharCountMax, personalizationInstructions, state, isSupply, productionPartnerIds, type, null);
         Type localVarReturnType = new TypeToken<ShopListing>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      *  (asynchronously)
-     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Updates a listing, identified by a listing ID, for a specific shop identified by a shop ID.
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/discussions\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Updates a listing, identified by a listing ID, for a specific shop identified by a shop ID. This endpoint will be removed in the near future in favor of &#x60;updateListing&#x60; PATCH version.
      * @param shopId The unique positive non-zero numeric ID for an Etsy Shop. (required)
      * @param listingId The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. (required)
      * @param imageIds An array of numeric image IDs of the images in a listing, which can include up to 10 images. (optional)
-     * @param quantity The positive non-zero number of products available for purchase in the listing. Note: The listing quantity is the sum of available offering quantities. You can request the quantities for individual offerings from the ListingInventory resource using the [getListingInventory](/documentation/reference#operation/getListingInventory) endpoint. (optional)
-     * @param price The positive non-zero price of the product. (Sold product listings are private) Note: The price is the minimum possible price. The [&#x60;getListingInventory&#x60;](/documentation/reference/#operation/getListingInventory) method requests exact prices for available offerings. (optional)
-     * @param title The listing&#39;s title string. Valid title strings contain only letters, numbers, punctuation marks, mathematical symbols, whitespace characters, ™, ©, and ®. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{P}\\\\p{Sm}\\\\p{Zs}™©®]/u) You can only use the %, :, &amp; and + characters once each. (optional)
+     * @param title The listing&#39;s title string. When creating or updating a listing, valid title strings contain only letters, numbers, punctuation marks, mathematical symbols, whitespace characters, ™, ©, and ®. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{P}\\\\p{Sm}\\\\p{Zs}™©®]/u) You can only use the %, :, &amp; and + characters once each. (optional)
      * @param description A description string of the product for sale in the listing. (optional)
      * @param materials A list of material strings for materials used in the product. Valid materials strings contain only letters, numbers, and whitespace characters. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{Zs}]/u) Default value is null. (optional)
-     * @param shouldAutoRenew When true, renews a listing for four months upon expriation. If set to true when previously false, etsy.com renews the listing before it expires, but the renewal period starts immidiately rather than extending the listing&#39;s expiration date. Any unused time remaining on the listing is lost. Renewals result in charges to a user&#39;s bill. (optional)
-     * @param shippingProfileId The numeric ID of the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing. Required when listing type&#x3D;physical. (optional)
+     * @param shouldAutoRenew When true, renews a listing for four months upon expiration. (optional)
+     * @param shippingProfileId The numeric ID of the [shipping profile](/documentation/reference#operation/getShopShippingProfile) associated with the listing. Required when listing type is &#x60;physical&#x60;. (optional)
      * @param shopSectionId The numeric ID of the [shop section](/documentation/reference#tag/Shop-Section) for this listing. Default value is null. (optional)
      * @param itemWeight The numeric weight of the product measured in units set in &#39;item_weight_unit&#39;. Default value is null. If set, the value must be greater than 0. (optional)
      * @param itemLength The numeric length of the product measured in units set in &#39;item_dimensions_unit&#39;. Default value is null. If set, the value must be greater than 0. (optional)
@@ -2856,16 +3408,16 @@ public class ShopListingApi {
      * @param itemWeightUnit A string defining the units used to measure the weight of the product. Default value is null. (optional)
      * @param itemDimensionsUnit A string defining the units used to measure the dimensions of the product. Default value is null. (optional)
      * @param isTaxable When true, applicable [shop](/documentation/reference#tag/Shop) tax rates apply to this listing at checkout. (optional)
-     * @param taxonomyId The numeric taxonomy ID of the listing. See [SellerTaxonomy](/documentation/reference#tag/SellerTaxonomy) and [BuyerTaxonomy](/documentation/reference#tag/BuyerTaxonomy) for more information. (optional)
-     * @param tags A comma-separated list of tag strings for the listing. Valid tag strings contain only letters, numbers, whitespace characters, -, &#39;, ™, ©, and ®. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{Zs}\\\\-&#39;™©®]/u) Default value is null. (optional)
-     * @param whoMade An enumerated string inidcated who made the product. Helps buyers locate the listing under the Handmade heading. Requires &#39;is_supply&#39; and &#39;when_made&#39;. (optional)
+     * @param taxonomyId The numerical taxonomy ID of the listing. See [SellerTaxonomy](/documentation/reference#tag/SellerTaxonomy) and [BuyerTaxonomy](/documentation/reference#tag/BuyerTaxonomy) for more information. (optional)
+     * @param tags A comma-separated list of tag strings for the listing. When creating or updating a listing, valid tag strings contain only letters, numbers, whitespace characters, -, &#39;, ™, ©, and ®. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{Zs}\\\\-&#39;™©®]/u) Default value is null. (optional)
+     * @param whoMade An enumerated string indicating who made the product. Helps buyers locate the listing under the Handmade heading. Requires &#39;is_supply&#39; and &#39;when_made&#39;. (optional)
      * @param whenMade An enumerated string for the era in which the maker made the product in this listing. Helps buyers locate the listing under the Vintage heading. Requires &#39;is_supply&#39; and &#39;who_made&#39;. (optional)
      * @param featuredRank The positive non-zero numeric position in the featured listings of the shop, with rank 1 listings appearing in the left-most position in featured listing on a shop’s home page. (optional)
      * @param isPersonalizable When true, this listing is personalizable. The default value is null. (optional)
      * @param personalizationIsRequired When true, this listing requires personalization. The default value is null. Will only change if is_personalizable is &#39;true&#39;. (optional)
-     * @param personalizationCharCountMax This an integer value representing the maximum length for the personalization message entered by the buyer. Will only change if is_personalizable is &#39;true&#39;. (optional)
+     * @param personalizationCharCountMax This is an integer value representing the maximum length for the personalization message entered by the buyer. Will only change if is_personalizable is &#39;true&#39;. (optional)
      * @param personalizationInstructions A string representing instructions for the buyer to enter the personalization. Will only change if is_personalizable is &#39;true&#39;. (optional)
-     * @param state An enumerated string from any of: active or inactive. Note: Setting a draft listing to active will also publish the listing on etsy.com. Setting a sold out listing to active will update the quantity to 1 and renew the listing on etsy.com. (optional)
+     * @param state When _updating_ a listing, this value can be either &#x60;active&#x60; or &#x60;inactive&#x60;. Note: Setting a &#x60;draft&#x60; listing to &#x60;active&#x60; will also publish the listing on etsy.com and requires that the listing have an image set. Setting a &#x60;sold_out&#x60; listing to active will update the quantity to 1 and renew the listing on etsy.com. (optional)
      * @param isSupply When true, tags the listing as a supply product, else indicates that it&#39;s a finished product. Helps buyers locate the listing under the Supplies heading. Requires &#39;who_made&#39; and &#39;when_made&#39;. (optional)
      * @param productionPartnerIds An array of unique IDs of production partner ids. (optional)
      * @param type An enumerated type string that indicates whether the listing is physical or a digital download. (optional)
@@ -2879,14 +3431,14 @@ public class ShopListingApi {
         <tr><td> 400 </td><td> There was a problem with the request data. See the error message for details. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> The request lacks valid authentication credentials. See the error message for details. </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> The request attempted to perform an operation it is not allowed to. See the error message for details. </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> There was a request conflict with current state of the target resource. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> There was a request conflict with the current state of the target resource. See the error message for details. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> A resource could not be found. See the error message for details. </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateListingAsync(Long shopId, Long listingId, List<Long> imageIds, Long quantity, Float price, String title, String description, List<String> materials, Boolean shouldAutoRenew, Long shippingProfileId, Long shopSectionId, Float itemWeight, Float itemLength, Float itemWidth, Float itemHeight, String itemWeightUnit, String itemDimensionsUnit, Boolean isTaxable, Long taxonomyId, List<String> tags, String whoMade, String whenMade, Long featuredRank, Boolean isPersonalizable, Boolean personalizationIsRequired, Long personalizationCharCountMax, String personalizationInstructions, String state, Boolean isSupply, List<Long> productionPartnerIds, String type, final ApiCallback<ShopListing> _callback) throws ApiException {
+    public okhttp3.Call updateListingDeprecatedAsync(Long shopId, Long listingId, List<Long> imageIds, String title, String description, List<String> materials, Boolean shouldAutoRenew, Long shippingProfileId, Long shopSectionId, Float itemWeight, Float itemLength, Float itemWidth, Float itemHeight, String itemWeightUnit, String itemDimensionsUnit, Boolean isTaxable, Long taxonomyId, List<String> tags, String whoMade, String whenMade, Long featuredRank, Boolean isPersonalizable, Boolean personalizationIsRequired, Long personalizationCharCountMax, String personalizationInstructions, String state, Boolean isSupply, List<Long> productionPartnerIds, String type, final ApiCallback<ShopListing> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateListingValidateBeforeCall(shopId, listingId, imageIds, quantity, price, title, description, materials, shouldAutoRenew, shippingProfileId, shopSectionId, itemWeight, itemLength, itemWidth, itemHeight, itemWeightUnit, itemDimensionsUnit, isTaxable, taxonomyId, tags, whoMade, whenMade, featuredRank, isPersonalizable, personalizationIsRequired, personalizationCharCountMax, personalizationInstructions, state, isSupply, productionPartnerIds, type, _callback);
+        okhttp3.Call localVarCall = updateListingDeprecatedValidateBeforeCall(shopId, listingId, imageIds, title, description, materials, shouldAutoRenew, shippingProfileId, shopSectionId, itemWeight, itemLength, itemWidth, itemHeight, itemWeightUnit, itemDimensionsUnit, isTaxable, taxonomyId, tags, whoMade, whenMade, featuredRank, isPersonalizable, personalizationIsRequired, personalizationCharCountMax, personalizationInstructions, state, isSupply, productionPartnerIds, type, _callback);
         Type localVarReturnType = new TypeToken<ShopListing>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2897,8 +3449,8 @@ public class ShopListingApi {
      * @param listingId The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. (required)
      * @param propertyId The unique ID of an Etsy [listing property](/documentation/reference#operation/getListingProperties). (required)
      * @param valueIds An array of unique IDs of multiple Etsy [listing property](/documentation/reference#operation/getListingProperties) values. For example, if your listing offers different sizes of a product, then the value ID list contains value IDs for each size. (required)
-     * @param values An array of value strings for multiple Etsy [listing property](/documentation/reference#operation/getListingProperties) values. For example, if your listing offers different colored products, then the values array contains the color strings for each color. (required)
-     * @param scaleId The numeric ID of a single Etsy.com measurement scale. For example, for shoe size, there are three &#x60;scale_id&#x60;s available - *UK*, *US/Canada*, and *EU*, where *US/Canada* has &#x60;scale_id&#x60; 19. (optional)
+     * @param values An array of value strings for multiple Etsy [listing property](/documentation/reference#operation/getListingProperties) values. For example, if your listing offers different colored products, then the values array contains the color strings for each color. Note: parenthesis characters (&#x60;(&#x60; and &#x60;)&#x60;) are not allowed. (required)
+     * @param scaleId The numeric ID of a single Etsy.com measurement scale. For example, for shoe size, there are three &#x60;scale_id&#x60;s available - &#x60;UK&#x60;, &#x60;US/Canada&#x60;, and &#x60;EU&#x60;, where &#x60;US/Canada&#x60; has &#x60;scale_id&#x60; 19. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3010,13 +3562,13 @@ public class ShopListingApi {
 
     /**
      * 
-     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Updates or populates the properties list defining product offerings for a listing. Each offering requires both a &#x60;value&#x60; and a &#x60;value_id&#x60; that are valid for a &#x60;scale_id&#x60; assigned to the listing or that you assign to the listing with this request.
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/discussions\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Updates or populates the properties list defining product offerings for a listing. Each offering requires both a &#x60;value&#x60; and a &#x60;value_id&#x60; that are valid for a &#x60;scale_id&#x60; assigned to the listing or that you assign to the listing with this request.
      * @param shopId The unique positive non-zero numeric ID for an Etsy Shop. (required)
      * @param listingId The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. (required)
      * @param propertyId The unique ID of an Etsy [listing property](/documentation/reference#operation/getListingProperties). (required)
      * @param valueIds An array of unique IDs of multiple Etsy [listing property](/documentation/reference#operation/getListingProperties) values. For example, if your listing offers different sizes of a product, then the value ID list contains value IDs for each size. (required)
-     * @param values An array of value strings for multiple Etsy [listing property](/documentation/reference#operation/getListingProperties) values. For example, if your listing offers different colored products, then the values array contains the color strings for each color. (required)
-     * @param scaleId The numeric ID of a single Etsy.com measurement scale. For example, for shoe size, there are three &#x60;scale_id&#x60;s available - *UK*, *US/Canada*, and *EU*, where *US/Canada* has &#x60;scale_id&#x60; 19. (optional)
+     * @param values An array of value strings for multiple Etsy [listing property](/documentation/reference#operation/getListingProperties) values. For example, if your listing offers different colored products, then the values array contains the color strings for each color. Note: parenthesis characters (&#x60;(&#x60; and &#x60;)&#x60;) are not allowed. (required)
+     * @param scaleId The numeric ID of a single Etsy.com measurement scale. For example, for shoe size, there are three &#x60;scale_id&#x60;s available - &#x60;UK&#x60;, &#x60;US/Canada&#x60;, and &#x60;EU&#x60;, where &#x60;US/Canada&#x60; has &#x60;scale_id&#x60; 19. (optional)
      * @return ListingPropertyValue
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3037,13 +3589,13 @@ public class ShopListingApi {
 
     /**
      * 
-     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Updates or populates the properties list defining product offerings for a listing. Each offering requires both a &#x60;value&#x60; and a &#x60;value_id&#x60; that are valid for a &#x60;scale_id&#x60; assigned to the listing or that you assign to the listing with this request.
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/discussions\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Updates or populates the properties list defining product offerings for a listing. Each offering requires both a &#x60;value&#x60; and a &#x60;value_id&#x60; that are valid for a &#x60;scale_id&#x60; assigned to the listing or that you assign to the listing with this request.
      * @param shopId The unique positive non-zero numeric ID for an Etsy Shop. (required)
      * @param listingId The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. (required)
      * @param propertyId The unique ID of an Etsy [listing property](/documentation/reference#operation/getListingProperties). (required)
      * @param valueIds An array of unique IDs of multiple Etsy [listing property](/documentation/reference#operation/getListingProperties) values. For example, if your listing offers different sizes of a product, then the value ID list contains value IDs for each size. (required)
-     * @param values An array of value strings for multiple Etsy [listing property](/documentation/reference#operation/getListingProperties) values. For example, if your listing offers different colored products, then the values array contains the color strings for each color. (required)
-     * @param scaleId The numeric ID of a single Etsy.com measurement scale. For example, for shoe size, there are three &#x60;scale_id&#x60;s available - *UK*, *US/Canada*, and *EU*, where *US/Canada* has &#x60;scale_id&#x60; 19. (optional)
+     * @param values An array of value strings for multiple Etsy [listing property](/documentation/reference#operation/getListingProperties) values. For example, if your listing offers different colored products, then the values array contains the color strings for each color. Note: parenthesis characters (&#x60;(&#x60; and &#x60;)&#x60;) are not allowed. (required)
+     * @param scaleId The numeric ID of a single Etsy.com measurement scale. For example, for shoe size, there are three &#x60;scale_id&#x60;s available - &#x60;UK&#x60;, &#x60;US/Canada&#x60;, and &#x60;EU&#x60;, where &#x60;US/Canada&#x60; has &#x60;scale_id&#x60; 19. (optional)
      * @return ApiResponse&lt;ListingPropertyValue&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3065,13 +3617,13 @@ public class ShopListingApi {
 
     /**
      *  (asynchronously)
-     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Updates or populates the properties list defining product offerings for a listing. Each offering requires both a &#x60;value&#x60; and a &#x60;value_id&#x60; that are valid for a &#x60;scale_id&#x60; assigned to the listing or that you assign to the listing with this request.
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/discussions\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Updates or populates the properties list defining product offerings for a listing. Each offering requires both a &#x60;value&#x60; and a &#x60;value_id&#x60; that are valid for a &#x60;scale_id&#x60; assigned to the listing or that you assign to the listing with this request.
      * @param shopId The unique positive non-zero numeric ID for an Etsy Shop. (required)
      * @param listingId The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. (required)
      * @param propertyId The unique ID of an Etsy [listing property](/documentation/reference#operation/getListingProperties). (required)
      * @param valueIds An array of unique IDs of multiple Etsy [listing property](/documentation/reference#operation/getListingProperties) values. For example, if your listing offers different sizes of a product, then the value ID list contains value IDs for each size. (required)
-     * @param values An array of value strings for multiple Etsy [listing property](/documentation/reference#operation/getListingProperties) values. For example, if your listing offers different colored products, then the values array contains the color strings for each color. (required)
-     * @param scaleId The numeric ID of a single Etsy.com measurement scale. For example, for shoe size, there are three &#x60;scale_id&#x60;s available - *UK*, *US/Canada*, and *EU*, where *US/Canada* has &#x60;scale_id&#x60; 19. (optional)
+     * @param values An array of value strings for multiple Etsy [listing property](/documentation/reference#operation/getListingProperties) values. For example, if your listing offers different colored products, then the values array contains the color strings for each color. Note: parenthesis characters (&#x60;(&#x60; and &#x60;)&#x60;) are not allowed. (required)
+     * @param scaleId The numeric ID of a single Etsy.com measurement scale. For example, for shoe size, there are three &#x60;scale_id&#x60;s available - &#x60;UK&#x60;, &#x60;US/Canada&#x60;, and &#x60;EU&#x60;, where &#x60;US/Canada&#x60; has &#x60;scale_id&#x60; 19. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

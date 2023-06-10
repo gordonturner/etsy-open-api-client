@@ -1,6 +1,6 @@
 /*
  * Etsy Open API v3
- * <div class=\"wt-text-body-01\"><p class=\"wt-pt-xs-2 wt-pb-xs-2\">Etsy's Open API provides a simple RESTful interface for various Etsy.com features. The API endpoints are meant to replace <a class=\"wt-text-link wt-p-xs-0\" href=\"https://www.etsy.com/developers/documentation\">Etsy's Open API v2</a>, which is scheduled to end service in 2022.</p><p class=\"wt-pb-xs-2\">All of the endpoints are callable and the majority of the API endpoints are now in a beta phase. This means we do not expect to make any breaking changes before our general release. A handful of endpoints are currently interface stubs (labeled “Feedback Only”) and returns a \"501 Not Implemented\" response code when called.</p><p class=\"wt-pb-xs-2\">If you'd like to report an issue or provide feedback on the API design, <a target=\"_blank\" class=\"wt-text-link wt-p-xs-0\" href=\"https://github.com/etsy/open-api/issues/new/choose\">please add an issue in Github</a>.</p></div>&copy; 2021-2022 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.
+ * <div class=\"wt-text-body-01\"><p class=\"wt-pt-xs-2 wt-pb-xs-2\">Etsy's Open API provides a simple RESTful interface for various Etsy.com features. The API endpoints are meant to replace Etsy's Open API v2, which is scheduled to end service in 2022.</p><p class=\"wt-pb-xs-2\">All of the endpoints are callable and the majority of the API endpoints are now in a beta phase. This means we do not expect to make any breaking changes before our general release. A handful of endpoints are currently interface stubs (labeled “Feedback Only”) and returns a \"501 Not Implemented\" response code when called.</p><p class=\"wt-pb-xs-2\">If you'd like to report an issue or provide feedback on the API design, <a target=\"_blank\" class=\"wt-text-link wt-p-xs-0\" href=\"https://github.com/etsy/open-api/discussions\">please add an issue in Github</a>.</p></div>&copy; 2021-2023 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: developers@etsy.com
@@ -32,7 +32,7 @@ import org.openapitools.client.model.ListingPropertyValue;
  * A representation of a product for a listing.
  */
 @ApiModel(description = "A representation of a product for a listing.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-07T10:51:54.559-04:00[America/Toronto]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-08T08:37:51.285-04:00[America/Toronto]")
 public class ListingInventoryProduct {
   public static final String SERIALIZED_NAME_PRODUCT_ID = "product_id";
   @SerializedName(SERIALIZED_NAME_PRODUCT_ID)
@@ -48,11 +48,11 @@ public class ListingInventoryProduct {
 
   public static final String SERIALIZED_NAME_OFFERINGS = "offerings";
   @SerializedName(SERIALIZED_NAME_OFFERINGS)
-  private List<ListingInventoryProductOffering> offerings = new ArrayList<ListingInventoryProductOffering>();
+  private List<ListingInventoryProductOffering> offerings = null;
 
   public static final String SERIALIZED_NAME_PROPERTY_VALUES = "property_values";
   @SerializedName(SERIALIZED_NAME_PROPERTY_VALUES)
-  private List<ListingPropertyValue> propertyValues = new ArrayList<ListingPropertyValue>();
+  private List<ListingPropertyValue> propertyValues = null;
 
   public ListingInventoryProduct() { 
   }
@@ -68,8 +68,8 @@ public class ListingInventoryProduct {
    * minimum: 1
    * @return productId
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The numeric ID for a specific [product](/documentation/reference#tag/ShopListing-Product) purchased from a listing.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The numeric ID for a specific [product](/documentation/reference#tag/ShopListing-Product) purchased from a listing.")
 
   public Long getProductId() {
     return productId;
@@ -91,8 +91,8 @@ public class ListingInventoryProduct {
    * The SKU string for the product
    * @return sku
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The SKU string for the product")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The SKU string for the product")
 
   public String getSku() {
     return sku;
@@ -114,8 +114,8 @@ public class ListingInventoryProduct {
    * When true, someone deleted this product.
    * @return isDeleted
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "When true, someone deleted this product.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "When true, someone deleted this product.")
 
   public Boolean getIsDeleted() {
     return isDeleted;
@@ -134,6 +134,9 @@ public class ListingInventoryProduct {
   }
 
   public ListingInventoryProduct addOfferingsItem(ListingInventoryProductOffering offeringsItem) {
+    if (this.offerings == null) {
+      this.offerings = new ArrayList<ListingInventoryProductOffering>();
+    }
     this.offerings.add(offeringsItem);
     return this;
   }
@@ -142,8 +145,8 @@ public class ListingInventoryProduct {
    * A list of product offering entries for this product.
    * @return offerings
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "A list of product offering entries for this product.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A list of product offering entries for this product.")
 
   public List<ListingInventoryProductOffering> getOfferings() {
     return offerings;
@@ -162,16 +165,19 @@ public class ListingInventoryProduct {
   }
 
   public ListingInventoryProduct addPropertyValuesItem(ListingPropertyValue propertyValuesItem) {
+    if (this.propertyValues == null) {
+      this.propertyValues = new ArrayList<ListingPropertyValue>();
+    }
     this.propertyValues.add(propertyValuesItem);
     return this;
   }
 
    /**
-   * A list of property value entries for this product.
+   * A list of property value entries for this product. Note: parenthesis characters (&#x60;(&#x60; and &#x60;)&#x60;) are not allowed.
    * @return propertyValues
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "A list of property value entries for this product.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A list of property value entries for this product. Note: parenthesis characters (`(` and `)`) are not allowed.")
 
   public List<ListingPropertyValue> getPropertyValues() {
     return propertyValues;

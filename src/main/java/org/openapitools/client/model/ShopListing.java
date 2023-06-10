@@ -1,6 +1,6 @@
 /*
  * Etsy Open API v3
- * <div class=\"wt-text-body-01\"><p class=\"wt-pt-xs-2 wt-pb-xs-2\">Etsy's Open API provides a simple RESTful interface for various Etsy.com features. The API endpoints are meant to replace <a class=\"wt-text-link wt-p-xs-0\" href=\"https://www.etsy.com/developers/documentation\">Etsy's Open API v2</a>, which is scheduled to end service in 2022.</p><p class=\"wt-pb-xs-2\">All of the endpoints are callable and the majority of the API endpoints are now in a beta phase. This means we do not expect to make any breaking changes before our general release. A handful of endpoints are currently interface stubs (labeled “Feedback Only”) and returns a \"501 Not Implemented\" response code when called.</p><p class=\"wt-pb-xs-2\">If you'd like to report an issue or provide feedback on the API design, <a target=\"_blank\" class=\"wt-text-link wt-p-xs-0\" href=\"https://github.com/etsy/open-api/issues/new/choose\">please add an issue in Github</a>.</p></div>&copy; 2021-2022 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.
+ * <div class=\"wt-text-body-01\"><p class=\"wt-pt-xs-2 wt-pb-xs-2\">Etsy's Open API provides a simple RESTful interface for various Etsy.com features. The API endpoints are meant to replace Etsy's Open API v2, which is scheduled to end service in 2022.</p><p class=\"wt-pb-xs-2\">All of the endpoints are callable and the majority of the API endpoints are now in a beta phase. This means we do not expect to make any breaking changes before our general release. A handful of endpoints are currently interface stubs (labeled “Feedback Only”) and returns a \"501 Not Implemented\" response code when called.</p><p class=\"wt-pb-xs-2\">If you'd like to report an issue or provide feedback on the API design, <a target=\"_blank\" class=\"wt-text-link wt-p-xs-0\" href=\"https://github.com/etsy/open-api/discussions\">please add an issue in Github</a>.</p></div>&copy; 2021-2023 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: developers@etsy.com
@@ -26,12 +26,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import org.openapitools.client.model.Money;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
  * A listing from a shop, which contains a product quantity, title, description, price, etc.
  */
 @ApiModel(description = "A listing from a shop, which contains a product quantity, title, description, price, etc.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-07T10:51:54.559-04:00[America/Toronto]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-08T08:37:51.285-04:00[America/Toronto]")
 public class ShopListing {
   public static final String SERIALIZED_NAME_LISTING_ID = "listing_id";
   @SerializedName(SERIALIZED_NAME_LISTING_ID)
@@ -54,7 +55,7 @@ public class ShopListing {
   private String description;
 
   /**
-   * An enumerated string from any of: active or inactive. Note: Setting a draft listing to active will also publish the listing on etsy.com. Setting a sold out listing to active will update the quantity to 1 and renew the listing on etsy.com.
+   * When _updating_ a listing, this value can be either &#x60;active&#x60; or &#x60;inactive&#x60;. Note: Setting a &#x60;draft&#x60; listing to &#x60;active&#x60; will also publish the listing on etsy.com and requires that the listing have an image set. Setting a &#x60;sold_out&#x60; listing to active will update the quantity to 1 and renew the listing on etsy.com.
    */
   @JsonAdapter(StateEnum.Adapter.class)
   public enum StateEnum {
@@ -114,6 +115,10 @@ public class ShopListing {
   @SerializedName(SERIALIZED_NAME_CREATION_TIMESTAMP)
   private Long creationTimestamp;
 
+  public static final String SERIALIZED_NAME_CREATED_TIMESTAMP = "created_timestamp";
+  @SerializedName(SERIALIZED_NAME_CREATED_TIMESTAMP)
+  private Long createdTimestamp;
+
   public static final String SERIALIZED_NAME_ENDING_TIMESTAMP = "ending_timestamp";
   @SerializedName(SERIALIZED_NAME_ENDING_TIMESTAMP)
   private Long endingTimestamp;
@@ -125,6 +130,10 @@ public class ShopListing {
   public static final String SERIALIZED_NAME_LAST_MODIFIED_TIMESTAMP = "last_modified_timestamp";
   @SerializedName(SERIALIZED_NAME_LAST_MODIFIED_TIMESTAMP)
   private Long lastModifiedTimestamp;
+
+  public static final String SERIALIZED_NAME_UPDATED_TIMESTAMP = "updated_timestamp";
+  @SerializedName(SERIALIZED_NAME_UPDATED_TIMESTAMP)
+  private Long updatedTimestamp;
 
   public static final String SERIALIZED_NAME_STATE_TIMESTAMP = "state_timestamp";
   @SerializedName(SERIALIZED_NAME_STATE_TIMESTAMP)
@@ -233,15 +242,19 @@ public class ShopListing {
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
-  private List<String> tags = new ArrayList<String>();
+  private List<String> tags = null;
 
   public static final String SERIALIZED_NAME_MATERIALS = "materials";
   @SerializedName(SERIALIZED_NAME_MATERIALS)
-  private List<String> materials = new ArrayList<String>();
+  private List<String> materials = null;
 
   public static final String SERIALIZED_NAME_SHIPPING_PROFILE_ID = "shipping_profile_id";
   @SerializedName(SERIALIZED_NAME_SHIPPING_PROFILE_ID)
   private Long shippingProfileId;
+
+  public static final String SERIALIZED_NAME_RETURN_POLICY_ID = "return_policy_id";
+  @SerializedName(SERIALIZED_NAME_RETURN_POLICY_ID)
+  private Long returnPolicyId;
 
   public static final String SERIALIZED_NAME_PROCESSING_MIN = "processing_min";
   @SerializedName(SERIALIZED_NAME_PROCESSING_MIN)
@@ -252,7 +265,7 @@ public class ShopListing {
   private Long processingMax;
 
   /**
-   * An enumerated string inidcated who made the product. Helps buyers locate the listing under the Handmade heading. Requires &#39;is_supply&#39; and &#39;when_made&#39;.
+   * An enumerated string indicating who made the product. Helps buyers locate the listing under the Handmade heading. Requires &#39;is_supply&#39; and &#39;when_made&#39;.
    */
   @JsonAdapter(WhoMadeEnum.Adapter.class)
   public enum WhoMadeEnum {
@@ -311,15 +324,15 @@ public class ShopListing {
   public enum WhenMadeEnum {
     MADE_TO_ORDER("made_to_order"),
     
-    _2020_2022("2020_2022"),
+    _2020_2023("2020_2023"),
     
     _2010_2019("2010_2019"),
     
-    _2003_2009("2003_2009"),
+    _2004_2009("2004_2009"),
     
-    BEFORE_2003("before_2003"),
+    BEFORE_2004("before_2004"),
     
-    _2000_2002("2000_2002"),
+    _2000_2003("2000_2003"),
     
     _1990S("1990s"),
     
@@ -531,7 +544,7 @@ public class ShopListing {
 
   public static final String SERIALIZED_NAME_STYLE = "style";
   @SerializedName(SERIALIZED_NAME_STYLE)
-  private List<String> style = new ArrayList<String>();
+  private List<String> style = null;
 
   public static final String SERIALIZED_NAME_FILE_DATA = "file_data";
   @SerializedName(SERIALIZED_NAME_FILE_DATA)
@@ -571,8 +584,8 @@ public class ShopListing {
    * minimum: 1
    * @return listingId
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.")
 
   public Long getListingId() {
     return listingId;
@@ -595,8 +608,8 @@ public class ShopListing {
    * minimum: 1
    * @return userId
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The numeric ID for the [user](/documentation/reference#tag/User) posting the listing.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The numeric ID for the [user](/documentation/reference#tag/User) posting the listing.")
 
   public Long getUserId() {
     return userId;
@@ -619,8 +632,8 @@ public class ShopListing {
    * minimum: 1
    * @return shopId
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The unique positive non-zero numeric ID for an Etsy Shop.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The unique positive non-zero numeric ID for an Etsy Shop.")
 
   public Long getShopId() {
     return shopId;
@@ -639,11 +652,11 @@ public class ShopListing {
   }
 
    /**
-   * The listing&#39;s title string. Valid title strings contain only letters, numbers, punctuation marks, mathematical symbols, whitespace characters, ™, ©, and ®. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{P}\\\\p{Sm}\\\\p{Zs}™©®]/u) You can only use the %, :, &amp; and + characters once each.
+   * The listing&#39;s title string. When creating or updating a listing, valid title strings contain only letters, numbers, punctuation marks, mathematical symbols, whitespace characters, ™, ©, and ®. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{P}\\\\p{Sm}\\\\p{Zs}™©®]/u) You can only use the %, :, &amp; and + characters once each.
    * @return title
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The listing's title string. Valid title strings contain only letters, numbers, punctuation marks, mathematical symbols, whitespace characters, ™, ©, and ®. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{P}\\\\p{Sm}\\\\p{Zs}™©®]/u) You can only use the %, :, & and + characters once each.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The listing's title string. When creating or updating a listing, valid title strings contain only letters, numbers, punctuation marks, mathematical symbols, whitespace characters, ™, ©, and ®. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{P}\\\\p{Sm}\\\\p{Zs}™©®]/u) You can only use the %, :, & and + characters once each.")
 
   public String getTitle() {
     return title;
@@ -665,8 +678,8 @@ public class ShopListing {
    * A description string of the product for sale in the listing.
    * @return description
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "A description string of the product for sale in the listing.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A description string of the product for sale in the listing.")
 
   public String getDescription() {
     return description;
@@ -685,11 +698,11 @@ public class ShopListing {
   }
 
    /**
-   * An enumerated string from any of: active or inactive. Note: Setting a draft listing to active will also publish the listing on etsy.com. Setting a sold out listing to active will update the quantity to 1 and renew the listing on etsy.com.
+   * When _updating_ a listing, this value can be either &#x60;active&#x60; or &#x60;inactive&#x60;. Note: Setting a &#x60;draft&#x60; listing to &#x60;active&#x60; will also publish the listing on etsy.com and requires that the listing have an image set. Setting a &#x60;sold_out&#x60; listing to active will update the quantity to 1 and renew the listing on etsy.com.
    * @return state
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "An enumerated string from any of: active or inactive. Note: Setting a draft listing to active will also publish the listing on etsy.com. Setting a sold out listing to active will update the quantity to 1 and renew the listing on etsy.com.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "When _updating_ a listing, this value can be either `active` or `inactive`. Note: Setting a `draft` listing to `active` will also publish the listing on etsy.com and requires that the listing have an image set. Setting a `sold_out` listing to active will update the quantity to 1 and renew the listing on etsy.com.")
 
   public StateEnum getState() {
     return state;
@@ -712,8 +725,8 @@ public class ShopListing {
    * minimum: 946684800
    * @return creationTimestamp
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The listing\\'s creation time, in epoch seconds.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The listing\\'s creation time, in epoch seconds.")
 
   public Long getCreationTimestamp() {
     return creationTimestamp;
@@ -722,6 +735,30 @@ public class ShopListing {
 
   public void setCreationTimestamp(Long creationTimestamp) {
     this.creationTimestamp = creationTimestamp;
+  }
+
+
+  public ShopListing createdTimestamp(Long createdTimestamp) {
+    
+    this.createdTimestamp = createdTimestamp;
+    return this;
+  }
+
+   /**
+   * The listing\\&#39;s creation time, in epoch seconds.
+   * minimum: 946684800
+   * @return createdTimestamp
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The listing\\'s creation time, in epoch seconds.")
+
+  public Long getCreatedTimestamp() {
+    return createdTimestamp;
+  }
+
+
+  public void setCreatedTimestamp(Long createdTimestamp) {
+    this.createdTimestamp = createdTimestamp;
   }
 
 
@@ -736,8 +773,8 @@ public class ShopListing {
    * minimum: 946684800
    * @return endingTimestamp
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The listing\\'s expiration time, in epoch seconds.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The listing\\'s expiration time, in epoch seconds.")
 
   public Long getEndingTimestamp() {
     return endingTimestamp;
@@ -760,8 +797,8 @@ public class ShopListing {
    * minimum: 946684800
    * @return originalCreationTimestamp
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The listing\\'s creation time, in epoch seconds.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The listing\\'s creation time, in epoch seconds.")
 
   public Long getOriginalCreationTimestamp() {
     return originalCreationTimestamp;
@@ -784,8 +821,8 @@ public class ShopListing {
    * minimum: 946684800
    * @return lastModifiedTimestamp
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The time of the last update to the listing, in epoch seconds.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The time of the last update to the listing, in epoch seconds.")
 
   public Long getLastModifiedTimestamp() {
     return lastModifiedTimestamp;
@@ -794,6 +831,30 @@ public class ShopListing {
 
   public void setLastModifiedTimestamp(Long lastModifiedTimestamp) {
     this.lastModifiedTimestamp = lastModifiedTimestamp;
+  }
+
+
+  public ShopListing updatedTimestamp(Long updatedTimestamp) {
+    
+    this.updatedTimestamp = updatedTimestamp;
+    return this;
+  }
+
+   /**
+   * The time of the last update to the listing, in epoch seconds.
+   * minimum: 946684800
+   * @return updatedTimestamp
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The time of the last update to the listing, in epoch seconds.")
+
+  public Long getUpdatedTimestamp() {
+    return updatedTimestamp;
+  }
+
+
+  public void setUpdatedTimestamp(Long updatedTimestamp) {
+    this.updatedTimestamp = updatedTimestamp;
   }
 
 
@@ -808,8 +869,8 @@ public class ShopListing {
    * minimum: 946684800
    * @return stateTimestamp
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The date and time of the last state change of this listing.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The date and time of the last state change of this listing.")
 
   public Long getStateTimestamp() {
     return stateTimestamp;
@@ -832,8 +893,8 @@ public class ShopListing {
    * minimum: 0
    * @return quantity
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The positive non-zero number of products available for purchase in the listing. Note: The listing quantity is the sum of available offering quantities. You can request the quantities for individual offerings from the ListingInventory resource using the [getListingInventory](/documentation/reference#operation/getListingInventory) endpoint.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The positive non-zero number of products available for purchase in the listing. Note: The listing quantity is the sum of available offering quantities. You can request the quantities for individual offerings from the ListingInventory resource using the [getListingInventory](/documentation/reference#operation/getListingInventory) endpoint.")
 
   public Long getQuantity() {
     return quantity;
@@ -857,7 +918,7 @@ public class ShopListing {
    * @return shopSectionId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The numeric ID of a section in a specific Etsy shop.")
+  @ApiModelProperty(value = "The numeric ID of a section in a specific Etsy shop.")
 
   public Long getShopSectionId() {
     return shopSectionId;
@@ -879,8 +940,8 @@ public class ShopListing {
    * The positive non-zero numeric position in the featured listings of the shop, with rank 1 listings appearing in the left-most position in featured listing on a shop’s home page.
    * @return featuredRank
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The positive non-zero numeric position in the featured listings of the shop, with rank 1 listings appearing in the left-most position in featured listing on a shop’s home page.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The positive non-zero numeric position in the featured listings of the shop, with rank 1 listings appearing in the left-most position in featured listing on a shop’s home page.")
 
   public Long getFeaturedRank() {
     return featuredRank;
@@ -902,8 +963,8 @@ public class ShopListing {
    * The full URL to the listing&#39;s page on Etsy.
    * @return url
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The full URL to the listing's page on Etsy.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The full URL to the listing's page on Etsy.")
 
   public String getUrl() {
     return url;
@@ -926,8 +987,8 @@ public class ShopListing {
    * minimum: 0
    * @return numFavorers
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The number of users who marked this Listing a favorite.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The number of users who marked this Listing a favorite.")
 
   public Long getNumFavorers() {
     return numFavorers;
@@ -949,8 +1010,8 @@ public class ShopListing {
    * When true, applicable [shop](/documentation/reference#tag/Shop) tax rates do not apply to this listing at checkout.
    * @return nonTaxable
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "When true, applicable [shop](/documentation/reference#tag/Shop) tax rates do not apply to this listing at checkout.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "When true, applicable [shop](/documentation/reference#tag/Shop) tax rates do not apply to this listing at checkout.")
 
   public Boolean getNonTaxable() {
     return nonTaxable;
@@ -972,8 +1033,8 @@ public class ShopListing {
    * When true, applicable [shop](/documentation/reference#tag/Shop) tax rates apply to this listing at checkout.
    * @return isTaxable
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "When true, applicable [shop](/documentation/reference#tag/Shop) tax rates apply to this listing at checkout.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "When true, applicable [shop](/documentation/reference#tag/Shop) tax rates apply to this listing at checkout.")
 
   public Boolean getIsTaxable() {
     return isTaxable;
@@ -995,8 +1056,8 @@ public class ShopListing {
    * When true, a buyer may contact the seller for a customized order. The default value is true when a shop accepts custom orders. Does not apply to shops that do not accept custom orders.
    * @return isCustomizable
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "When true, a buyer may contact the seller for a customized order. The default value is true when a shop accepts custom orders. Does not apply to shops that do not accept custom orders.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "When true, a buyer may contact the seller for a customized order. The default value is true when a shop accepts custom orders. Does not apply to shops that do not accept custom orders.")
 
   public Boolean getIsCustomizable() {
     return isCustomizable;
@@ -1018,8 +1079,8 @@ public class ShopListing {
    * When true, this listing is personalizable. The default value is null.
    * @return isPersonalizable
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "When true, this listing is personalizable. The default value is null.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "When true, this listing is personalizable. The default value is null.")
 
   public Boolean getIsPersonalizable() {
     return isPersonalizable;
@@ -1041,8 +1102,8 @@ public class ShopListing {
    * When true, this listing requires personalization. The default value is null. Will only change if is_personalizable is &#39;true&#39;.
    * @return personalizationIsRequired
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "When true, this listing requires personalization. The default value is null. Will only change if is_personalizable is 'true'.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "When true, this listing requires personalization. The default value is null. Will only change if is_personalizable is 'true'.")
 
   public Boolean getPersonalizationIsRequired() {
     return personalizationIsRequired;
@@ -1061,11 +1122,11 @@ public class ShopListing {
   }
 
    /**
-   * This an integer value representing the maximum length for the personalization message entered by the buyer. Will only change if is_personalizable is &#39;true&#39;.
+   * This is an integer value representing the maximum length for the personalization message entered by the buyer. Will only change if is_personalizable is &#39;true&#39;.
    * @return personalizationCharCountMax
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "This an integer value representing the maximum length for the personalization message entered by the buyer. Will only change if is_personalizable is 'true'.")
+  @ApiModelProperty(value = "This is an integer value representing the maximum length for the personalization message entered by the buyer. Will only change if is_personalizable is 'true'.")
 
   public Long getPersonalizationCharCountMax() {
     return personalizationCharCountMax;
@@ -1088,7 +1149,7 @@ public class ShopListing {
    * @return personalizationInstructions
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "When true, this listing requires personalization. The default value is null. Will only change if is_personalizable is 'true'.")
+  @ApiModelProperty(value = "When true, this listing requires personalization. The default value is null. Will only change if is_personalizable is 'true'.")
 
   public String getPersonalizationInstructions() {
     return personalizationInstructions;
@@ -1110,8 +1171,8 @@ public class ShopListing {
    * An enumerated type string that indicates whether the listing is physical or a digital download.
    * @return listingType
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "An enumerated type string that indicates whether the listing is physical or a digital download.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "An enumerated type string that indicates whether the listing is physical or a digital download.")
 
   public ListingTypeEnum getListingType() {
     return listingType;
@@ -1130,16 +1191,19 @@ public class ShopListing {
   }
 
   public ShopListing addTagsItem(String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<String>();
+    }
     this.tags.add(tagsItem);
     return this;
   }
 
    /**
-   * A comma-separated list of tag strings for the listing. Valid tag strings contain only letters, numbers, whitespace characters, -, &#39;, ™, ©, and ®. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{Zs}\\\\-&#39;™©®]/u) Default value is null.
+   * A comma-separated list of tag strings for the listing. When creating or updating a listing, valid tag strings contain only letters, numbers, whitespace characters, -, &#39;, ™, ©, and ®. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{Zs}\\\\-&#39;™©®]/u) Default value is null.
    * @return tags
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "A comma-separated list of tag strings for the listing. Valid tag strings contain only letters, numbers, whitespace characters, -, ', ™, ©, and ®. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{Zs}\\\\-'™©®]/u) Default value is null.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A comma-separated list of tag strings for the listing. When creating or updating a listing, valid tag strings contain only letters, numbers, whitespace characters, -, ', ™, ©, and ®. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{Zs}\\\\-'™©®]/u) Default value is null.")
 
   public List<String> getTags() {
     return tags;
@@ -1158,6 +1222,9 @@ public class ShopListing {
   }
 
   public ShopListing addMaterialsItem(String materialsItem) {
+    if (this.materials == null) {
+      this.materials = new ArrayList<String>();
+    }
     this.materials.add(materialsItem);
     return this;
   }
@@ -1166,8 +1233,8 @@ public class ShopListing {
    * A list of material strings for materials used in the product. Valid materials strings contain only letters, numbers, and whitespace characters. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{Zs}]/u) Default value is null.
    * @return materials
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "A list of material strings for materials used in the product. Valid materials strings contain only letters, numbers, and whitespace characters. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{Zs}]/u) Default value is null.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A list of material strings for materials used in the product. Valid materials strings contain only letters, numbers, and whitespace characters. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{Zs}]/u) Default value is null.")
 
   public List<String> getMaterials() {
     return materials;
@@ -1186,12 +1253,12 @@ public class ShopListing {
   }
 
    /**
-   * The numeric ID of the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing. Required when listing type&#x3D;physical.
+   * The numeric ID of the [shipping profile](/documentation/reference#operation/getShopShippingProfile) associated with the listing. Required when listing type is &#x60;physical&#x60;.
    * minimum: 1
    * @return shippingProfileId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The numeric ID of the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing. Required when listing type=physical.")
+  @ApiModelProperty(value = "The numeric ID of the [shipping profile](/documentation/reference#operation/getShopShippingProfile) associated with the listing. Required when listing type is `physical`.")
 
   public Long getShippingProfileId() {
     return shippingProfileId;
@@ -1200,6 +1267,30 @@ public class ShopListing {
 
   public void setShippingProfileId(Long shippingProfileId) {
     this.shippingProfileId = shippingProfileId;
+  }
+
+
+  public ShopListing returnPolicyId(Long returnPolicyId) {
+    
+    this.returnPolicyId = returnPolicyId;
+    return this;
+  }
+
+   /**
+   * The numeric ID of the [Return Policy](/documentation/reference#operation/getShopReturnPolicies).
+   * minimum: 1
+   * @return returnPolicyId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The numeric ID of the [Return Policy](/documentation/reference#operation/getShopReturnPolicies).")
+
+  public Long getReturnPolicyId() {
+    return returnPolicyId;
+  }
+
+
+  public void setReturnPolicyId(Long returnPolicyId) {
+    this.returnPolicyId = returnPolicyId;
   }
 
 
@@ -1215,7 +1306,7 @@ public class ShopListing {
    * @return processingMin
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The minimum number of days required to process this listing. Default value is null.")
+  @ApiModelProperty(value = "The minimum number of days required to process this listing. Default value is null.")
 
   public Long getProcessingMin() {
     return processingMin;
@@ -1239,7 +1330,7 @@ public class ShopListing {
    * @return processingMax
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The maximum number of days required to process this listing. Default value is null.")
+  @ApiModelProperty(value = "The maximum number of days required to process this listing. Default value is null.")
 
   public Long getProcessingMax() {
     return processingMax;
@@ -1258,11 +1349,11 @@ public class ShopListing {
   }
 
    /**
-   * An enumerated string inidcated who made the product. Helps buyers locate the listing under the Handmade heading. Requires &#39;is_supply&#39; and &#39;when_made&#39;.
+   * An enumerated string indicating who made the product. Helps buyers locate the listing under the Handmade heading. Requires &#39;is_supply&#39; and &#39;when_made&#39;.
    * @return whoMade
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "An enumerated string inidcated who made the product. Helps buyers locate the listing under the Handmade heading. Requires 'is_supply' and 'when_made'.")
+  @ApiModelProperty(value = "An enumerated string indicating who made the product. Helps buyers locate the listing under the Handmade heading. Requires 'is_supply' and 'when_made'.")
 
   public WhoMadeEnum getWhoMade() {
     return whoMade;
@@ -1285,7 +1376,7 @@ public class ShopListing {
    * @return whenMade
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "An enumerated string for the era in which the maker made the product in this listing. Helps buyers locate the listing under the Vintage heading. Requires 'is_supply' and 'who_made'.")
+  @ApiModelProperty(value = "An enumerated string for the era in which the maker made the product in this listing. Helps buyers locate the listing under the Vintage heading. Requires 'is_supply' and 'who_made'.")
 
   public WhenMadeEnum getWhenMade() {
     return whenMade;
@@ -1308,7 +1399,7 @@ public class ShopListing {
    * @return isSupply
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "When true, tags the listing as a supply product, else indicates that it's a finished product. Helps buyers locate the listing under the Supplies heading. Requires 'who_made' and 'when_made'.")
+  @ApiModelProperty(value = "When true, tags the listing as a supply product, else indicates that it's a finished product. Helps buyers locate the listing under the Supplies heading. Requires 'who_made' and 'when_made'.")
 
   public Boolean getIsSupply() {
     return isSupply;
@@ -1331,7 +1422,7 @@ public class ShopListing {
    * @return itemWeight
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The numeric weight of the product measured in units set in \\'item_weight_unit\\'. Default value is null. If set, the value must be greater than 0.")
+  @ApiModelProperty(value = "The numeric weight of the product measured in units set in \\'item_weight_unit\\'. Default value is null. If set, the value must be greater than 0.")
 
   public Float getItemWeight() {
     return itemWeight;
@@ -1354,7 +1445,7 @@ public class ShopListing {
    * @return itemWeightUnit
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "A string defining the units used to measure the weight of the product. Default value is null.")
+  @ApiModelProperty(value = "A string defining the units used to measure the weight of the product. Default value is null.")
 
   public ItemWeightUnitEnum getItemWeightUnit() {
     return itemWeightUnit;
@@ -1377,7 +1468,7 @@ public class ShopListing {
    * @return itemLength
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The numeric length of the product measured in units set in \\'item_dimensions_unit\\'. Default value is null. If set, the value must be greater than 0.")
+  @ApiModelProperty(value = "The numeric length of the product measured in units set in \\'item_dimensions_unit\\'. Default value is null. If set, the value must be greater than 0.")
 
   public Float getItemLength() {
     return itemLength;
@@ -1400,7 +1491,7 @@ public class ShopListing {
    * @return itemWidth
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The numeric width of the product measured in units set in \\'item_dimensions_unit\\'. Default value is null. If set, the value must be greater than 0.")
+  @ApiModelProperty(value = "The numeric width of the product measured in units set in \\'item_dimensions_unit\\'. Default value is null. If set, the value must be greater than 0.")
 
   public Float getItemWidth() {
     return itemWidth;
@@ -1423,7 +1514,7 @@ public class ShopListing {
    * @return itemHeight
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The numeric length of the product measured in units set in \\'item_dimensions_unit\\'. Default value is null. If set, the value must be greater than 0.")
+  @ApiModelProperty(value = "The numeric length of the product measured in units set in \\'item_dimensions_unit\\'. Default value is null. If set, the value must be greater than 0.")
 
   public Float getItemHeight() {
     return itemHeight;
@@ -1446,7 +1537,7 @@ public class ShopListing {
    * @return itemDimensionsUnit
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "A string defining the units used to measure the dimensions of the product. Default value is null.")
+  @ApiModelProperty(value = "A string defining the units used to measure the dimensions of the product. Default value is null.")
 
   public ItemDimensionsUnitEnum getItemDimensionsUnit() {
     return itemDimensionsUnit;
@@ -1465,11 +1556,11 @@ public class ShopListing {
   }
 
    /**
-   * When true, this is a private listing intendend for a specific buyer and hidden from shop view.
+   * When true, this is a private listing intended for a specific buyer and hidden from shop view.
    * @return isPrivate
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "When true, this is a private listing intendend for a specific buyer and hidden from shop view.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "When true, this is a private listing intended for a specific buyer and hidden from shop view.")
 
   public Boolean getIsPrivate() {
     return isPrivate;
@@ -1488,16 +1579,19 @@ public class ShopListing {
   }
 
   public ShopListing addStyleItem(String styleItem) {
+    if (this.style == null) {
+      this.style = new ArrayList<String>();
+    }
     this.style.add(styleItem);
     return this;
   }
 
    /**
-   * An array of style strings for this listing, each of which is free-form text string such as \\\&quot;Formal\\\&quot;, or \\\&quot;Steampunk\\\&quot;. A Listing may have up to two styles. Valid style strings contain only letters, numbers, and whitespace characters. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{Zs}]/u) Default value is null.
+   * An array of style strings for this listing, each of which is free-form text string such as \\\&quot;Formal\\\&quot;, or \\\&quot;Steampunk\\\&quot;. When creating or updating a listing, the listing may have up to two styles. Valid style strings contain only letters, numbers, and whitespace characters. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{Zs}]/u) Default value is null.
    * @return style
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "An array of style strings for this listing, each of which is free-form text string such as \\\"Formal\\\", or \\\"Steampunk\\\". A Listing may have up to two styles. Valid style strings contain only letters, numbers, and whitespace characters. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{Zs}]/u) Default value is null.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "An array of style strings for this listing, each of which is free-form text string such as \\\"Formal\\\", or \\\"Steampunk\\\". When creating or updating a listing, the listing may have up to two styles. Valid style strings contain only letters, numbers, and whitespace characters. (regex: /[^\\\\p{L}\\\\p{Nd}\\\\p{Zs}]/u) Default value is null.")
 
   public List<String> getStyle() {
     return style;
@@ -1519,8 +1613,8 @@ public class ShopListing {
    * A string describing the files attached to a digital listing.
    * @return fileData
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "A string describing the files attached to a digital listing.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A string describing the files attached to a digital listing.")
 
   public String getFileData() {
     return fileData;
@@ -1542,8 +1636,8 @@ public class ShopListing {
    * When true, the listing has variations.
    * @return hasVariations
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "When true, the listing has variations.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "When true, the listing has variations.")
 
   public Boolean getHasVariations() {
     return hasVariations;
@@ -1562,11 +1656,11 @@ public class ShopListing {
   }
 
    /**
-   * When true, renews a listing for four months upon expriation. If set to true when previously false, etsy.com renews the listing before it expires, but the renewal period starts immidiately rather than extending the listing&#39;s expiration date. Any unused time remaining on the listing is lost. Renewals result in charges to a user&#39;s bill.
+   * When true, renews a listing for four months upon expiration.
    * @return shouldAutoRenew
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "When true, renews a listing for four months upon expriation. If set to true when previously false, etsy.com renews the listing before it expires, but the renewal period starts immidiately rather than extending the listing's expiration date. Any unused time remaining on the listing is lost. Renewals result in charges to a user's bill.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "When true, renews a listing for four months upon expiration.")
 
   public Boolean getShouldAutoRenew() {
     return shouldAutoRenew;
@@ -1589,7 +1683,7 @@ public class ShopListing {
    * @return language
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The IETF language tag for the default language of the listing. Ex: `de`, `en`, `es`, `fr`, `it`, `ja`, `nl`, `pl`, `pt`, `ru`.")
+  @ApiModelProperty(value = "The IETF language tag for the default language of the listing. Ex: `de`, `en`, `es`, `fr`, `it`, `ja`, `nl`, `pl`, `pt`, `ru`.")
 
   public String getLanguage() {
     return language;
@@ -1612,7 +1706,7 @@ public class ShopListing {
    * @return price
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The positive non-zero price of the product. (Sold product listings are private) Note: The price is the minimum possible price. The [`getListingInventory`](/documentation/reference/#operation/getListingInventory) method requests exact prices for available offerings.")
+  @ApiModelProperty(value = "The positive non-zero price of the product. (Sold product listings are private) Note: The price is the minimum possible price. The [`getListingInventory`](/documentation/reference/#operation/getListingInventory) method requests exact prices for available offerings.")
 
   public Money getPrice() {
     return price;
@@ -1631,11 +1725,11 @@ public class ShopListing {
   }
 
    /**
-   * The numeric taxonomy ID of the listing. See [SellerTaxonomy](/documentation/reference#tag/SellerTaxonomy) and [BuyerTaxonomy](/documentation/reference#tag/BuyerTaxonomy) for more information.
+   * The numerical taxonomy ID of the listing. See [SellerTaxonomy](/documentation/reference#tag/SellerTaxonomy) and [BuyerTaxonomy](/documentation/reference#tag/BuyerTaxonomy) for more information.
    * @return taxonomyId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The numeric taxonomy ID of the listing. See [SellerTaxonomy](/documentation/reference#tag/SellerTaxonomy) and [BuyerTaxonomy](/documentation/reference#tag/BuyerTaxonomy) for more information.")
+  @ApiModelProperty(value = "The numerical taxonomy ID of the listing. See [SellerTaxonomy](/documentation/reference#tag/SellerTaxonomy) and [BuyerTaxonomy](/documentation/reference#tag/BuyerTaxonomy) for more information.")
 
   public Long getTaxonomyId() {
     return taxonomyId;
@@ -1663,9 +1757,11 @@ public class ShopListing {
         Objects.equals(this.description, shopListing.description) &&
         Objects.equals(this.state, shopListing.state) &&
         Objects.equals(this.creationTimestamp, shopListing.creationTimestamp) &&
+        Objects.equals(this.createdTimestamp, shopListing.createdTimestamp) &&
         Objects.equals(this.endingTimestamp, shopListing.endingTimestamp) &&
         Objects.equals(this.originalCreationTimestamp, shopListing.originalCreationTimestamp) &&
         Objects.equals(this.lastModifiedTimestamp, shopListing.lastModifiedTimestamp) &&
+        Objects.equals(this.updatedTimestamp, shopListing.updatedTimestamp) &&
         Objects.equals(this.stateTimestamp, shopListing.stateTimestamp) &&
         Objects.equals(this.quantity, shopListing.quantity) &&
         Objects.equals(this.shopSectionId, shopListing.shopSectionId) &&
@@ -1683,6 +1779,7 @@ public class ShopListing {
         Objects.equals(this.tags, shopListing.tags) &&
         Objects.equals(this.materials, shopListing.materials) &&
         Objects.equals(this.shippingProfileId, shopListing.shippingProfileId) &&
+        Objects.equals(this.returnPolicyId, shopListing.returnPolicyId) &&
         Objects.equals(this.processingMin, shopListing.processingMin) &&
         Objects.equals(this.processingMax, shopListing.processingMax) &&
         Objects.equals(this.whoMade, shopListing.whoMade) &&
@@ -1704,9 +1801,20 @@ public class ShopListing {
         Objects.equals(this.taxonomyId, shopListing.taxonomyId);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
-    return Objects.hash(listingId, userId, shopId, title, description, state, creationTimestamp, endingTimestamp, originalCreationTimestamp, lastModifiedTimestamp, stateTimestamp, quantity, shopSectionId, featuredRank, url, numFavorers, nonTaxable, isTaxable, isCustomizable, isPersonalizable, personalizationIsRequired, personalizationCharCountMax, personalizationInstructions, listingType, tags, materials, shippingProfileId, processingMin, processingMax, whoMade, whenMade, isSupply, itemWeight, itemWeightUnit, itemLength, itemWidth, itemHeight, itemDimensionsUnit, isPrivate, style, fileData, hasVariations, shouldAutoRenew, language, price, taxonomyId);
+    return Objects.hash(listingId, userId, shopId, title, description, state, creationTimestamp, createdTimestamp, endingTimestamp, originalCreationTimestamp, lastModifiedTimestamp, updatedTimestamp, stateTimestamp, quantity, shopSectionId, featuredRank, url, numFavorers, nonTaxable, isTaxable, isCustomizable, isPersonalizable, personalizationIsRequired, personalizationCharCountMax, personalizationInstructions, listingType, tags, materials, shippingProfileId, returnPolicyId, processingMin, processingMax, whoMade, whenMade, isSupply, itemWeight, itemWeightUnit, itemLength, itemWidth, itemHeight, itemDimensionsUnit, isPrivate, style, fileData, hasVariations, shouldAutoRenew, language, price, taxonomyId);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -1720,9 +1828,11 @@ public class ShopListing {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    creationTimestamp: ").append(toIndentedString(creationTimestamp)).append("\n");
+    sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
     sb.append("    endingTimestamp: ").append(toIndentedString(endingTimestamp)).append("\n");
     sb.append("    originalCreationTimestamp: ").append(toIndentedString(originalCreationTimestamp)).append("\n");
     sb.append("    lastModifiedTimestamp: ").append(toIndentedString(lastModifiedTimestamp)).append("\n");
+    sb.append("    updatedTimestamp: ").append(toIndentedString(updatedTimestamp)).append("\n");
     sb.append("    stateTimestamp: ").append(toIndentedString(stateTimestamp)).append("\n");
     sb.append("    quantity: ").append(toIndentedString(quantity)).append("\n");
     sb.append("    shopSectionId: ").append(toIndentedString(shopSectionId)).append("\n");
@@ -1740,6 +1850,7 @@ public class ShopListing {
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    materials: ").append(toIndentedString(materials)).append("\n");
     sb.append("    shippingProfileId: ").append(toIndentedString(shippingProfileId)).append("\n");
+    sb.append("    returnPolicyId: ").append(toIndentedString(returnPolicyId)).append("\n");
     sb.append("    processingMin: ").append(toIndentedString(processingMin)).append("\n");
     sb.append("    processingMax: ").append(toIndentedString(processingMax)).append("\n");
     sb.append("    whoMade: ").append(toIndentedString(whoMade)).append("\n");

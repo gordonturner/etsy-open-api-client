@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 
 
-&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Creates a ListingTranslation by listing_id and language
+&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/discussions\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Creates a ListingTranslation by listing_id and language
 
 ### Example
 ```java
@@ -45,7 +45,7 @@ public class Example {
     ShopListingTranslationApi apiInstance = new ShopListingTranslationApi(defaultClient);
     Long shopId = 56L; // Long | The unique positive non-zero numeric ID for an Etsy Shop.
     Long listingId = 56L; // Long | The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
-    String language = "language_example"; // String | The IETF language tag for the language of this translation. Ex: de, en, es, fr, it, ja, nl, pl, pt, ru.
+    String language = "language_example"; // String | The IETF language tag for the language of this translation. Ex: `de`, `en`, `es`, `fr`, `it`, `ja`, `nl`, `pl`, `pt`.
     String title = "title_example"; // String | The title of the Listing of this Translation.
     String description = "description_example"; // String | The description of the Listing of this Translation.
     List<String> tags = Arrays.asList(); // List<String> | The tags of the Listing of this Translation.
@@ -69,7 +69,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **shopId** | **Long**| The unique positive non-zero numeric ID for an Etsy Shop. |
  **listingId** | **Long**| The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. |
- **language** | **String**| The IETF language tag for the language of this translation. Ex: de, en, es, fr, it, ja, nl, pl, pt, ru. |
+ **language** | **String**| The IETF language tag for the language of this translation. Ex: &#x60;de&#x60;, &#x60;en&#x60;, &#x60;es&#x60;, &#x60;fr&#x60;, &#x60;it&#x60;, &#x60;ja&#x60;, &#x60;nl&#x60;, &#x60;pl&#x60;, &#x60;pt&#x60;. |
  **title** | **String**| The title of the Listing of this Translation. |
  **description** | **String**| The description of the Listing of this Translation. |
  **tags** | [**List&lt;String&gt;**](String.md)| The tags of the Listing of this Translation. | [optional]
@@ -103,7 +103,7 @@ Name | Type | Description  | Notes
 
 
 
-&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Get a Translation for a Listing in the given language
+&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/discussions\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Get a Translation for a Listing in the given language
 
 ### Example
 ```java
@@ -129,7 +129,7 @@ public class Example {
     ShopListingTranslationApi apiInstance = new ShopListingTranslationApi(defaultClient);
     Long shopId = 56L; // Long | The unique positive non-zero numeric ID for an Etsy Shop.
     Long listingId = 56L; // Long | The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
-    String language = "language_example"; // String | The IETF language tag for the language of this translation. Ex: de, en, es, fr, it, ja, nl, pl, pt, ru.
+    String language = "language_example"; // String | The IETF language tag for the language of this translation. Ex: `de`, `en`, `es`, `fr`, `it`, `ja`, `nl`, `pl`, `pt`.
     try {
       ListingTranslation result = apiInstance.getListingTranslation(shopId, listingId, language);
       System.out.println(result);
@@ -150,7 +150,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **shopId** | **Long**| The unique positive non-zero numeric ID for an Etsy Shop. |
  **listingId** | **Long**| The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. |
- **language** | **String**| The IETF language tag for the language of this translation. Ex: de, en, es, fr, it, ja, nl, pl, pt, ru. |
+ **language** | **String**| The IETF language tag for the language of this translation. Ex: &#x60;de&#x60;, &#x60;en&#x60;, &#x60;es&#x60;, &#x60;fr&#x60;, &#x60;it&#x60;, &#x60;ja&#x60;, &#x60;nl&#x60;, &#x60;pl&#x60;, &#x60;pt&#x60;. |
 
 ### Return type
 
@@ -179,7 +179,7 @@ Name | Type | Description  | Notes
 
 
 
-&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Updates a ListingTranslation by listing_id and language
+&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/discussions\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Updates a ListingTranslation by listing_id and language
 
 ### Example
 ```java
@@ -209,7 +209,7 @@ public class Example {
     ShopListingTranslationApi apiInstance = new ShopListingTranslationApi(defaultClient);
     Long shopId = 56L; // Long | The unique positive non-zero numeric ID for an Etsy Shop.
     Long listingId = 56L; // Long | The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.
-    String language = "language_example"; // String | The IETF language tag for the language of this translation. Ex: de, en, es, fr, it, ja, nl, pl, pt, ru.
+    String language = "language_example"; // String | The IETF language tag for the language of this translation. Ex: `de`, `en`, `es`, `fr`, `it`, `ja`, `nl`, `pl`, `pt`.
     String title = "title_example"; // String | The title of the Listing of this Translation.
     String description = "description_example"; // String | The description of the Listing of this Translation.
     List<String> tags = Arrays.asList(); // List<String> | The tags of the Listing of this Translation.
@@ -233,7 +233,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **shopId** | **Long**| The unique positive non-zero numeric ID for an Etsy Shop. |
  **listingId** | **Long**| The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. |
- **language** | **String**| The IETF language tag for the language of this translation. Ex: de, en, es, fr, it, ja, nl, pl, pt, ru. |
+ **language** | **String**| The IETF language tag for the language of this translation. Ex: &#x60;de&#x60;, &#x60;en&#x60;, &#x60;es&#x60;, &#x60;fr&#x60;, &#x60;it&#x60;, &#x60;ja&#x60;, &#x60;nl&#x60;, &#x60;pl&#x60;, &#x60;pt&#x60;. |
  **title** | **String**| The title of the Listing of this Translation. |
  **description** | **String**| The description of the Listing of this Translation. |
  **tags** | [**List&lt;String&gt;**](String.md)| The tags of the Listing of this Translation. | [optional]

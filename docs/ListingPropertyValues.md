@@ -8,8 +8,8 @@ Represents several ListingPropertyValues.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**count** | **Long** |  | 
-**results** | [**List&lt;ListingPropertyValue&gt;**](ListingPropertyValue.md) |  | 
+**count** | **Long** |  |  [optional]
+**results** | [**List&lt;ListingPropertyValue&gt;**](ListingPropertyValue.md) |  |  [optional]
 
 
 

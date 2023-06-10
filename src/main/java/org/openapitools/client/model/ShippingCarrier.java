@@ -1,6 +1,6 @@
 /*
  * Etsy Open API v3
- * <div class=\"wt-text-body-01\"><p class=\"wt-pt-xs-2 wt-pb-xs-2\">Etsy's Open API provides a simple RESTful interface for various Etsy.com features. The API endpoints are meant to replace <a class=\"wt-text-link wt-p-xs-0\" href=\"https://www.etsy.com/developers/documentation\">Etsy's Open API v2</a>, which is scheduled to end service in 2022.</p><p class=\"wt-pb-xs-2\">All of the endpoints are callable and the majority of the API endpoints are now in a beta phase. This means we do not expect to make any breaking changes before our general release. A handful of endpoints are currently interface stubs (labeled “Feedback Only”) and returns a \"501 Not Implemented\" response code when called.</p><p class=\"wt-pb-xs-2\">If you'd like to report an issue or provide feedback on the API design, <a target=\"_blank\" class=\"wt-text-link wt-p-xs-0\" href=\"https://github.com/etsy/open-api/issues/new/choose\">please add an issue in Github</a>.</p></div>&copy; 2021-2022 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.
+ * <div class=\"wt-text-body-01\"><p class=\"wt-pt-xs-2 wt-pb-xs-2\">Etsy's Open API provides a simple RESTful interface for various Etsy.com features. The API endpoints are meant to replace Etsy's Open API v2, which is scheduled to end service in 2022.</p><p class=\"wt-pb-xs-2\">All of the endpoints are callable and the majority of the API endpoints are now in a beta phase. This means we do not expect to make any breaking changes before our general release. A handful of endpoints are currently interface stubs (labeled “Feedback Only”) and returns a \"501 Not Implemented\" response code when called.</p><p class=\"wt-pb-xs-2\">If you'd like to report an issue or provide feedback on the API design, <a target=\"_blank\" class=\"wt-text-link wt-p-xs-0\" href=\"https://github.com/etsy/open-api/discussions\">please add an issue in Github</a>.</p></div>&copy; 2021-2023 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: developers@etsy.com
@@ -31,7 +31,7 @@ import org.openapitools.client.model.ShippingCarrierMailClass;
  * A supported shipping carrier, which is used to calculate an Estimated Delivery Date.
  */
 @ApiModel(description = "A supported shipping carrier, which is used to calculate an Estimated Delivery Date.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-07T10:51:54.559-04:00[America/Toronto]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-08T08:37:51.285-04:00[America/Toronto]")
 public class ShippingCarrier {
   public static final String SERIALIZED_NAME_SHIPPING_CARRIER_ID = "shipping_carrier_id";
   @SerializedName(SERIALIZED_NAME_SHIPPING_CARRIER_ID)
@@ -43,11 +43,11 @@ public class ShippingCarrier {
 
   public static final String SERIALIZED_NAME_DOMESTIC_CLASSES = "domestic_classes";
   @SerializedName(SERIALIZED_NAME_DOMESTIC_CLASSES)
-  private List<ShippingCarrierMailClass> domesticClasses = new ArrayList<ShippingCarrierMailClass>();
+  private List<ShippingCarrierMailClass> domesticClasses = null;
 
   public static final String SERIALIZED_NAME_INTERNATIONAL_CLASSES = "international_classes";
   @SerializedName(SERIALIZED_NAME_INTERNATIONAL_CLASSES)
-  private List<ShippingCarrierMailClass> internationalClasses = new ArrayList<ShippingCarrierMailClass>();
+  private List<ShippingCarrierMailClass> internationalClasses = null;
 
   public ShippingCarrier() { 
   }
@@ -63,8 +63,8 @@ public class ShippingCarrier {
    * minimum: 1
    * @return shippingCarrierId
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The numeric ID of this shipping carrier.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The numeric ID of this shipping carrier.")
 
   public Long getShippingCarrierId() {
     return shippingCarrierId;
@@ -86,8 +86,8 @@ public class ShippingCarrier {
    * The name of this shipping carrier.
    * @return name
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The name of this shipping carrier.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The name of this shipping carrier.")
 
   public String getName() {
     return name;
@@ -106,6 +106,9 @@ public class ShippingCarrier {
   }
 
   public ShippingCarrier addDomesticClassesItem(ShippingCarrierMailClass domesticClassesItem) {
+    if (this.domesticClasses == null) {
+      this.domesticClasses = new ArrayList<ShippingCarrierMailClass>();
+    }
     this.domesticClasses.add(domesticClassesItem);
     return this;
   }
@@ -114,8 +117,8 @@ public class ShippingCarrier {
    * Set of domestic mail classes of this shipping carrier.
    * @return domesticClasses
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Set of domestic mail classes of this shipping carrier.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set of domestic mail classes of this shipping carrier.")
 
   public List<ShippingCarrierMailClass> getDomesticClasses() {
     return domesticClasses;
@@ -134,6 +137,9 @@ public class ShippingCarrier {
   }
 
   public ShippingCarrier addInternationalClassesItem(ShippingCarrierMailClass internationalClassesItem) {
+    if (this.internationalClasses == null) {
+      this.internationalClasses = new ArrayList<ShippingCarrierMailClass>();
+    }
     this.internationalClasses.add(internationalClassesItem);
     return this;
   }
@@ -142,8 +148,8 @@ public class ShippingCarrier {
    * Set of international mail classes of this shipping carrier.
    * @return internationalClasses
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Set of international mail classes of this shipping carrier.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set of international mail classes of this shipping carrier.")
 
   public List<ShippingCarrierMailClass> getInternationalClasses() {
     return internationalClasses;

@@ -1,6 +1,6 @@
 /*
  * Etsy Open API v3
- * <div class=\"wt-text-body-01\"><p class=\"wt-pt-xs-2 wt-pb-xs-2\">Etsy's Open API provides a simple RESTful interface for various Etsy.com features. The API endpoints are meant to replace <a class=\"wt-text-link wt-p-xs-0\" href=\"https://www.etsy.com/developers/documentation\">Etsy's Open API v2</a>, which is scheduled to end service in 2022.</p><p class=\"wt-pb-xs-2\">All of the endpoints are callable and the majority of the API endpoints are now in a beta phase. This means we do not expect to make any breaking changes before our general release. A handful of endpoints are currently interface stubs (labeled “Feedback Only”) and returns a \"501 Not Implemented\" response code when called.</p><p class=\"wt-pb-xs-2\">If you'd like to report an issue or provide feedback on the API design, <a target=\"_blank\" class=\"wt-text-link wt-p-xs-0\" href=\"https://github.com/etsy/open-api/issues/new/choose\">please add an issue in Github</a>.</p></div>&copy; 2021-2022 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.
+ * <div class=\"wt-text-body-01\"><p class=\"wt-pt-xs-2 wt-pb-xs-2\">Etsy's Open API provides a simple RESTful interface for various Etsy.com features. The API endpoints are meant to replace Etsy's Open API v2, which is scheduled to end service in 2022.</p><p class=\"wt-pb-xs-2\">All of the endpoints are callable and the majority of the API endpoints are now in a beta phase. This means we do not expect to make any breaking changes before our general release. A handful of endpoints are currently interface stubs (labeled “Feedback Only”) and returns a \"501 Not Implemented\" response code when called.</p><p class=\"wt-pb-xs-2\">If you'd like to report an issue or provide feedback on the API design, <a target=\"_blank\" class=\"wt-text-link wt-p-xs-0\" href=\"https://github.com/etsy/open-api/discussions\">please add an issue in Github</a>.</p></div>&copy; 2021-2023 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: developers@etsy.com
@@ -23,12 +23,13 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
  * Represents a user&#39;s address.
  */
 @ApiModel(description = "Represents a user's address.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-07T10:51:54.559-04:00[America/Toronto]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-08T08:37:51.285-04:00[America/Toronto]")
 public class UserAddress {
   public static final String SERIALIZED_NAME_USER_ADDRESS_ID = "user_address_id";
   @SerializedName(SERIALIZED_NAME_USER_ADDRESS_ID)
@@ -88,8 +89,8 @@ public class UserAddress {
    * minimum: 1
    * @return userAddressId
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The numeric ID of the user's address.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The numeric ID of the user's address.")
 
   public Long getUserAddressId() {
     return userAddressId;
@@ -112,8 +113,8 @@ public class UserAddress {
    * minimum: 1
    * @return userId
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The user's numeric ID.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The user's numeric ID.")
 
   public Long getUserId() {
     return userId;
@@ -135,8 +136,8 @@ public class UserAddress {
    * The user&#39;s name for this address.
    * @return name
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The user's name for this address.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The user's name for this address.")
 
   public String getName() {
     return name;
@@ -158,8 +159,8 @@ public class UserAddress {
    * The first line of the user&#39;s address.
    * @return firstLine
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The first line of the user's address.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The first line of the user's address.")
 
   public String getFirstLine() {
     return firstLine;
@@ -182,7 +183,7 @@ public class UserAddress {
    * @return secondLine
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The second line of the user's address.")
+  @ApiModelProperty(value = "The second line of the user's address.")
 
   public String getSecondLine() {
     return secondLine;
@@ -204,8 +205,8 @@ public class UserAddress {
    * The city field of the user&#39;s address.
    * @return city
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The city field of the user's address.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The city field of the user's address.")
 
   public String getCity() {
     return city;
@@ -228,7 +229,7 @@ public class UserAddress {
    * @return state
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The state field of the user's address.")
+  @ApiModelProperty(value = "The state field of the user's address.")
 
   public String getState() {
     return state;
@@ -250,8 +251,8 @@ public class UserAddress {
    * The zip code field of the user&#39;s address.
    * @return zip
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The zip code field of the user's address.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The zip code field of the user's address.")
 
   public String getZip() {
     return zip;
@@ -274,7 +275,7 @@ public class UserAddress {
    * @return isoCountryCode
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The ISO code of the country in this address.")
+  @ApiModelProperty(value = "The ISO code of the country in this address.")
 
   public String getIsoCountryCode() {
     return isoCountryCode;
@@ -297,7 +298,7 @@ public class UserAddress {
    * @return countryName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The name of the user's country.")
+  @ApiModelProperty(value = "The name of the user's country.")
 
   public String getCountryName() {
     return countryName;
@@ -319,8 +320,8 @@ public class UserAddress {
    * Is this the user&#39;s default shipping address.
    * @return isDefaultShippingAddress
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Is this the user's default shipping address.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Is this the user's default shipping address.")
 
   public Boolean getIsDefaultShippingAddress() {
     return isDefaultShippingAddress;
@@ -354,9 +355,20 @@ public class UserAddress {
         Objects.equals(this.isDefaultShippingAddress, userAddress.isDefaultShippingAddress);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
     return Objects.hash(userAddressId, userId, name, firstLine, secondLine, city, state, zip, isoCountryCode, countryName, isDefaultShippingAddress);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

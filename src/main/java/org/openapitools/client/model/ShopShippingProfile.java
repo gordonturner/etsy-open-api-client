@@ -1,6 +1,6 @@
 /*
  * Etsy Open API v3
- * <div class=\"wt-text-body-01\"><p class=\"wt-pt-xs-2 wt-pb-xs-2\">Etsy's Open API provides a simple RESTful interface for various Etsy.com features. The API endpoints are meant to replace <a class=\"wt-text-link wt-p-xs-0\" href=\"https://www.etsy.com/developers/documentation\">Etsy's Open API v2</a>, which is scheduled to end service in 2022.</p><p class=\"wt-pb-xs-2\">All of the endpoints are callable and the majority of the API endpoints are now in a beta phase. This means we do not expect to make any breaking changes before our general release. A handful of endpoints are currently interface stubs (labeled “Feedback Only”) and returns a \"501 Not Implemented\" response code when called.</p><p class=\"wt-pb-xs-2\">If you'd like to report an issue or provide feedback on the API design, <a target=\"_blank\" class=\"wt-text-link wt-p-xs-0\" href=\"https://github.com/etsy/open-api/issues/new/choose\">please add an issue in Github</a>.</p></div>&copy; 2021-2022 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.
+ * <div class=\"wt-text-body-01\"><p class=\"wt-pt-xs-2 wt-pb-xs-2\">Etsy's Open API provides a simple RESTful interface for various Etsy.com features. The API endpoints are meant to replace Etsy's Open API v2, which is scheduled to end service in 2022.</p><p class=\"wt-pb-xs-2\">All of the endpoints are callable and the majority of the API endpoints are now in a beta phase. This means we do not expect to make any breaking changes before our general release. A handful of endpoints are currently interface stubs (labeled “Feedback Only”) and returns a \"501 Not Implemented\" response code when called.</p><p class=\"wt-pb-xs-2\">If you'd like to report an issue or provide feedback on the API design, <a target=\"_blank\" class=\"wt-text-link wt-p-xs-0\" href=\"https://github.com/etsy/open-api/discussions\">please add an issue in Github</a>.</p></div>&copy; 2021-2023 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: developers@etsy.com
@@ -27,12 +27,13 @@ import java.util.ArrayList;
 import java.util.List;
 import org.openapitools.client.model.ShopShippingProfileDestination;
 import org.openapitools.client.model.ShopShippingProfileUpgrade;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
  * Represents a profile used to set a listing&#39;s shipping information. Please note that it&#39;s not possible to create calculated shipping templates via the API. However, you can associate calculated shipping profiles created from Shop Manager with listings using the API.
  */
 @ApiModel(description = "Represents a profile used to set a listing's shipping information. Please note that it's not possible to create calculated shipping templates via the API. However, you can associate calculated shipping profiles created from Shop Manager with listings using the API.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-07T10:51:54.559-04:00[America/Toronto]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-08T08:37:51.285-04:00[America/Toronto]")
 public class ShopShippingProfile {
   public static final String SERIALIZED_NAME_SHIPPING_PROFILE_ID = "shipping_profile_id";
   @SerializedName(SERIALIZED_NAME_SHIPPING_PROFILE_ID)
@@ -68,11 +69,11 @@ public class ShopShippingProfile {
 
   public static final String SERIALIZED_NAME_SHIPPING_PROFILE_DESTINATIONS = "shipping_profile_destinations";
   @SerializedName(SERIALIZED_NAME_SHIPPING_PROFILE_DESTINATIONS)
-  private List<ShopShippingProfileDestination> shippingProfileDestinations = new ArrayList<ShopShippingProfileDestination>();
+  private List<ShopShippingProfileDestination> shippingProfileDestinations = null;
 
   public static final String SERIALIZED_NAME_SHIPPING_PROFILE_UPGRADES = "shipping_profile_upgrades";
   @SerializedName(SERIALIZED_NAME_SHIPPING_PROFILE_UPGRADES)
-  private List<ShopShippingProfileUpgrade> shippingProfileUpgrades = new ArrayList<ShopShippingProfileUpgrade>();
+  private List<ShopShippingProfileUpgrade> shippingProfileUpgrades = null;
 
   public static final String SERIALIZED_NAME_ORIGIN_POSTAL_CODE = "origin_postal_code";
   @SerializedName(SERIALIZED_NAME_ORIGIN_POSTAL_CODE)
@@ -151,8 +152,8 @@ public class ShopShippingProfile {
    * minimum: 1
    * @return shippingProfileId
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The numeric ID of the shipping profile.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The numeric ID of the shipping profile.")
 
   public Long getShippingProfileId() {
     return shippingProfileId;
@@ -175,7 +176,7 @@ public class ShopShippingProfile {
    * @return title
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The name string of this shipping profile.")
+  @ApiModelProperty(value = "The name string of this shipping profile.")
 
   public String getTitle() {
     return title;
@@ -198,8 +199,8 @@ public class ShopShippingProfile {
    * minimum: 1
    * @return userId
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The numeric ID for the [user](/documentation/reference#tag/User) who owns the shipping profile.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The numeric ID for the [user](/documentation/reference#tag/User) who owns the shipping profile.")
 
   public Long getUserId() {
     return userId;
@@ -223,7 +224,7 @@ public class ShopShippingProfile {
    * @return minProcessingDays
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The minimum number of days for processing the listing.")
+  @ApiModelProperty(value = "The minimum number of days for processing the listing.")
 
   public Long getMinProcessingDays() {
     return minProcessingDays;
@@ -247,7 +248,7 @@ public class ShopShippingProfile {
    * @return maxProcessingDays
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The maximum number of days for processing the listing.")
+  @ApiModelProperty(value = "The maximum number of days for processing the listing.")
 
   public Long getMaxProcessingDays() {
     return maxProcessingDays;
@@ -269,8 +270,8 @@ public class ShopShippingProfile {
    * Translated display label string for processing days.
    * @return processingDaysDisplayLabel
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Translated display label string for processing days.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Translated display label string for processing days.")
 
   public String getProcessingDaysDisplayLabel() {
     return processingDaysDisplayLabel;
@@ -292,8 +293,8 @@ public class ShopShippingProfile {
    * The ISO code of the country from which the listing ships.
    * @return originCountryIso
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The ISO code of the country from which the listing ships.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The ISO code of the country from which the listing ships.")
 
   public String getOriginCountryIso() {
     return originCountryIso;
@@ -315,8 +316,8 @@ public class ShopShippingProfile {
    * When true, someone deleted this shipping profile.
    * @return isDeleted
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "When true, someone deleted this shipping profile.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "When true, someone deleted this shipping profile.")
 
   public Boolean getIsDeleted() {
     return isDeleted;
@@ -335,16 +336,19 @@ public class ShopShippingProfile {
   }
 
   public ShopShippingProfile addShippingProfileDestinationsItem(ShopShippingProfileDestination shippingProfileDestinationsItem) {
+    if (this.shippingProfileDestinations == null) {
+      this.shippingProfileDestinations = new ArrayList<ShopShippingProfileDestination>();
+    }
     this.shippingProfileDestinations.add(shippingProfileDestinationsItem);
     return this;
   }
 
    /**
-   * A list of [shipping profile destinations](/documentation/reference#operation/createListingShippingProfileDestination) available for this shipping profile.
+   * A list of [shipping profile destinations](/documentation/reference/#operation/createShopShippingProfileDestination) available for this shipping profile.
    * @return shippingProfileDestinations
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "A list of [shipping profile destinations](/documentation/reference#operation/createListingShippingProfileDestination) available for this shipping profile.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A list of [shipping profile destinations](/documentation/reference/#operation/createShopShippingProfileDestination) available for this shipping profile.")
 
   public List<ShopShippingProfileDestination> getShippingProfileDestinations() {
     return shippingProfileDestinations;
@@ -363,16 +367,19 @@ public class ShopShippingProfile {
   }
 
   public ShopShippingProfile addShippingProfileUpgradesItem(ShopShippingProfileUpgrade shippingProfileUpgradesItem) {
+    if (this.shippingProfileUpgrades == null) {
+      this.shippingProfileUpgrades = new ArrayList<ShopShippingProfileUpgrade>();
+    }
     this.shippingProfileUpgrades.add(shippingProfileUpgradesItem);
     return this;
   }
 
    /**
-   * A list of [shipping profile upgrades](/documentation/reference#operation/createListingShippingProfileUpgrade) available for this shipping profile.
+   * A list of [shipping profile upgrades](/documentation/reference/#operation/createShopShippingProfileUpgrade) available for this shipping profile.
    * @return shippingProfileUpgrades
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "A list of [shipping profile upgrades](/documentation/reference#operation/createListingShippingProfileUpgrade) available for this shipping profile.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A list of [shipping profile upgrades](/documentation/reference/#operation/createShopShippingProfileUpgrade) available for this shipping profile.")
 
   public List<ShopShippingProfileUpgrade> getShippingProfileUpgrades() {
     return shippingProfileUpgrades;
@@ -395,7 +402,7 @@ public class ShopShippingProfile {
    * @return originPostalCode
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The postal code string (not necessarily a number) for the location from which the listing ships. Required if the `origin_country_iso` is `US` or `CA`.")
+  @ApiModelProperty(value = "The postal code string (not necessarily a number) for the location from which the listing ships. Required if the `origin_country_iso` is `US` or `CA`.")
 
   public String getOriginPostalCode() {
     return originPostalCode;
@@ -503,9 +510,20 @@ public class ShopShippingProfile {
         Objects.equals(this.internationalHandlingFee, shopShippingProfile.internationalHandlingFee);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
     return Objects.hash(shippingProfileId, title, userId, minProcessingDays, maxProcessingDays, processingDaysDisplayLabel, originCountryIso, isDeleted, shippingProfileDestinations, shippingProfileUpgrades, originPostalCode, profileType, domesticHandlingFee, internationalHandlingFee);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

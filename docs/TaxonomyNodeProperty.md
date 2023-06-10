@@ -8,16 +8,17 @@ A product property definition.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**propertyId** | **Long** | The unique numeric ID of this product property. | 
-**name** | **String** | The name string for this taxonomy node. | 
-**displayName** | **String** | The human-readable product property name string. | 
-**scales** | [**List&lt;TaxonomyPropertyScale&gt;**](TaxonomyPropertyScale.md) | A list of available scales. | 
-**isRequired** | **Boolean** | When true, listings assigned eligible taxonomy IDs require this property. | 
-**supportsAttributes** | **Boolean** | When true, you can use this property in listing attributes. | 
-**supportsVariations** | **Boolean** | When true, you can use this property in listing variations. | 
-**isMultivalued** | **Boolean** | When true, you can assign multiple property values to this property | 
-**possibleValues** | [**List&lt;TaxonomyPropertyValue&gt;**](TaxonomyPropertyValue.md) | A list of supported property value strings for this property. | 
-**selectedValues** | [**List&lt;TaxonomyPropertyValue&gt;**](TaxonomyPropertyValue.md) | A list of property value strings automatically and always selected for the given property. | 
+**propertyId** | **Long** | The unique numeric ID of this product property. |  [optional]
+**name** | **String** | The name string for this taxonomy node. |  [optional]
+**displayName** | **String** | The human-readable product property name string. |  [optional]
+**scales** | [**List&lt;TaxonomyPropertyScale&gt;**](TaxonomyPropertyScale.md) | A list of available scales. |  [optional]
+**isRequired** | **Boolean** | When true, listings assigned eligible taxonomy IDs require this property. |  [optional]
+**supportsAttributes** | **Boolean** | When true, you can use this property in listing attributes. |  [optional]
+**supportsVariations** | **Boolean** | When true, you can use this property in listing variations. |  [optional]
+**isMultivalued** | **Boolean** | When true, you can assign multiple property values to this property |  [optional]
+**maxValuesAllowed** | **Long** | When true, you can assign multiple property values to this property |  [optional]
+**possibleValues** | [**List&lt;TaxonomyPropertyValue&gt;**](TaxonomyPropertyValue.md) | A list of supported property value strings for this property. |  [optional]
+**selectedValues** | [**List&lt;TaxonomyPropertyValue&gt;**](TaxonomyPropertyValue.md) | A list of property value strings automatically and always selected for the given property. |  [optional]
 
 
 

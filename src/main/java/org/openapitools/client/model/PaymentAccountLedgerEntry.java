@@ -1,6 +1,6 @@
 /*
  * Etsy Open API v3
- * <div class=\"wt-text-body-01\"><p class=\"wt-pt-xs-2 wt-pb-xs-2\">Etsy's Open API provides a simple RESTful interface for various Etsy.com features. The API endpoints are meant to replace <a class=\"wt-text-link wt-p-xs-0\" href=\"https://www.etsy.com/developers/documentation\">Etsy's Open API v2</a>, which is scheduled to end service in 2022.</p><p class=\"wt-pb-xs-2\">All of the endpoints are callable and the majority of the API endpoints are now in a beta phase. This means we do not expect to make any breaking changes before our general release. A handful of endpoints are currently interface stubs (labeled “Feedback Only”) and returns a \"501 Not Implemented\" response code when called.</p><p class=\"wt-pb-xs-2\">If you'd like to report an issue or provide feedback on the API design, <a target=\"_blank\" class=\"wt-text-link wt-p-xs-0\" href=\"https://github.com/etsy/open-api/issues/new/choose\">please add an issue in Github</a>.</p></div>&copy; 2021-2022 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.
+ * <div class=\"wt-text-body-01\"><p class=\"wt-pt-xs-2 wt-pb-xs-2\">Etsy's Open API provides a simple RESTful interface for various Etsy.com features. The API endpoints are meant to replace Etsy's Open API v2, which is scheduled to end service in 2022.</p><p class=\"wt-pb-xs-2\">All of the endpoints are callable and the majority of the API endpoints are now in a beta phase. This means we do not expect to make any breaking changes before our general release. A handful of endpoints are currently interface stubs (labeled “Feedback Only”) and returns a \"501 Not Implemented\" response code when called.</p><p class=\"wt-pb-xs-2\">If you'd like to report an issue or provide feedback on the API design, <a target=\"_blank\" class=\"wt-text-link wt-p-xs-0\" href=\"https://github.com/etsy/open-api/discussions\">please add an issue in Github</a>.</p></div>&copy; 2021-2023 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: developers@etsy.com
@@ -23,12 +23,16 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import org.openapitools.client.model.PaymentAdjustment;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
  * Represents an entry in a shop&#39;s ledger.
  */
 @ApiModel(description = "Represents an entry in a shop's ledger.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-07T10:51:54.559-04:00[America/Toronto]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-08T08:37:51.285-04:00[America/Toronto]")
 public class PaymentAccountLedgerEntry {
   public static final String SERIALIZED_NAME_ENTRY_ID = "entry_id";
   @SerializedName(SERIALIZED_NAME_ENTRY_ID)
@@ -62,6 +66,10 @@ public class PaymentAccountLedgerEntry {
   @SerializedName(SERIALIZED_NAME_CREATE_DATE)
   private Long createDate;
 
+  public static final String SERIALIZED_NAME_CREATED_TIMESTAMP = "created_timestamp";
+  @SerializedName(SERIALIZED_NAME_CREATED_TIMESTAMP)
+  private Long createdTimestamp;
+
   public static final String SERIALIZED_NAME_LEDGER_TYPE = "ledger_type";
   @SerializedName(SERIALIZED_NAME_LEDGER_TYPE)
   private String ledgerType;
@@ -73,6 +81,10 @@ public class PaymentAccountLedgerEntry {
   public static final String SERIALIZED_NAME_REFERENCE_ID = "reference_id";
   @SerializedName(SERIALIZED_NAME_REFERENCE_ID)
   private String referenceId;
+
+  public static final String SERIALIZED_NAME_PAYMENT_ADJUSTMENTS = "payment_adjustments";
+  @SerializedName(SERIALIZED_NAME_PAYMENT_ADJUSTMENTS)
+  private List<PaymentAdjustment> paymentAdjustments = null;
 
   public PaymentAccountLedgerEntry() { 
   }
@@ -88,8 +100,8 @@ public class PaymentAccountLedgerEntry {
    * minimum: 1
    * @return entryId
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The ledger entry's numeric ID.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The ledger entry's numeric ID.")
 
   public Long getEntryId() {
     return entryId;
@@ -112,8 +124,8 @@ public class PaymentAccountLedgerEntry {
    * minimum: 1
    * @return ledgerId
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The ledger's numeric ID.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The ledger's numeric ID.")
 
   public Long getLedgerId() {
     return ledgerId;
@@ -136,8 +148,8 @@ public class PaymentAccountLedgerEntry {
    * minimum: 0
    * @return sequenceNumber
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The sequence allows ledger entries to be sorted chronologically. The higher the sequence, the more recent the entry.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The sequence allows ledger entries to be sorted chronologically. The higher the sequence, the more recent the entry.")
 
   public Long getSequenceNumber() {
     return sequenceNumber;
@@ -159,8 +171,8 @@ public class PaymentAccountLedgerEntry {
    * The amount of money credited to the ledger.
    * @return amount
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The amount of money credited to the ledger.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The amount of money credited to the ledger.")
 
   public Long getAmount() {
     return amount;
@@ -182,8 +194,8 @@ public class PaymentAccountLedgerEntry {
    * The currency of the entry on the ledger.
    * @return currency
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The currency of the entry on the ledger.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The currency of the entry on the ledger.")
 
   public String getCurrency() {
     return currency;
@@ -205,8 +217,8 @@ public class PaymentAccountLedgerEntry {
    * Details what kind of ledger entry this is: a payment, refund, reversal of a failed refund, disbursement, returned disbursement, recoupment, miscellaneous credit, miscellaneous debit, or bill payment.
    * @return description
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Details what kind of ledger entry this is: a payment, refund, reversal of a failed refund, disbursement, returned disbursement, recoupment, miscellaneous credit, miscellaneous debit, or bill payment.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Details what kind of ledger entry this is: a payment, refund, reversal of a failed refund, disbursement, returned disbursement, recoupment, miscellaneous credit, miscellaneous debit, or bill payment.")
 
   public String getDescription() {
     return description;
@@ -228,8 +240,8 @@ public class PaymentAccountLedgerEntry {
    * The amount of money in the shop&#39;s ledger the moment after this entry was applied.
    * @return balance
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The amount of money in the shop's ledger the moment after this entry was applied.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The amount of money in the shop's ledger the moment after this entry was applied.")
 
   public Long getBalance() {
     return balance;
@@ -248,12 +260,12 @@ public class PaymentAccountLedgerEntry {
   }
 
    /**
-   * The date and time the ledger entry was created in Epoch seconds..
+   * The date and time the ledger entry was created in Epoch seconds.
    * minimum: 0
    * @return createDate
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The date and time the ledger entry was created in Epoch seconds..")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The date and time the ledger entry was created in Epoch seconds.")
 
   public Long getCreateDate() {
     return createDate;
@@ -262,6 +274,30 @@ public class PaymentAccountLedgerEntry {
 
   public void setCreateDate(Long createDate) {
     this.createDate = createDate;
+  }
+
+
+  public PaymentAccountLedgerEntry createdTimestamp(Long createdTimestamp) {
+    
+    this.createdTimestamp = createdTimestamp;
+    return this;
+  }
+
+   /**
+   * The date and time the ledger entry was created in Epoch seconds.
+   * minimum: 0
+   * @return createdTimestamp
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The date and time the ledger entry was created in Epoch seconds.")
+
+  public Long getCreatedTimestamp() {
+    return createdTimestamp;
+  }
+
+
+  public void setCreatedTimestamp(Long createdTimestamp) {
+    this.createdTimestamp = createdTimestamp;
   }
 
 
@@ -275,8 +311,8 @@ public class PaymentAccountLedgerEntry {
    * The original reference type for the ledger entry.
    * @return ledgerType
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The original reference type for the ledger entry.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The original reference type for the ledger entry.")
 
   public String getLedgerType() {
     return ledgerType;
@@ -298,8 +334,8 @@ public class PaymentAccountLedgerEntry {
    * The object type the ledger entry refers to.
    * @return referenceType
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The object type the ledger entry refers to.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The object type the ledger entry refers to.")
 
   public String getReferenceType() {
     return referenceType;
@@ -322,7 +358,7 @@ public class PaymentAccountLedgerEntry {
    * @return referenceId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The object id the ledger entry refers to.")
+  @ApiModelProperty(value = "The object id the ledger entry refers to.")
 
   public String getReferenceId() {
     return referenceId;
@@ -331,6 +367,37 @@ public class PaymentAccountLedgerEntry {
 
   public void setReferenceId(String referenceId) {
     this.referenceId = referenceId;
+  }
+
+
+  public PaymentAccountLedgerEntry paymentAdjustments(List<PaymentAdjustment> paymentAdjustments) {
+    
+    this.paymentAdjustments = paymentAdjustments;
+    return this;
+  }
+
+  public PaymentAccountLedgerEntry addPaymentAdjustmentsItem(PaymentAdjustment paymentAdjustmentsItem) {
+    if (this.paymentAdjustments == null) {
+      this.paymentAdjustments = new ArrayList<PaymentAdjustment>();
+    }
+    this.paymentAdjustments.add(paymentAdjustmentsItem);
+    return this;
+  }
+
+   /**
+   * List of refund objects on an Etsy Payments transaction. All monetary amounts are in USD pennies unless otherwise specified.
+   * @return paymentAdjustments
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "List of refund objects on an Etsy Payments transaction. All monetary amounts are in USD pennies unless otherwise specified.")
+
+  public List<PaymentAdjustment> getPaymentAdjustments() {
+    return paymentAdjustments;
+  }
+
+
+  public void setPaymentAdjustments(List<PaymentAdjustment> paymentAdjustments) {
+    this.paymentAdjustments = paymentAdjustments;
   }
 
 
@@ -351,14 +418,27 @@ public class PaymentAccountLedgerEntry {
         Objects.equals(this.description, paymentAccountLedgerEntry.description) &&
         Objects.equals(this.balance, paymentAccountLedgerEntry.balance) &&
         Objects.equals(this.createDate, paymentAccountLedgerEntry.createDate) &&
+        Objects.equals(this.createdTimestamp, paymentAccountLedgerEntry.createdTimestamp) &&
         Objects.equals(this.ledgerType, paymentAccountLedgerEntry.ledgerType) &&
         Objects.equals(this.referenceType, paymentAccountLedgerEntry.referenceType) &&
-        Objects.equals(this.referenceId, paymentAccountLedgerEntry.referenceId);
+        Objects.equals(this.referenceId, paymentAccountLedgerEntry.referenceId) &&
+        Objects.equals(this.paymentAdjustments, paymentAccountLedgerEntry.paymentAdjustments);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(entryId, ledgerId, sequenceNumber, amount, currency, description, balance, createDate, ledgerType, referenceType, referenceId);
+    return Objects.hash(entryId, ledgerId, sequenceNumber, amount, currency, description, balance, createDate, createdTimestamp, ledgerType, referenceType, referenceId, paymentAdjustments);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -373,9 +453,11 @@ public class PaymentAccountLedgerEntry {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    balance: ").append(toIndentedString(balance)).append("\n");
     sb.append("    createDate: ").append(toIndentedString(createDate)).append("\n");
+    sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
     sb.append("    ledgerType: ").append(toIndentedString(ledgerType)).append("\n");
     sb.append("    referenceType: ").append(toIndentedString(referenceType)).append("\n");
     sb.append("    referenceId: ").append(toIndentedString(referenceId)).append("\n");
+    sb.append("    paymentAdjustments: ").append(toIndentedString(paymentAdjustments)).append("\n");
     sb.append("}");
     return sb.toString();
   }

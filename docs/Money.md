@@ -8,9 +8,9 @@ A representation of an amount of money.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**amount** | **Long** | The amount of represented by this data. | 
-**divisor** | **Long** | The divisor to render the amount. | 
-**currencyCode** | **String** | The ISO currency code for this data. | 
+**amount** | **Long** | The amount of represented by this data. |  [optional]
+**divisor** | **Long** | The divisor to render the amount. |  [optional]
+**currencyCode** | **String** | The ISO currency code for this data. |  [optional]
 
 
 

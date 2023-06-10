@@ -8,8 +8,8 @@ Represents several ListingVariationImages.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**count** | **Long** |  | 
-**results** | [**List&lt;ListingVariationImage&gt;**](ListingVariationImage.md) |  | 
+**count** | **Long** |  |  [optional]
+**results** | [**List&lt;ListingVariationImage&gt;**](ListingVariationImage.md) |  |  [optional]
 
 
 

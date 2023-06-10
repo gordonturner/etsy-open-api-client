@@ -8,8 +8,8 @@ Represents a list of listing image resources, each of which contains the referen
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**count** | **Long** | The number of results. | 
-**results** | [**List&lt;ListingImage&gt;**](ListingImage.md) | The list of requested resources. | 
+**count** | **Long** | The number of results. |  [optional]
+**results** | [**List&lt;ListingImage&gt;**](ListingImage.md) | The list of requested resources. |  [optional]
 
 
 

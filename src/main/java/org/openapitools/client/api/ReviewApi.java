@@ -1,6 +1,6 @@
 /*
  * Etsy Open API v3
- * <div class=\"wt-text-body-01\"><p class=\"wt-pt-xs-2 wt-pb-xs-2\">Etsy's Open API provides a simple RESTful interface for various Etsy.com features. The API endpoints are meant to replace <a class=\"wt-text-link wt-p-xs-0\" href=\"https://www.etsy.com/developers/documentation\">Etsy's Open API v2</a>, which is scheduled to end service in 2022.</p><p class=\"wt-pb-xs-2\">All of the endpoints are callable and the majority of the API endpoints are now in a beta phase. This means we do not expect to make any breaking changes before our general release. A handful of endpoints are currently interface stubs (labeled “Feedback Only”) and returns a \"501 Not Implemented\" response code when called.</p><p class=\"wt-pb-xs-2\">If you'd like to report an issue or provide feedback on the API design, <a target=\"_blank\" class=\"wt-text-link wt-p-xs-0\" href=\"https://github.com/etsy/open-api/issues/new/choose\">please add an issue in Github</a>.</p></div>&copy; 2021-2022 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.
+ * <div class=\"wt-text-body-01\"><p class=\"wt-pt-xs-2 wt-pb-xs-2\">Etsy's Open API provides a simple RESTful interface for various Etsy.com features. The API endpoints are meant to replace Etsy's Open API v2, which is scheduled to end service in 2022.</p><p class=\"wt-pb-xs-2\">All of the endpoints are callable and the majority of the API endpoints are now in a beta phase. This means we do not expect to make any breaking changes before our general release. A handful of endpoints are currently interface stubs (labeled “Feedback Only”) and returns a \"501 Not Implemented\" response code when called.</p><p class=\"wt-pb-xs-2\">If you'd like to report an issue or provide feedback on the API design, <a target=\"_blank\" class=\"wt-text-link wt-p-xs-0\" href=\"https://github.com/etsy/open-api/discussions\">please add an issue in Github</a>.</p></div>&copy; 2021-2023 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: developers@etsy.com
@@ -79,6 +79,8 @@ public class ReviewApi {
      * @param listingId The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. (required)
      * @param limit The maximum number of results to return. (optional, default to 25)
      * @param offset The number of records to skip before selecting the first result. (optional, default to 0)
+     * @param minCreated The earliest unix timestamp for when a record was created. (optional)
+     * @param maxCreated The latest unix timestamp for when a record was created. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -91,7 +93,7 @@ public class ReviewApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getReviewsByListingCall(Long listingId, Long limit, Long offset, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getReviewsByListingCall(Long listingId, Long limit, Long offset, Long minCreated, Long maxCreated, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -126,6 +128,14 @@ public class ReviewApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("offset", offset));
         }
 
+        if (minCreated != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("min_created", minCreated));
+        }
+
+        if (maxCreated != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("max_created", maxCreated));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -147,7 +157,7 @@ public class ReviewApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getReviewsByListingValidateBeforeCall(Long listingId, Long limit, Long offset, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getReviewsByListingValidateBeforeCall(Long listingId, Long limit, Long offset, Long minCreated, Long maxCreated, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'listingId' is set
         if (listingId == null) {
@@ -155,17 +165,19 @@ public class ReviewApi {
         }
         
 
-        okhttp3.Call localVarCall = getReviewsByListingCall(listingId, limit, offset, _callback);
+        okhttp3.Call localVarCall = getReviewsByListingCall(listingId, limit, offset, minCreated, maxCreated, _callback);
         return localVarCall;
 
     }
 
     /**
      * 
-     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Open API V3 to retrieve the reviews for a listing given its ID.
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/discussions\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Open API V3 to retrieve the reviews for a listing given its ID.
      * @param listingId The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. (required)
      * @param limit The maximum number of results to return. (optional, default to 25)
      * @param offset The number of records to skip before selecting the first result. (optional, default to 0)
+     * @param minCreated The earliest unix timestamp for when a record was created. (optional)
+     * @param maxCreated The latest unix timestamp for when a record was created. (optional)
      * @return ListingReviews
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -177,17 +189,19 @@ public class ReviewApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ListingReviews getReviewsByListing(Long listingId, Long limit, Long offset) throws ApiException {
-        ApiResponse<ListingReviews> localVarResp = getReviewsByListingWithHttpInfo(listingId, limit, offset);
+    public ListingReviews getReviewsByListing(Long listingId, Long limit, Long offset, Long minCreated, Long maxCreated) throws ApiException {
+        ApiResponse<ListingReviews> localVarResp = getReviewsByListingWithHttpInfo(listingId, limit, offset, minCreated, maxCreated);
         return localVarResp.getData();
     }
 
     /**
      * 
-     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Open API V3 to retrieve the reviews for a listing given its ID.
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/discussions\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Open API V3 to retrieve the reviews for a listing given its ID.
      * @param listingId The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. (required)
      * @param limit The maximum number of results to return. (optional, default to 25)
      * @param offset The number of records to skip before selecting the first result. (optional, default to 0)
+     * @param minCreated The earliest unix timestamp for when a record was created. (optional)
+     * @param maxCreated The latest unix timestamp for when a record was created. (optional)
      * @return ApiResponse&lt;ListingReviews&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -199,18 +213,20 @@ public class ReviewApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ListingReviews> getReviewsByListingWithHttpInfo(Long listingId, Long limit, Long offset) throws ApiException {
-        okhttp3.Call localVarCall = getReviewsByListingValidateBeforeCall(listingId, limit, offset, null);
+    public ApiResponse<ListingReviews> getReviewsByListingWithHttpInfo(Long listingId, Long limit, Long offset, Long minCreated, Long maxCreated) throws ApiException {
+        okhttp3.Call localVarCall = getReviewsByListingValidateBeforeCall(listingId, limit, offset, minCreated, maxCreated, null);
         Type localVarReturnType = new TypeToken<ListingReviews>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      *  (asynchronously)
-     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Open API V3 to retrieve the reviews for a listing given its ID.
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/discussions\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Open API V3 to retrieve the reviews for a listing given its ID.
      * @param listingId The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. (required)
      * @param limit The maximum number of results to return. (optional, default to 25)
      * @param offset The number of records to skip before selecting the first result. (optional, default to 0)
+     * @param minCreated The earliest unix timestamp for when a record was created. (optional)
+     * @param maxCreated The latest unix timestamp for when a record was created. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -223,9 +239,9 @@ public class ReviewApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getReviewsByListingAsync(Long listingId, Long limit, Long offset, final ApiCallback<ListingReviews> _callback) throws ApiException {
+    public okhttp3.Call getReviewsByListingAsync(Long listingId, Long limit, Long offset, Long minCreated, Long maxCreated, final ApiCallback<ListingReviews> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getReviewsByListingValidateBeforeCall(listingId, limit, offset, _callback);
+        okhttp3.Call localVarCall = getReviewsByListingValidateBeforeCall(listingId, limit, offset, minCreated, maxCreated, _callback);
         Type localVarReturnType = new TypeToken<ListingReviews>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -235,6 +251,8 @@ public class ReviewApi {
      * @param shopId The unique positive non-zero numeric ID for an Etsy Shop. (required)
      * @param limit The maximum number of results to return. (optional, default to 25)
      * @param offset The number of records to skip before selecting the first result. (optional, default to 0)
+     * @param minCreated The earliest unix timestamp for when a record was created. (optional)
+     * @param maxCreated The latest unix timestamp for when a record was created. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -247,7 +265,7 @@ public class ReviewApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getReviewsByShopCall(Long shopId, Long limit, Long offset, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getReviewsByShopCall(Long shopId, Long limit, Long offset, Long minCreated, Long maxCreated, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -282,6 +300,14 @@ public class ReviewApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("offset", offset));
         }
 
+        if (minCreated != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("min_created", minCreated));
+        }
+
+        if (maxCreated != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("max_created", maxCreated));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -303,7 +329,7 @@ public class ReviewApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getReviewsByShopValidateBeforeCall(Long shopId, Long limit, Long offset, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getReviewsByShopValidateBeforeCall(Long shopId, Long limit, Long offset, Long minCreated, Long maxCreated, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'shopId' is set
         if (shopId == null) {
@@ -311,17 +337,19 @@ public class ReviewApi {
         }
         
 
-        okhttp3.Call localVarCall = getReviewsByShopCall(shopId, limit, offset, _callback);
+        okhttp3.Call localVarCall = getReviewsByShopCall(shopId, limit, offset, minCreated, maxCreated, _callback);
         return localVarCall;
 
     }
 
     /**
      * 
-     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Open API V3 to retrieve the reviews from a shop given its ID.
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/discussions\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Open API V3 to retrieve the reviews from a shop given its ID.
      * @param shopId The unique positive non-zero numeric ID for an Etsy Shop. (required)
      * @param limit The maximum number of results to return. (optional, default to 25)
      * @param offset The number of records to skip before selecting the first result. (optional, default to 0)
+     * @param minCreated The earliest unix timestamp for when a record was created. (optional)
+     * @param maxCreated The latest unix timestamp for when a record was created. (optional)
      * @return TransactionReviews
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -333,17 +361,19 @@ public class ReviewApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public TransactionReviews getReviewsByShop(Long shopId, Long limit, Long offset) throws ApiException {
-        ApiResponse<TransactionReviews> localVarResp = getReviewsByShopWithHttpInfo(shopId, limit, offset);
+    public TransactionReviews getReviewsByShop(Long shopId, Long limit, Long offset, Long minCreated, Long maxCreated) throws ApiException {
+        ApiResponse<TransactionReviews> localVarResp = getReviewsByShopWithHttpInfo(shopId, limit, offset, minCreated, maxCreated);
         return localVarResp.getData();
     }
 
     /**
      * 
-     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Open API V3 to retrieve the reviews from a shop given its ID.
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/discussions\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Open API V3 to retrieve the reviews from a shop given its ID.
      * @param shopId The unique positive non-zero numeric ID for an Etsy Shop. (required)
      * @param limit The maximum number of results to return. (optional, default to 25)
      * @param offset The number of records to skip before selecting the first result. (optional, default to 0)
+     * @param minCreated The earliest unix timestamp for when a record was created. (optional)
+     * @param maxCreated The latest unix timestamp for when a record was created. (optional)
      * @return ApiResponse&lt;TransactionReviews&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -355,18 +385,20 @@ public class ReviewApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TransactionReviews> getReviewsByShopWithHttpInfo(Long shopId, Long limit, Long offset) throws ApiException {
-        okhttp3.Call localVarCall = getReviewsByShopValidateBeforeCall(shopId, limit, offset, null);
+    public ApiResponse<TransactionReviews> getReviewsByShopWithHttpInfo(Long shopId, Long limit, Long offset, Long minCreated, Long maxCreated) throws ApiException {
+        okhttp3.Call localVarCall = getReviewsByShopValidateBeforeCall(shopId, limit, offset, minCreated, maxCreated, null);
         Type localVarReturnType = new TypeToken<TransactionReviews>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      *  (asynchronously)
-     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Open API V3 to retrieve the reviews from a shop given its ID.
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/discussions\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Open API V3 to retrieve the reviews from a shop given its ID.
      * @param shopId The unique positive non-zero numeric ID for an Etsy Shop. (required)
      * @param limit The maximum number of results to return. (optional, default to 25)
      * @param offset The number of records to skip before selecting the first result. (optional, default to 0)
+     * @param minCreated The earliest unix timestamp for when a record was created. (optional)
+     * @param maxCreated The latest unix timestamp for when a record was created. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -379,9 +411,9 @@ public class ReviewApi {
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getReviewsByShopAsync(Long shopId, Long limit, Long offset, final ApiCallback<TransactionReviews> _callback) throws ApiException {
+    public okhttp3.Call getReviewsByShopAsync(Long shopId, Long limit, Long offset, Long minCreated, Long maxCreated, final ApiCallback<TransactionReviews> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getReviewsByShopValidateBeforeCall(shopId, limit, offset, _callback);
+        okhttp3.Call localVarCall = getReviewsByShopValidateBeforeCall(shopId, limit, offset, minCreated, maxCreated, _callback);
         Type localVarReturnType = new TypeToken<TransactionReviews>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

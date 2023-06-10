@@ -8,8 +8,8 @@ A list of shipping upgrade options.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**count** | **Long** | The number of results. | 
-**results** | [**List&lt;ShopShippingProfileUpgrade&gt;**](ShopShippingProfileUpgrade.md) | The list of requested resources. | 
+**count** | **Long** | The number of results. |  [optional]
+**results** | [**List&lt;ShopShippingProfileUpgrade&gt;**](ShopShippingProfileUpgrade.md) | The list of requested resources. |  [optional]
 
 
 

@@ -1,6 +1,6 @@
 /*
  * Etsy Open API v3
- * <div class=\"wt-text-body-01\"><p class=\"wt-pt-xs-2 wt-pb-xs-2\">Etsy's Open API provides a simple RESTful interface for various Etsy.com features. The API endpoints are meant to replace <a class=\"wt-text-link wt-p-xs-0\" href=\"https://www.etsy.com/developers/documentation\">Etsy's Open API v2</a>, which is scheduled to end service in 2022.</p><p class=\"wt-pb-xs-2\">All of the endpoints are callable and the majority of the API endpoints are now in a beta phase. This means we do not expect to make any breaking changes before our general release. A handful of endpoints are currently interface stubs (labeled “Feedback Only”) and returns a \"501 Not Implemented\" response code when called.</p><p class=\"wt-pb-xs-2\">If you'd like to report an issue or provide feedback on the API design, <a target=\"_blank\" class=\"wt-text-link wt-p-xs-0\" href=\"https://github.com/etsy/open-api/issues/new/choose\">please add an issue in Github</a>.</p></div>&copy; 2021-2022 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.
+ * <div class=\"wt-text-body-01\"><p class=\"wt-pt-xs-2 wt-pb-xs-2\">Etsy's Open API provides a simple RESTful interface for various Etsy.com features. The API endpoints are meant to replace Etsy's Open API v2, which is scheduled to end service in 2022.</p><p class=\"wt-pb-xs-2\">All of the endpoints are callable and the majority of the API endpoints are now in a beta phase. This means we do not expect to make any breaking changes before our general release. A handful of endpoints are currently interface stubs (labeled “Feedback Only”) and returns a \"501 Not Implemented\" response code when called.</p><p class=\"wt-pb-xs-2\">If you'd like to report an issue or provide feedback on the API design, <a target=\"_blank\" class=\"wt-text-link wt-p-xs-0\" href=\"https://github.com/etsy/open-api/discussions\">please add an issue in Github</a>.</p></div>&copy; 2021-2023 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: developers@etsy.com
@@ -28,7 +28,7 @@ import java.io.IOException;
  * A file associated with a digital listing.
  */
 @ApiModel(description = "A file associated with a digital listing.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-07T10:51:54.559-04:00[America/Toronto]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-08T08:37:51.285-04:00[America/Toronto]")
 public class ShopListingFile {
   public static final String SERIALIZED_NAME_LISTING_FILE_ID = "listing_file_id";
   @SerializedName(SERIALIZED_NAME_LISTING_FILE_ID)
@@ -62,6 +62,10 @@ public class ShopListingFile {
   @SerializedName(SERIALIZED_NAME_CREATE_TIMESTAMP)
   private Long createTimestamp;
 
+  public static final String SERIALIZED_NAME_CREATED_TIMESTAMP = "created_timestamp";
+  @SerializedName(SERIALIZED_NAME_CREATED_TIMESTAMP)
+  private Long createdTimestamp;
+
   public ShopListingFile() { 
   }
 
@@ -76,8 +80,8 @@ public class ShopListingFile {
    * minimum: 1
    * @return listingFileId
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The unique numeric ID of a file associated with a digital listing.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The unique numeric ID of a file associated with a digital listing.")
 
   public Long getListingFileId() {
     return listingFileId;
@@ -100,8 +104,8 @@ public class ShopListingFile {
    * minimum: 1
    * @return listingId
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.")
 
   public Long getListingId() {
     return listingId;
@@ -124,8 +128,8 @@ public class ShopListingFile {
    * minimum: 0
    * @return rank
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The numeric index of the display order position of this file in the listing, starting at 1.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The numeric index of the display order position of this file in the listing, starting at 1.")
 
   public Long getRank() {
     return rank;
@@ -147,8 +151,8 @@ public class ShopListingFile {
    * The file name string for a file associated with a digital listing.
    * @return filename
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The file name string for a file associated with a digital listing.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The file name string for a file associated with a digital listing.")
 
   public String getFilename() {
     return filename;
@@ -170,8 +174,8 @@ public class ShopListingFile {
    * A human-readable format size string for the size of a file.
    * @return filesize
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "A human-readable format size string for the size of a file.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A human-readable format size string for the size of a file.")
 
   public String getFilesize() {
     return filesize;
@@ -194,8 +198,8 @@ public class ShopListingFile {
    * minimum: 0
    * @return sizeBytes
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "A number indicating the size of a file, measured in bytes.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A number indicating the size of a file, measured in bytes.")
 
   public Long getSizeBytes() {
     return sizeBytes;
@@ -217,8 +221,8 @@ public class ShopListingFile {
    * A type string indicating a file&#39;s MIME type.
    * @return filetype
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "A type string indicating a file's MIME type.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A type string indicating a file's MIME type.")
 
   public String getFiletype() {
     return filetype;
@@ -241,8 +245,8 @@ public class ShopListingFile {
    * minimum: 946684800
    * @return createTimestamp
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The unique numeric ID of a file associated with a digital listing.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The unique numeric ID of a file associated with a digital listing.")
 
   public Long getCreateTimestamp() {
     return createTimestamp;
@@ -251,6 +255,30 @@ public class ShopListingFile {
 
   public void setCreateTimestamp(Long createTimestamp) {
     this.createTimestamp = createTimestamp;
+  }
+
+
+  public ShopListingFile createdTimestamp(Long createdTimestamp) {
+    
+    this.createdTimestamp = createdTimestamp;
+    return this;
+  }
+
+   /**
+   * The unique numeric ID of a file associated with a digital listing.
+   * minimum: 946684800
+   * @return createdTimestamp
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The unique numeric ID of a file associated with a digital listing.")
+
+  public Long getCreatedTimestamp() {
+    return createdTimestamp;
+  }
+
+
+  public void setCreatedTimestamp(Long createdTimestamp) {
+    this.createdTimestamp = createdTimestamp;
   }
 
 
@@ -270,12 +298,13 @@ public class ShopListingFile {
         Objects.equals(this.filesize, shopListingFile.filesize) &&
         Objects.equals(this.sizeBytes, shopListingFile.sizeBytes) &&
         Objects.equals(this.filetype, shopListingFile.filetype) &&
-        Objects.equals(this.createTimestamp, shopListingFile.createTimestamp);
+        Objects.equals(this.createTimestamp, shopListingFile.createTimestamp) &&
+        Objects.equals(this.createdTimestamp, shopListingFile.createdTimestamp);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(listingFileId, listingId, rank, filename, filesize, sizeBytes, filetype, createTimestamp);
+    return Objects.hash(listingFileId, listingId, rank, filename, filesize, sizeBytes, filetype, createTimestamp, createdTimestamp);
   }
 
   @Override
@@ -290,6 +319,7 @@ public class ShopListingFile {
     sb.append("    sizeBytes: ").append(toIndentedString(sizeBytes)).append("\n");
     sb.append("    filetype: ").append(toIndentedString(filetype)).append("\n");
     sb.append("    createTimestamp: ").append(toIndentedString(createTimestamp)).append("\n");
+    sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -1,6 +1,6 @@
 /*
  * Etsy Open API v3
- * <div class=\"wt-text-body-01\"><p class=\"wt-pt-xs-2 wt-pb-xs-2\">Etsy's Open API provides a simple RESTful interface for various Etsy.com features. The API endpoints are meant to replace <a class=\"wt-text-link wt-p-xs-0\" href=\"https://www.etsy.com/developers/documentation\">Etsy's Open API v2</a>, which is scheduled to end service in 2022.</p><p class=\"wt-pb-xs-2\">All of the endpoints are callable and the majority of the API endpoints are now in a beta phase. This means we do not expect to make any breaking changes before our general release. A handful of endpoints are currently interface stubs (labeled “Feedback Only”) and returns a \"501 Not Implemented\" response code when called.</p><p class=\"wt-pb-xs-2\">If you'd like to report an issue or provide feedback on the API design, <a target=\"_blank\" class=\"wt-text-link wt-p-xs-0\" href=\"https://github.com/etsy/open-api/issues/new/choose\">please add an issue in Github</a>.</p></div>&copy; 2021-2022 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.
+ * <div class=\"wt-text-body-01\"><p class=\"wt-pt-xs-2 wt-pb-xs-2\">Etsy's Open API provides a simple RESTful interface for various Etsy.com features. The API endpoints are meant to replace Etsy's Open API v2, which is scheduled to end service in 2022.</p><p class=\"wt-pb-xs-2\">All of the endpoints are callable and the majority of the API endpoints are now in a beta phase. This means we do not expect to make any breaking changes before our general release. A handful of endpoints are currently interface stubs (labeled “Feedback Only”) and returns a \"501 Not Implemented\" response code when called.</p><p class=\"wt-pb-xs-2\">If you'd like to report an issue or provide feedback on the API design, <a target=\"_blank\" class=\"wt-text-link wt-p-xs-0\" href=\"https://github.com/etsy/open-api/discussions\">please add an issue in Github</a>.</p></div>&copy; 2021-2023 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: developers@etsy.com
@@ -25,12 +25,13 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
  * Represents the translation data for a Listing.
  */
 @ApiModel(description = "Represents the translation data for a Listing.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-07T10:51:54.559-04:00[America/Toronto]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-08T08:37:51.285-04:00[America/Toronto]")
 public class ListingTranslation {
   public static final String SERIALIZED_NAME_LISTING_ID = "listing_id";
   @SerializedName(SERIALIZED_NAME_LISTING_ID)
@@ -50,7 +51,7 @@ public class ListingTranslation {
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
-  private List<String> tags = new ArrayList<String>();
+  private List<String> tags = null;
 
   public ListingTranslation() { 
   }
@@ -66,8 +67,8 @@ public class ListingTranslation {
    * minimum: 1
    * @return listingId
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The numeric ID for the Listing.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The numeric ID for the Listing.")
 
   public Long getListingId() {
     return listingId;
@@ -89,8 +90,8 @@ public class ListingTranslation {
    * The IETF language tag (e.g. &#39;fr&#39;) for the language of this translation.
    * @return language
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The IETF language tag (e.g. 'fr') for the language of this translation.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The IETF language tag (e.g. 'fr') for the language of this translation.")
 
   public String getLanguage() {
     return language;
@@ -113,7 +114,7 @@ public class ListingTranslation {
    * @return title
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The title of the Listing of this Translation.")
+  @ApiModelProperty(value = "The title of the Listing of this Translation.")
 
   public String getTitle() {
     return title;
@@ -136,7 +137,7 @@ public class ListingTranslation {
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The description of the Listing of this Translation.")
+  @ApiModelProperty(value = "The description of the Listing of this Translation.")
 
   public String getDescription() {
     return description;
@@ -155,6 +156,9 @@ public class ListingTranslation {
   }
 
   public ListingTranslation addTagsItem(String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<String>();
+    }
     this.tags.add(tagsItem);
     return this;
   }
@@ -163,8 +167,8 @@ public class ListingTranslation {
    * The tags of the Listing of this Translation.
    * @return tags
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The tags of the Listing of this Translation.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The tags of the Listing of this Translation.")
 
   public List<String> getTags() {
     return tags;
@@ -192,9 +196,20 @@ public class ListingTranslation {
         Objects.equals(this.tags, listingTranslation.tags);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
     return Objects.hash(listingId, language, title, description, tags);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

@@ -8,8 +8,8 @@ Represents several ShippingCarriers.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**count** | **Long** |  | 
-**results** | [**List&lt;ShippingCarrier&gt;**](ShippingCarrier.md) |  | 
+**count** | **Long** |  |  [optional]
+**results** | [**List&lt;ShippingCarrier&gt;**](ShippingCarrier.md) |  |  [optional]
 
 
 

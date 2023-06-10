@@ -1,6 +1,6 @@
 /*
  * Etsy Open API v3
- * <div class=\"wt-text-body-01\"><p class=\"wt-pt-xs-2 wt-pb-xs-2\">Etsy's Open API provides a simple RESTful interface for various Etsy.com features. The API endpoints are meant to replace <a class=\"wt-text-link wt-p-xs-0\" href=\"https://www.etsy.com/developers/documentation\">Etsy's Open API v2</a>, which is scheduled to end service in 2022.</p><p class=\"wt-pb-xs-2\">All of the endpoints are callable and the majority of the API endpoints are now in a beta phase. This means we do not expect to make any breaking changes before our general release. A handful of endpoints are currently interface stubs (labeled “Feedback Only”) and returns a \"501 Not Implemented\" response code when called.</p><p class=\"wt-pb-xs-2\">If you'd like to report an issue or provide feedback on the API design, <a target=\"_blank\" class=\"wt-text-link wt-p-xs-0\" href=\"https://github.com/etsy/open-api/issues/new/choose\">please add an issue in Github</a>.</p></div>&copy; 2021-2022 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.
+ * <div class=\"wt-text-body-01\"><p class=\"wt-pt-xs-2 wt-pb-xs-2\">Etsy's Open API provides a simple RESTful interface for various Etsy.com features. The API endpoints are meant to replace Etsy's Open API v2, which is scheduled to end service in 2022.</p><p class=\"wt-pb-xs-2\">All of the endpoints are callable and the majority of the API endpoints are now in a beta phase. This means we do not expect to make any breaking changes before our general release. A handful of endpoints are currently interface stubs (labeled “Feedback Only”) and returns a \"501 Not Implemented\" response code when called.</p><p class=\"wt-pb-xs-2\">If you'd like to report an issue or provide feedback on the API design, <a target=\"_blank\" class=\"wt-text-link wt-p-xs-0\" href=\"https://github.com/etsy/open-api/discussions\">please add an issue in Github</a>.</p></div>&copy; 2021-2023 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: developers@etsy.com
@@ -28,12 +28,13 @@ import java.util.List;
 import org.openapitools.client.model.ListingPropertyValue;
 import org.openapitools.client.model.Money;
 import org.openapitools.client.model.TransactionVariations;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
  * A transaction object associated with a shop receipt. Etsy generates one transaction per listing purchased as recorded on the order receipt.
  */
 @ApiModel(description = "A transaction object associated with a shop receipt. Etsy generates one transaction per listing purchased as recorded on the order receipt.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-07T10:51:54.559-04:00[America/Toronto]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-08T08:37:51.285-04:00[America/Toronto]")
 public class ShopReceiptTransaction {
   public static final String SERIALIZED_NAME_TRANSACTION_ID = "transaction_id";
   @SerializedName(SERIALIZED_NAME_TRANSACTION_ID)
@@ -58,6 +59,10 @@ public class ShopReceiptTransaction {
   public static final String SERIALIZED_NAME_CREATE_TIMESTAMP = "create_timestamp";
   @SerializedName(SERIALIZED_NAME_CREATE_TIMESTAMP)
   private Long createTimestamp;
+
+  public static final String SERIALIZED_NAME_CREATED_TIMESTAMP = "created_timestamp";
+  @SerializedName(SERIALIZED_NAME_CREATED_TIMESTAMP)
+  private Long createdTimestamp;
 
   public static final String SERIALIZED_NAME_PAID_TIMESTAMP = "paid_timestamp";
   @SerializedName(SERIALIZED_NAME_PAID_TIMESTAMP)
@@ -113,11 +118,11 @@ public class ShopReceiptTransaction {
 
   public static final String SERIALIZED_NAME_VARIATIONS = "variations";
   @SerializedName(SERIALIZED_NAME_VARIATIONS)
-  private List<TransactionVariations> variations = new ArrayList<TransactionVariations>();
+  private List<TransactionVariations> variations = null;
 
   public static final String SERIALIZED_NAME_PRODUCT_DATA = "product_data";
   @SerializedName(SERIALIZED_NAME_PRODUCT_DATA)
-  private List<ListingPropertyValue> productData = new ArrayList<ListingPropertyValue>();
+  private List<ListingPropertyValue> productData = null;
 
   public static final String SERIALIZED_NAME_SHIPPING_PROFILE_ID = "shipping_profile_id";
   @SerializedName(SERIALIZED_NAME_SHIPPING_PROFILE_ID)
@@ -143,6 +148,14 @@ public class ShopReceiptTransaction {
   @SerializedName(SERIALIZED_NAME_EXPECTED_SHIP_DATE)
   private Long expectedShipDate;
 
+  public static final String SERIALIZED_NAME_BUYER_COUPON = "buyer_coupon";
+  @SerializedName(SERIALIZED_NAME_BUYER_COUPON)
+  private Float buyerCoupon = 0f;
+
+  public static final String SERIALIZED_NAME_SHOP_COUPON = "shop_coupon";
+  @SerializedName(SERIALIZED_NAME_SHOP_COUPON)
+  private Float shopCoupon = 0f;
+
   public ShopReceiptTransaction() { 
   }
 
@@ -157,8 +170,8 @@ public class ShopReceiptTransaction {
    * minimum: 1
    * @return transactionId
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The unique numeric ID for a transaction.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The unique numeric ID for a transaction.")
 
   public Long getTransactionId() {
     return transactionId;
@@ -180,8 +193,8 @@ public class ShopReceiptTransaction {
    * The title string of the [listing](/documentation/reference#tag/ShopListing) purchased in this transaction.
    * @return title
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The title string of the [listing](/documentation/reference#tag/ShopListing) purchased in this transaction.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The title string of the [listing](/documentation/reference#tag/ShopListing) purchased in this transaction.")
 
   public String getTitle() {
     return title;
@@ -204,7 +217,7 @@ public class ShopReceiptTransaction {
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The description string of the [listing](/documentation/reference#tag/ShopListing) purchased in this transaction.")
+  @ApiModelProperty(value = "The description string of the [listing](/documentation/reference#tag/ShopListing) purchased in this transaction.")
 
   public String getDescription() {
     return description;
@@ -227,8 +240,8 @@ public class ShopReceiptTransaction {
    * minimum: 1
    * @return sellerUserId
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The numeric user ID for the seller in this transaction.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The numeric user ID for the seller in this transaction.")
 
   public Long getSellerUserId() {
     return sellerUserId;
@@ -251,8 +264,8 @@ public class ShopReceiptTransaction {
    * minimum: 1
    * @return buyerUserId
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The numeric user ID for the buyer in this transaction.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The numeric user ID for the buyer in this transaction.")
 
   public Long getBuyerUserId() {
     return buyerUserId;
@@ -275,8 +288,8 @@ public class ShopReceiptTransaction {
    * minimum: 946684800
    * @return createTimestamp
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The transaction\\'s creation date and time, in epoch seconds.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The transaction\\'s creation date and time, in epoch seconds.")
 
   public Long getCreateTimestamp() {
     return createTimestamp;
@@ -285,6 +298,30 @@ public class ShopReceiptTransaction {
 
   public void setCreateTimestamp(Long createTimestamp) {
     this.createTimestamp = createTimestamp;
+  }
+
+
+  public ShopReceiptTransaction createdTimestamp(Long createdTimestamp) {
+    
+    this.createdTimestamp = createdTimestamp;
+    return this;
+  }
+
+   /**
+   * The transaction\\&#39;s creation date and time, in epoch seconds.
+   * minimum: 946684800
+   * @return createdTimestamp
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The transaction\\'s creation date and time, in epoch seconds.")
+
+  public Long getCreatedTimestamp() {
+    return createdTimestamp;
+  }
+
+
+  public void setCreatedTimestamp(Long createdTimestamp) {
+    this.createdTimestamp = createdTimestamp;
   }
 
 
@@ -300,7 +337,7 @@ public class ShopReceiptTransaction {
    * @return paidTimestamp
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The transaction\\'s paid date and time, in epoch seconds.")
+  @ApiModelProperty(value = "The transaction\\'s paid date and time, in epoch seconds.")
 
   public Long getPaidTimestamp() {
     return paidTimestamp;
@@ -324,7 +361,7 @@ public class ShopReceiptTransaction {
    * @return shippedTimestamp
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The transaction\\'s shipping date and time, in epoch seconds.")
+  @ApiModelProperty(value = "The transaction\\'s shipping date and time, in epoch seconds.")
 
   public Long getShippedTimestamp() {
     return shippedTimestamp;
@@ -347,8 +384,8 @@ public class ShopReceiptTransaction {
    * minimum: 0
    * @return quantity
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The numeric quantity of products purchased in this transaction.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The numeric quantity of products purchased in this transaction.")
 
   public Long getQuantity() {
     return quantity;
@@ -372,7 +409,7 @@ public class ShopReceiptTransaction {
    * @return listingImageId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The numeric ID of the primary [listing image](/documentation/reference#tag/ShopListing-Image) for this transaction.")
+  @ApiModelProperty(value = "The numeric ID of the primary [listing image](/documentation/reference#tag/ShopListing-Image) for this transaction.")
 
   public Long getListingImageId() {
     return listingImageId;
@@ -395,8 +432,8 @@ public class ShopReceiptTransaction {
    * minimum: 1
    * @return receiptId
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The numeric ID for the [receipt](/documentation/reference#tag/Shop-Receipt) associated to this transaction.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The numeric ID for the [receipt](/documentation/reference#tag/Shop-Receipt) associated to this transaction.")
 
   public Long getReceiptId() {
     return receiptId;
@@ -418,8 +455,8 @@ public class ShopReceiptTransaction {
    * When true, the transaction recorded the purchase of a digital listing.
    * @return isDigital
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "When true, the transaction recorded the purchase of a digital listing.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "When true, the transaction recorded the purchase of a digital listing.")
 
   public Boolean getIsDigital() {
     return isDigital;
@@ -441,8 +478,8 @@ public class ShopReceiptTransaction {
    * A string describing the files purchased in this transaction.
    * @return fileData
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "A string describing the files purchased in this transaction.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A string describing the files purchased in this transaction.")
 
   public String getFileData() {
     return fileData;
@@ -466,7 +503,7 @@ public class ShopReceiptTransaction {
    * @return listingId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.")
+  @ApiModelProperty(value = "The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.")
 
   public Long getListingId() {
     return listingId;
@@ -485,11 +522,11 @@ public class ShopReceiptTransaction {
   }
 
    /**
-   * The type string for the transaction, usually \&quot;listing\&quot;
+   * The type string for the transaction, usually \&quot;listing\&quot;.
    * @return transactionType
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The type string for the transaction, usually \"listing\"")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The type string for the transaction, usually \"listing\".")
 
   public String getTransactionType() {
     return transactionType;
@@ -513,7 +550,7 @@ public class ShopReceiptTransaction {
    * @return productId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The numeric ID for a specific [product](/documentation/reference#tag/ShopListing-Product) purchased from a listing.")
+  @ApiModelProperty(value = "The numeric ID for a specific [product](/documentation/reference#tag/ShopListing-Product) purchased from a listing.")
 
   public Long getProductId() {
     return productId;
@@ -536,7 +573,7 @@ public class ShopReceiptTransaction {
    * @return sku
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The SKU string for the product")
+  @ApiModelProperty(value = "The SKU string for the product")
 
   public String getSku() {
     return sku;
@@ -559,7 +596,7 @@ public class ShopReceiptTransaction {
    * @return price
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "A money object representing the price recorded the transaction.")
+  @ApiModelProperty(value = "A money object representing the price recorded the transaction.")
 
   public Money getPrice() {
     return price;
@@ -582,7 +619,7 @@ public class ShopReceiptTransaction {
    * @return shippingCost
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "A money object representing the shipping cost for this transaction.")
+  @ApiModelProperty(value = "A money object representing the shipping cost for this transaction.")
 
   public Money getShippingCost() {
     return shippingCost;
@@ -601,6 +638,9 @@ public class ShopReceiptTransaction {
   }
 
   public ShopReceiptTransaction addVariationsItem(TransactionVariations variationsItem) {
+    if (this.variations == null) {
+      this.variations = new ArrayList<TransactionVariations>();
+    }
     this.variations.add(variationsItem);
     return this;
   }
@@ -609,8 +649,8 @@ public class ShopReceiptTransaction {
    * Array of variations and personalizations the buyer chose.
    * @return variations
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Array of variations and personalizations the buyer chose.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Array of variations and personalizations the buyer chose.")
 
   public List<TransactionVariations> getVariations() {
     return variations;
@@ -629,16 +669,19 @@ public class ShopReceiptTransaction {
   }
 
   public ShopReceiptTransaction addProductDataItem(ListingPropertyValue productDataItem) {
+    if (this.productData == null) {
+      this.productData = new ArrayList<ListingPropertyValue>();
+    }
     this.productData.add(productDataItem);
     return this;
   }
 
    /**
-   * A list of property value entries for this product.
+   * A list of property value entries for this product. Note: parenthesis characters (&#x60;(&#x60; and &#x60;)&#x60;) are not allowed.
    * @return productData
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "A list of property value entries for this product.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A list of property value entries for this product. Note: parenthesis characters (`(` and `)`) are not allowed.")
 
   public List<ListingPropertyValue> getProductData() {
     return productData;
@@ -662,7 +705,7 @@ public class ShopReceiptTransaction {
    * @return shippingProfileId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The ID of the shipping profile selected for this listing.")
+  @ApiModelProperty(value = "The ID of the shipping profile selected for this listing.")
 
   public Long getShippingProfileId() {
     return shippingProfileId;
@@ -686,7 +729,7 @@ public class ShopReceiptTransaction {
    * @return minProcessingDays
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The minimum number of days for processing the listing.")
+  @ApiModelProperty(value = "The minimum number of days for processing the listing.")
 
   public Long getMinProcessingDays() {
     return minProcessingDays;
@@ -710,7 +753,7 @@ public class ShopReceiptTransaction {
    * @return maxProcessingDays
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The maximum number of days for processing the listing.")
+  @ApiModelProperty(value = "The maximum number of days for processing the listing.")
 
   public Long getMaxProcessingDays() {
     return maxProcessingDays;
@@ -733,7 +776,7 @@ public class ShopReceiptTransaction {
    * @return shippingMethod
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "Name of the selected shipping method.")
+  @ApiModelProperty(value = "Name of the selected shipping method.")
 
   public String getShippingMethod() {
     return shippingMethod;
@@ -756,7 +799,7 @@ public class ShopReceiptTransaction {
    * @return shippingUpgrade
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The name of the shipping upgrade selected for this listing. Default value is null.")
+  @ApiModelProperty(value = "The name of the shipping upgrade selected for this listing. Default value is null.")
 
   public String getShippingUpgrade() {
     return shippingUpgrade;
@@ -780,7 +823,7 @@ public class ShopReceiptTransaction {
    * @return expectedShipDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The date & time of the expected ship date, in epoch seconds.")
+  @ApiModelProperty(value = "The date & time of the expected ship date, in epoch seconds.")
 
   public Long getExpectedShipDate() {
     return expectedShipDate;
@@ -789,6 +832,52 @@ public class ShopReceiptTransaction {
 
   public void setExpectedShipDate(Long expectedShipDate) {
     this.expectedShipDate = expectedShipDate;
+  }
+
+
+  public ShopReceiptTransaction buyerCoupon(Float buyerCoupon) {
+    
+    this.buyerCoupon = buyerCoupon;
+    return this;
+  }
+
+   /**
+   * The amount of the buyer coupon that was discounted in the shop&#39;s currency.
+   * @return buyerCoupon
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The amount of the buyer coupon that was discounted in the shop's currency.")
+
+  public Float getBuyerCoupon() {
+    return buyerCoupon;
+  }
+
+
+  public void setBuyerCoupon(Float buyerCoupon) {
+    this.buyerCoupon = buyerCoupon;
+  }
+
+
+  public ShopReceiptTransaction shopCoupon(Float shopCoupon) {
+    
+    this.shopCoupon = shopCoupon;
+    return this;
+  }
+
+   /**
+   * The amount of the shop coupon that was discounted in the shop&#39;s currency.
+   * @return shopCoupon
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The amount of the shop coupon that was discounted in the shop's currency.")
+
+  public Float getShopCoupon() {
+    return shopCoupon;
+  }
+
+
+  public void setShopCoupon(Float shopCoupon) {
+    this.shopCoupon = shopCoupon;
   }
 
 
@@ -807,6 +896,7 @@ public class ShopReceiptTransaction {
         Objects.equals(this.sellerUserId, shopReceiptTransaction.sellerUserId) &&
         Objects.equals(this.buyerUserId, shopReceiptTransaction.buyerUserId) &&
         Objects.equals(this.createTimestamp, shopReceiptTransaction.createTimestamp) &&
+        Objects.equals(this.createdTimestamp, shopReceiptTransaction.createdTimestamp) &&
         Objects.equals(this.paidTimestamp, shopReceiptTransaction.paidTimestamp) &&
         Objects.equals(this.shippedTimestamp, shopReceiptTransaction.shippedTimestamp) &&
         Objects.equals(this.quantity, shopReceiptTransaction.quantity) &&
@@ -827,12 +917,25 @@ public class ShopReceiptTransaction {
         Objects.equals(this.maxProcessingDays, shopReceiptTransaction.maxProcessingDays) &&
         Objects.equals(this.shippingMethod, shopReceiptTransaction.shippingMethod) &&
         Objects.equals(this.shippingUpgrade, shopReceiptTransaction.shippingUpgrade) &&
-        Objects.equals(this.expectedShipDate, shopReceiptTransaction.expectedShipDate);
+        Objects.equals(this.expectedShipDate, shopReceiptTransaction.expectedShipDate) &&
+        Objects.equals(this.buyerCoupon, shopReceiptTransaction.buyerCoupon) &&
+        Objects.equals(this.shopCoupon, shopReceiptTransaction.shopCoupon);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(transactionId, title, description, sellerUserId, buyerUserId, createTimestamp, paidTimestamp, shippedTimestamp, quantity, listingImageId, receiptId, isDigital, fileData, listingId, transactionType, productId, sku, price, shippingCost, variations, productData, shippingProfileId, minProcessingDays, maxProcessingDays, shippingMethod, shippingUpgrade, expectedShipDate);
+    return Objects.hash(transactionId, title, description, sellerUserId, buyerUserId, createTimestamp, createdTimestamp, paidTimestamp, shippedTimestamp, quantity, listingImageId, receiptId, isDigital, fileData, listingId, transactionType, productId, sku, price, shippingCost, variations, productData, shippingProfileId, minProcessingDays, maxProcessingDays, shippingMethod, shippingUpgrade, expectedShipDate, buyerCoupon, shopCoupon);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -845,6 +948,7 @@ public class ShopReceiptTransaction {
     sb.append("    sellerUserId: ").append(toIndentedString(sellerUserId)).append("\n");
     sb.append("    buyerUserId: ").append(toIndentedString(buyerUserId)).append("\n");
     sb.append("    createTimestamp: ").append(toIndentedString(createTimestamp)).append("\n");
+    sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
     sb.append("    paidTimestamp: ").append(toIndentedString(paidTimestamp)).append("\n");
     sb.append("    shippedTimestamp: ").append(toIndentedString(shippedTimestamp)).append("\n");
     sb.append("    quantity: ").append(toIndentedString(quantity)).append("\n");
@@ -866,6 +970,8 @@ public class ShopReceiptTransaction {
     sb.append("    shippingMethod: ").append(toIndentedString(shippingMethod)).append("\n");
     sb.append("    shippingUpgrade: ").append(toIndentedString(shippingUpgrade)).append("\n");
     sb.append("    expectedShipDate: ").append(toIndentedString(expectedShipDate)).append("\n");
+    sb.append("    buyerCoupon: ").append(toIndentedString(buyerCoupon)).append("\n");
+    sb.append("    shopCoupon: ").append(toIndentedString(shopCoupon)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -1,6 +1,6 @@
 /*
  * Etsy Open API v3
- * <div class=\"wt-text-body-01\"><p class=\"wt-pt-xs-2 wt-pb-xs-2\">Etsy's Open API provides a simple RESTful interface for various Etsy.com features. The API endpoints are meant to replace <a class=\"wt-text-link wt-p-xs-0\" href=\"https://www.etsy.com/developers/documentation\">Etsy's Open API v2</a>, which is scheduled to end service in 2022.</p><p class=\"wt-pb-xs-2\">All of the endpoints are callable and the majority of the API endpoints are now in a beta phase. This means we do not expect to make any breaking changes before our general release. A handful of endpoints are currently interface stubs (labeled “Feedback Only”) and returns a \"501 Not Implemented\" response code when called.</p><p class=\"wt-pb-xs-2\">If you'd like to report an issue or provide feedback on the API design, <a target=\"_blank\" class=\"wt-text-link wt-p-xs-0\" href=\"https://github.com/etsy/open-api/issues/new/choose\">please add an issue in Github</a>.</p></div>&copy; 2021-2022 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.
+ * <div class=\"wt-text-body-01\"><p class=\"wt-pt-xs-2 wt-pb-xs-2\">Etsy's Open API provides a simple RESTful interface for various Etsy.com features. The API endpoints are meant to replace Etsy's Open API v2, which is scheduled to end service in 2022.</p><p class=\"wt-pb-xs-2\">All of the endpoints are callable and the majority of the API endpoints are now in a beta phase. This means we do not expect to make any breaking changes before our general release. A handful of endpoints are currently interface stubs (labeled “Feedback Only”) and returns a \"501 Not Implemented\" response code when called.</p><p class=\"wt-pb-xs-2\">If you'd like to report an issue or provide feedback on the API design, <a target=\"_blank\" class=\"wt-text-link wt-p-xs-0\" href=\"https://github.com/etsy/open-api/discussions\">please add an issue in Github</a>.</p></div>&copy; 2021-2023 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: developers@etsy.com
@@ -23,12 +23,13 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
  * The record of one shipment event for a ShopReceipt. A receipt may have many ShopReceiptShipment records.
  */
 @ApiModel(description = "The record of one shipment event for a ShopReceipt. A receipt may have many ShopReceiptShipment records.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-07T10:51:54.559-04:00[America/Toronto]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-08T08:37:51.285-04:00[America/Toronto]")
 public class ShopReceiptShipment {
   public static final String SERIALIZED_NAME_RECEIPT_SHIPPING_ID = "receipt_shipping_id";
   @SerializedName(SERIALIZED_NAME_RECEIPT_SHIPPING_ID)
@@ -61,7 +62,7 @@ public class ShopReceiptShipment {
    * @return receiptShippingId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The unique numeric ID of a Shop Receipt Shipment record.")
+  @ApiModelProperty(value = "The unique numeric ID of a Shop Receipt Shipment record.")
 
   public Long getReceiptShippingId() {
     return receiptShippingId;
@@ -84,8 +85,8 @@ public class ShopReceiptShipment {
    * minimum: 946684800
    * @return shipmentNotificationTimestamp
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The time at which Etsy notified the buyer of the shipment event, in epoch seconds.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The time at which Etsy notified the buyer of the shipment event, in epoch seconds.")
 
   public Long getShipmentNotificationTimestamp() {
     return shipmentNotificationTimestamp;
@@ -107,8 +108,8 @@ public class ShopReceiptShipment {
    * The name string for the carrier/company responsible for delivering the shipment.
    * @return carrierName
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The name string for the carrier/company responsible for delivering the shipment.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The name string for the carrier/company responsible for delivering the shipment.")
 
   public String getCarrierName() {
     return carrierName;
@@ -130,8 +131,8 @@ public class ShopReceiptShipment {
    * The tracking code string provided by the carrier/company for the shipment.
    * @return trackingCode
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The tracking code string provided by the carrier/company for the shipment.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The tracking code string provided by the carrier/company for the shipment.")
 
   public String getTrackingCode() {
     return trackingCode;
@@ -158,9 +159,20 @@ public class ShopReceiptShipment {
         Objects.equals(this.trackingCode, shopReceiptShipment.trackingCode);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
     return Objects.hash(receiptShippingId, shipmentNotificationTimestamp, carrierName, trackingCode);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

@@ -1,6 +1,6 @@
 /*
  * Etsy Open API v3
- * <div class=\"wt-text-body-01\"><p class=\"wt-pt-xs-2 wt-pb-xs-2\">Etsy's Open API provides a simple RESTful interface for various Etsy.com features. The API endpoints are meant to replace <a class=\"wt-text-link wt-p-xs-0\" href=\"https://www.etsy.com/developers/documentation\">Etsy's Open API v2</a>, which is scheduled to end service in 2022.</p><p class=\"wt-pb-xs-2\">All of the endpoints are callable and the majority of the API endpoints are now in a beta phase. This means we do not expect to make any breaking changes before our general release. A handful of endpoints are currently interface stubs (labeled “Feedback Only”) and returns a \"501 Not Implemented\" response code when called.</p><p class=\"wt-pb-xs-2\">If you'd like to report an issue or provide feedback on the API design, <a target=\"_blank\" class=\"wt-text-link wt-p-xs-0\" href=\"https://github.com/etsy/open-api/issues/new/choose\">please add an issue in Github</a>.</p></div>&copy; 2021-2022 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.
+ * <div class=\"wt-text-body-01\"><p class=\"wt-pt-xs-2 wt-pb-xs-2\">Etsy's Open API provides a simple RESTful interface for various Etsy.com features. The API endpoints are meant to replace Etsy's Open API v2, which is scheduled to end service in 2022.</p><p class=\"wt-pb-xs-2\">All of the endpoints are callable and the majority of the API endpoints are now in a beta phase. This means we do not expect to make any breaking changes before our general release. A handful of endpoints are currently interface stubs (labeled “Feedback Only”) and returns a \"501 Not Implemented\" response code when called.</p><p class=\"wt-pb-xs-2\">If you'd like to report an issue or provide feedback on the API design, <a target=\"_blank\" class=\"wt-text-link wt-p-xs-0\" href=\"https://github.com/etsy/open-api/discussions\">please add an issue in Github</a>.</p></div>&copy; 2021-2023 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: developers@etsy.com
@@ -23,12 +23,16 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import org.openapitools.client.model.PaymentAdjustmentItem;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
  * Represents a refund, which applies to a prior Etsy payment. All monetary amounts are in USD pennies unless otherwise specified.
  */
 @ApiModel(description = "Represents a refund, which applies to a prior Etsy payment. All monetary amounts are in USD pennies unless otherwise specified.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-07T10:51:54.559-04:00[America/Toronto]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-08T08:37:51.285-04:00[America/Toronto]")
 public class PaymentAdjustment {
   public static final String SERIALIZED_NAME_PAYMENT_ADJUSTMENT_ID = "payment_adjustment_id";
   @SerializedName(SERIALIZED_NAME_PAYMENT_ADJUSTMENT_ID)
@@ -74,9 +78,21 @@ public class PaymentAdjustment {
   @SerializedName(SERIALIZED_NAME_CREATE_TIMESTAMP)
   private Long createTimestamp;
 
+  public static final String SERIALIZED_NAME_CREATED_TIMESTAMP = "created_timestamp";
+  @SerializedName(SERIALIZED_NAME_CREATED_TIMESTAMP)
+  private Long createdTimestamp;
+
   public static final String SERIALIZED_NAME_UPDATE_TIMESTAMP = "update_timestamp";
   @SerializedName(SERIALIZED_NAME_UPDATE_TIMESTAMP)
   private Long updateTimestamp;
+
+  public static final String SERIALIZED_NAME_UPDATED_TIMESTAMP = "updated_timestamp";
+  @SerializedName(SERIALIZED_NAME_UPDATED_TIMESTAMP)
+  private Long updatedTimestamp;
+
+  public static final String SERIALIZED_NAME_PAYMENT_ADJUSTMENT_ITEMS = "payment_adjustment_items";
+  @SerializedName(SERIALIZED_NAME_PAYMENT_ADJUSTMENT_ITEMS)
+  private List<PaymentAdjustmentItem> paymentAdjustmentItems = null;
 
   public PaymentAdjustment() { 
   }
@@ -92,8 +108,8 @@ public class PaymentAdjustment {
    * minimum: 1
    * @return paymentAdjustmentId
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The numeric ID for a payment adjustment.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The numeric ID for a payment adjustment.")
 
   public Long getPaymentAdjustmentId() {
     return paymentAdjustmentId;
@@ -116,8 +132,8 @@ public class PaymentAdjustment {
    * minimum: 1
    * @return paymentId
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "A unique numeric ID for a payment to a specific Etsy [shop](/documentation/reference#tag/Shop).")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A unique numeric ID for a payment to a specific Etsy [shop](/documentation/reference#tag/Shop).")
 
   public Long getPaymentId() {
     return paymentId;
@@ -139,8 +155,8 @@ public class PaymentAdjustment {
    * The status string of the payment adjustment.
    * @return status
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The status string of the payment adjustment.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The status string of the payment adjustment.")
 
   public String getStatus() {
     return status;
@@ -162,8 +178,8 @@ public class PaymentAdjustment {
    * When true, the payment adjustment was or is likely to complete successfully.
    * @return isSuccess
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "When true, the payment adjustment was or is likely to complete successfully.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "When true, the payment adjustment was or is likely to complete successfully.")
 
   public Boolean getIsSuccess() {
     return isSuccess;
@@ -186,8 +202,8 @@ public class PaymentAdjustment {
    * minimum: 1
    * @return userId
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The numeric ID for the [user](/documentation/reference#tag/User) (seller) fulfilling the purchase.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The numeric ID for the [user](/documentation/reference#tag/User) (seller) fulfilling the purchase.")
 
   public Long getUserId() {
     return userId;
@@ -209,8 +225,8 @@ public class PaymentAdjustment {
    * A human-readable string describing the reason for the refund.
    * @return reasonCode
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "A human-readable string describing the reason for the refund.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A human-readable string describing the reason for the refund.")
 
   public String getReasonCode() {
     return reasonCode;
@@ -234,7 +250,7 @@ public class PaymentAdjustment {
    * @return totalAdjustmentAmount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The total numeric amount of the refund in the payment currency.")
+  @ApiModelProperty(value = "The total numeric amount of the refund in the payment currency.")
 
   public Long getTotalAdjustmentAmount() {
     return totalAdjustmentAmount;
@@ -258,7 +274,7 @@ public class PaymentAdjustment {
    * @return shopTotalAdjustmentAmount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The numeric amount of the refund in the shop currency.")
+  @ApiModelProperty(value = "The numeric amount of the refund in the shop currency.")
 
   public Long getShopTotalAdjustmentAmount() {
     return shopTotalAdjustmentAmount;
@@ -282,7 +298,7 @@ public class PaymentAdjustment {
    * @return buyerTotalAdjustmentAmount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The numeric amount of the refund in the buyer currency.")
+  @ApiModelProperty(value = "The numeric amount of the refund in the buyer currency.")
 
   public Long getBuyerTotalAdjustmentAmount() {
     return buyerTotalAdjustmentAmount;
@@ -306,7 +322,7 @@ public class PaymentAdjustment {
    * @return totalFeeAdjustmentAmount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The numeric amount of card processing fees associated with a payment adjustment.")
+  @ApiModelProperty(value = "The numeric amount of card processing fees associated with a payment adjustment.")
 
   public Long getTotalFeeAdjustmentAmount() {
     return totalFeeAdjustmentAmount;
@@ -329,8 +345,8 @@ public class PaymentAdjustment {
    * minimum: 946684800
    * @return createTimestamp
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The transaction\\'s creation date and time, in epoch seconds.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The transaction\\'s creation date and time, in epoch seconds.")
 
   public Long getCreateTimestamp() {
     return createTimestamp;
@@ -339,6 +355,30 @@ public class PaymentAdjustment {
 
   public void setCreateTimestamp(Long createTimestamp) {
     this.createTimestamp = createTimestamp;
+  }
+
+
+  public PaymentAdjustment createdTimestamp(Long createdTimestamp) {
+    
+    this.createdTimestamp = createdTimestamp;
+    return this;
+  }
+
+   /**
+   * The transaction\\&#39;s creation date and time, in epoch seconds.
+   * minimum: 946684800
+   * @return createdTimestamp
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The transaction\\'s creation date and time, in epoch seconds.")
+
+  public Long getCreatedTimestamp() {
+    return createdTimestamp;
+  }
+
+
+  public void setCreatedTimestamp(Long createdTimestamp) {
+    this.createdTimestamp = createdTimestamp;
   }
 
 
@@ -353,8 +393,8 @@ public class PaymentAdjustment {
    * minimum: 946684800
    * @return updateTimestamp
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The date and time of the last change to the payment adjustment in epoch seconds.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The date and time of the last change to the payment adjustment in epoch seconds.")
 
   public Long getUpdateTimestamp() {
     return updateTimestamp;
@@ -363,6 +403,61 @@ public class PaymentAdjustment {
 
   public void setUpdateTimestamp(Long updateTimestamp) {
     this.updateTimestamp = updateTimestamp;
+  }
+
+
+  public PaymentAdjustment updatedTimestamp(Long updatedTimestamp) {
+    
+    this.updatedTimestamp = updatedTimestamp;
+    return this;
+  }
+
+   /**
+   * The date and time of the last change to the payment adjustment in epoch seconds.
+   * minimum: 946684800
+   * @return updatedTimestamp
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The date and time of the last change to the payment adjustment in epoch seconds.")
+
+  public Long getUpdatedTimestamp() {
+    return updatedTimestamp;
+  }
+
+
+  public void setUpdatedTimestamp(Long updatedTimestamp) {
+    this.updatedTimestamp = updatedTimestamp;
+  }
+
+
+  public PaymentAdjustment paymentAdjustmentItems(List<PaymentAdjustmentItem> paymentAdjustmentItems) {
+    
+    this.paymentAdjustmentItems = paymentAdjustmentItems;
+    return this;
+  }
+
+  public PaymentAdjustment addPaymentAdjustmentItemsItem(PaymentAdjustmentItem paymentAdjustmentItemsItem) {
+    if (this.paymentAdjustmentItems == null) {
+      this.paymentAdjustmentItems = new ArrayList<PaymentAdjustmentItem>();
+    }
+    this.paymentAdjustmentItems.add(paymentAdjustmentItemsItem);
+    return this;
+  }
+
+   /**
+   * List of payment adjustment line items.
+   * @return paymentAdjustmentItems
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "List of payment adjustment line items.")
+
+  public List<PaymentAdjustmentItem> getPaymentAdjustmentItems() {
+    return paymentAdjustmentItems;
+  }
+
+
+  public void setPaymentAdjustmentItems(List<PaymentAdjustmentItem> paymentAdjustmentItems) {
+    this.paymentAdjustmentItems = paymentAdjustmentItems;
   }
 
 
@@ -386,12 +481,26 @@ public class PaymentAdjustment {
         Objects.equals(this.buyerTotalAdjustmentAmount, paymentAdjustment.buyerTotalAdjustmentAmount) &&
         Objects.equals(this.totalFeeAdjustmentAmount, paymentAdjustment.totalFeeAdjustmentAmount) &&
         Objects.equals(this.createTimestamp, paymentAdjustment.createTimestamp) &&
-        Objects.equals(this.updateTimestamp, paymentAdjustment.updateTimestamp);
+        Objects.equals(this.createdTimestamp, paymentAdjustment.createdTimestamp) &&
+        Objects.equals(this.updateTimestamp, paymentAdjustment.updateTimestamp) &&
+        Objects.equals(this.updatedTimestamp, paymentAdjustment.updatedTimestamp) &&
+        Objects.equals(this.paymentAdjustmentItems, paymentAdjustment.paymentAdjustmentItems);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(paymentAdjustmentId, paymentId, status, isSuccess, userId, reasonCode, totalAdjustmentAmount, shopTotalAdjustmentAmount, buyerTotalAdjustmentAmount, totalFeeAdjustmentAmount, createTimestamp, updateTimestamp);
+    return Objects.hash(paymentAdjustmentId, paymentId, status, isSuccess, userId, reasonCode, totalAdjustmentAmount, shopTotalAdjustmentAmount, buyerTotalAdjustmentAmount, totalFeeAdjustmentAmount, createTimestamp, createdTimestamp, updateTimestamp, updatedTimestamp, paymentAdjustmentItems);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -409,7 +518,10 @@ public class PaymentAdjustment {
     sb.append("    buyerTotalAdjustmentAmount: ").append(toIndentedString(buyerTotalAdjustmentAmount)).append("\n");
     sb.append("    totalFeeAdjustmentAmount: ").append(toIndentedString(totalFeeAdjustmentAmount)).append("\n");
     sb.append("    createTimestamp: ").append(toIndentedString(createTimestamp)).append("\n");
+    sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
     sb.append("    updateTimestamp: ").append(toIndentedString(updateTimestamp)).append("\n");
+    sb.append("    updatedTimestamp: ").append(toIndentedString(updatedTimestamp)).append("\n");
+    sb.append("    paymentAdjustmentItems: ").append(toIndentedString(paymentAdjustmentItems)).append("\n");
     sb.append("}");
     return sb.toString();
   }

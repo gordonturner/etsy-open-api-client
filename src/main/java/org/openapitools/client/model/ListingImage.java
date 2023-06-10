@@ -1,6 +1,6 @@
 /*
  * Etsy Open API v3
- * <div class=\"wt-text-body-01\"><p class=\"wt-pt-xs-2 wt-pb-xs-2\">Etsy's Open API provides a simple RESTful interface for various Etsy.com features. The API endpoints are meant to replace <a class=\"wt-text-link wt-p-xs-0\" href=\"https://www.etsy.com/developers/documentation\">Etsy's Open API v2</a>, which is scheduled to end service in 2022.</p><p class=\"wt-pb-xs-2\">All of the endpoints are callable and the majority of the API endpoints are now in a beta phase. This means we do not expect to make any breaking changes before our general release. A handful of endpoints are currently interface stubs (labeled “Feedback Only”) and returns a \"501 Not Implemented\" response code when called.</p><p class=\"wt-pb-xs-2\">If you'd like to report an issue or provide feedback on the API design, <a target=\"_blank\" class=\"wt-text-link wt-p-xs-0\" href=\"https://github.com/etsy/open-api/issues/new/choose\">please add an issue in Github</a>.</p></div>&copy; 2021-2022 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.
+ * <div class=\"wt-text-body-01\"><p class=\"wt-pt-xs-2 wt-pb-xs-2\">Etsy's Open API provides a simple RESTful interface for various Etsy.com features. The API endpoints are meant to replace Etsy's Open API v2, which is scheduled to end service in 2022.</p><p class=\"wt-pb-xs-2\">All of the endpoints are callable and the majority of the API endpoints are now in a beta phase. This means we do not expect to make any breaking changes before our general release. A handful of endpoints are currently interface stubs (labeled “Feedback Only”) and returns a \"501 Not Implemented\" response code when called.</p><p class=\"wt-pb-xs-2\">If you'd like to report an issue or provide feedback on the API design, <a target=\"_blank\" class=\"wt-text-link wt-p-xs-0\" href=\"https://github.com/etsy/open-api/discussions\">please add an issue in Github</a>.</p></div>&copy; 2021-2023 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: developers@etsy.com
@@ -23,12 +23,13 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
  * Reference urls and metadata for an image associated with a specific listing. The &#x60;url_fullxfull&#x60; parameter contains the URL for full-sized binary image file.
  */
 @ApiModel(description = "Reference urls and metadata for an image associated with a specific listing. The `url_fullxfull` parameter contains the URL for full-sized binary image file.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-07T10:51:54.559-04:00[America/Toronto]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-08T08:37:51.285-04:00[America/Toronto]")
 public class ListingImage {
   public static final String SERIALIZED_NAME_LISTING_ID = "listing_id";
   @SerializedName(SERIALIZED_NAME_LISTING_ID)
@@ -74,6 +75,10 @@ public class ListingImage {
   @SerializedName(SERIALIZED_NAME_CREATION_TSZ)
   private Long creationTsz;
 
+  public static final String SERIALIZED_NAME_CREATED_TIMESTAMP = "created_timestamp";
+  @SerializedName(SERIALIZED_NAME_CREATED_TIMESTAMP)
+  private Long createdTimestamp;
+
   public static final String SERIALIZED_NAME_RANK = "rank";
   @SerializedName(SERIALIZED_NAME_RANK)
   private Long rank;
@@ -102,6 +107,10 @@ public class ListingImage {
   @SerializedName(SERIALIZED_NAME_FULL_WIDTH)
   private Long fullWidth;
 
+  public static final String SERIALIZED_NAME_ALT_TEXT = "alt_text";
+  @SerializedName(SERIALIZED_NAME_ALT_TEXT)
+  private String altText;
+
   public ListingImage() { 
   }
 
@@ -116,8 +125,8 @@ public class ListingImage {
    * minimum: 1
    * @return listingId
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction.")
 
   public Long getListingId() {
     return listingId;
@@ -140,8 +149,8 @@ public class ListingImage {
    * minimum: 1
    * @return listingImageId
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The numeric ID of the primary [listing image](/documentation/reference#tag/ShopListing-Image) for this transaction.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The numeric ID of the primary [listing image](/documentation/reference#tag/ShopListing-Image) for this transaction.")
 
   public Long getListingImageId() {
     return listingImageId;
@@ -164,7 +173,7 @@ public class ListingImage {
    * @return hexCode
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The webhex string for the image's average color, in webhex notation.")
+  @ApiModelProperty(value = "The webhex string for the image's average color, in webhex notation.")
 
   public String getHexCode() {
     return hexCode;
@@ -188,7 +197,7 @@ public class ListingImage {
    * @return red
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The numeric red value equal to the image's average red value, from 0-255 (RGB color).")
+  @ApiModelProperty(value = "The numeric red value equal to the image's average red value, from 0-255 (RGB color).")
 
   public Long getRed() {
     return red;
@@ -212,7 +221,7 @@ public class ListingImage {
    * @return green
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The numeric red value equal to the image's average red value, from 0-255 (RGB color).")
+  @ApiModelProperty(value = "The numeric red value equal to the image's average red value, from 0-255 (RGB color).")
 
   public Long getGreen() {
     return green;
@@ -236,7 +245,7 @@ public class ListingImage {
    * @return blue
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The numeric red value equal to the image's average red value, from 0-255 (RGB color).")
+  @ApiModelProperty(value = "The numeric red value equal to the image's average red value, from 0-255 (RGB color).")
 
   public Long getBlue() {
     return blue;
@@ -260,7 +269,7 @@ public class ListingImage {
    * @return hue
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The numeric hue equal to the image's average hue, from 0-360 (HSV color).")
+  @ApiModelProperty(value = "The numeric hue equal to the image's average hue, from 0-360 (HSV color).")
 
   public Long getHue() {
     return hue;
@@ -284,7 +293,7 @@ public class ListingImage {
    * @return saturation
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The numeric saturation equal to the image's average saturation, from 0-100 (HSV color).")
+  @ApiModelProperty(value = "The numeric saturation equal to the image's average saturation, from 0-100 (HSV color).")
 
   public Long getSaturation() {
     return saturation;
@@ -308,7 +317,7 @@ public class ListingImage {
    * @return brightness
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The numeric brightness equal to the image's average brightness, from 0-100 (HSV color).")
+  @ApiModelProperty(value = "The numeric brightness equal to the image's average brightness, from 0-100 (HSV color).")
 
   public Long getBrightness() {
     return brightness;
@@ -331,7 +340,7 @@ public class ListingImage {
    * @return isBlackAndWhite
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "When true, the image is in black & white.")
+  @ApiModelProperty(value = "When true, the image is in black & white.")
 
   public Boolean getIsBlackAndWhite() {
     return isBlackAndWhite;
@@ -354,8 +363,8 @@ public class ListingImage {
    * minimum: 0
    * @return creationTsz
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The listing image\\'s creation time, in epoch seconds.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The listing image\\'s creation time, in epoch seconds.")
 
   public Long getCreationTsz() {
     return creationTsz;
@@ -364,6 +373,30 @@ public class ListingImage {
 
   public void setCreationTsz(Long creationTsz) {
     this.creationTsz = creationTsz;
+  }
+
+
+  public ListingImage createdTimestamp(Long createdTimestamp) {
+    
+    this.createdTimestamp = createdTimestamp;
+    return this;
+  }
+
+   /**
+   * The listing image\\&#39;s creation time, in epoch seconds.
+   * minimum: 0
+   * @return createdTimestamp
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The listing image\\'s creation time, in epoch seconds.")
+
+  public Long getCreatedTimestamp() {
+    return createdTimestamp;
+  }
+
+
+  public void setCreatedTimestamp(Long createdTimestamp) {
+    this.createdTimestamp = createdTimestamp;
   }
 
 
@@ -378,8 +411,8 @@ public class ListingImage {
    * minimum: 0
    * @return rank
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The positive non-zero numeric position in the images displayed in a listing, with rank 1 images appearing in the left-most position in a listing.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The positive non-zero numeric position in the images displayed in a listing, with rank 1 images appearing in the left-most position in a listing.")
 
   public Long getRank() {
     return rank;
@@ -401,8 +434,8 @@ public class ListingImage {
    * The url string for a 75x75 pixel thumbnail of the image.
    * @return url75x75
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The url string for a 75x75 pixel thumbnail of the image.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The url string for a 75x75 pixel thumbnail of the image.")
 
   public String getUrl75x75() {
     return url75x75;
@@ -424,8 +457,8 @@ public class ListingImage {
    * The url string for a 170x135 pixel thumbnail of the image.
    * @return url170x135
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The url string for a 170x135 pixel thumbnail of the image.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The url string for a 170x135 pixel thumbnail of the image.")
 
   public String getUrl170x135() {
     return url170x135;
@@ -447,8 +480,8 @@ public class ListingImage {
    * The url string for a thumbnail of the image, no more than 570 pixels wide with variable height.
    * @return url570xN
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The url string for a thumbnail of the image, no more than 570 pixels wide with variable height.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The url string for a thumbnail of the image, no more than 570 pixels wide with variable height.")
 
   public String getUrl570xN() {
     return url570xN;
@@ -470,8 +503,8 @@ public class ListingImage {
    * The url string for the full-size image, up to 3000 pixels in each dimension.
    * @return urlFullxfull
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The url string for the full-size image, up to 3000 pixels in each dimension.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The url string for the full-size image, up to 3000 pixels in each dimension.")
 
   public String getUrlFullxfull() {
     return urlFullxfull;
@@ -495,7 +528,7 @@ public class ListingImage {
    * @return fullHeight
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The numeric height, measured in pixels, of the full-sized image referenced in url_fullxfull.")
+  @ApiModelProperty(value = "The numeric height, measured in pixels, of the full-sized image referenced in url_fullxfull.")
 
   public Long getFullHeight() {
     return fullHeight;
@@ -519,7 +552,7 @@ public class ListingImage {
    * @return fullWidth
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The numeric width, measured in pixels, of the full-sized image referenced in url_fullxfull.")
+  @ApiModelProperty(value = "The numeric width, measured in pixels, of the full-sized image referenced in url_fullxfull.")
 
   public Long getFullWidth() {
     return fullWidth;
@@ -528,6 +561,29 @@ public class ListingImage {
 
   public void setFullWidth(Long fullWidth) {
     this.fullWidth = fullWidth;
+  }
+
+
+  public ListingImage altText(String altText) {
+    
+    this.altText = altText;
+    return this;
+  }
+
+   /**
+   * Alt text for the listing image. Max length 250 characters.
+   * @return altText
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Alt text for the listing image. Max length 250 characters.")
+
+  public String getAltText() {
+    return altText;
+  }
+
+
+  public void setAltText(String altText) {
+    this.altText = altText;
   }
 
 
@@ -551,18 +607,31 @@ public class ListingImage {
         Objects.equals(this.brightness, listingImage.brightness) &&
         Objects.equals(this.isBlackAndWhite, listingImage.isBlackAndWhite) &&
         Objects.equals(this.creationTsz, listingImage.creationTsz) &&
+        Objects.equals(this.createdTimestamp, listingImage.createdTimestamp) &&
         Objects.equals(this.rank, listingImage.rank) &&
         Objects.equals(this.url75x75, listingImage.url75x75) &&
         Objects.equals(this.url170x135, listingImage.url170x135) &&
         Objects.equals(this.url570xN, listingImage.url570xN) &&
         Objects.equals(this.urlFullxfull, listingImage.urlFullxfull) &&
         Objects.equals(this.fullHeight, listingImage.fullHeight) &&
-        Objects.equals(this.fullWidth, listingImage.fullWidth);
+        Objects.equals(this.fullWidth, listingImage.fullWidth) &&
+        Objects.equals(this.altText, listingImage.altText);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(listingId, listingImageId, hexCode, red, green, blue, hue, saturation, brightness, isBlackAndWhite, creationTsz, rank, url75x75, url170x135, url570xN, urlFullxfull, fullHeight, fullWidth);
+    return Objects.hash(listingId, listingImageId, hexCode, red, green, blue, hue, saturation, brightness, isBlackAndWhite, creationTsz, createdTimestamp, rank, url75x75, url170x135, url570xN, urlFullxfull, fullHeight, fullWidth, altText);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -580,6 +649,7 @@ public class ListingImage {
     sb.append("    brightness: ").append(toIndentedString(brightness)).append("\n");
     sb.append("    isBlackAndWhite: ").append(toIndentedString(isBlackAndWhite)).append("\n");
     sb.append("    creationTsz: ").append(toIndentedString(creationTsz)).append("\n");
+    sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
     sb.append("    rank: ").append(toIndentedString(rank)).append("\n");
     sb.append("    url75x75: ").append(toIndentedString(url75x75)).append("\n");
     sb.append("    url170x135: ").append(toIndentedString(url170x135)).append("\n");
@@ -587,6 +657,7 @@ public class ListingImage {
     sb.append("    urlFullxfull: ").append(toIndentedString(urlFullxfull)).append("\n");
     sb.append("    fullHeight: ").append(toIndentedString(fullHeight)).append("\n");
     sb.append("    fullWidth: ").append(toIndentedString(fullWidth)).append("\n");
+    sb.append("    altText: ").append(toIndentedString(altText)).append("\n");
     sb.append("}");
     return sb.toString();
   }

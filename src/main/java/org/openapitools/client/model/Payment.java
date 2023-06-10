@@ -1,6 +1,6 @@
 /*
  * Etsy Open API v3
- * <div class=\"wt-text-body-01\"><p class=\"wt-pt-xs-2 wt-pb-xs-2\">Etsy's Open API provides a simple RESTful interface for various Etsy.com features. The API endpoints are meant to replace <a class=\"wt-text-link wt-p-xs-0\" href=\"https://www.etsy.com/developers/documentation\">Etsy's Open API v2</a>, which is scheduled to end service in 2022.</p><p class=\"wt-pb-xs-2\">All of the endpoints are callable and the majority of the API endpoints are now in a beta phase. This means we do not expect to make any breaking changes before our general release. A handful of endpoints are currently interface stubs (labeled “Feedback Only”) and returns a \"501 Not Implemented\" response code when called.</p><p class=\"wt-pb-xs-2\">If you'd like to report an issue or provide feedback on the API design, <a target=\"_blank\" class=\"wt-text-link wt-p-xs-0\" href=\"https://github.com/etsy/open-api/issues/new/choose\">please add an issue in Github</a>.</p></div>&copy; 2021-2022 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.
+ * <div class=\"wt-text-body-01\"><p class=\"wt-pt-xs-2 wt-pb-xs-2\">Etsy's Open API provides a simple RESTful interface for various Etsy.com features. The API endpoints are meant to replace Etsy's Open API v2, which is scheduled to end service in 2022.</p><p class=\"wt-pb-xs-2\">All of the endpoints are callable and the majority of the API endpoints are now in a beta phase. This means we do not expect to make any breaking changes before our general release. A handful of endpoints are currently interface stubs (labeled “Feedback Only”) and returns a \"501 Not Implemented\" response code when called.</p><p class=\"wt-pb-xs-2\">If you'd like to report an issue or provide feedback on the API design, <a target=\"_blank\" class=\"wt-text-link wt-p-xs-0\" href=\"https://github.com/etsy/open-api/discussions\">please add an issue in Github</a>.</p></div>&copy; 2021-2023 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: developers@etsy.com
@@ -33,7 +33,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
  * Represents a payment made with Etsy Payments. All monetary amounts are in USD pennies unless otherwise specified.
  */
 @ApiModel(description = "Represents a payment made with Etsy Payments. All monetary amounts are in USD pennies unless otherwise specified.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-07T10:51:54.559-04:00[America/Toronto]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-08T08:37:51.285-04:00[America/Toronto]")
 public class Payment {
   public static final String SERIALIZED_NAME_PAYMENT_ID = "payment_id";
   @SerializedName(SERIALIZED_NAME_PAYMENT_ID)
@@ -123,13 +123,21 @@ public class Payment {
   @SerializedName(SERIALIZED_NAME_CREATE_TIMESTAMP)
   private Long createTimestamp;
 
+  public static final String SERIALIZED_NAME_CREATED_TIMESTAMP = "created_timestamp";
+  @SerializedName(SERIALIZED_NAME_CREATED_TIMESTAMP)
+  private Long createdTimestamp;
+
   public static final String SERIALIZED_NAME_UPDATE_TIMESTAMP = "update_timestamp";
   @SerializedName(SERIALIZED_NAME_UPDATE_TIMESTAMP)
   private Long updateTimestamp;
 
+  public static final String SERIALIZED_NAME_UPDATED_TIMESTAMP = "updated_timestamp";
+  @SerializedName(SERIALIZED_NAME_UPDATED_TIMESTAMP)
+  private Long updatedTimestamp;
+
   public static final String SERIALIZED_NAME_PAYMENT_ADJUSTMENTS = "payment_adjustments";
   @SerializedName(SERIALIZED_NAME_PAYMENT_ADJUSTMENTS)
-  private List<PaymentAdjustment> paymentAdjustments = new ArrayList<PaymentAdjustment>();
+  private List<PaymentAdjustment> paymentAdjustments = null;
 
   public Payment() { 
   }
@@ -145,8 +153,8 @@ public class Payment {
    * minimum: 1
    * @return paymentId
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "A unique numeric ID for a payment to a specific Etsy [shop](/documentation/reference#tag/Shop).")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A unique numeric ID for a payment to a specific Etsy [shop](/documentation/reference#tag/Shop).")
 
   public Long getPaymentId() {
     return paymentId;
@@ -169,8 +177,8 @@ public class Payment {
    * minimum: 1
    * @return buyerUserId
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The numeric ID for the [user](/documentation/reference#tag/User) who paid the purchase.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The numeric ID for the [user](/documentation/reference#tag/User) who paid the purchase.")
 
   public Long getBuyerUserId() {
     return buyerUserId;
@@ -193,8 +201,8 @@ public class Payment {
    * minimum: 1
    * @return shopId
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The unique positive non-zero numeric ID for an Etsy Shop.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The unique positive non-zero numeric ID for an Etsy Shop.")
 
   public Long getShopId() {
     return shopId;
@@ -217,8 +225,8 @@ public class Payment {
    * minimum: 1
    * @return receiptId
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The numeric ID for the [receipt](/documentation/reference#tag/Shop-Receipt) associated to this transaction.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The numeric ID for the [receipt](/documentation/reference#tag/Shop-Receipt) associated to this transaction.")
 
   public Long getReceiptId() {
     return receiptId;
@@ -241,7 +249,7 @@ public class Payment {
    * @return amountGross
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "An integer equal to gross amount of the order, in pennies, including shipping and taxes.")
+  @ApiModelProperty(value = "An integer equal to gross amount of the order, in pennies, including shipping and taxes.")
 
   public Money getAmountGross() {
     return amountGross;
@@ -264,7 +272,7 @@ public class Payment {
    * @return amountFees
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "An integer equal to the original card processing fee of the order in pennies.")
+  @ApiModelProperty(value = "An integer equal to the original card processing fee of the order in pennies.")
 
   public Money getAmountFees() {
     return amountFees;
@@ -287,7 +295,7 @@ public class Payment {
    * @return amountNet
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "An integer equal to the payment value, in pennies, less fees (`amount_gross` - `amount_fees`).")
+  @ApiModelProperty(value = "An integer equal to the payment value, in pennies, less fees (`amount_gross` - `amount_fees`).")
 
   public Money getAmountNet() {
     return amountNet;
@@ -306,11 +314,11 @@ public class Payment {
   }
 
    /**
-   * The total gross value of the payment posted once the purchase ships. This is equal to the &#x60;amount_gross&#x60; UNLESS the seller issues a refund prior to shipping. We consider \&quot;shipping\&quot; to the event which \&quot;posts\&quot; to the ledger. Therefore, if the seller refunds first, we reduce the &#x60;amount_gross&#x60; first and post then that amount. The seller never sees the refunded amount in their ledger. This is equal to the \&quot;Credit\&quot; amount in the ledger entry.
+   * The total gross value of the payment posted once the purchase ships. This is equal to the &#x60;amount_gross&#x60; UNLESS the seller issues a refund prior to shipping. We consider \&quot;shipping\&quot; to be the event which \&quot;posts\&quot; to the ledger. Therefore, if the seller refunds first, we reduce the &#x60;amount_gross&#x60; first and post then that amount. The seller never sees the refunded amount in their ledger. This is equal to the \&quot;Credit\&quot; amount in the ledger entry.
    * @return postedGross
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The total gross value of the payment posted once the purchase ships. This is equal to the `amount_gross` UNLESS the seller issues a refund prior to shipping. We consider \"shipping\" to the event which \"posts\" to the ledger. Therefore, if the seller refunds first, we reduce the `amount_gross` first and post then that amount. The seller never sees the refunded amount in their ledger. This is equal to the \"Credit\" amount in the ledger entry.")
+  @ApiModelProperty(value = "The total gross value of the payment posted once the purchase ships. This is equal to the `amount_gross` UNLESS the seller issues a refund prior to shipping. We consider \"shipping\" to be the event which \"posts\" to the ledger. Therefore, if the seller refunds first, we reduce the `amount_gross` first and post then that amount. The seller never sees the refunded amount in their ledger. This is equal to the \"Credit\" amount in the ledger entry.")
 
   public Money getPostedGross() {
     return postedGross;
@@ -447,8 +455,8 @@ public class Payment {
    * The ISO (alphabetic) code string for the payment&#39;s currency.
    * @return currency
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The ISO (alphabetic) code string for the payment's currency.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The ISO (alphabetic) code string for the payment's currency.")
 
   public String getCurrency() {
     return currency;
@@ -471,7 +479,7 @@ public class Payment {
    * @return shopCurrency
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The ISO (alphabetic) code for the shop's currency. The shop displays all prices in this currency by default.")
+  @ApiModelProperty(value = "The ISO (alphabetic) code for the shop's currency. The shop displays all prices in this currency by default.")
 
   public String getShopCurrency() {
     return shopCurrency;
@@ -494,7 +502,7 @@ public class Payment {
    * @return buyerCurrency
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The currency string of the buyer.")
+  @ApiModelProperty(value = "The currency string of the buyer.")
 
   public String getBuyerCurrency() {
     return buyerCurrency;
@@ -518,7 +526,7 @@ public class Payment {
    * @return shippingUserId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The numeric ID of the user to which the seller ships the order.")
+  @ApiModelProperty(value = "The numeric ID of the user to which the seller ships the order.")
 
   public Long getShippingUserId() {
     return shippingUserId;
@@ -541,8 +549,8 @@ public class Payment {
    * minimum: 1
    * @return shippingAddressId
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The numeric id identifying the shipping address.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The numeric id identifying the shipping address.")
 
   public Long getShippingAddressId() {
     return shippingAddressId;
@@ -566,8 +574,8 @@ public class Payment {
    * maximum: 9223372036854775807
    * @return billingAddressId
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The numeric ID identifying the billing address of the buyer.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The numeric ID identifying the billing address of the buyer.")
 
   public Long getBillingAddressId() {
     return billingAddressId;
@@ -589,8 +597,8 @@ public class Payment {
    * A string indicating the current status of the payment, most commonly \&quot;settled\&quot; or \&quot;authed\&quot;.
    * @return status
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "A string indicating the current status of the payment, most commonly \"settled\" or \"authed\".")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A string indicating the current status of the payment, most commonly \"settled\" or \"authed\".")
 
   public String getStatus() {
     return status;
@@ -614,7 +622,7 @@ public class Payment {
    * @return shippedTimestamp
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The transaction\\'s shipping date and time, in epoch seconds.")
+  @ApiModelProperty(value = "The transaction\\'s shipping date and time, in epoch seconds.")
 
   public Long getShippedTimestamp() {
     return shippedTimestamp;
@@ -637,8 +645,8 @@ public class Payment {
    * minimum: 946684800
    * @return createTimestamp
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The transaction\\'s creation date and time, in epoch seconds.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The transaction\\'s creation date and time, in epoch seconds.")
 
   public Long getCreateTimestamp() {
     return createTimestamp;
@@ -647,6 +655,30 @@ public class Payment {
 
   public void setCreateTimestamp(Long createTimestamp) {
     this.createTimestamp = createTimestamp;
+  }
+
+
+  public Payment createdTimestamp(Long createdTimestamp) {
+    
+    this.createdTimestamp = createdTimestamp;
+    return this;
+  }
+
+   /**
+   * The transaction\\&#39;s creation date and time, in epoch seconds.
+   * minimum: 946684800
+   * @return createdTimestamp
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The transaction\\'s creation date and time, in epoch seconds.")
+
+  public Long getCreatedTimestamp() {
+    return createdTimestamp;
+  }
+
+
+  public void setCreatedTimestamp(Long createdTimestamp) {
+    this.createdTimestamp = createdTimestamp;
   }
 
 
@@ -661,8 +693,8 @@ public class Payment {
    * minimum: 946684800
    * @return updateTimestamp
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The date and time of the last change to the payment adjustment in epoch seconds.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The date and time of the last change to the payment adjustment in epoch seconds.")
 
   public Long getUpdateTimestamp() {
     return updateTimestamp;
@@ -674,6 +706,30 @@ public class Payment {
   }
 
 
+  public Payment updatedTimestamp(Long updatedTimestamp) {
+    
+    this.updatedTimestamp = updatedTimestamp;
+    return this;
+  }
+
+   /**
+   * The date and time of the last change to the payment adjustment in epoch seconds.
+   * minimum: 946684800
+   * @return updatedTimestamp
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The date and time of the last change to the payment adjustment in epoch seconds.")
+
+  public Long getUpdatedTimestamp() {
+    return updatedTimestamp;
+  }
+
+
+  public void setUpdatedTimestamp(Long updatedTimestamp) {
+    this.updatedTimestamp = updatedTimestamp;
+  }
+
+
   public Payment paymentAdjustments(List<PaymentAdjustment> paymentAdjustments) {
     
     this.paymentAdjustments = paymentAdjustments;
@@ -681,6 +737,9 @@ public class Payment {
   }
 
   public Payment addPaymentAdjustmentsItem(PaymentAdjustment paymentAdjustmentsItem) {
+    if (this.paymentAdjustments == null) {
+      this.paymentAdjustments = new ArrayList<PaymentAdjustment>();
+    }
     this.paymentAdjustments.add(paymentAdjustmentsItem);
     return this;
   }
@@ -689,8 +748,8 @@ public class Payment {
    * List of refund objects on an Etsy Payments transaction. All monetary amounts are in USD pennies unless otherwise specified.
    * @return paymentAdjustments
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "List of refund objects on an Etsy Payments transaction. All monetary amounts are in USD pennies unless otherwise specified.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "List of refund objects on an Etsy Payments transaction. All monetary amounts are in USD pennies unless otherwise specified.")
 
   public List<PaymentAdjustment> getPaymentAdjustments() {
     return paymentAdjustments;
@@ -733,7 +792,9 @@ public class Payment {
         Objects.equals(this.status, payment.status) &&
         Objects.equals(this.shippedTimestamp, payment.shippedTimestamp) &&
         Objects.equals(this.createTimestamp, payment.createTimestamp) &&
+        Objects.equals(this.createdTimestamp, payment.createdTimestamp) &&
         Objects.equals(this.updateTimestamp, payment.updateTimestamp) &&
+        Objects.equals(this.updatedTimestamp, payment.updatedTimestamp) &&
         Objects.equals(this.paymentAdjustments, payment.paymentAdjustments);
   }
 
@@ -743,7 +804,7 @@ public class Payment {
 
   @Override
   public int hashCode() {
-    return Objects.hash(paymentId, buyerUserId, shopId, receiptId, amountGross, amountFees, amountNet, postedGross, postedFees, postedNet, adjustedGross, adjustedFees, adjustedNet, currency, shopCurrency, buyerCurrency, shippingUserId, shippingAddressId, billingAddressId, status, shippedTimestamp, createTimestamp, updateTimestamp, paymentAdjustments);
+    return Objects.hash(paymentId, buyerUserId, shopId, receiptId, amountGross, amountFees, amountNet, postedGross, postedFees, postedNet, adjustedGross, adjustedFees, adjustedNet, currency, shopCurrency, buyerCurrency, shippingUserId, shippingAddressId, billingAddressId, status, shippedTimestamp, createTimestamp, createdTimestamp, updateTimestamp, updatedTimestamp, paymentAdjustments);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -779,7 +840,9 @@ public class Payment {
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    shippedTimestamp: ").append(toIndentedString(shippedTimestamp)).append("\n");
     sb.append("    createTimestamp: ").append(toIndentedString(createTimestamp)).append("\n");
+    sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
     sb.append("    updateTimestamp: ").append(toIndentedString(updateTimestamp)).append("\n");
+    sb.append("    updatedTimestamp: ").append(toIndentedString(updatedTimestamp)).append("\n");
     sb.append("    paymentAdjustments: ").append(toIndentedString(paymentAdjustments)).append("\n");
     sb.append("}");
     return sb.toString();

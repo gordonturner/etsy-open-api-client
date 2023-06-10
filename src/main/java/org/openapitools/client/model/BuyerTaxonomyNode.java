@@ -1,6 +1,6 @@
 /*
  * Etsy Open API v3
- * <div class=\"wt-text-body-01\"><p class=\"wt-pt-xs-2 wt-pb-xs-2\">Etsy's Open API provides a simple RESTful interface for various Etsy.com features. The API endpoints are meant to replace <a class=\"wt-text-link wt-p-xs-0\" href=\"https://www.etsy.com/developers/documentation\">Etsy's Open API v2</a>, which is scheduled to end service in 2022.</p><p class=\"wt-pb-xs-2\">All of the endpoints are callable and the majority of the API endpoints are now in a beta phase. This means we do not expect to make any breaking changes before our general release. A handful of endpoints are currently interface stubs (labeled “Feedback Only”) and returns a \"501 Not Implemented\" response code when called.</p><p class=\"wt-pb-xs-2\">If you'd like to report an issue or provide feedback on the API design, <a target=\"_blank\" class=\"wt-text-link wt-p-xs-0\" href=\"https://github.com/etsy/open-api/issues/new/choose\">please add an issue in Github</a>.</p></div>&copy; 2021-2022 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.
+ * <div class=\"wt-text-body-01\"><p class=\"wt-pt-xs-2 wt-pb-xs-2\">Etsy's Open API provides a simple RESTful interface for various Etsy.com features. The API endpoints are meant to replace Etsy's Open API v2, which is scheduled to end service in 2022.</p><p class=\"wt-pb-xs-2\">All of the endpoints are callable and the majority of the API endpoints are now in a beta phase. This means we do not expect to make any breaking changes before our general release. A handful of endpoints are currently interface stubs (labeled “Feedback Only”) and returns a \"501 Not Implemented\" response code when called.</p><p class=\"wt-pb-xs-2\">If you'd like to report an issue or provide feedback on the API design, <a target=\"_blank\" class=\"wt-text-link wt-p-xs-0\" href=\"https://github.com/etsy/open-api/discussions\">please add an issue in Github</a>.</p></div>&copy; 2021-2023 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: developers@etsy.com
@@ -31,7 +31,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
  * A taxonomy node in the buyer taxonomy tree.
  */
 @ApiModel(description = "A taxonomy node in the buyer taxonomy tree.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-07T10:51:54.559-04:00[America/Toronto]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-08T08:37:51.285-04:00[America/Toronto]")
 public class BuyerTaxonomyNode {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -51,11 +51,11 @@ public class BuyerTaxonomyNode {
 
   public static final String SERIALIZED_NAME_CHILDREN = "children";
   @SerializedName(SERIALIZED_NAME_CHILDREN)
-  private List<BuyerTaxonomyNode> children = new ArrayList<BuyerTaxonomyNode>();
+  private List<BuyerTaxonomyNode> children = null;
 
   public static final String SERIALIZED_NAME_FULL_PATH_TAXONOMY_IDS = "full_path_taxonomy_ids";
   @SerializedName(SERIALIZED_NAME_FULL_PATH_TAXONOMY_IDS)
-  private List<Long> fullPathTaxonomyIds = new ArrayList<Long>();
+  private List<Long> fullPathTaxonomyIds = null;
 
   public BuyerTaxonomyNode() { 
   }
@@ -71,8 +71,8 @@ public class BuyerTaxonomyNode {
    * minimum: 1
    * @return id
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The unique numeric ID of an Etsy taxonomy node, which is a metadata category for listings organized into the seller taxonomy hierarchy tree. For example, the \\\"shoes\\\" taxonomy node (ID: 1429, level: 1) is higher in the hierarchy than \\\"girls' shoes\\\" (ID: 1440, level: 2). The taxonomy nodes assigned to a listing support access to specific standardized product scales and properties. For example, listings assigned the taxonomy nodes \\\"shoes\\\" or \\\"girls' shoes\\\" support access to the \\\"EU\\\" shoe size scale with its associated property names and IDs for EU shoe sizes, such as property `value_id`:\\\"1394\\\", and `name`:\\\"38\\\".")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The unique numeric ID of an Etsy taxonomy node, which is a metadata category for listings organized into the seller taxonomy hierarchy tree. For example, the \\\"shoes\\\" taxonomy node (ID: 1429, level: 1) is higher in the hierarchy than \\\"girls' shoes\\\" (ID: 1440, level: 2). The taxonomy nodes assigned to a listing support access to specific standardized product scales and properties. For example, listings assigned the taxonomy nodes \\\"shoes\\\" or \\\"girls' shoes\\\" support access to the \\\"EU\\\" shoe size scale with its associated property names and IDs for EU shoe sizes, such as property `value_id`:\\\"1394\\\", and `name`:\\\"38\\\".")
 
   public Long getId() {
     return id;
@@ -95,8 +95,8 @@ public class BuyerTaxonomyNode {
    * minimum: 0
    * @return level
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The integer depth of this taxonomy node in the seller taxonomy tree, with roots at level 0.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The integer depth of this taxonomy node in the seller taxonomy tree, with roots at level 0.")
 
   public Long getLevel() {
     return level;
@@ -118,8 +118,8 @@ public class BuyerTaxonomyNode {
    * The name string for this taxonomy node.
    * @return name
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The name string for this taxonomy node.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The name string for this taxonomy node.")
 
   public String getName() {
     return name;
@@ -162,16 +162,19 @@ public class BuyerTaxonomyNode {
   }
 
   public BuyerTaxonomyNode addChildrenItem(BuyerTaxonomyNode childrenItem) {
+    if (this.children == null) {
+      this.children = new ArrayList<BuyerTaxonomyNode>();
+    }
     this.children.add(childrenItem);
     return this;
   }
 
    /**
-   * An array of taxonomy nodes for all the direct children of this taxonomy node in the seller taxanomy tree.
+   * An array of taxonomy nodes for all the direct children of this taxonomy node in the seller taxonomy tree.
    * @return children
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "An array of taxonomy nodes for all the direct children of this taxonomy node in the seller taxanomy tree.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "An array of taxonomy nodes for all the direct children of this taxonomy node in the seller taxonomy tree.")
 
   public List<BuyerTaxonomyNode> getChildren() {
     return children;
@@ -190,6 +193,9 @@ public class BuyerTaxonomyNode {
   }
 
   public BuyerTaxonomyNode addFullPathTaxonomyIdsItem(Long fullPathTaxonomyIdsItem) {
+    if (this.fullPathTaxonomyIds == null) {
+      this.fullPathTaxonomyIds = new ArrayList<Long>();
+    }
     this.fullPathTaxonomyIds.add(fullPathTaxonomyIdsItem);
     return this;
   }
@@ -198,8 +204,8 @@ public class BuyerTaxonomyNode {
    * An array of &#x60;taxonomy_id&#x60;s including this node and all of its direct parents in the seller taxonomy tree up to a root node. They are listed in order from root to leaf.
    * @return fullPathTaxonomyIds
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "An array of `taxonomy_id`s including this node and all of its direct parents in the seller taxonomy tree up to a root node. They are listed in order from root to leaf.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "An array of `taxonomy_id`s including this node and all of its direct parents in the seller taxonomy tree up to a root node. They are listed in order from root to leaf.")
 
   public List<Long> getFullPathTaxonomyIds() {
     return fullPathTaxonomyIds;

@@ -8,8 +8,8 @@ All the sections in a sprecific Shop.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**count** | **Long** | The number of results. | 
-**results** | [**List&lt;ShopSection&gt;**](ShopSection.md) | The list of requested resources. | 
+**count** | **Long** | The number of results. |  [optional]
+**results** | [**List&lt;ShopSection&gt;**](ShopSection.md) | The list of requested resources. |  [optional]
 
 
 

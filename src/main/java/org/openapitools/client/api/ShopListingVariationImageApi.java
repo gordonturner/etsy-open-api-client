@@ -1,6 +1,6 @@
 /*
  * Etsy Open API v3
- * <div class=\"wt-text-body-01\"><p class=\"wt-pt-xs-2 wt-pb-xs-2\">Etsy's Open API provides a simple RESTful interface for various Etsy.com features. The API endpoints are meant to replace <a class=\"wt-text-link wt-p-xs-0\" href=\"https://www.etsy.com/developers/documentation\">Etsy's Open API v2</a>, which is scheduled to end service in 2022.</p><p class=\"wt-pb-xs-2\">All of the endpoints are callable and the majority of the API endpoints are now in a beta phase. This means we do not expect to make any breaking changes before our general release. A handful of endpoints are currently interface stubs (labeled “Feedback Only”) and returns a \"501 Not Implemented\" response code when called.</p><p class=\"wt-pb-xs-2\">If you'd like to report an issue or provide feedback on the API design, <a target=\"_blank\" class=\"wt-text-link wt-p-xs-0\" href=\"https://github.com/etsy/open-api/issues/new/choose\">please add an issue in Github</a>.</p></div>&copy; 2021-2022 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.
+ * <div class=\"wt-text-body-01\"><p class=\"wt-pt-xs-2 wt-pb-xs-2\">Etsy's Open API provides a simple RESTful interface for various Etsy.com features. The API endpoints are meant to replace Etsy's Open API v2, which is scheduled to end service in 2022.</p><p class=\"wt-pb-xs-2\">All of the endpoints are callable and the majority of the API endpoints are now in a beta phase. This means we do not expect to make any breaking changes before our general release. A handful of endpoints are currently interface stubs (labeled “Feedback Only”) and returns a \"501 Not Implemented\" response code when called.</p><p class=\"wt-pb-xs-2\">If you'd like to report an issue or provide feedback on the API design, <a target=\"_blank\" class=\"wt-text-link wt-p-xs-0\" href=\"https://github.com/etsy/open-api/discussions\">please add an issue in Github</a>.</p></div>&copy; 2021-2023 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: developers@etsy.com
@@ -28,7 +28,7 @@ import java.io.IOException;
 
 
 import org.openapitools.client.model.ErrorSchema;
-import org.openapitools.client.model.InlineObject8;
+import org.openapitools.client.model.InlineObject9;
 import org.openapitools.client.model.ListingVariationImages;
 
 import java.lang.reflect.Type;
@@ -160,7 +160,7 @@ public class ShopListingVariationImageApi {
 
     /**
      * 
-     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Gets all variation images on a listing.
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/discussions\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Gets all variation images on a listing.
      * @param shopId The unique positive non-zero numeric ID for an Etsy Shop. (required)
      * @param listingId The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. (required)
      * @return ListingVariationImages
@@ -182,7 +182,7 @@ public class ShopListingVariationImageApi {
 
     /**
      * 
-     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Gets all variation images on a listing.
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/discussions\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Gets all variation images on a listing.
      * @param shopId The unique positive non-zero numeric ID for an Etsy Shop. (required)
      * @param listingId The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. (required)
      * @return ApiResponse&lt;ListingVariationImages&gt;
@@ -205,7 +205,7 @@ public class ShopListingVariationImageApi {
 
     /**
      *  (asynchronously)
-     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Gets all variation images on a listing.
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/discussions\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Gets all variation images on a listing.
      * @param shopId The unique positive non-zero numeric ID for an Etsy Shop. (required)
      * @param listingId The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -232,7 +232,7 @@ public class ShopListingVariationImageApi {
      * Build call for updateVariationImages
      * @param shopId The unique positive non-zero numeric ID for an Etsy Shop. (required)
      * @param listingId The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. (required)
-     * @param inlineObject8  (optional)
+     * @param inlineObject9  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -242,13 +242,13 @@ public class ShopListingVariationImageApi {
         <tr><td> 200 </td><td> A single ListingVariationImage </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> A resource could not be found. See the error message for details. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> There was a problem with the request data. See the error message for details. </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> There was a request conflict with current state of the target resource. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> There was a request conflict with the current state of the target resource. See the error message for details. </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> The request attempted to perform an operation it is not allowed to. See the error message for details. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> The request lacks valid authentication credentials. See the error message for details. </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateVariationImagesCall(Long shopId, Long listingId, InlineObject8 inlineObject8, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateVariationImagesCall(Long shopId, Long listingId, InlineObject9 inlineObject9, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -263,7 +263,7 @@ public class ShopListingVariationImageApi {
             basePath = null;
         }
 
-        Object localVarPostBody = inlineObject8;
+        Object localVarPostBody = inlineObject9;
 
         // create path and map variables
         String localVarPath = "/v3/application/shops/{shop_id}/listings/{listing_id}/variation-images"
@@ -297,7 +297,7 @@ public class ShopListingVariationImageApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateVariationImagesValidateBeforeCall(Long shopId, Long listingId, InlineObject8 inlineObject8, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateVariationImagesValidateBeforeCall(Long shopId, Long listingId, InlineObject9 inlineObject9, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'shopId' is set
         if (shopId == null) {
@@ -310,17 +310,17 @@ public class ShopListingVariationImageApi {
         }
         
 
-        okhttp3.Call localVarCall = updateVariationImagesCall(shopId, listingId, inlineObject8, _callback);
+        okhttp3.Call localVarCall = updateVariationImagesCall(shopId, listingId, inlineObject9, _callback);
         return localVarCall;
 
     }
 
     /**
      * 
-     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Creates variation images on a listing. &#x60;variation_images&#x60; is an array with inputs for the &#x60;property_id&#x60;, &#x60;value_id&#x60;, and &#x60;image_id&#x60; fields. &#x60;image_ids&#x60; are associated with a &#x60;ListingImage&#x60; on the listing associated with the provided &#x60;listing_id&#x60;. &#x60;property_id&#x60; and &#x60;value_id&#x60; pairs are associated with a &#x60;ListingProduct&#x60; on the listing associated with the provided &#x60;listing_id&#x60;. &#x60;variation_images&#x60; should not contain any duplicates. &#x60;variation_images&#x60; does not contain more than one &#x60;property_id&#x60; as variation images can only be associated on one property. The update overwrites all existing variation images on a listing, so if your request is successful, the variation images on the listing will be exactly those you specify. 
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/discussions\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Creates variation images on a listing. &#x60;variation_images&#x60; is an array with inputs for the &#x60;property_id&#x60;, &#x60;value_id&#x60;, and &#x60;image_id&#x60; fields. &#x60;image_ids&#x60; are associated with a &#x60;ListingImage&#x60; on the listing associated with the provided &#x60;listing_id&#x60;. &#x60;property_id&#x60; and &#x60;value_id&#x60; pairs are associated with a &#x60;ListingProduct&#x60; on the listing associated with the provided &#x60;listing_id&#x60;. &#x60;variation_images&#x60; should not contain any duplicates. &#x60;variation_images&#x60; does not contain more than one &#x60;property_id&#x60; as variation images can only be associated on one property. The update overwrites all existing variation images on a listing, so if your request is successful, the variation images on the listing will be exactly those you specify. 
      * @param shopId The unique positive non-zero numeric ID for an Etsy Shop. (required)
      * @param listingId The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. (required)
-     * @param inlineObject8  (optional)
+     * @param inlineObject9  (optional)
      * @return ListingVariationImages
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -329,23 +329,23 @@ public class ShopListingVariationImageApi {
         <tr><td> 200 </td><td> A single ListingVariationImage </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> A resource could not be found. See the error message for details. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> There was a problem with the request data. See the error message for details. </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> There was a request conflict with current state of the target resource. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> There was a request conflict with the current state of the target resource. See the error message for details. </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> The request attempted to perform an operation it is not allowed to. See the error message for details. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> The request lacks valid authentication credentials. See the error message for details. </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ListingVariationImages updateVariationImages(Long shopId, Long listingId, InlineObject8 inlineObject8) throws ApiException {
-        ApiResponse<ListingVariationImages> localVarResp = updateVariationImagesWithHttpInfo(shopId, listingId, inlineObject8);
+    public ListingVariationImages updateVariationImages(Long shopId, Long listingId, InlineObject9 inlineObject9) throws ApiException {
+        ApiResponse<ListingVariationImages> localVarResp = updateVariationImagesWithHttpInfo(shopId, listingId, inlineObject9);
         return localVarResp.getData();
     }
 
     /**
      * 
-     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Creates variation images on a listing. &#x60;variation_images&#x60; is an array with inputs for the &#x60;property_id&#x60;, &#x60;value_id&#x60;, and &#x60;image_id&#x60; fields. &#x60;image_ids&#x60; are associated with a &#x60;ListingImage&#x60; on the listing associated with the provided &#x60;listing_id&#x60;. &#x60;property_id&#x60; and &#x60;value_id&#x60; pairs are associated with a &#x60;ListingProduct&#x60; on the listing associated with the provided &#x60;listing_id&#x60;. &#x60;variation_images&#x60; should not contain any duplicates. &#x60;variation_images&#x60; does not contain more than one &#x60;property_id&#x60; as variation images can only be associated on one property. The update overwrites all existing variation images on a listing, so if your request is successful, the variation images on the listing will be exactly those you specify. 
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/discussions\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Creates variation images on a listing. &#x60;variation_images&#x60; is an array with inputs for the &#x60;property_id&#x60;, &#x60;value_id&#x60;, and &#x60;image_id&#x60; fields. &#x60;image_ids&#x60; are associated with a &#x60;ListingImage&#x60; on the listing associated with the provided &#x60;listing_id&#x60;. &#x60;property_id&#x60; and &#x60;value_id&#x60; pairs are associated with a &#x60;ListingProduct&#x60; on the listing associated with the provided &#x60;listing_id&#x60;. &#x60;variation_images&#x60; should not contain any duplicates. &#x60;variation_images&#x60; does not contain more than one &#x60;property_id&#x60; as variation images can only be associated on one property. The update overwrites all existing variation images on a listing, so if your request is successful, the variation images on the listing will be exactly those you specify. 
      * @param shopId The unique positive non-zero numeric ID for an Etsy Shop. (required)
      * @param listingId The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. (required)
-     * @param inlineObject8  (optional)
+     * @param inlineObject9  (optional)
      * @return ApiResponse&lt;ListingVariationImages&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -354,24 +354,24 @@ public class ShopListingVariationImageApi {
         <tr><td> 200 </td><td> A single ListingVariationImage </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> A resource could not be found. See the error message for details. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> There was a problem with the request data. See the error message for details. </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> There was a request conflict with current state of the target resource. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> There was a request conflict with the current state of the target resource. See the error message for details. </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> The request attempted to perform an operation it is not allowed to. See the error message for details. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> The request lacks valid authentication credentials. See the error message for details. </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ListingVariationImages> updateVariationImagesWithHttpInfo(Long shopId, Long listingId, InlineObject8 inlineObject8) throws ApiException {
-        okhttp3.Call localVarCall = updateVariationImagesValidateBeforeCall(shopId, listingId, inlineObject8, null);
+    public ApiResponse<ListingVariationImages> updateVariationImagesWithHttpInfo(Long shopId, Long listingId, InlineObject9 inlineObject9) throws ApiException {
+        okhttp3.Call localVarCall = updateVariationImagesValidateBeforeCall(shopId, listingId, inlineObject9, null);
         Type localVarReturnType = new TypeToken<ListingVariationImages>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      *  (asynchronously)
-     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/issues/new/choose\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Creates variation images on a listing. &#x60;variation_images&#x60; is an array with inputs for the &#x60;property_id&#x60;, &#x60;value_id&#x60;, and &#x60;image_id&#x60; fields. &#x60;image_ids&#x60; are associated with a &#x60;ListingImage&#x60; on the listing associated with the provided &#x60;listing_id&#x60;. &#x60;property_id&#x60; and &#x60;value_id&#x60; pairs are associated with a &#x60;ListingProduct&#x60; on the listing associated with the provided &#x60;listing_id&#x60;. &#x60;variation_images&#x60; should not contain any duplicates. &#x60;variation_images&#x60; does not contain more than one &#x60;property_id&#x60; as variation images can only be associated on one property. The update overwrites all existing variation images on a listing, so if your request is successful, the variation images on the listing will be exactly those you specify. 
+     * &lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;span class&#x3D;\&quot;wt-badge wt-badge--notification-03 wt-bg-slime-tint wt-mr-xs-2\&quot;&gt;General Release&lt;/span&gt;&lt;a class&#x3D;\&quot;wt-text-link\&quot; href&#x3D;\&quot;https://github.com/etsy/open-api/discussions\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Report bug&lt;/a&gt;&lt;/div&gt;&lt;div class&#x3D;\&quot;wt-display-flex-xs wt-align-items-center wt-mt-xs-2 wt-mb-xs-3\&quot;&gt;&lt;p class&#x3D;\&quot;wt-text-body-01 banner-text\&quot;&gt;This endpoint is ready for production use.&lt;/p&gt;&lt;/div&gt;  Creates variation images on a listing. &#x60;variation_images&#x60; is an array with inputs for the &#x60;property_id&#x60;, &#x60;value_id&#x60;, and &#x60;image_id&#x60; fields. &#x60;image_ids&#x60; are associated with a &#x60;ListingImage&#x60; on the listing associated with the provided &#x60;listing_id&#x60;. &#x60;property_id&#x60; and &#x60;value_id&#x60; pairs are associated with a &#x60;ListingProduct&#x60; on the listing associated with the provided &#x60;listing_id&#x60;. &#x60;variation_images&#x60; should not contain any duplicates. &#x60;variation_images&#x60; does not contain more than one &#x60;property_id&#x60; as variation images can only be associated on one property. The update overwrites all existing variation images on a listing, so if your request is successful, the variation images on the listing will be exactly those you specify. 
      * @param shopId The unique positive non-zero numeric ID for an Etsy Shop. (required)
      * @param listingId The numeric ID for the [listing](/documentation/reference#tag/ShopListing) associated to this transaction. (required)
-     * @param inlineObject8  (optional)
+     * @param inlineObject9  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -381,15 +381,15 @@ public class ShopListingVariationImageApi {
         <tr><td> 200 </td><td> A single ListingVariationImage </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> A resource could not be found. See the error message for details. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> There was a problem with the request data. See the error message for details. </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> There was a request conflict with current state of the target resource. See the error message for details. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> There was a request conflict with the current state of the target resource. See the error message for details. </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> The request attempted to perform an operation it is not allowed to. See the error message for details. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> The request lacks valid authentication credentials. See the error message for details. </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> The server encountered an internal error. See the error message for details. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateVariationImagesAsync(Long shopId, Long listingId, InlineObject8 inlineObject8, final ApiCallback<ListingVariationImages> _callback) throws ApiException {
+    public okhttp3.Call updateVariationImagesAsync(Long shopId, Long listingId, InlineObject9 inlineObject9, final ApiCallback<ListingVariationImages> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateVariationImagesValidateBeforeCall(shopId, listingId, inlineObject8, _callback);
+        okhttp3.Call localVarCall = updateVariationImagesValidateBeforeCall(shopId, listingId, inlineObject9, _callback);
         Type localVarReturnType = new TypeToken<ListingVariationImages>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

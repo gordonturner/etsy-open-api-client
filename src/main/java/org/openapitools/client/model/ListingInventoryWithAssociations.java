@@ -1,6 +1,6 @@
 /*
  * Etsy Open API v3
- * <div class=\"wt-text-body-01\"><p class=\"wt-pt-xs-2 wt-pb-xs-2\">Etsy's Open API provides a simple RESTful interface for various Etsy.com features. The API endpoints are meant to replace <a class=\"wt-text-link wt-p-xs-0\" href=\"https://www.etsy.com/developers/documentation\">Etsy's Open API v2</a>, which is scheduled to end service in 2022.</p><p class=\"wt-pb-xs-2\">All of the endpoints are callable and the majority of the API endpoints are now in a beta phase. This means we do not expect to make any breaking changes before our general release. A handful of endpoints are currently interface stubs (labeled “Feedback Only”) and returns a \"501 Not Implemented\" response code when called.</p><p class=\"wt-pb-xs-2\">If you'd like to report an issue or provide feedback on the API design, <a target=\"_blank\" class=\"wt-text-link wt-p-xs-0\" href=\"https://github.com/etsy/open-api/issues/new/choose\">please add an issue in Github</a>.</p></div>&copy; 2021-2022 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.
+ * <div class=\"wt-text-body-01\"><p class=\"wt-pt-xs-2 wt-pb-xs-2\">Etsy's Open API provides a simple RESTful interface for various Etsy.com features. The API endpoints are meant to replace Etsy's Open API v2, which is scheduled to end service in 2022.</p><p class=\"wt-pb-xs-2\">All of the endpoints are callable and the majority of the API endpoints are now in a beta phase. This means we do not expect to make any breaking changes before our general release. A handful of endpoints are currently interface stubs (labeled “Feedback Only”) and returns a \"501 Not Implemented\" response code when called.</p><p class=\"wt-pb-xs-2\">If you'd like to report an issue or provide feedback on the API design, <a target=\"_blank\" class=\"wt-text-link wt-p-xs-0\" href=\"https://github.com/etsy/open-api/discussions\">please add an issue in Github</a>.</p></div>&copy; 2021-2023 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: developers@etsy.com
@@ -27,28 +27,29 @@ import java.util.ArrayList;
 import java.util.List;
 import org.openapitools.client.model.ListingInventoryProduct;
 import org.openapitools.client.model.ShopListing;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
  * A representation of a single listing&#39;s inventory record with associations
  */
 @ApiModel(description = "A representation of a single listing's inventory record with associations")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-07T10:51:54.559-04:00[America/Toronto]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-08T08:37:51.285-04:00[America/Toronto]")
 public class ListingInventoryWithAssociations {
   public static final String SERIALIZED_NAME_PRODUCTS = "products";
   @SerializedName(SERIALIZED_NAME_PRODUCTS)
-  private List<ListingInventoryProduct> products = new ArrayList<ListingInventoryProduct>();
+  private List<ListingInventoryProduct> products = null;
 
   public static final String SERIALIZED_NAME_PRICE_ON_PROPERTY = "price_on_property";
   @SerializedName(SERIALIZED_NAME_PRICE_ON_PROPERTY)
-  private List<Long> priceOnProperty = new ArrayList<Long>();
+  private List<Long> priceOnProperty = null;
 
   public static final String SERIALIZED_NAME_QUANTITY_ON_PROPERTY = "quantity_on_property";
   @SerializedName(SERIALIZED_NAME_QUANTITY_ON_PROPERTY)
-  private List<Long> quantityOnProperty = new ArrayList<Long>();
+  private List<Long> quantityOnProperty = null;
 
   public static final String SERIALIZED_NAME_SKU_ON_PROPERTY = "sku_on_property";
   @SerializedName(SERIALIZED_NAME_SKU_ON_PROPERTY)
-  private List<Long> skuOnProperty = new ArrayList<Long>();
+  private List<Long> skuOnProperty = null;
 
   public static final String SERIALIZED_NAME_LISTING = "listing";
   @SerializedName(SERIALIZED_NAME_LISTING)
@@ -64,6 +65,9 @@ public class ListingInventoryWithAssociations {
   }
 
   public ListingInventoryWithAssociations addProductsItem(ListingInventoryProduct productsItem) {
+    if (this.products == null) {
+      this.products = new ArrayList<ListingInventoryProduct>();
+    }
     this.products.add(productsItem);
     return this;
   }
@@ -72,8 +76,8 @@ public class ListingInventoryWithAssociations {
    * A JSON array of products available in a listing, even if only one product. All field names in the JSON blobs are lowercase.
    * @return products
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "A JSON array of products available in a listing, even if only one product. All field names in the JSON blobs are lowercase.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A JSON array of products available in a listing, even if only one product. All field names in the JSON blobs are lowercase.")
 
   public List<ListingInventoryProduct> getProducts() {
     return products;
@@ -92,6 +96,9 @@ public class ListingInventoryWithAssociations {
   }
 
   public ListingInventoryWithAssociations addPriceOnPropertyItem(Long priceOnPropertyItem) {
+    if (this.priceOnProperty == null) {
+      this.priceOnProperty = new ArrayList<Long>();
+    }
     this.priceOnProperty.add(priceOnPropertyItem);
     return this;
   }
@@ -100,8 +107,8 @@ public class ListingInventoryWithAssociations {
    * An array of unique [listing property](/documentation/reference#operation/getListingProperties) ID integers for the properties that change product prices, if any. For example, if you charge specific prices for different sized products in the same listing, then this array contains the property ID for size.
    * @return priceOnProperty
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "An array of unique [listing property](/documentation/reference#operation/getListingProperties) ID integers for the properties that change product prices, if any. For example, if you charge specific prices for different sized products in the same listing, then this array contains the property ID for size.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "An array of unique [listing property](/documentation/reference#operation/getListingProperties) ID integers for the properties that change product prices, if any. For example, if you charge specific prices for different sized products in the same listing, then this array contains the property ID for size.")
 
   public List<Long> getPriceOnProperty() {
     return priceOnProperty;
@@ -120,6 +127,9 @@ public class ListingInventoryWithAssociations {
   }
 
   public ListingInventoryWithAssociations addQuantityOnPropertyItem(Long quantityOnPropertyItem) {
+    if (this.quantityOnProperty == null) {
+      this.quantityOnProperty = new ArrayList<Long>();
+    }
     this.quantityOnProperty.add(quantityOnPropertyItem);
     return this;
   }
@@ -128,8 +138,8 @@ public class ListingInventoryWithAssociations {
    * An array of unique [listing property](/documentation/reference#operation/getListingProperties) ID integers for the properties that change the quantity of the products, if any. For example, if you stock specific quantities of different colored products in the same listing, then this array contains the property ID for color.
    * @return quantityOnProperty
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "An array of unique [listing property](/documentation/reference#operation/getListingProperties) ID integers for the properties that change the quantity of the products, if any. For example, if you stock specific quantities of different colored products in the same listing, then this array contains the property ID for color.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "An array of unique [listing property](/documentation/reference#operation/getListingProperties) ID integers for the properties that change the quantity of the products, if any. For example, if you stock specific quantities of different colored products in the same listing, then this array contains the property ID for color.")
 
   public List<Long> getQuantityOnProperty() {
     return quantityOnProperty;
@@ -148,6 +158,9 @@ public class ListingInventoryWithAssociations {
   }
 
   public ListingInventoryWithAssociations addSkuOnPropertyItem(Long skuOnPropertyItem) {
+    if (this.skuOnProperty == null) {
+      this.skuOnProperty = new ArrayList<Long>();
+    }
     this.skuOnProperty.add(skuOnPropertyItem);
     return this;
   }
@@ -156,8 +169,8 @@ public class ListingInventoryWithAssociations {
    * An array of unique [listing property](/documentation/reference#operation/getListingProperties) ID integers for the properties that change the product SKU, if any. For example, if you use specific skus for different colored products in the same listing, then this array contains the property ID for color.
    * @return skuOnProperty
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "An array of unique [listing property](/documentation/reference#operation/getListingProperties) ID integers for the properties that change the product SKU, if any. For example, if you use specific skus for different colored products in the same listing, then this array contains the property ID for color.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "An array of unique [listing property](/documentation/reference#operation/getListingProperties) ID integers for the properties that change the product SKU, if any. For example, if you use specific skus for different colored products in the same listing, then this array contains the property ID for color.")
 
   public List<Long> getSkuOnProperty() {
     return skuOnProperty;
@@ -176,11 +189,11 @@ public class ListingInventoryWithAssociations {
   }
 
    /**
-   * An enumerated string that attaches an valid association. Default value is null.
+   * An enumerated string that attaches a valid association. Default value is null.
    * @return listing
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "An enumerated string that attaches an valid association. Default value is null.")
+  @ApiModelProperty(value = "An enumerated string that attaches a valid association. Default value is null.")
 
   public ShopListing getListing() {
     return listing;
@@ -208,9 +221,20 @@ public class ListingInventoryWithAssociations {
         Objects.equals(this.listing, listingInventoryWithAssociations.listing);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
     return Objects.hash(products, priceOnProperty, quantityOnProperty, skuOnProperty, listing);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

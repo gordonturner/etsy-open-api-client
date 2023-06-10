@@ -1,6 +1,6 @@
 /*
  * Etsy Open API v3
- * <div class=\"wt-text-body-01\"><p class=\"wt-pt-xs-2 wt-pb-xs-2\">Etsy's Open API provides a simple RESTful interface for various Etsy.com features. The API endpoints are meant to replace <a class=\"wt-text-link wt-p-xs-0\" href=\"https://www.etsy.com/developers/documentation\">Etsy's Open API v2</a>, which is scheduled to end service in 2022.</p><p class=\"wt-pb-xs-2\">All of the endpoints are callable and the majority of the API endpoints are now in a beta phase. This means we do not expect to make any breaking changes before our general release. A handful of endpoints are currently interface stubs (labeled “Feedback Only”) and returns a \"501 Not Implemented\" response code when called.</p><p class=\"wt-pb-xs-2\">If you'd like to report an issue or provide feedback on the API design, <a target=\"_blank\" class=\"wt-text-link wt-p-xs-0\" href=\"https://github.com/etsy/open-api/issues/new/choose\">please add an issue in Github</a>.</p></div>&copy; 2021-2022 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.
+ * <div class=\"wt-text-body-01\"><p class=\"wt-pt-xs-2 wt-pb-xs-2\">Etsy's Open API provides a simple RESTful interface for various Etsy.com features. The API endpoints are meant to replace Etsy's Open API v2, which is scheduled to end service in 2022.</p><p class=\"wt-pb-xs-2\">All of the endpoints are callable and the majority of the API endpoints are now in a beta phase. This means we do not expect to make any breaking changes before our general release. A handful of endpoints are currently interface stubs (labeled “Feedback Only”) and returns a \"501 Not Implemented\" response code when called.</p><p class=\"wt-pb-xs-2\">If you'd like to report an issue or provide feedback on the API design, <a target=\"_blank\" class=\"wt-text-link wt-p-xs-0\" href=\"https://github.com/etsy/open-api/discussions\">please add an issue in Github</a>.</p></div>&copy; 2021-2023 Etsy, Inc. All Rights Reserved. Use of this code is subject to Etsy's <a class='wt-text-link wt-p-xs-0' target='_blank' href='https://www.etsy.com/legal/api'>API Developer Terms of Use</a>.
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: developers@etsy.com
@@ -24,12 +24,13 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import org.openapitools.client.model.Money;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
  * Represents a shipping destination assigned to a shipping profile.
  */
 @ApiModel(description = "Represents a shipping destination assigned to a shipping profile.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-07T10:51:54.559-04:00[America/Toronto]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-08T08:37:51.285-04:00[America/Toronto]")
 public class ShopShippingProfileDestination {
   public static final String SERIALIZED_NAME_SHIPPING_PROFILE_DESTINATION_ID = "shipping_profile_destination_id";
   @SerializedName(SERIALIZED_NAME_SHIPPING_PROFILE_DESTINATION_ID)
@@ -134,12 +135,12 @@ public class ShopShippingProfileDestination {
   }
 
    /**
-   * The numeric ID of the shipping profile destination in the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing.
+   * The numeric ID of the shipping profile destination in the [shipping profile](/documentation/reference#tag/Shop-ShippingProfile) associated with the listing.
    * minimum: 1
    * @return shippingProfileDestinationId
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The numeric ID of the shipping profile destination in the [shipping profile](/documentation/reference#tag/ShopListing-ShippingProfile) associated with the listing.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The numeric ID of the shipping profile destination in the [shipping profile](/documentation/reference#tag/Shop-ShippingProfile) associated with the listing.")
 
   public Long getShippingProfileDestinationId() {
     return shippingProfileDestinationId;
@@ -162,8 +163,8 @@ public class ShopShippingProfileDestination {
    * minimum: 1
    * @return shippingProfileId
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The numeric ID of the shipping profile.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The numeric ID of the shipping profile.")
 
   public Long getShippingProfileId() {
     return shippingProfileId;
@@ -185,8 +186,8 @@ public class ShopShippingProfileDestination {
    * The ISO code of the country from which the listing ships.
    * @return originCountryIso
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The ISO code of the country from which the listing ships.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The ISO code of the country from which the listing ships.")
 
   public String getOriginCountryIso() {
     return originCountryIso;
@@ -208,8 +209,8 @@ public class ShopShippingProfileDestination {
    * The ISO code of the country to which the listing ships. If null, request sets destination to destination_region. Required if destination_region is null or not provided.
    * @return destinationCountryIso
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The ISO code of the country to which the listing ships. If null, request sets destination to destination_region. Required if destination_region is null or not provided.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The ISO code of the country to which the listing ships. If null, request sets destination to destination_region. Required if destination_region is null or not provided.")
 
   public String getDestinationCountryIso() {
     return destinationCountryIso;
@@ -231,8 +232,8 @@ public class ShopShippingProfileDestination {
    * The code of the region to which the listing ships. A region represents a set of countries. Supported regions are Europe Union and Non-Europe Union (countries in Europe not in EU). If \\&#x60;none\\&#x60;, request sets destination to destination_country_iso. Required if destination_country_iso is null or not provided.
    * @return destinationRegion
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The code of the region to which the listing ships. A region represents a set of countries. Supported regions are Europe Union and Non-Europe Union (countries in Europe not in EU). If \\`none\\`, request sets destination to destination_country_iso. Required if destination_country_iso is null or not provided.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The code of the region to which the listing ships. A region represents a set of countries. Supported regions are Europe Union and Non-Europe Union (countries in Europe not in EU). If \\`none\\`, request sets destination to destination_country_iso. Required if destination_country_iso is null or not provided.")
 
   public DestinationRegionEnum getDestinationRegion() {
     return destinationRegion;
@@ -255,7 +256,7 @@ public class ShopShippingProfileDestination {
    * @return primaryCost
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The cost of shipping to this country/region alone, measured in the store's default currency.")
+  @ApiModelProperty(value = "The cost of shipping to this country/region alone, measured in the store's default currency.")
 
   public Money getPrimaryCost() {
     return primaryCost;
@@ -278,7 +279,7 @@ public class ShopShippingProfileDestination {
    * @return secondaryCost
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The cost of shipping to this country/region with another item, measured in the store's default currency.")
+  @ApiModelProperty(value = "The cost of shipping to this country/region with another item, measured in the store's default currency.")
 
   public Money getSecondaryCost() {
     return secondaryCost;
@@ -301,7 +302,7 @@ public class ShopShippingProfileDestination {
    * @return shippingCarrierId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The unique ID of a supported shipping carrier, which is used to calculate an Estimated Delivery Date. **Required with `mail_class`** if `min_delivery_days` and `max_delivery_days` are null.")
+  @ApiModelProperty(value = "The unique ID of a supported shipping carrier, which is used to calculate an Estimated Delivery Date. **Required with `mail_class`** if `min_delivery_days` and `max_delivery_days` are null.")
 
   public Long getShippingCarrierId() {
     return shippingCarrierId;
@@ -324,7 +325,7 @@ public class ShopShippingProfileDestination {
    * @return mailClass
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The unique ID string of a shipping carrier's mail class, which is used to calculate an estimated delivery date. **Required with `shipping_carrier_id`** if `min_delivery_days` and `max_delivery_days` are null.")
+  @ApiModelProperty(value = "The unique ID string of a shipping carrier's mail class, which is used to calculate an estimated delivery date. **Required with `shipping_carrier_id`** if `min_delivery_days` and `max_delivery_days` are null.")
 
   public String getMailClass() {
     return mailClass;
@@ -349,7 +350,7 @@ public class ShopShippingProfileDestination {
    * @return minDeliveryDays
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The minimum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with `max_delivery_days`** if `mail_class` is null.")
+  @ApiModelProperty(value = "The minimum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with `max_delivery_days`** if `mail_class` is null.")
 
   public Long getMinDeliveryDays() {
     return minDeliveryDays;
@@ -374,7 +375,7 @@ public class ShopShippingProfileDestination {
    * @return maxDeliveryDays
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The maximum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with `min_delivery_days`** if `mail_class` is null.")
+  @ApiModelProperty(value = "The maximum number of business days a buyer can expect to wait to receive their purchased item once it has shipped. **Required with `min_delivery_days`** if `mail_class` is null.")
 
   public Long getMaxDeliveryDays() {
     return maxDeliveryDays;
@@ -408,9 +409,20 @@ public class ShopShippingProfileDestination {
         Objects.equals(this.maxDeliveryDays, shopShippingProfileDestination.maxDeliveryDays);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
     return Objects.hash(shippingProfileDestinationId, shippingProfileId, originCountryIso, destinationCountryIso, destinationRegion, primaryCost, secondaryCost, shippingCarrierId, mailClass, minDeliveryDays, maxDeliveryDays);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
